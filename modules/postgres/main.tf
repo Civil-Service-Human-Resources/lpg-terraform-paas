@@ -16,10 +16,9 @@ resource "azurerm_postgresql_server" "test" {
     tier      = "${var.postgres_sku_tier}"
   }
 
-  administrator_login          = "psqladminun"
-  administrator_login_password = "H@Sh1CoR3!"
-  version                      = "9.6"
-  storage_mb                   = "51200"
-  ssl_enforcement              = "Enabled"
+  administrator_login          = "${var.postgres_admin_login}"
+  administrator_login_password = "${var.postgres_admin_pass}"
+  version                      = "${var.postgres_version}"
+  storage_mb                   = "${var.postgres_storage_mb}"
+  ssl_enforcement              = "${var.postgres_ssl_enforcement}"
 }
-
