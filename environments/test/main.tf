@@ -16,14 +16,19 @@ module "redis" {
 }
 
 module "postgres" {
-  source                = "../../modules/postgres"
-  rg_name               = "${var.rg_name}"
-  rg_prefix             = "${var.rg_name}"
-  rg_location           = "${var.rg_location}"
-  postgres_name         = "${var.rg_prefix}-${var.rg_name}-${var.postgres_name}"
-  postgres_sku_name     = "${var.postgres_sku_name}"
-  postgres_sku_capacity = "${var.postgres_sku_capacity}"
-  postgres_sku_tier     = "${var.postgres_sku_tier}"
+  source                   = "../../modules/postgres"
+  rg_name                  = "${var.rg_name}"
+  rg_prefix                = "${var.rg_name}"
+  rg_location              = "${var.rg_location}"
+  postgres_name            = "${var.rg_prefix}-${var.rg_name}-${var.postgres_name}"
+  postgres_sku_name        = "${var.postgres_sku_name}"
+  postgres_sku_capacity    = "${var.postgres_sku_capacity}"
+  postgres_sku_tier        = "${var.postgres_sku_tier}"
+  postgres_admin_login     = ""
+  postgres_admin_pass      = ""
+  postgres_version         = "9.6"
+  postgres_storage_mb      = "51200"
+  postgres_ssl_enforcement = "Enabled"
 }
 
 module "cosmos" {
