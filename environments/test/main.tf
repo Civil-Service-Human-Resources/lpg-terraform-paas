@@ -51,3 +51,18 @@ module "blob" {
   container_name              = "packages"
   container_accesstype        = "private"
 }
+
+module "wso2" {
+  source                  = "../../modules/wso2"
+  rg_name                 = "${var.rg_name}"
+  rg_prefix               = "${var.rg_prefix}"
+  rg_location             = "${var.rg_location}"
+  wso2_name               = "${var.rg_prefix}-${var.rg_name}-${var.wso2_name}"
+  database_url            = "${var.rg_prefix}-${var.rg_name}-${var.postgres_name}.postgres.database.azure.com:5432/wso2is"
+  lpg_ui_url              = "${var.lpg_ui_url}"
+  app_service_sku         = "${var.app_service_sku}"
+  app_service_sku_code    = "${var.app_service_sku_code}"
+  app_service_worker_size = "${var.app_service_worker_size}"
+  docker_image            = "${var.wso2_docker_image}"
+  docker_tag              = "${var.wso2_docker_tag}"
+}
