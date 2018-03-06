@@ -1,53 +1,57 @@
+resource "azurerm_resource_group" "rg" {
+  name     = "${var.rg_name}"
+  location = "${var.rg_location}"
+}
+
 resource "azurerm_template_deployment" "wso2-app-service" {
-    name = "${var.rg_name}",
+    name = "wso2_template_01",
     resource_group_name = "${var.rg_name}"
     template_body = <<DEPLOY
     {
     "parameters": {
         "name": {
             "type": "string",
-             "value": "${var.wso2_name}"
+             "defaultvalue": "${var.wso2_name}"
         },
-        "hostingPlanName": {
+        "servicePlanName": {
             "type": "string",
-            "value": "[concat('wso2',uniqueString(resourceGroup().id))]"
+            "defaultvalue": "[concat('wso2',uniqueString(resourceGroup().id))]"
         },
         "location": {
             "type": "string",
-            "value": "${var.rg_location}"
+            "defaultvalue": "${var.rg_location}"
         },
         "hostingEnvironment": {
-            "type": "string"
+            "type": "string",
+            "defaultvalue": ""
         },
         "serverFarmResourceGroup": {
             "type": "string",
-            "value": "${var.rg_name}"
-        },
-        "subscriptionId": {
-            "type": "string",
-            "value": "72aa545d-e1e2-4b4e-ade4-34ef397aca13"
+            "defaultvalue": "${var.rg_name}"
         },
         "sku" : {
             "type": "string",
-            "value": "${var.app_service_sku}"
+            "defaultvalue": "${var.app_service_sku}"
         },
         "skuCode" : {
             "type": "string",
-            "value": "${var.app_service_sku_code}"
+            "defaultvalue": "${var.app_service_sku_code}"
         },
         "workerSize" : {
             "type": "string",
-            "value": "${var.app_service_worker_size}"
+            "defaultvalue": "${var.app_service_worker_size}"
         }
     },
     "resources": [
         {
-            "apiVersion": "2016-03-01",
+            "apiVersion": "2016-08-01",
+            "kind": "app,linux,container",
             "name": "[parameters('name')]",
             "type": "Microsoft.Web/Sites",
             "properties": {
                 "name": "[parameters('name')]",
                 "siteConfig": {
+                    "alwaysOn": true,
                     "appSettings": [
                         {
                             "WEBSITES_ENABLE_APP_SERVICE_STORAGE": "false",
@@ -61,24 +65,25 @@ resource "azurerm_template_deployment" "wso2-app-service" {
                             "WEBSITES_PORT": "${var.carbon_port}"
                         }
                     ],
-                    "appCommandLine": "",
                     "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}"
                 },
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('servicePlanName'))]",
-                "hostingEnvironment": "[parameters('hostingEnvironment')]"
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('servicePlanName'))]"
             },
-            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('servicePlanName'))]"
+            ],
+            "location": "[resourceGroup().location]",
             "tags": {
-                "[concat('hidden-related:', '/subscriptions/', '/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "empty"
+                "[concat('hidden-related:', '/subscriptions/', '/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', parameters('servicePlanName'))]": "empty"
             }
         },
         {
             "apiVersion": "2016-09-01",
-            "name": "[parameters('hostingPlanName')]",
+            "name": "[parameters('servicePlanName')]",
             "type": "Microsoft.Web/serverfarms",
             "location": "[parameters('location')]",
             "properties": {
-                "name": "[parameters('hostingPlanName')]",
+                "name": "[parameters('servicePlanName')]",
                 "workerSizeId": "[parameters('workerSize')]",
                 "reserved": true,
                 "numberOfWorkers": "1",
@@ -93,7 +98,7 @@ resource "azurerm_template_deployment" "wso2-app-service" {
     ],
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0"
-}
+    }
     DEPLOY
     deployment_mode = "Incremental"
 }
