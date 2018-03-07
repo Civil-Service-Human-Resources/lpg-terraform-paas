@@ -62,3 +62,8 @@ variable "wso2_docker_image" {
 variable "wso2_docker_tag" {
   default = "1b21c10238616ef442b86c36364f28791d97d550"
 }
+
+### mailhog ###
+variable "mailhog_name" {
+  default = "mailhog"
+}
