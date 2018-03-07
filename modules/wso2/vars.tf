@@ -38,7 +38,7 @@ variable "lpg_ui_url" {
     default = "lqg_ui_url"
 }
 variable "websites_port" {
-    default = "3000"
+    default = "9443"
 }
 variable "app_service_sku" {
     default = "Standard"

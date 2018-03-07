@@ -31,10 +31,43 @@ resource "azurerm_template_deployment" "wso2-app-service" {
                       "appSettings": [
                           {
                               "name": "DOCKER_CUSTOM_IMAGE_NAME",
-                              "value": ""
+                              "value": "${var.docker_image}:${var.docker_tag}"
                           },
                           {
-
+                              "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+                              "value": "false"
+                          },
+                          {
+                              "name": "DATABASE_USER",
+                              "value": "${var.database_user}"
+                          },
+                          {
+                              "name": "DATABASE_PASSWORD",
+                              "value": "${var.database_password}"
+                          },
+                          {
+                              "name": "DATABASE_URL",
+                              "value": "${var.database_url}"
+                          },
+                          {
+                              "name": "CARBON_PROTOCOL",
+                              "value": "${var.carbon_protocol}"
+                          },
+                          {
+                              "name": "CARBON_PORT",
+                              "value": "${var.carbon_port}"
+                          },
+                          {
+                              "name": "CARBON_HOST",
+                              "value": "${var.carbon_host}"
+                          },
+                          {
+                              "name": "LPG_UI_URL",
+                              "value": "${var.lpg_ui_url}"
+                          },
+                          {
+                              "name": "WEBSITES_PORT",
+                              "value": "${var.websites_port}"
                           }
                       ]
                   },
@@ -66,8 +99,18 @@ resource "azurerm_template_deployment" "wso2-app-service" {
               },
               "kind": "linux"
           }
-      ]
+      ],
+              "outputs" : {
+                  "wso2_ip_addresses": {
+                      "type": "String",
+                      "value": "[reference(parameters('siteName')).outboundIpAddresses]"
+                  }
+              }
   }
   DEPLOY
   deployment_mode = "Incremental"
+}
+
+output "wso2_ip" {
+  value = "${azurerm_template_deployment.wso2-app-service.outputs["wso2_ip_addresses"]}"
 }
