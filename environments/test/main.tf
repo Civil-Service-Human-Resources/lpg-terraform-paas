@@ -1,4 +1,4 @@
-module "redis" {
+/*module "redis" {
   source                    = "../../modules/redis"
   rg_name                   = "${var.rg_name}"
   rg_prefix                 = "${var.rg_prefix}"
@@ -68,7 +68,15 @@ module "wso2" {
   database_user           = ""
   database_password       = ""
 }
-
-output "wso2_ip" {
-  value = "${module.wso2.wso2_ip}"
+*/
+module "mailhog" {
+  source                  = "../../modules/mailhog"
+  rg_name                 = "${var.rg_name}"
+  rg_prefix               = "${var.rg_prefix}"
+  rg_location             = "${var.rg_location}"
+  mailhog_name            = "${var.rg_prefix}-${var.rg_name}-${var.mailhog_name}"
 }
+
+/*output "wso2_ip" {
+  value = "${module.wso2.wso2_ip}"
+}*/

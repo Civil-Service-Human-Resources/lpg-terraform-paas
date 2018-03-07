@@ -1,12 +1,12 @@
-###### wso2 ######
+###### mailhog ######
 
 resource "azurerm_resource_group" "rg" {
   name     = "${var.rg_name}"
   location = "${var.rg_location}"
 }
 
-resource "azurerm_template_deployment" "wso2-app-service" {
-  name = "${var.wso2_name}"
+resource "azurerm_template_deployment" "mailhog-app-service" {
+  name = "${var.mailhog_name}"
   resource_group_name = "${var.rg_name}"
   template_body = <<DEPLOY
   {
@@ -15,7 +15,7 @@ resource "azurerm_template_deployment" "wso2-app-service" {
       "parameters": {
           "siteName": {
               "type": "string",
-              "defaultvalue": "${var.wso2_name}",
+              "defaultvalue": "${var.mailhog_name}",
               "metadata": {
                   "description": "Name of azure web app"
               }
@@ -33,39 +33,11 @@ resource "azurerm_template_deployment" "wso2-app-service" {
                       "appSettings": [
                           {
                               "name": "DOCKER_CUSTOM_IMAGE_NAME",
-                              "value": "${var.docker_image}:${var.docker_tag}"
+                              "value": "${var.docker_image}"
                           },
                           {
                               "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
                               "value": "false"
-                          },
-                          {
-                              "name": "DATABASE_USER",
-                              "value": "${var.database_user}"
-                          },
-                          {
-                              "name": "DATABASE_PASSWORD",
-                              "value": "${var.database_password}"
-                          },
-                          {
-                              "name": "DATABASE_URL",
-                              "value": "${var.database_url}"
-                          },
-                          {
-                              "name": "CARBON_PROTOCOL",
-                              "value": "${var.carbon_protocol}"
-                          },
-                          {
-                              "name": "CARBON_PORT",
-                              "value": "${var.carbon_port}"
-                          },
-                          {
-                              "name": "CARBON_HOST",
-                              "value": "${var.carbon_host}"
-                          },
-                          {
-                              "name": "LPG_UI_URL",
-                              "value": "${var.lpg_ui_url}"
                           },
                           {
                               "name": "WEBSITES_PORT",
@@ -101,18 +73,8 @@ resource "azurerm_template_deployment" "wso2-app-service" {
               },
               "kind": "linux"
           }
-      ],
-      "outputs" : {
-        "wso2_ip_addresses": {
-            "type": "String",
-            "value": "[reference(parameters('siteName')).outboundIpAddresses]"
-        }
-      }
+      ]
   }
   DEPLOY
   deployment_mode = "Incremental"
-}
-
-output "wso2_ip" {
-  value = "${azurerm_template_deployment.wso2-app-service.outputs["wso2_ip_addresses"]}"
 }
