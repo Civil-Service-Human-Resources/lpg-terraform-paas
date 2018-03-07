@@ -65,4 +65,10 @@ module "wso2" {
   app_service_worker_size = "${var.app_service_worker_size}"
   docker_image            = "${var.wso2_docker_image}"
   docker_tag              = "${var.wso2_docker_tag}"
+  database_user           = ""
+  database_password       = ""
+}
+
+output "wso2_ip" {
+  value = "${module.wso2.wso2_ip}"
 }
