@@ -11,6 +11,10 @@ variable "rg_location" {
   type    = "string"
   default = "UK South"
 }
+variable "environment_tag" {
+  type = "string"
+  default = "test"
+}
 
 ### postgres ###
 variable "postgres_name" {
@@ -40,7 +44,7 @@ variable "cosmos_failover_policy_location" {
   default = "West Europe"
 }
 
-### ws02 ###
+### wso2 ###
 variable "wso2_name" {
   default = "wso2"
 }
@@ -83,4 +87,21 @@ variable "lpg_learner_record_auth_password" {
 }
 variable "xapi_url" {
   default = "xapi_url"
+}
+
+### azmssql ###
+variable "sql_serv_name" {
+  default = "sqlserver"
+}
+variable "sql_db_name" {
+  default = "sqldb"
+}
+variable "sql_admin" {
+  default = "sqladmin"
+}
+variable "sql_pass" {
+  default = "replaceme!@18"
+}
+variable "sql_rule_name" {
+  default = "firewall-rule-"
 }

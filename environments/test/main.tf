@@ -92,3 +92,15 @@ module "lpg-learner-record" {
 output "wso2_ip" {
   value = "${module.wso2.wso2_ip}"
 }
+
+module "azmssql" {
+  source        = "../../modules/azmssql"
+  rg_name       = "${var.rg_name}"
+  rg_prefix     = "${var.rg_prefix}"
+  rg_location   = "${var.rg_location}"
+  sql_serv_name = "${var.rg_prefix}${var.rg_name}${var.sql_serv_name}"
+  sql_admin     = ""
+  sql_pass      = ""
+  sql_db_name   = "${var.rg_prefix}-${var.rg_name}-db"
+  outbound_ips  = "${module.wso2.wso2_ip}"
+}
