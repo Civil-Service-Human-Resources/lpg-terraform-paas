@@ -67,3 +67,20 @@ variable "wso2_docker_tag" {
 variable "mailhog_name" {
   default = "mailhog"
 }
+
+### lpg-learner-record ###
+variable "lpg_learner_record_name" {
+  default = "lpg-learner-record"
+}
+variable "lpg_learner_record_docker_tag" {
+  default = "latest"
+}
+variable "lpg_learner_record_auth_user" {
+  default = "user"
+}
+variable "lpg_learner_record_auth_password" {
+  default = "password"
+}
+variable "xapi_url" {
+  default = "xapi_url"
+}

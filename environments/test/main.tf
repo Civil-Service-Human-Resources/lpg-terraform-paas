@@ -77,6 +77,18 @@ module "mailhog" {
   mailhog_name            = "${var.rg_prefix}-${var.rg_name}-${var.mailhog_name}"
 }
 
+module "lpg-learner-record" {
+  source                  = "../../modules/lpg-learner-record"
+  rg_name                 = "${var.rg_name}"
+  rg_prefix               = "${var.rg_prefix}"
+  rg_location             = "${var.rg_location}"
+  lpg_learner_record_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learner_record_name}"
+  auth_user               = "${var.lpg_learner_record_auth_user}"
+  auth_password           = "${var.lpg_learner_record_auth_password}"
+  docker_tag              = "${var.lpg_learner_record_docker_tag}"
+  xapi_url                = "${var.xapi_url}"
+}
+
 output "wso2_ip" {
   value = "${module.wso2.wso2_ip}"
 }
