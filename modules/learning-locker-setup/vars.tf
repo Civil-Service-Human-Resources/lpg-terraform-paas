@@ -1,4 +1,4 @@
-variable "learning_locker_xapi_name" {
+variable "learning_locker_setup_name" {
     default = "name"
 }
 variable "rg_name" {
@@ -30,4 +30,7 @@ variable "redis_host" {
 }
 variable "redis_url" {
   default = "url"
+}
+variable "node_path" {
+  default = "/opt/learning-locker"
 }

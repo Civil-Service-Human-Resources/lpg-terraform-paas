@@ -11,7 +11,7 @@ variable "rg_location" {
   default = "location"
 }
 variable "docker_tag" {
-  default = "dbcbc3b8c847f9c1bbc88189e29fcf624dce1aa67a04947d59ec9b84c8a9b4bc"
+  default = ""
 }
 variable "docker_image" {
   default = "cshr/lpg-learning-locker"
