@@ -102,7 +102,6 @@ module "azmssql" {
   sql_admin     = ""
   sql_pass      = ""
   sql_db_name   = "${var.rg_prefix}-${var.rg_name}-db"
-  outbound_ips  = "${module.wso2.wso2_ip}"
 }
 
 module "lpg-learning-locker-xapi" {
@@ -115,4 +114,4 @@ module "lpg-learning-locker-xapi" {
   mongodb_path                  = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
   redis_host                    = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
   redis_url                     = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
-}
+} 
