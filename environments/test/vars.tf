@@ -106,6 +106,10 @@ variable "sql_rule_name" {
   default = "firewall-rule-"
 }
 
+### learning-locker-general ###
+variable "ll_docker_tag" {
+  default = "5c6cea37123f575c211ddfb87cc7ce0bfc9f51a2114e277f95c6726688ce6bd6"
+}
 ### learning-locker-xapi ###
 variable "lpg_learning_locker_xapi_name" {
   default = "xapi"
@@ -113,5 +117,10 @@ variable "lpg_learning_locker_xapi_name" {
 
 ### learning-locker-worker ###
 variable "lpg_learning_locker_worker_name" {
-  default = "learning-locker-worker"
+  default = "api-worker"
+}
+
+### learning-locker-setup ###
+variable "lpg_learning_locker_setup_name" {
+  default = "setup"
 }
