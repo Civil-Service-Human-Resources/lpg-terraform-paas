@@ -110,3 +110,8 @@ variable "sql_rule_name" {
 variable "lpg_learning_locker_xapi_name" {
   default = "xapi"
 }
+
+### learning-locker-worker ###
+variable "lpg_learning_locker_worker_name" {
+  default = "learning-locker-worker"
+}
