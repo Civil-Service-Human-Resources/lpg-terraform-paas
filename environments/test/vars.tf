@@ -124,3 +124,8 @@ variable "lpg_learning_locker_worker_name" {
 variable "lpg_learning_locker_setup_name" {
   default = "setup"
 }
+
+### learning-locker-api-server ###
+variable "lpg_learning_locker_api_server_name" {
+  default = "api-server"
+}
