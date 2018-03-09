@@ -99,7 +99,7 @@ resource "azurerm_template_deployment" "learning-locker-api-server-app-service" 
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
-                "appCommandLine": "/opt/learning-locker/./node_modules/.bin/babel-node /opt/learning-locker/mkadmin.js"
+                "appCommandLine": "node /opt/learning-locker/api/dist/server"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
