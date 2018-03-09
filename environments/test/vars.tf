@@ -129,3 +129,8 @@ variable "lpg_learning_locker_setup_name" {
 variable "lpg_learning_locker_api_server_name" {
   default = "api-server"
 }
+
+### learning-locker-ui ###
+variable "lpg_learning_locker_ui_name" {
+  default = "ui"
+}

@@ -135,7 +135,7 @@ module "lpg-learning-locker-setup" {
   rg_name                       = "${var.rg_name}"
   rg_prefix                     = "${var.rg_prefix}"
   rg_location                   = "${var.rg_location}"
-  learning_locker_setup_name   = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_setup_name}"
+  learning_locker_setup_name    = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_setup_name}"
   mongo_url                     = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
   mongodb_path                  = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
   redis_host                    = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
@@ -144,14 +144,27 @@ module "lpg-learning-locker-setup" {
 } 
 
 module "lpg-learning-locker-api-server" {
-  source                        = "../../modules/learning-locker-api-server"
-  rg_name                       = "${var.rg_name}"
-  rg_prefix                     = "${var.rg_prefix}"
-  rg_location                   = "${var.rg_location}"
-  mongo_url                     = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
-  mongodb_path                  = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
-  redis_host                    = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
-  redis_url                     = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
-  docker_tag                    = "${var.ll_docker_tag}"
+  source                          = "../../modules/learning-locker-api-server"
+  rg_name                         = "${var.rg_name}"
+  rg_prefix                       = "${var.rg_prefix}"
+  rg_location                     = "${var.rg_location}"
+  mongo_url                       = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
+  mongodb_path                    = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
+  redis_host                      = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
+  redis_url                       = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
+  docker_tag                      = "${var.ll_docker_tag}"
   learning_locker_api_server_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_api_server_name}"
+}
+
+module "lpg-learning-locker-ui" {
+  source                        = "../../modules/learning-locker-ui"
+  rg_name                         = "${var.rg_name}"
+  rg_prefix                       = "${var.rg_prefix}"
+  rg_location                     = "${var.rg_location}"
+  mongo_url                       = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
+  mongodb_path                    = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
+  redis_host                      = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
+  redis_url                       = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
+  docker_tag                      = "${var.ll_docker_tag}"
+  learning_locker_ui_name         = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}"
 }
