@@ -25,6 +25,10 @@ variable "environment_tag" {
 variable "sql_rule_name" {
   default = "firewall-rule-"
 }
+variable "outbound_ips" {
+  type = "string"
+  default = "0.0.0.0"
+}
 variable "start_ip" {
   default = "0.0.0.0/32"
 }

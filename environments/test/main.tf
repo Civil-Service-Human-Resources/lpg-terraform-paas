@@ -101,7 +101,7 @@ module "azmssql" {
   rg_name       = "${var.rg_name}"
   rg_prefix     = "${var.rg_prefix}"
   rg_location   = "${var.rg_location}"
-  sql_serv_name = "${var.rg_prefix}${var.rg_name}${var.sql_serv_name}"
+  sql_serv_name = "${var.rg_prefix}${var.rg_name}sqlserver"
   sql_admin     = ""
   sql_pass      = ""
   sql_db_name   = "${var.rg_prefix}-${var.rg_name}-db"
