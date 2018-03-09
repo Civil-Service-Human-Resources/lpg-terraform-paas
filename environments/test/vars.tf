@@ -105,3 +105,8 @@ variable "sql_pass" {
 variable "sql_rule_name" {
   default = "firewall-rule-"
 }
+
+### learning-locker-xapi ###
+variable "lpg_learning_locker_xapi_name" {
+  default = "xapi"
+}
