@@ -23,11 +23,13 @@ resource "azurerm_sql_database" "sqldb" {
     environment = "${var.environment_tag}"
   }
 }
-
+/*
 resource "azurerm_sql_firewall_rule" "sqlfwrule" {
   name                = "${var.sql_rule_name}"
   resource_group_name = "${var.rg_name}"
   server_name         = "${var.sql_serv_name}"
-  start_ip_address    = "${var.start_ip}"
-  end_ip_address      = "${var.end_ip}"
+  count               = "${length(split(",", var.outbound_ips))}"
+  start_ip_address    = "${element(split(",", var.outbound_ips), count.index)}"
+  end_ip_address      = "${element(split(",", var.outbound_ips), count.index)}"
 }
+*/
