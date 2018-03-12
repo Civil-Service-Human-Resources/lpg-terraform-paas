@@ -175,6 +175,7 @@ module "lpg-learning-locker-ui" {
   docker_tag              = "${var.ll_docker_tag}"
   learning_locker_ui_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}"
   environment_tag         = "${var.environment_tag}"
+  api_host                = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_api_server_name}.azurewebsites.net"
 }
 
 module "lpg-management" {
