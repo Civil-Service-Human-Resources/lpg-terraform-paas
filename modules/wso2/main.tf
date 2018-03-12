@@ -138,17 +138,3 @@ resource "azurerm_template_deployment" "wso2-app-service" {
 output "wso2_ip" {
   value = "${azurerm_template_deployment.wso2-app-service.outputs["wso2_ip_addresses"]}"
 }
-
-locals {
-  fwips = "${azurerm_template_deployment.wso2-app-service.outputs["wso2_ip_addresses"]}"
-}
-
-resource "azurerm_sql_firewall_rule" "sqlfwrule" {
-  depends_on          = ["azurerm_template_deployment.wso2-app-service"]
-  name                = "${var.sql_rule_name}${format("%02d", count.index+1)}"
-  resource_group_name = "${var.rg_name}"
-  server_name         = "${var.sql_serv_name}"
-  count               = "${length(split(",", local.fwips))}"
-  start_ip_address    = "${element(split(",", local.fwips), count.index)}"
-  end_ip_address      = "${element(split(",", local.fwips), count.index)}"
-}
