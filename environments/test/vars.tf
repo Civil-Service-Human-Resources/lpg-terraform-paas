@@ -187,3 +187,48 @@ variable "aws_access_key_id" {
 variable "aws_secret_access_key" {
   default = "access_key"
 }
+
+### lpg-ui ###
+variable "lpg_ui_name" {
+  default = "lpg-ui"
+}
+
+variable "course_catalogue_url" {
+  default = "course_catalogue_url"
+}
+
+variable "course_catalogue_user" {
+  default = "user"
+}
+
+variable "course_catalogue_pass" {
+  default = "password"
+}
+
+variable "learner_record_url" {
+  default = "learner_record_url"
+}
+
+variable "learner_record_user" {
+  default = "user"
+}
+
+variable "learner_record_pass" {
+  default = "password"
+}
+
+variable "youtube_api_key" {
+  default = "AIzaSyDkapeVQajSishsrZTDmqi4rLRRq3HABrY"
+}
+
+variable "gov_notify_api_key" {
+  default = ""
+}
+
+variable "google_analytics_id" {
+  default = "UA-22141655-3"
+}
+
+variable "booking_alert_webhook" {
+  default = "booking_alert_webhook"
+}
