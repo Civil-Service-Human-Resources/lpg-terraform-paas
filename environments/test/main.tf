@@ -117,7 +117,7 @@ module "lpg-learning-locker-xapi" {
   mongodb_path              = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com:443/learninglocker"
   redis_host                = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
   redis_url                 = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
-  docker_tag                = "${var.ll_docker_tag}"
+  docker_tag                = "${var.lpg_xapi_docker_tag}"
   environment_tag           = "${var.environment_tag}"
 }
 
