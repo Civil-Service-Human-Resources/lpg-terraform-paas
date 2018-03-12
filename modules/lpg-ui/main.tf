@@ -1,12 +1,12 @@
-###### wso2 ######
+###### lpg-ui ######
 
 resource "azurerm_resource_group" "rg" {
   name     = "${var.rg_name}"
   location = "${var.rg_location}"
 }
 
-resource "azurerm_template_deployment" "wso2-app-service" {
-  name                = "${var.wso2_name}"
+resource "azurerm_template_deployment" "lpg-ui-app-service" {
+  name                = "${var.lpg_ui_name}"
   resource_group_name = "${var.rg_name}"
 
   template_body = <<DEPLOY
@@ -16,7 +16,7 @@ resource "azurerm_template_deployment" "wso2-app-service" {
       "parameters": {
           "siteName": {
               "type": "string",
-              "defaultvalue": "${var.wso2_name}",
+              "defaultvalue": "${var.lpg_ui_name}",
               "metadata": {
                   "description": "Name of azure web app"
               }
@@ -41,36 +41,72 @@ resource "azurerm_template_deployment" "wso2-app-service" {
                               "value": "false"
                           },
                           {
-                              "name": "DATABASE_USER",
-                              "value": "${var.database_user}"
+                              "name": "AUTHENTICATION_SERVICE_URL",
+                              "value": "${var.authentication_service_url}"
                           },
                           {
-                              "name": "DATABASE_PASSWORD",
-                              "value": "${var.database_password}"
+                              "name": "AWS_ACCESS_KEY_ID",
+                              "value": "${var.aws_access_key_id}"
                           },
                           {
-                              "name": "DATABASE_URL",
-                              "value": "${var.database_url}"
+                              "name": "AWS_SECRET_ACCESS_KEY",
+                              "value": "${var.aws_secret_access_key}"
                           },
                           {
-                              "name": "CARBON_PROTOCOL",
-                              "value": "${var.carbon_protocol}"
+                              "name": "BOOKING_ALERT_WEBHOOK,
+                              "value": "${var.booking_alert_webhook}"
                           },
                           {
-                              "name": "CARBON_PORT",
-                              "value": "${var.carbon_port}"
+                              "name": "GOOGLE_ANALYTICS_ID",
+                              "value": "${var.google_analytics_id}"
                           },
                           {
-                              "name": "CARBON_HOST",
-                              "value": "${var.carbon_host}"
+                              "name": "GOV_NOTIFY_API_KEY",
+                              "value": "${var.gov_notify_api_key}"
                           },
                           {
-                              "name": "LPG_UI_URL",
-                              "value": "${var.lpg_ui_url}"
+                              "name": "LEARNER_RECORD_URL",
+                              "value": "${var.learner_record_url}"
                           },
                           {
-                              "name": "WEBSITES_PORT",
-                              "value": "${var.websites_port}"
+                              "name": "LEARNER_RECORD_USER",
+                              "value": "${var.learner_record_user}"
+                          },
+                          {
+                              "name": "LEARNER_RECORD_PASSWORD",
+                              "value": "${var.learner_record_pass}"
+                          },
+                          {
+                              "name": "COURSE_CATALOGUE_URL",
+                              "value": "${var.course_catalogue_url}"
+                          },
+                          {
+                              "name": "COURSE_CATALOGUE_USER",
+                              "value": "${var.course_catalogue_user}"
+                          },
+                          {
+                              "name": "COURSE_CATALOGUE_PASS",
+                              "value": "${var.learner_record_pass}"
+                          },
+                          {
+                              "name": "LETSENCRYPT_EMAIL",
+                              "value": "${var.letsencrypt_email}"
+                          },
+                          {
+                              "name": "LETSENCRYPT_HOST",
+                              "value": "${var.letsencrypt_host}"
+                          },
+                          {
+                              "name": "VIRTUAL_HOST",
+                              "value": "${var.virtual_host}"
+                          },
+                          {
+                              "name": "XAPI_URL",
+                              "value": "${var.xapi_url}"
+                          },
+                          {
+                              "name": "YOUTUBE_API_KEY",
+                              "value": "${var.youtube_api_key}"
                           }
                       ]
                   },
@@ -106,7 +142,6 @@ resource "azurerm_template_deployment" "wso2-app-service" {
               "kind": "linux"
           },
           {
-            "comments": "Generalized from resource: '/subscriptions/72aa545d-e1e2-4b4e-ade4-34ef397aca13/resourceGroups/pptestlab/providers/Microsoft.Web/sites/lpg-learner-record/config/web'.",
             "type": "Microsoft.Web/sites/config",
             "name": "[concat(parameters('siteName'), '/web')]",
             "apiVersion": "2016-08-01",
@@ -121,20 +156,10 @@ resource "azurerm_template_deployment" "wso2-app-service" {
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
             ]
         }
-      ],
-      "outputs" : {
-        "wso2_ip_addresses": {
-            "type": "String",
-            "value": "[reference(parameters('siteName')).outboundIpAddresses]"
-        }
-      }
+      ]
   }
   DEPLOY
 
   deployment_mode = "Incremental"
   depends_on      = ["azurerm_resource_group.rg"]
-}
-
-output "wso2_ip" {
-  value = "${azurerm_template_deployment.wso2-app-service.outputs["wso2_ip_addresses"]}"
 }

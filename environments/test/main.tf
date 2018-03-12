@@ -192,3 +192,26 @@ module "lpg-management" {
   aws_secret_access_key      = "${var.aws_secret_access_key}"
   environment_tag            = "${var.environment_tag}"
 }
+
+module "lpg-ui" {
+  source                     = "../../modules/lpg-ui"
+  rg_name                    = "${var.rg_name}"
+  rg_prefix                  = "${var.rg_prefix}"
+  rg_location                = "${var.rg_location}"
+  lpg_ui_name                = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
+  xapi_url                   = "${var.xapi_url}"
+  virtual_host               = "${var.virtual_host}"
+  authentication_service_url = "${var.authentication_service_url}"
+  aws_access_key_id          = "${var.aws_access_key_id}"
+  aws_secret_access_key      = "${var.aws_secret_access_key}"
+  environment_tag            = "${var.environment_tag}"
+  course_catalogue_url       = "${var.course_catalogue_url}"
+  course_catalogue_user      = "${var.course_catalogue_user}"
+  course_catalogue_pass      = "${var.course_catalogue_pass}"
+  learner_record_url         = "${var.learner_record_url}"
+  learner_record_user        = "${var.learner_record_user}"
+  learner_record_pass        = "${var.learner_record_pass}"
+  youtube_api_key            = "${var.youtube_api_key}"
+  gov_notify_api_key         = "${var.gov_notify_api_key}"
+  booking_alert_webhook      = "${var.booking_alert_webhook}"
+}
