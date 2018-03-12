@@ -159,6 +159,10 @@ variable "lpg_learning_locker_ui_name" {
   default = "ui"
 }
 
+variable "api_host" {
+  default = "api_host_here"
+}
+
 ### lpg-management ###
 variable "lpg_management_name" {
   default = "lpg-management-ui"
