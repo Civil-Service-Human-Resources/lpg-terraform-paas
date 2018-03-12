@@ -69,11 +69,3 @@ variable "app_service_worker_size" {
 variable "environment_tag" {
   default = "unknown"
 }
-
-### sqlfwruletest ###
-variable "sql_rule_name" {
-  default = "firewall-rule-"
-}
-variable "sql_serv_name" {
-  default = "beeboop"
-}
