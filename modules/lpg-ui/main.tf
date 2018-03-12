@@ -53,7 +53,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value": "${var.aws_secret_access_key}"
                           },
                           {
-                              "name": "BOOKING_ALERT_WEBHOOK,
+                              "name": "BOOKING_ALERT_WEBHOOK",
                               "value": "${var.booking_alert_webhook}"
                           },
                           {

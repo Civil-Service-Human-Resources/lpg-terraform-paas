@@ -232,3 +232,24 @@ variable "google_analytics_id" {
 variable "booking_alert_webhook" {
   default = "booking_alert_webhook"
 }
+
+### lpg-learning-catalogue ###
+variable "lpg_learning_catalogue_name" {
+  default = "lpg-learning-catalogue"
+}
+
+variable "elasticsearch_host" {
+  default = "elasticsearch_host"
+}
+
+variable "elasticsearch_port" {
+  default = "elasticsearch_port"
+}
+
+variable "elasticsearch_cluster" {
+  default = "elasticsearch_cluster"
+}
+
+variable "learning_catalogue_docker_tag" {
+  default = "latest"
+}
