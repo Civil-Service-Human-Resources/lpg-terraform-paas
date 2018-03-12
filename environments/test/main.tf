@@ -59,7 +59,7 @@ module "wso2" {
   rg_location             = "${var.rg_location}"
   wso2_name               = "${var.rg_prefix}-${var.rg_name}-${var.wso2_name}"
   database_url            = "${var.rg_prefix}-${var.rg_name}-${var.postgres_name}.postgres.database.azure.com:5432/wso2is"
-  lpg_ui_url              = "${var.lpg_ui_url}"
+  lpg_ui_url              = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}.azurewebsites.net"
   app_service_sku         = "${var.app_service_sku}"
   app_service_sku_code    = "${var.app_service_sku_code}"
   app_service_worker_size = "${var.app_service_worker_size}"
@@ -88,7 +88,7 @@ module "lpg-learner-record" {
   auth_user               = "${var.lpg_learner_record_auth_user}"
   auth_password           = "${var.lpg_learner_record_auth_password}"
   docker_tag              = "${var.lpg_learner_record_docker_tag}"
-  xapi_url                = "${var.xapi_url}"
+  xapi_url                = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net"
   environment_tag         = "${var.environment_tag}"
 }
 
@@ -199,7 +199,7 @@ module "lpg-ui" {
   rg_prefix                  = "${var.rg_prefix}"
   rg_location                = "${var.rg_location}"
   lpg_ui_name                = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
-  xapi_url                   = "${var.xapi_url}"
+  xapi_url                   = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net"
   virtual_host               = "${var.virtual_host}"
   authentication_service_url = "${var.authentication_service_url}"
   aws_access_key_id          = "${var.aws_access_key_id}"
@@ -214,4 +214,18 @@ module "lpg-ui" {
   youtube_api_key            = "${var.youtube_api_key}"
   gov_notify_api_key         = "${var.gov_notify_api_key}"
   booking_alert_webhook      = "${var.booking_alert_webhook}"
+}
+
+module "lpg-learning-catalogue" {
+  source                      = "../../modules/lpg-learning-catalogue"
+  rg_name                     = "${var.rg_name}"
+  rg_prefix                   = "${var.rg_prefix}"
+  rg_location                 = "${var.rg_location}"
+  lpg_learning_catalogue_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_catalogue_name}"
+  auth_user                   = "${var.lpg_learner_record_auth_user}"
+  auth_password               = "${var.lpg_learner_record_auth_password}"
+  elasticsearch_host          = "${var.elasticsearch_host}"
+  elasticsearch_port          = "${var.elasticsearch_port}"
+  elasticsearch_cluster       = "${var.elasticsearch_cluster}"
+  docker_tag                  = "${var.learning_catalogue_docker_tag}"
 }

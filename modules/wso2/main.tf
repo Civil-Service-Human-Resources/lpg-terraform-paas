@@ -71,6 +71,10 @@ resource "azurerm_template_deployment" "wso2-app-service" {
                           {
                               "name": "WEBSITES_PORT",
                               "value": "${var.websites_port}"
+                          },
+                          {
+                              "name": "WEBSITES_CONTAINER_START_TIME_LIMIT",
+                              "value": "600"
                           }
                       ]
                   },
