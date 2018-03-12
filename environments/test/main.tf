@@ -32,11 +32,11 @@ module "postgres" {
 }
 
 module "cosmos" {
-  source                = "../../modules/cosmos"
-  rg_name               = "${var.rg_name}"
-  rg_prefix             = "${var.rg_name}"
-  rg_location           = "${var.rg_location}"
-  cosmos_name           = "${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}"
+  source      = "../../modules/cosmos"
+  rg_name     = "${var.rg_name}"
+  rg_prefix   = "${var.rg_name}"
+  rg_location = "${var.rg_location}"
+  cosmos_name = "${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}"
 }
 
 module "blob" {
@@ -67,14 +67,16 @@ module "wso2" {
   docker_tag              = "${var.wso2_docker_tag}"
   database_user           = ""
   database_password       = ""
+  environment_tag         = "${var.environment_tag}"
 }
 
 module "mailhog" {
-  source                  = "../../modules/mailhog"
-  rg_name                 = "${var.rg_name}"
-  rg_prefix               = "${var.rg_prefix}"
-  rg_location             = "${var.rg_location}"
-  mailhog_name            = "${var.rg_prefix}-${var.rg_name}-${var.mailhog_name}"
+  source          = "../../modules/mailhog"
+  rg_name         = "${var.rg_name}"
+  rg_prefix       = "${var.rg_prefix}"
+  rg_location     = "${var.rg_location}"
+  mailhog_name    = "${var.rg_prefix}-${var.rg_name}-${var.mailhog_name}"
+  environment_tag = "${var.environment_tag}"
 }
 
 module "lpg-learner-record" {
@@ -87,6 +89,7 @@ module "lpg-learner-record" {
   auth_password           = "${var.lpg_learner_record_auth_password}"
   docker_tag              = "${var.lpg_learner_record_docker_tag}"
   xapi_url                = "${var.xapi_url}"
+  environment_tag         = "${var.environment_tag}"
 }
 
 output "wso2_ip" {
@@ -105,66 +108,86 @@ module "azmssql" {
 }
 
 module "lpg-learning-locker-xapi" {
-  source                        = "../../modules/learning-locker-xapi"
-  rg_name                       = "${var.rg_name}"
-  rg_prefix                     = "${var.rg_prefix}"
-  rg_location                   = "${var.rg_location}"
-  learning_locker_xapi_name     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}"
-  mongo_url                     = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
-  mongodb_path                  = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
-  redis_host                    = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
-  redis_url                     = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
-  docker_tag                    = "${var.ll_docker_tag}"
+  source                    = "../../modules/learning-locker-xapi"
+  rg_name                   = "${var.rg_name}"
+  rg_prefix                 = "${var.rg_prefix}"
+  rg_location               = "${var.rg_location}"
+  learning_locker_xapi_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}"
+  mongo_url                 = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com:443/learninglocker"
+  mongodb_path              = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com:443/learninglocker"
+  redis_host                = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
+  redis_url                 = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
+  docker_tag                = "${var.ll_docker_tag}"
+  environment_tag           = "${var.environment_tag}"
 }
 
 module "lpg-learning-locker-worker" {
-  source                        = "../../modules/learning-locker-worker"
-  rg_name                       = "${var.rg_name}"
-  rg_prefix                     = "${var.rg_prefix}"
-  rg_location                   = "${var.rg_location}"
-  learning_locker_worker_name   = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_worker_name}"
-  mongo_url                     = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
-  mongodb_path                  = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
-  redis_host                    = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
-  redis_url                     = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
-  docker_tag                    = "${var.ll_docker_tag}"
-} 
+  source                      = "../../modules/learning-locker-worker"
+  rg_name                     = "${var.rg_name}"
+  rg_prefix                   = "${var.rg_prefix}"
+  rg_location                 = "${var.rg_location}"
+  learning_locker_worker_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_worker_name}"
+  mongo_url                   = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com:443/learninglocker"
+  mongodb_path                = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com:443/learninglocker"
+  redis_host                  = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
+  redis_url                   = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
+  docker_tag                  = "${var.ll_docker_tag}"
+  environment_tag             = "${var.environment_tag}"
+}
 
 module "lpg-learning-locker-setup" {
-  source                        = "../../modules/learning-locker-setup"
-  rg_name                       = "${var.rg_name}"
-  rg_prefix                     = "${var.rg_prefix}"
-  rg_location                   = "${var.rg_location}"
-  learning_locker_setup_name    = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_setup_name}"
-  mongo_url                     = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
-  mongodb_path                  = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
-  redis_host                    = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
-  redis_url                     = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
-  docker_tag                    = "${var.ll_docker_tag}"
-} 
+  source                     = "../../modules/learning-locker-setup"
+  rg_name                    = "${var.rg_name}"
+  rg_prefix                  = "${var.rg_prefix}"
+  rg_location                = "${var.rg_location}"
+  learning_locker_setup_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_setup_name}"
+  mongo_url                  = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com:443/learninglocker"
+  mongodb_path               = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com:443/learninglocker"
+  redis_host                 = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
+  redis_url                  = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
+  docker_tag                 = "${var.ll_docker_tag}"
+  environment_tag            = "${var.environment_tag}"
+}
 
 module "lpg-learning-locker-api-server" {
   source                          = "../../modules/learning-locker-api-server"
   rg_name                         = "${var.rg_name}"
   rg_prefix                       = "${var.rg_prefix}"
   rg_location                     = "${var.rg_location}"
-  mongo_url                       = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
-  mongodb_path                    = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
+  mongo_url                       = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com:443/learninglocker"
+  mongodb_path                    = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com:443/learninglocker"
   redis_host                      = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
   redis_url                       = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
   docker_tag                      = "${var.ll_docker_tag}"
   learning_locker_api_server_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_api_server_name}"
+  environment_tag                 = "${var.environment_tag}"
 }
 
 module "lpg-learning-locker-ui" {
-  source                        = "../../modules/learning-locker-ui"
-  rg_name                         = "${var.rg_name}"
-  rg_prefix                       = "${var.rg_prefix}"
-  rg_location                     = "${var.rg_location}"
-  mongo_url                       = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
-  mongodb_path                    = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com/learninglocker"
-  redis_host                      = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
-  redis_url                       = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
-  docker_tag                      = "${var.ll_docker_tag}"
-  learning_locker_ui_name         = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}"
+  source                  = "../../modules/learning-locker-ui"
+  rg_name                 = "${var.rg_name}"
+  rg_prefix               = "${var.rg_prefix}"
+  rg_location             = "${var.rg_location}"
+  mongo_url               = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com:443/learninglocker"
+  mongodb_path            = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com:443/learninglocker"
+  redis_host              = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
+  redis_url               = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
+  docker_tag              = "${var.ll_docker_tag}"
+  learning_locker_ui_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}"
+  environment_tag         = "${var.environment_tag}"
+}
+
+module "lpg-management" {
+  source                     = "../../modules/lpg-management"
+  rg_name                    = "${var.rg_name}"
+  rg_prefix                  = "${var.rg_prefix}"
+  rg_location                = "${var.rg_location}"
+  docker_tag                 = "${var.ll_docker_tag}"
+  lpg_management_name        = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management_name}"
+  xapi_url                   = "${var.xapi_url}"
+  virtual_host               = "${var.virtual_host}"
+  authentication_service_url = "${var.authentication_service_url}"
+  aws_access_key_id          = "${var.aws_access_key_id}"
+  aws_secret_access_key      = "${var.aws_secret_access_key}"
+  environment_tag            = "${var.environment_tag}"
 }

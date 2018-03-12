@@ -71,6 +71,9 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
               },
               "apiVersion": "2016-03-01",
               "location": "[resourceGroup().location]",
+              "tags" : {
+                  "environment": "${var.environment_tag}"
+              },
               "dependsOn": [
                   "[variables('hostingPlanName')]"
               ]
@@ -113,4 +116,5 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
   }
   DEPLOY
   deployment_mode = "Incremental"
+  depends_on      = ["azurerm_resource_group.rg"]
 }
