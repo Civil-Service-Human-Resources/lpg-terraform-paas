@@ -6,8 +6,9 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_template_deployment" "learning-locker-setup-app-service" {
-  name = "${var.learning_locker_setup_name}"
+  name                = "${var.learning_locker_setup_name}"
   resource_group_name = "${var.rg_name}"
+
   template_body = <<DEPLOY
   {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -67,6 +68,9 @@ resource "azurerm_template_deployment" "learning-locker-setup-app-service" {
               },
               "apiVersion": "2016-03-01",
               "location": "[resourceGroup().location]",
+              "tags" : {
+                  "environment": "${var.environment_tag}"
+              },
               "dependsOn": [
                   "[variables('hostingPlanName')]"
               ]
@@ -108,5 +112,7 @@ resource "azurerm_template_deployment" "learning-locker-setup-app-service" {
       ]
   }
   DEPLOY
+
   deployment_mode = "Incremental"
+  depends_on      = ["azurerm_resource_group.rg"]
 }

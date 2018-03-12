@@ -1,13 +1,14 @@
-###### mailhog ######
+###### lpg-management ######
 
 resource "azurerm_resource_group" "rg" {
   name     = "${var.rg_name}"
   location = "${var.rg_location}"
 }
 
-resource "azurerm_template_deployment" "mailhog-app-service" {
-  name = "${var.mailhog_name}"
+resource "azurerm_template_deployment" "lpg-management-app-service" {
+  name                = "${var.lpg_management_name}"
   resource_group_name = "${var.rg_name}"
+
   template_body = <<DEPLOY
   {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -15,7 +16,7 @@ resource "azurerm_template_deployment" "mailhog-app-service" {
       "parameters": {
           "siteName": {
               "type": "string",
-              "defaultvalue": "${var.mailhog_name}",
+              "defaultvalue": "${var.lpg_management_name}",
               "metadata": {
                   "description": "Name of azure web app"
               }
@@ -33,15 +34,39 @@ resource "azurerm_template_deployment" "mailhog-app-service" {
                       "appSettings": [
                           {
                               "name": "DOCKER_CUSTOM_IMAGE_NAME",
-                              "value": "${var.docker_image}"
+                              "value": "${var.docker_image}:${var.docker_tag}"
                           },
                           {
                               "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
                               "value": "false"
                           },
                           {
-                              "name": "WEBSITES_PORT",
-                              "value": "${var.websites_port}"
+                              "name": "XAPI_URL",
+                              "value": "${var.xapi_url}"
+                          },
+                          {
+                              "name": "VIRTUAL_HOST",
+                              "value": "${var.virtual_host}"
+                          },
+                          {
+                              "name": "AUTHENTICATION_SERVICE_URL",
+                              "value": "${var.authentication_service_url}"
+                          },
+                          {
+                              "name": "LETSENCRYPT_HOST",
+                              "value": "${var.letsencrypt_host}"
+                          },
+                          {
+                              "name": "LETSENCRYPT_EMAIL",
+                              "value": "${var.letsencrypt_email}"
+                          },
+                          {
+                              "name": "AWS_ACCESS_KEY_ID",
+                              "value": "${var.aws_access_key_id}"
+                          },
+                          {
+                              "name": "AWS_SECRET_ACCESS_KEY",
+                              "value": "${var.aws_secret_access_key}"
                           }
                       ]
                   },
@@ -77,7 +102,6 @@ resource "azurerm_template_deployment" "mailhog-app-service" {
               "kind": "linux"
           },
           {
-            "comments": "Generalized from resource: '/subscriptions/72aa545d-e1e2-4b4e-ade4-34ef397aca13/resourceGroups/pptestlab/providers/Microsoft.Web/sites/lpg-learner-record/config/web'.",
             "type": "Microsoft.Web/sites/config",
             "name": "[concat(parameters('siteName'), '/web')]",
             "apiVersion": "2016-08-01",
@@ -86,7 +110,8 @@ resource "azurerm_template_deployment" "mailhog-app-service" {
             "properties": {
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
-                "detailedErrorLoggingEnabled": true
+                "detailedErrorLoggingEnabled": true,
+                "appCommandLine": "node ../node_modules/management-ui/server.js"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
@@ -95,6 +120,7 @@ resource "azurerm_template_deployment" "mailhog-app-service" {
       ]
   }
   DEPLOY
+
   deployment_mode = "Incremental"
   depends_on      = ["azurerm_resource_group.rg"]
 }
