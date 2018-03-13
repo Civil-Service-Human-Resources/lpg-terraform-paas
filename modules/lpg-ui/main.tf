@@ -89,14 +89,6 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value": "${var.learner_record_pass}"
                           },
                           {
-                              "name": "LETSENCRYPT_EMAIL",
-                              "value": "${var.letsencrypt_email}"
-                          },
-                          {
-                              "name": "LETSENCRYPT_HOST",
-                              "value": "${var.letsencrypt_host}"
-                          },
-                          {
                               "name": "VIRTUAL_HOST",
                               "value": "${var.virtual_host}"
                           },
