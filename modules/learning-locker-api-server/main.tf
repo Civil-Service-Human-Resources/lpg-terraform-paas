@@ -102,6 +102,7 @@ resource "azurerm_template_deployment" "learning-locker-api-server-app-service" 
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
+                "alwaysOn": true,
                 "appCommandLine": "node /opt/learning-locker/api/dist/server"
             },
             "dependsOn": [

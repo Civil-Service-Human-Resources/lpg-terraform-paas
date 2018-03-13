@@ -150,7 +150,8 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
             "properties": {
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
-                "detailedErrorLoggingEnabled": true
+                "detailedErrorLoggingEnabled": true,
+                "alwaysOn": true
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
