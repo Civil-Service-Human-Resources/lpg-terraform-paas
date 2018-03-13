@@ -88,7 +88,7 @@ module "lpg-learner-record" {
   auth_user               = "${var.lpg_learner_record_auth_user}"
   auth_password           = "${var.lpg_learner_record_auth_password}"
   docker_tag              = "${var.lpg_learner_record_docker_tag}"
-  xapi_url                = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net"
+  xapi_url                = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net:8083"
   environment_tag         = "${var.environment_tag}"
 }
 
@@ -185,7 +185,7 @@ module "lpg-management" {
   rg_location                = "${var.rg_location}"
   docker_tag                 = "${var.ll_docker_tag}"
   lpg_management_name        = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management_name}"
-  xapi_url                   = "${var.xapi_url}"
+  xapi_url                   = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net:8083"
   virtual_host               = "${var.virtual_host}"
   authentication_service_url = "${var.authentication_service_url}"
   aws_access_key_id          = "${var.aws_access_key_id}"
@@ -199,7 +199,7 @@ module "lpg-ui" {
   rg_prefix                  = "${var.rg_prefix}"
   rg_location                = "${var.rg_location}"
   lpg_ui_name                = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
-  xapi_url                   = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net"
+  xapi_url                   = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net:8083"
   virtual_host               = "${var.virtual_host}"
   authentication_service_url = "${var.authentication_service_url}"
   aws_access_key_id          = "${var.aws_access_key_id}"
