@@ -188,6 +188,10 @@ variable "aws_secret_access_key" {
   default = "access_key"
 }
 
+variable "lpg_management_docker_tag" {
+  default = "latest"
+}
+
 ### lpg-ui ###
 variable "lpg_ui_name" {
   default = "lpg-ui"
