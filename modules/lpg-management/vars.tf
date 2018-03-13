@@ -30,14 +30,6 @@ variable "authentication_service_url" {
   default = "http://identity-something.cshr.digital"
 }
 
-variable "letsencrypt_host" {
-  default = "admin-something.cshr.digital"
-}
-
-variable "letsencrypt_email" {
-  default = "some@email.com"
-}
-
 variable "aws_access_key_id" {
   default = "access_key"
 }

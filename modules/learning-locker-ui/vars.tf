@@ -54,14 +54,6 @@ variable "websites_port" {
   default = "3000"
 }
 
-variable "letsencrypt_host" {
-  default = "lrs-somthing.cshr.digital"
-}
-
-variable "letsencrypt_email" {
-  default = "email@address.com"
-}
-
 variable "environment_tag" {
   default = "unknown"
 }

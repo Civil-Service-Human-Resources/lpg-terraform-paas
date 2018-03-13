@@ -71,14 +71,6 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
                           {
                               "name": "WEBSITES_PORT",
                               "value": "${var.websites_port}"
-                          },
-                          {
-                              "name": "LETSENCRYPT_HOST",
-                              "value": "${var.letsencrypt_host}"
-                          },
-                          {
-                              "name": "LETSENCRPYT_EMAIL",
-                              "value": "${var.letsencrypt_email}"
                           }
                       ]
                   },
