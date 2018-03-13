@@ -6,8 +6,9 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
-  name = "${var.learning_locker_worker_name}"
+  name                = "${var.learning_locker_worker_name}"
   resource_group_name = "${var.rg_name}"
+
   template_body = <<DEPLOY
   {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -98,6 +99,7 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
+                "alwaysOn": true,
                 "appCommandLine": "node /opt/learning-locker/worker/dist/server"
             },
             "dependsOn": [
@@ -107,6 +109,7 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
       ]
   }
   DEPLOY
+
   deployment_mode = "Incremental"
   depends_on      = ["azurerm_resource_group.rg"]
 }

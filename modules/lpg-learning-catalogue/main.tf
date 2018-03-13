@@ -107,6 +107,7 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
+                "alwaysOn": true,
                 "appCommandLine": "./wait-for-it.sh ${var.elasticsearch_host}:${var.elasticsearch_port} -- java -jar /data/app.jar"
             },
             "dependsOn": [
