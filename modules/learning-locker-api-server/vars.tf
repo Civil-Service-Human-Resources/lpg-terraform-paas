@@ -23,7 +23,7 @@ variable "docker_image" {
 }
 
 variable "websites_port" {
-  default = "8082"
+  default = "9000"
 }
 
 variable "mongo_url" {
