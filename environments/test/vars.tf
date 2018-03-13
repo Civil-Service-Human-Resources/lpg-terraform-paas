@@ -131,7 +131,7 @@ variable "sql_rule_name" {
 
 ### learning-locker-general ###
 variable "ll_docker_tag" {
-  default = "5c6cea37123f575c211ddfb87cc7ce0bfc9f51a2114e277f95c6726688ce6bd6"
+  default = "d29392f370a186af9d9338fbe796e7d60c32fcd91bf23824c0fd86b6237fcd96"
 }
 
 ### learning-locker-xapi ###
