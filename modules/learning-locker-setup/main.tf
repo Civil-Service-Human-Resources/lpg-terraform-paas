@@ -103,7 +103,7 @@ resource "azurerm_template_deployment" "learning-locker-setup-app-service" {
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
-                "alwaysOn": true,
+                "alwaysOn": false,
                 "appCommandLine": "/opt/learning-locker/./node_modules/.bin/babel-node /opt/learning-locker/mkadmin.js"
             },
             "dependsOn": [
