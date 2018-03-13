@@ -183,7 +183,7 @@ module "lpg-management" {
   rg_name                    = "${var.rg_name}"
   rg_prefix                  = "${var.rg_prefix}"
   rg_location                = "${var.rg_location}"
-  docker_tag                 = "${var.ll_docker_tag}"
+  docker_tag                 = "${var.lpg_management_docker_tag}"
   lpg_management_name        = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management_name}"
   xapi_url                   = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net:8083"
   virtual_host               = "${var.virtual_host}"

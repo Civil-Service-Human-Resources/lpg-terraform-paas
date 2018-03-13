@@ -53,14 +53,6 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                               "value": "${var.authentication_service_url}"
                           },
                           {
-                              "name": "LETSENCRYPT_HOST",
-                              "value": "${var.letsencrypt_host}"
-                          },
-                          {
-                              "name": "LETSENCRYPT_EMAIL",
-                              "value": "${var.letsencrypt_email}"
-                          },
-                          {
                               "name": "AWS_ACCESS_KEY_ID",
                               "value": "${var.aws_access_key_id}"
                           },
