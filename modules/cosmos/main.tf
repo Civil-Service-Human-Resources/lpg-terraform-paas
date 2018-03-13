@@ -10,6 +10,7 @@ resource "azurerm_cosmosdb_account" "test" {
   location            = "${azurerm_resource_group.rg.location}"
   resource_group_name = "${azurerm_resource_group.rg.name}"
   offer_type          = "${var.cosmos_offer_type}"
+  kind                = "MongoDB"
 
   consistency_policy {
     consistency_level = "${var.cosmos_consistency_policy_level}"
