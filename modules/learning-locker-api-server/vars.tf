@@ -19,7 +19,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/lpg-learner-record"
+  default = "cshr/lpg-learning-locker"
 }
 
 variable "websites_port" {
