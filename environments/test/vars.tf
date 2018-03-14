@@ -139,10 +139,6 @@ variable "lpg_learning_locker_xapi_name" {
   default = "xapi"
 }
 
-variable "lpg_xapi_docker_tag" {
-  default = "d29392f370a186af9d9338fbe796e7d60c32fcd91bf23824c0fd86b6237fcd96"
-}
-
 ### learning-locker-worker ###
 variable "lpg_learning_locker_worker_name" {
   default = "api-worker"
