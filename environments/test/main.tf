@@ -117,7 +117,7 @@ module "lpg-learning-locker-xapi" {
   mongodb_path              = "mongodb://${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}.documents.azure.com:443/learninglocker"
   redis_host                = "${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net"
   redis_url                 = "redis://${var.rg_prefix}-${var.rg_name}-redis.redis.cache.windows.net:6379/0"
-  docker_tag                = "${var.lpg_xapi_docker_tag}"
+  docker_tag                = "${var.ll_docker_tag}"
   environment_tag           = "${var.environment_tag}"
 }
 
@@ -208,7 +208,7 @@ module "lpg-ui" {
   course_catalogue_url       = "${var.course_catalogue_url}"
   course_catalogue_user      = "${var.course_catalogue_user}"
   course_catalogue_pass      = "${var.course_catalogue_pass}"
-  learner_record_url         = "${var.learner_record_url}"
+  learner_record_url         = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learner_record_name}.azurewebsites.net"
   learner_record_user        = "${var.learner_record_user}"
   learner_record_pass        = "${var.learner_record_pass}"
   youtube_api_key            = "${var.youtube_api_key}"
