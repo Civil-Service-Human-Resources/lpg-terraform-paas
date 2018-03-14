@@ -21,3 +21,10 @@ resource "azurerm_cosmosdb_account" "test" {
     priority = 0
   }
 }
+
+output "cosmos_password" {
+  value = "${azurerm_cosmosdb_account.test.primary_master_key}"
+}
+output "cosmos_name" {
+  value = "${azurerm_cosmosdb_account.test.name}"
+}
