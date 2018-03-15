@@ -22,3 +22,15 @@ resource "azurerm_redis_cache" "redis_cache" {
     maxmemory_policy   = "${var.redis_maxmemory_policy}"
   }
 }
+
+output "redis_key" {
+  value = "${azurerm_redis_cache.redis_cache.primary_access_key}"
+}
+
+output "redis_host" {
+  value = "${azurerm_redis_cache.redis_cache.hostname}"
+}
+
+output "redis_port" {
+  value = "${azurerm_redis_cache.redis_cache.ssl_port}"
+}
