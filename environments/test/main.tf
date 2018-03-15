@@ -53,21 +53,15 @@ module "blob" {
 }
 
 module "wso2" {
-  source                  = "../../modules/wso2"
-  rg_name                 = "${var.rg_name}"
-  rg_prefix               = "${var.rg_prefix}"
-  rg_location             = "${var.rg_location}"
-  wso2_name               = "${var.rg_prefix}-${var.rg_name}-${var.wso2_name}"
-  database_url            = "${var.rg_prefix}-${var.rg_name}-${var.postgres_name}.postgres.database.azure.com:5432/wso2is"
-  lpg_ui_url              = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}.azurewebsites.net"
-  app_service_sku         = "${var.app_service_sku}"
-  app_service_sku_code    = "${var.app_service_sku_code}"
-  app_service_worker_size = "${var.app_service_worker_size}"
-  docker_image            = "${var.wso2_docker_image}"
-  docker_tag              = "${var.wso2_docker_tag}"
-  database_user           = ""
-  database_password       = ""
-  environment_tag         = "${var.environment_tag}"
+  source          = "../../modules/wso2"
+  rg_name         = "${var.rg_name}"
+  rg_prefix       = "${var.rg_prefix}"
+  rg_location     = "${var.rg_location}"
+  wso2_name       = "${var.rg_prefix}-${var.rg_name}-${var.wso2_name}"
+  database_url    = "jdbc:postgresql://${var.rg_prefix}-${var.rg_name}-${var.postgres_name}.postgres.database.azure.com:5432/wso2is?user=@${var.rg_prefix}-${var.rg_name}-${var.wso2_name}&password=&ssl=true"
+  docker_image    = "${var.wso2_docker_image}"
+  docker_tag      = "${var.wso2_docker_tag}"
+  environment_tag = "${var.environment_tag}"
 }
 
 module "mailhog" {

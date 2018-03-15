@@ -6,8 +6,9 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
-  name = "${var.lpg_learner_record_name}"
+  name                = "${var.lpg_learner_record_name}"
   resource_group_name = "${var.rg_name}"
+
   template_body = <<DEPLOY
   {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -106,7 +107,8 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
             "properties": {
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
-                "detailedErrorLoggingEnabled": true
+                "detailedErrorLoggingEnabled": true,
+                "alwaysOn": true
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
@@ -115,6 +117,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
       ]
   }
   DEPLOY
+
   deployment_mode = "Incremental"
   depends_on      = ["azurerm_resource_group.rg"]
 }

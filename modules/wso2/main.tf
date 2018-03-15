@@ -41,14 +41,6 @@ resource "azurerm_template_deployment" "wso2-app-service" {
                               "value": "false"
                           },
                           {
-                              "name": "DATABASE_USER",
-                              "value": "${var.database_user}"
-                          },
-                          {
-                              "name": "DATABASE_PASSWORD",
-                              "value": "${var.database_password}"
-                          },
-                          {
                               "name": "DATABASE_URL",
                               "value": "${var.database_url}"
                           },
@@ -57,24 +49,12 @@ resource "azurerm_template_deployment" "wso2-app-service" {
                               "value": "${var.carbon_protocol}"
                           },
                           {
-                              "name": "CARBON_PORT",
-                              "value": "${var.carbon_port}"
-                          },
-                          {
-                              "name": "CARBON_HOST",
-                              "value": "${var.carbon_host}"
-                          },
-                          {
-                              "name": "LPG_UI_URL",
-                              "value": "${var.lpg_ui_url}"
-                          },
-                          {
                               "name": "WEBSITES_PORT",
                               "value": "${var.websites_port}"
                           },
                           {
                               "name": "WEBSITES_CONTAINER_START_TIME_LIMIT",
-                              "value": "600"
+                              "value": "460"
                           }
                       ]
                   },
@@ -119,7 +99,8 @@ resource "azurerm_template_deployment" "wso2-app-service" {
             "properties": {
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
-                "detailedErrorLoggingEnabled": true
+                "detailedErrorLoggingEnabled": true,
+                "alwaysOn": true
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
