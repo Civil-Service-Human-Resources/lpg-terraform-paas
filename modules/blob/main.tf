@@ -11,6 +11,7 @@ resource "azurerm_storage_account" "blobsa" {
   location                 = "${var.storage_account_location}"
   account_tier             = "${var.storage_account_tier}"
   account_replication_type = "${var.storage_account_replication}"
+  depends_on               = ["azurerm_resource_group.rg"]
 }
 
 resource "azurerm_storage_container" "blobc" {
@@ -18,5 +19,5 @@ resource "azurerm_storage_container" "blobc" {
   resource_group_name   = "${var.rg_name}"
   storage_account_name  = "${var.storage_account_name}"
   container_access_type = "${var.container_accesstype}"
-  depends_on = ["azurerm_storage_account.blobsa"]
+  depends_on            = ["azurerm_storage_account.blobsa"]
 }
