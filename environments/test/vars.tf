@@ -36,6 +36,14 @@ variable "postgres_sku_tier" {
   default = "Basic"
 }
 
+variable "postgres_user" {
+  default = ""
+}
+
+variable "postgres_pass" {
+  default = ""
+}
+
 ### cosmos ###
 variable "cosmos_name" {
   default = "cosmos"
@@ -90,27 +98,6 @@ variable "lpg_learner_record_auth_password" {
 
 variable "xapi_url" {
   default = "xapi_url"
-}
-
-### azmssql ###
-variable "sql_serv_name" {
-  default = "sqlserver"
-}
-
-variable "sql_db_name" {
-  default = "sqldb"
-}
-
-variable "sql_admin" {
-  default = "sqladmin"
-}
-
-variable "sql_pass" {
-  default = "replaceme!@18"
-}
-
-variable "sql_rule_name" {
-  default = "firewall-rule-"
 }
 
 ### learning-locker-general ###
