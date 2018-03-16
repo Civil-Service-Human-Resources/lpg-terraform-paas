@@ -90,17 +90,6 @@ output "wso2_ip" {
   value = "${module.wso2.wso2_ip}"
 }
 
-module "azmssql" {
-  source        = "../../modules/azmssql"
-  rg_name       = "${var.rg_name}"
-  rg_prefix     = "${var.rg_prefix}"
-  rg_location   = "${var.rg_location}"
-  sql_serv_name = "${var.rg_prefix}${var.rg_name}sqlserver"
-  sql_admin     = ""
-  sql_pass      = ""
-  sql_db_name   = "${var.rg_prefix}-${var.rg_name}-db"
-}
-
 module "lpg-learning-locker-xapi" {
   source                    = "../../modules/learning-locker-xapi"
   rg_name                   = "${var.rg_name}"
