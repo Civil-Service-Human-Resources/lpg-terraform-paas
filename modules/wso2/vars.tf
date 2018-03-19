@@ -31,7 +31,7 @@ variable "carbon_protocol" {
 }
 
 variable "websites_port" {
-  default = "9443"
+  default = "8080"
 }
 
 variable "environment_tag" {
