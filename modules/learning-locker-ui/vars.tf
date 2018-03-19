@@ -30,10 +30,6 @@ variable "mongodb_path" {
   default = "mongo_host"
 }
 
-variable "redis_host" {
-  default = "hostname"
-}
-
 variable "redis_url" {
   default = "url"
 }

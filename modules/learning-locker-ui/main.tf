@@ -49,10 +49,6 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
                               "value": "${var.mongodb_path}"
                           },
                           {
-                              "name": "REDIS_HOST",
-                              "value": "${var.redis_host}"
-                          },
-                          {
                               "name": "REDIS_URL",
                               "value": "${var.redis_url}"
                           },
