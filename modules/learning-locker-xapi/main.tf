@@ -6,8 +6,9 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_template_deployment" "learning-locker-xapi-app-service" {
-  name = "${var.learning_locker_xapi_name}"
+  name                = "${var.learning_locker_xapi_name}"
   resource_group_name = "${var.rg_name}"
+
   template_body = <<DEPLOY
   {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -46,10 +47,6 @@ resource "azurerm_template_deployment" "learning-locker-xapi-app-service" {
                           {
                               "name": "MONGODB_PATH",
                               "value": "${var.mongodb_path}"
-                          },
-                          {
-                              "name": "REDIS_HOST",
-                              "value": "${var.redis_host}"
                           },
                           {
                               "name": "REDIS_URL",
@@ -112,6 +109,7 @@ resource "azurerm_template_deployment" "learning-locker-xapi-app-service" {
       ]
   }
   DEPLOY
+
   deployment_mode = "Incremental"
   depends_on      = ["azurerm_resource_group.rg"]
 }
