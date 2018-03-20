@@ -19,7 +19,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/lpg-learning-locker"
+  default = "cshr/lpg-learning-locker-api-worker"
 }
 
 variable "mongo_url" {

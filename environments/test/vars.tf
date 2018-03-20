@@ -110,9 +110,17 @@ variable "lpg_learning_locker_xapi_name" {
   default = "xapi"
 }
 
+variable "ll_xapi_docker_tag" {
+  default = "7e6b19d6d8bf99ce9d4c322b449a6744b7a33c23071e653bef827d0277b83441"
+}
+
 ### learning-locker-worker ###
 variable "lpg_learning_locker_worker_name" {
   default = "api-worker"
+}
+
+variable "ll_api_worker_docker_tag" {
+  default = "cd954f2c7cf423ce3c20223e4e3e73899246b96f9efdecc84770ac6b77d0ffe1"
 }
 
 ### learning-locker-setup ###
@@ -120,14 +128,26 @@ variable "lpg_learning_locker_setup_name" {
   default = "setup"
 }
 
+variable "ll_setup_docker_tag" {
+  default = "fc53b8729e706154b33f384081e0f3664d7ad9e7d8a3e9ddb3fd21e9dd10e556"
+}
+
 ### learning-locker-api-server ###
 variable "lpg_learning_locker_api_server_name" {
   default = "api-server"
 }
 
+variable "ll_api_server_docker_tag" {
+  default = "988cb07eb553b13d90ea7a48d9da247ca74c74b8b3a0e5e91f837976b2a0fb3b"
+}
+
 ### learning-locker-ui ###
 variable "lpg_learning_locker_ui_name" {
   default = "ui"
+}
+
+variable "ll_ui_docker_tag" {
+  default = "b5cddb229c58e961b96b4566e99e8971ac2b56ee31189f14e7b510b029be89ee"
 }
 
 variable "api_host" {
