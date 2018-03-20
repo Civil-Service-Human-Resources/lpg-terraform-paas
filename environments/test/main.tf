@@ -99,7 +99,7 @@ module "lpg-learning-locker-xapi" {
   mongo_url                 = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   mongodb_path              = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   redis_url                 = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0&password=${module.redis.redis_key}&ssl=True&abortConnect=False"
-  docker_tag                = "${var.ll_docker_tag}"
+  docker_tag                = "${var.ll_xapi_docker_tag}"
   environment_tag           = "${var.environment_tag}"
 }
 
@@ -113,7 +113,7 @@ module "lpg-learning-locker-worker" {
   mongodb_path                = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   redis_host                  = "${module.redis.redis_host}"
   redis_url                   = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0&password=${module.redis.redis_key}&ssl=True&abortConnect=False"
-  docker_tag                  = "${var.ll_docker_tag}"
+  docker_tag                  = "${var.ll_api_worker_docker_tag}"
   environment_tag             = "${var.environment_tag}"
 }
 
@@ -127,7 +127,7 @@ module "lpg-learning-locker-setup" {
   mongodb_path               = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   redis_host                 = "${module.redis.redis_host}"
   redis_url                  = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0&password=${module.redis.redis_key}&ssl=True&abortConnect=False"
-  docker_tag                 = "${var.ll_docker_tag}"
+  docker_tag                 = "${var.ll_setup_docker_tag}"
   environment_tag            = "${var.environment_tag}"
 }
 
@@ -139,7 +139,7 @@ module "lpg-learning-locker-api-server" {
   mongo_url                       = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   mongodb_path                    = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   redis_url                       = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0&password=${module.redis.redis_key}&ssl=True&abortConnect=False"
-  docker_tag                      = "${var.ll_docker_tag}"
+  docker_tag                      = "${var.ll_api_server_docker_tag}"
   learning_locker_api_server_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_api_server_name}"
   environment_tag                 = "${var.environment_tag}"
 }
@@ -152,7 +152,7 @@ module "lpg-learning-locker-ui" {
   mongo_url               = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   mongodb_path            = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   redis_url               = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0&password=${module.redis.redis_key}&ssl=True&abortConnect=False"
-  docker_tag              = "${var.ll_docker_tag}"
+  docker_tag              = "${var.ll_ui_docker_tag}"
   learning_locker_ui_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}"
   environment_tag         = "${var.environment_tag}"
   api_host                = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_api_server_name}.azurewebsites.net"
