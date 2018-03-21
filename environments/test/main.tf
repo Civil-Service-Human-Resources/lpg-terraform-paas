@@ -115,8 +115,14 @@ module "lpg-learning-locker-worker" {
   redis_url                   = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0&password=${module.redis.redis_key}&ssl=True&abortConnect=False"
   docker_tag                  = "${var.ll_api_worker_docker_tag}"
   environment_tag             = "${var.environment_tag}"
+  redis_port                  = "${module.redis.redis_port}"
+  redis_key                   = "${module.redis.redis_key}"
+  redis_db                    = "0"
+  redis_prefix                = "${var.rg_prefix}-${var.rg_name}-redis"
 }
 
+/*
+Not needed...
 module "lpg-learning-locker-setup" {
   source                     = "../../modules/learning-locker-setup"
   rg_name                    = "${var.rg_name}"
@@ -130,6 +136,7 @@ module "lpg-learning-locker-setup" {
   docker_tag                 = "${var.ll_setup_docker_tag}"
   environment_tag            = "${var.environment_tag}"
 }
+*/
 
 module "lpg-learning-locker-api-server" {
   source                          = "../../modules/learning-locker-api-server"

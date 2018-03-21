@@ -41,3 +41,19 @@ variable "redis_url" {
 variable "environment_tag" {
   default = "unknown"
 }
+
+variable "redis_port" {
+  default = "6380"
+}
+
+variable "redis_db" {
+  default = "0"
+}
+
+variable "redis_prefix" {
+  default = "redis"
+}
+
+variable "redis_key" {
+  default = "key"
+}

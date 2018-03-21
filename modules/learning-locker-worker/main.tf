@@ -55,6 +55,22 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                           {
                               "name": "REDIS_URL",
                               "value": "${var.redis_url}"
+                          },
+                          {
+                              "name": "REDIS_PORT",
+                              "value": "${var.redis_port}"
+                          },
+                          {
+                              "name": "REDIS_DB",
+                              "value": "${var.redis_db}"
+                          },
+                          {
+                              "name": "REDIS_PREFIX",
+                              "value": "${var.redis_prefix}"
+                          },
+                          {
+                              "name": "REDIS_KEY",
+                              "value": "${var.redis_key}"
                           }
                       ]
                   },
