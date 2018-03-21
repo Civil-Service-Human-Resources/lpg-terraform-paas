@@ -86,7 +86,7 @@ resource "azurerm_template_deployment" "wso2-app-service" {
               },
               "sku": {
                   "Tier": "Standard",
-                  "Name": "S1"
+                  "Name": "S2"
               },
               "kind": "linux"
           },
