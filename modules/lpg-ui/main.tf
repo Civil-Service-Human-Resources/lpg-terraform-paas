@@ -143,8 +143,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
-                "alwaysOn": true,
-                "appCommandLine": "node ../node_modules/ui/server.js"
+                "alwaysOn": true
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

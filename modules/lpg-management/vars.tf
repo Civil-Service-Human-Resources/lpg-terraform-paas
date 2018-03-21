@@ -19,7 +19,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/lpg-services"
+  default = "cshr/lpg-services-management-ui"
 }
 
 variable "virtual_host" {
