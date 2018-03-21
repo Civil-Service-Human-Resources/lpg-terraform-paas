@@ -54,7 +54,7 @@ resource "azurerm_template_deployment" "wso2-app-service" {
                           },
                           {
                               "name": "WEBSITES_CONTAINER_START_TIME_LIMIT",
-                              "value": "460"
+                              "value": "600"
                           }
                       ]
                   },
@@ -91,7 +91,6 @@ resource "azurerm_template_deployment" "wso2-app-service" {
               "kind": "linux"
           },
           {
-            "comments": "Generalized from resource: '/subscriptions/72aa545d-e1e2-4b4e-ade4-34ef397aca13/resourceGroups/pptestlab/providers/Microsoft.Web/sites/lpg-learner-record/config/web'.",
             "type": "Microsoft.Web/sites/config",
             "name": "[concat(parameters('siteName'), '/web')]",
             "apiVersion": "2016-08-01",
