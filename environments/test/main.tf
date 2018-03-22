@@ -166,18 +166,17 @@ module "lpg-learning-locker-ui" {
 }
 
 module "lpg-management" {
-  source                     = "../../modules/lpg-management"
-  rg_name                    = "${var.rg_name}"
-  rg_prefix                  = "${var.rg_prefix}"
-  rg_location                = "${var.rg_location}"
-  docker_tag                 = "${var.lpg_management_docker_tag}"
-  lpg_management_name        = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management_name}"
-  xapi_url                   = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net:8083/data/xAPI"
-  virtual_host               = "${var.virtual_host}"
-  authentication_service_url = "${var.authentication_service_url}"
-  aws_access_key_id          = "${var.aws_access_key_id}"
-  aws_secret_access_key      = "${var.aws_secret_access_key}"
-  environment_tag            = "${var.environment_tag}"
+  source                          = "../../modules/lpg-management"
+  rg_name                         = "${var.rg_name}"
+  rg_prefix                       = "${var.rg_prefix}"
+  rg_location                     = "${var.rg_location}"
+  docker_tag                      = "${var.lpg_management_docker_tag}"
+  lpg_management_name             = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management_name}"
+  xapi_url                        = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net:8083/data/xAPI"
+  virtual_host                    = "${var.virtual_host}"
+  authentication_service_url      = "${var.authentication_service_url}"
+  azure_storage_connection_string = "${module.blob.storage_connection_string}"
+  environment_tag                 = "${var.environment_tag}"
 }
 
 module "lpg-ui" {

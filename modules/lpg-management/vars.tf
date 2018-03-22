@@ -30,12 +30,8 @@ variable "authentication_service_url" {
   default = "http://identity-something.cshr.digital"
 }
 
-variable "aws_access_key_id" {
-  default = "access_key"
-}
-
-variable "aws_secret_access_key" {
-  default = "secret_key"
+variable "azure_storage_connection_string" {
+  default = "blob_connection_string"
 }
 
 variable "xapi_url" {
