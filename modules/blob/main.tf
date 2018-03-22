@@ -21,3 +21,7 @@ resource "azurerm_storage_container" "blobc" {
   container_access_type = "${var.container_accesstype}"
   depends_on            = ["azurerm_storage_account.blobsa"]
 }
+
+output "storage_connection_string" {
+  value = "${module.azurerm_storage_account.primary_connection_string}"
+}

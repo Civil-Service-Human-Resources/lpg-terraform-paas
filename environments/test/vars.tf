@@ -167,14 +167,6 @@ variable "authentication_service_url" {
   default = "auth_service_url"
 }
 
-variable "aws_access_key_id" {
-  default = "access_key"
-}
-
-variable "aws_secret_access_key" {
-  default = "access_key"
-}
-
 variable "lpg_management_docker_tag" {
   default = "latest"
 }
