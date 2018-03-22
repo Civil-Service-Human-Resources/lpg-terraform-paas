@@ -23,5 +23,5 @@ resource "azurerm_storage_container" "blobc" {
 }
 
 output "storage_connection_string" {
-  value = "${module.azurerm_storage_account.primary_connection_string}"
+  value = "${azurerm_storage_account.blobsa.primary_connection_string}"
 }

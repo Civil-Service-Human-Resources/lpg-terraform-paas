@@ -45,12 +45,8 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value": "${var.authentication_service_url}"
                           },
                           {
-                              "name": "AWS_ACCESS_KEY_ID",
-                              "value": "${var.aws_access_key_id}"
-                          },
-                          {
-                              "name": "AWS_SECRET_ACCESS_KEY",
-                              "value": "${var.aws_secret_access_key}"
+                              "name": "AZURE_STORAGE_CONNECTION_STRING",
+                              "value": "${var.azure_storage_connection_string}"
                           },
                           {
                               "name": "BOOKING_ALERT_WEBHOOK",
