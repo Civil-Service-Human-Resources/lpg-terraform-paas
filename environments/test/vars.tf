@@ -123,6 +123,46 @@ variable "ll_api_worker_docker_tag" {
   default = "cd954f2c7cf423ce3c20223e4e3e73899246b96f9efdecc84770ac6b77d0ffe1"
 }
 
+variable "hammer_api_worker_http_server_port" {
+  default = "8080"
+}
+
+variable "hammer_logstash_host" {
+  default = "54e2fb5d-be7a-47c2-b3cf-6f72f42b5dfb-ls.logit.io"
+}
+
+variable "hammer_logstash_port" {
+  default = "16690"
+}
+
+variable "env_profile" {
+  default = "test"
+}
+
+variable "worker_api_env_app" {
+  default = "learning-locker-api-worker"
+}
+
+variable "redis_use_tls" {
+  default = "1"
+}
+
+variable "worker_api_hammer_directory" {
+  default = "/opt/learning-locker"
+}
+
+variable "redis_queue_provider" {
+  default = "REDIS"
+}
+
+variable "redis_queue_namespace" {
+  default = "learninglocker"
+}
+
+variable "redis_prefix" {
+  default = "learninglocker"
+}
+
 ### learning-locker-setup ###
 variable "lpg_learning_locker_setup_name" {
   default = "setup"

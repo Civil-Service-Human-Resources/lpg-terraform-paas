@@ -53,10 +53,6 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                               "value": "${var.redis_host}"
                           },
                           {
-                              "name": "REDIS_URL",
-                              "value": "${var.redis_url}"
-                          },
-                          {
                               "name": "REDIS_PORT",
                               "value": "${var.redis_port}"
                           },
@@ -71,6 +67,42 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                           {
                               "name": "REDIS_KEY",
                               "value": "${var.redis_key}"
+                          },
+                          {
+                              "name": "QUEUE_PROVIDER",
+                              "value": "${var.queue_provider}"
+                          },
+                          {
+                              "name": "QUEUE_NAMESPACE",
+                              "value": "${var.queue_namespace}"
+                          },
+                          {
+                              "name": "HAMMER_HTTP_SERVER_PORT",
+                              "value": "${var.hammer_http_server_port}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_HOST",
+                              "value": "${var.hammer_logstash_host}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_PORT",
+                              "value": "${var.hammer_logstash_port}"
+                          },
+                          {
+                              "name": "ENV_PROFILE",
+                              "value": "${var.env_profile}"
+                          },
+                          {
+                              "name": "REDIS_USE_TLS",
+                              "value": "${var.redis_use_tls}"
+                          },
+                          {
+                              "name": "HAMMER_WORKING_DIRECTORY",
+                              "value": "${var.hammer_working_directory}"
+                          },
+                          {
+                              "name": "WEBSITES_PORT",
+                              "value": "${var.websites_port}"
                           }
                       ]
                   },

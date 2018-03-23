@@ -34,10 +34,6 @@ variable "redis_host" {
   default = "hostname"
 }
 
-variable "redis_url" {
-  default = "url"
-}
-
 variable "environment_tag" {
   default = "unknown"
 }
@@ -51,9 +47,45 @@ variable "redis_db" {
 }
 
 variable "redis_prefix" {
-  default = "redis"
+  default = "learninglocker"
 }
 
 variable "redis_key" {
   default = "key"
+}
+
+variable "hammer_http_server_port" {
+  default = "8080"
+}
+
+variable "hammer_logstash_host" {
+  default = "54e2fb5d-be7a-47c2-b3cf-6f72f42b5dfb-ls.logit.io"
+}
+
+variable "hammer_logstash_port" {
+  default = "16690"
+}
+
+variable "env_profile" {
+  default = "test"
+}
+
+variable "redis_use_tls" {
+  default = "1"
+}
+
+variable "hammer_working_directory" {
+  default = "/opt/learning-locker"
+}
+
+variable "queue_provider" {
+  default = "REDIS"
+}
+
+variable "queue_namespace" {
+  default = "learninglocker"
+}
+
+variable "websites_port" {
+  default = "8080"
 }
