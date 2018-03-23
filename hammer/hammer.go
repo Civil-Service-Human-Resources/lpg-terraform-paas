@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"bytes"
 	"crypto/tls"
 	"crypto/x509"
 	"encoding/json"
@@ -10,9 +9,11 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
+	"os/signal"
 	"path/filepath"
 	"strconv"
 	"strings"
+	"syscall"
 	"time"
 )
 
@@ -4621,19 +4622,32 @@ type proxy struct {
 	log   *logger
 }
 
-func (p *proxy) Write(data []byte) (n int, err error) {
-	p.file.Write(data)
-	idx := bytes.Index(data, newline)
-	if idx == -1 {
-		p.buf = append(p.buf, data...)
-		return len(data), nil
+func (p *proxy) Write(input []byte) (n int, err error) {
+	p.file.Write(input)
+	buf := p.buf
+	seenNewline := false
+	for _, char := range input {
+		if char == '\n' {
+			if seenNewline {
+				buf = append(buf, '\n')
+			} else {
+				seenNewline = true
+			}
+			continue
+		}
+		if seenNewline {
+			if (len(buf) < 65536) && (char == ' ' || char == '\t') {
+				buf = append(buf, '\n')
+			} else {
+				p.log.Write(string(buf), p.level)
+				buf = []byte{}
+			}
+			seenNewline = false
+		}
+		buf = append(buf, char)
 	}
-	msg := append(p.buf, data[:idx]...)
-	if len(data) > idx+1 {
-		p.buf = data[idx+1:]
-	}
-	p.log.Write(string(msg), p.level)
-	return len(data), nil
+	p.buf = buf
+	return len(input), nil
 }
 
 func createLogger() *logger {
@@ -4660,6 +4674,37 @@ func getRequiredEnv(name string) string {
 		os.Exit(1)
 	}
 	return value
+}
+
+func reapOrphans() {
+	terminations := make(chan struct{}, 100)
+	go func() {
+		sigs := make(chan os.Signal, 100)
+		signal.Notify(sigs, syscall.SIGCHLD)
+		for _ = range sigs {
+			select {
+			case terminations <- struct{}{}:
+				break
+			default:
+				// Skip alerting of the termination channel if it is full. The
+				// child processed will be reaped the next time there's an alert
+				// anyway, so it's not much of an issue.
+			}
+		}
+	}()
+	for _ = range terminations {
+		for {
+			var status syscall.WaitStatus
+			pid, err := syscall.Wait4(-1, &status, 0, nil)
+			for syscall.EINTR == err {
+				pid, err = syscall.Wait4(pid, &status, 0, nil)
+			}
+			fmt.Printf("Cleaned up after pid %d\n", pid)
+			if syscall.ECHILD == err {
+				break
+			}
+		}
+	}
 }
 
 func main() {
@@ -4714,6 +4759,8 @@ func main() {
 			}
 		}()
 	}
+
+	go reapOrphans()
 
 	cmdPath := args[0]
 	if filepath.Base(cmdPath) == cmdPath {
