@@ -4646,6 +4646,10 @@ func (p *proxy) Write(input []byte) (n int, err error) {
 		}
 		buf = append(buf, char)
 	}
+	if seenNewline && len(buf) > 0 {
+		p.log.Write(string(buf), p.level)
+		buf = []byte{}
+	}
 	p.buf = buf
 	return len(input), nil
 }
