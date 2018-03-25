@@ -120,7 +120,7 @@ variable "lpg_learning_locker_worker_name" {
 }
 
 variable "ll_api_worker_docker_tag" {
-  default = "cd954f2c7cf423ce3c20223e4e3e73899246b96f9efdecc84770ac6b77d0ffe1"
+  default = "d37351bdb964f8789706c1a3e48cff71a8055db23be79e68947035e80cf664b7"
 }
 
 variable "hammer_api_worker_http_server_port" {
@@ -178,7 +178,11 @@ variable "lpg_learning_locker_api_server_name" {
 }
 
 variable "ll_api_server_docker_tag" {
-  default = "988cb07eb553b13d90ea7a48d9da247ca74c74b8b3a0e5e91f837976b2a0fb3b"
+  default = "d37351bdb964f8789706c1a3e48cff71a8055db23be79e68947035e80cf664b7"
+}
+
+variable "server_api_hammer_directory" {
+  default = "/opt/learning-locker"
 }
 
 ### learning-locker-ui ###

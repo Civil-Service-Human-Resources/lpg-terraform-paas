@@ -41,10 +41,6 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                               "value": "false"
                           },
                           {
-                              "name": "MONGO_URL",
-                              "value": "${var.mongo_url}"
-                          },
-                          {
                               "name": "MONGODB_PATH",
                               "value": "${var.mongodb_path}"
                           },
@@ -148,7 +144,7 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
                 "alwaysOn": true,
-                "appCommandLine": "node /opt/learning-locker/worker/dist/server"
+                "appCommandLine": "/bin/hammer node /opt/learning-locker/worker/dist/server"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

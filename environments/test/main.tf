@@ -112,7 +112,6 @@ module "lpg-learning-locker-worker" {
   rg_prefix                   = "${var.rg_prefix}"
   rg_location                 = "${var.rg_location}"
   learning_locker_worker_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_worker_name}"
-  mongo_url                   = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   mongodb_path                = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   redis_host                  = "${module.redis.redis_host}"
   docker_tag                  = "${var.ll_api_worker_docker_tag}"
@@ -154,12 +153,14 @@ module "lpg-learning-locker-api-server" {
   rg_name                         = "${var.rg_name}"
   rg_prefix                       = "${var.rg_prefix}"
   rg_location                     = "${var.rg_location}"
-  mongo_url                       = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   mongodb_path                    = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
-  redis_url                       = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0&password=${module.redis.redis_key}&ssl=True&abortConnect=False"
   docker_tag                      = "${var.ll_api_server_docker_tag}"
   learning_locker_api_server_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_api_server_name}"
   environment_tag                 = "${var.environment_tag}"
+  hammer_logstash_host            = "${var.hammer_logstash_host}"
+  hammer_logstash_port            = "${var.hammer_logstash_port}"
+  env_profile                     = "${var.env_profile}"
+  hammer_working_directory        = "${var.server_api_hammer_directory}"
 }
 
 module "lpg-learning-locker-ui" {
