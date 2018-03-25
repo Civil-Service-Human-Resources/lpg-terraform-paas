@@ -40,20 +40,28 @@ resource "azurerm_template_deployment" "learning-locker-api-server-app-service" 
                               "value": "false"
                           },
                           {
-                              "name": "MONGO_URL",
-                              "value": "${var.mongo_url}"
-                          },
-                          {
                               "name": "MONGODB_PATH",
                               "value": "${var.mongodb_path}"
                           },
                           {
-                              "name": "REDIS_URL",
-                              "value": "${var.redis_url}"
-                          },
-                          {
                               "name": "WEBSITES_PORT",
                               "value": "${var.websites_port}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_HOST",
+                              "value": "${var.hammer_logstash_host}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_PORT",
+                              "value": "${var.hammer_logstash_port}"
+                          },
+                          {
+                              "name": "ENV_PROFILE",
+                              "value": "${var.env_profile}"
+                          },
+                          {
+                              "name": "HAMMER_WORKING_DIRECTORY",
+                              "value": "${var.hammer_working_directory}"
                           }
                       ]
                   },
@@ -99,7 +107,7 @@ resource "azurerm_template_deployment" "learning-locker-api-server-app-service" 
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
                 "alwaysOn": true,
-                "appCommandLine": "node /opt/learning-locker/api/dist/server"
+                "appCommandLine": "/bin/hammer node /opt/learning-locker/api/dist/server"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

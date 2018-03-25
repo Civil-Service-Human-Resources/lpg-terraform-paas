@@ -15,11 +15,11 @@ variable "rg_location" {
 }
 
 variable "docker_tag" {
-  default = ""
+  default = "d37351bdb964f8789706c1a3e48cff71a8055db23be79e68947035e80cf664b7"
 }
 
 variable "docker_image" {
-  default = "cshr/lpg-learning-locker-api-worker"
+  default = "cshr/lpg-learning-locker"
 }
 
 variable "mongo_url" {
