@@ -71,7 +71,7 @@ variable "wso2_docker_image" {
 }
 
 variable "wso2_docker_tag" {
-  default = "0b7e83825f49740c091ade17ce231587071dd327"
+  default = "f4ef0183d91cd599880caf4122e88f543c2376ec"
 }
 
 ### mailhog ###
