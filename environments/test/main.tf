@@ -85,8 +85,12 @@ module "lpg-learner-record" {
   auth_user               = "${var.lpg_learner_record_auth_user}"
   auth_password           = "${var.lpg_learner_record_auth_password}"
   docker_tag              = "${var.lpg_learner_record_docker_tag}"
-  xapi_url                = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net:8083/data/xAPI"
+  xapi_url                = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net/data/xAPI"
   environment_tag         = "${var.environment_tag}"
+  hammer_logstash_host    = "${var.hammer_logstash_host}"
+  hammer_logstash_port    = "${var.hammer_logstash_port}"
+  env_profile             = "${var.env_profile}"
+  websites_port           = "${var.ll_xapi_express_port}"
 }
 
 output "wso2_ip" {
