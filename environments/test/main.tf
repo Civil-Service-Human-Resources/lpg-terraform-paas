@@ -205,6 +205,9 @@ module "lpg-management" {
   authentication_service_url      = "${var.authentication_service_url}"
   azure_storage_connection_string = "${module.blob.storage_connection_string}"
   environment_tag                 = "${var.environment_tag}"
+  hammer_logstash_host        = "${var.hammer_logstash_host}"
+  hammer_logstash_port        = "${var.hammer_logstash_port}"
+  env_profile                 = "${var.env_profile}"
 }
 
 module "lpg-ui" {
