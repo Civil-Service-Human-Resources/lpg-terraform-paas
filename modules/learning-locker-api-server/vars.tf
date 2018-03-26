@@ -49,3 +49,7 @@ variable "env_profile" {
 variable "hammer_working_directory" {
   default = "/opt/learning-locker"
 }
+
+variable "testing" {
+  default = "1"
+}

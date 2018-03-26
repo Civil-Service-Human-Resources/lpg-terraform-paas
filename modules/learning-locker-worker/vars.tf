@@ -15,7 +15,7 @@ variable "rg_location" {
 }
 
 variable "docker_tag" {
-  default = "d37351bdb964f8789706c1a3e48cff71a8055db23be79e68947035e80cf664b7"
+  default = ""
 }
 
 variable "docker_image" {
@@ -88,4 +88,8 @@ variable "queue_namespace" {
 
 variable "websites_port" {
   default = "8080"
+}
+
+variable "testing" {
+  default = "1"
 }

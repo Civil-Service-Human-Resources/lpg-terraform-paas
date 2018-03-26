@@ -102,7 +102,7 @@ module "lpg-learning-locker-xapi" {
   mongo_url                 = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   mongodb_path              = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   redis_url                 = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0&password=${module.redis.redis_key}&ssl=True&abortConnect=False"
-  docker_tag                = "${var.ll_xapi_docker_tag}"
+  docker_tag                = "${var.ll_docker_tag}"
   environment_tag           = "${var.environment_tag}"
 }
 
@@ -114,7 +114,7 @@ module "lpg-learning-locker-worker" {
   learning_locker_worker_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_worker_name}"
   mongodb_path                = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   redis_host                  = "${module.redis.redis_host}"
-  docker_tag                  = "${var.ll_api_worker_docker_tag}"
+  docker_tag                  = "${var.ll_docker_tag}"
   environment_tag             = "${var.environment_tag}"
   redis_port                  = "${module.redis.redis_port}"
   redis_password              = "${module.redis.redis_key}"
@@ -129,6 +129,7 @@ module "lpg-learning-locker-worker" {
   websites_port               = "${var.hammer_api_worker_http_server_port}"
   queue_provider              = "REDIS"
   queue_namespace             = "learninglocker"
+  testing                     = "${var.lpg_testing}"
 }
 
 /*
@@ -147,34 +148,39 @@ module "lpg-learning-locker-setup" {
   environment_tag            = "${var.environment_tag}"
 }
 */
-
+/*
 module "lpg-learning-locker-api-server" {
   source                          = "../../modules/learning-locker-api-server"
   rg_name                         = "${var.rg_name}"
   rg_prefix                       = "${var.rg_prefix}"
   rg_location                     = "${var.rg_location}"
   mongodb_path                    = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
-  docker_tag                      = "${var.ll_api_server_docker_tag}"
+  docker_tag                      = "${var.ll_docker_tag}"
   learning_locker_api_server_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_api_server_name}"
   environment_tag                 = "${var.environment_tag}"
   hammer_logstash_host            = "${var.hammer_logstash_host}"
   hammer_logstash_port            = "${var.hammer_logstash_port}"
   env_profile                     = "${var.env_profile}"
   hammer_working_directory        = "${var.server_api_hammer_directory}"
+  testing                         = "${var.lpg_testing}"
 }
-
+*/
 module "lpg-learning-locker-ui" {
   source                  = "../../modules/learning-locker-ui"
   rg_name                 = "${var.rg_name}"
   rg_prefix               = "${var.rg_prefix}"
   rg_location             = "${var.rg_location}"
-  mongo_url               = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   mongodb_path            = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
-  redis_url               = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0&password=${module.redis.redis_key}&ssl=True&abortConnect=False"
-  docker_tag              = "${var.ll_ui_docker_tag}"
+  docker_tag              = "${var.ll_docker_tag}"
   learning_locker_ui_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}"
   environment_tag         = "${var.environment_tag}"
-  api_host                = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_api_server_name}.azurewebsites.net"
+  api_host                = "localhost"
+  api_port                = "${var.lpg_learning_locker_api_port}"
+  hammer_logstash_host    = "${var.hammer_logstash_host}"
+  hammer_logstash_port    = "${var.hammer_logstash_port}"
+  env_profile             = "${var.env_profile}"
+  ui_host                 = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}.azurewebsites.net"
+  ui_port                 = "${var.ll_ui_port}"
 }
 
 module "lpg-management" {
