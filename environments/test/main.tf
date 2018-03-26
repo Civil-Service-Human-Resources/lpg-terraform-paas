@@ -205,9 +205,9 @@ module "lpg-management" {
   authentication_service_url      = "${var.authentication_service_url}"
   azure_storage_connection_string = "${module.blob.storage_connection_string}"
   environment_tag                 = "${var.environment_tag}"
-  hammer_logstash_host        = "${var.hammer_logstash_host}"
-  hammer_logstash_port        = "${var.hammer_logstash_port}"
-  env_profile                 = "${var.env_profile}"
+  hammer_logstash_host            = "${var.hammer_logstash_host}"
+  hammer_logstash_port            = "${var.hammer_logstash_port}"
+  env_profile                     = "${var.env_profile}"
 }
 
 module "lpg-ui" {
@@ -216,20 +216,23 @@ module "lpg-ui" {
   rg_prefix                       = "${var.rg_prefix}"
   rg_location                     = "${var.rg_location}"
   lpg_ui_name                     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
-  xapi_url                        = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net:8083/data/xAPI"
+  xapi_url                        = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net/data/xAPI"
   virtual_host                    = "${var.virtual_host}"
   authentication_service_url      = "${var.authentication_service_url}"
   azure_storage_connection_string = "${module.blob.storage_connection_string}"
   environment_tag                 = "${var.environment_tag}"
-  course_catalogue_url            = "${var.course_catalogue_url}"
+  course_catalogue_url            = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_catalogue_name}.azurewebsites.net"
   course_catalogue_user           = "${var.course_catalogue_user}"
   course_catalogue_pass           = "${var.course_catalogue_pass}"
-  learner_record_url              = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learner_record_name}.azurewebsites.net"
+  learner_record_url              = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_learner_record_name}.azurewebsites.net"
   learner_record_user             = "${var.learner_record_user}"
   learner_record_pass             = "${var.learner_record_pass}"
   youtube_api_key                 = "${var.youtube_api_key}"
   gov_notify_api_key              = "${var.gov_notify_api_key}"
   booking_alert_webhook           = "${var.booking_alert_webhook}"
+  hammer_logstash_host            = "${var.hammer_logstash_host}"
+  hammer_logstash_port            = "${var.hammer_logstash_port}"
+  env_profile                     = "${var.env_profile}"
 }
 
 module "lpg-learning-catalogue" {
