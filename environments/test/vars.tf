@@ -265,18 +265,18 @@ variable "lpg_learning_catalogue_name" {
   default = "lpg-learning-catalogue"
 }
 
-variable "elasticsearch_host" {
-  default = "elasticsearch_host"
+variable "elasticsearch_uri" {
+  default = "https://test-elastic.cshr.digital:9200"
 }
 
-variable "elasticsearch_port" {
-  default = "elasticsearch_port"
+variable "elasticsearch_user" {
+  default = ""
 }
 
-variable "elasticsearch_cluster" {
-  default = "elasticsearch_cluster"
+variable "elasticsearch_password" {
+  default = ""
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "latest"
+  default = "a49affe58a1cdc712dba3e55375db34bf6e8c5b5"
 }
