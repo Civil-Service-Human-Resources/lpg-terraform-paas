@@ -50,8 +50,8 @@ variable "redis_prefix" {
   default = "learninglocker"
 }
 
-variable "redis_key" {
-  default = "key"
+variable "redis_password" {
+  default = "password"
 }
 
 variable "hammer_http_server_port" {

@@ -112,7 +112,8 @@ resource "azurerm_template_deployment" "wso2-app-service" {
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
-                "alwaysOn": true
+                "alwaysOn": true,
+                "appCommandLine": "/bin/hammer bin/wso2server.sh"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
