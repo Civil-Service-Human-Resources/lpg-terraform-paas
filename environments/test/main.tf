@@ -52,21 +52,21 @@ module "blob" {
 }
 
 module "wso2" {
-  source                  = "../../modules/wso2"
-  rg_name                 = "${var.rg_name}"
-  rg_prefix               = "${var.rg_prefix}"
-  rg_location             = "${var.rg_location}"
-  wso2_name               = "${var.rg_prefix}-${var.rg_name}-${var.wso2_name}"
-  database_url            = "jdbc:postgresql://${var.rg_prefix}-${var.rg_name}-${var.postgres_name}.postgres.database.azure.com:5432/wso2is?user=${var.postgres_user}@${var.rg_prefix}-${var.rg_name}-${var.postgres_name}&password=${var.postgres_pass}&ssl=true"
-  docker_image            = "${var.wso2_docker_image}"
-  docker_tag              = "${var.wso2_docker_tag}"
-  environment_tag         = "${var.environment_tag}"
-  hammer_logstash_host    = "${var.hammer_logstash_host}"
-  hammer_logstash_port    = "${var.hammer_logstash_port}"
-  env_profile             = "${var.env_profile}"
-
+  source               = "../../modules/wso2"
+  rg_name              = "${var.rg_name}"
+  rg_prefix            = "${var.rg_prefix}"
+  rg_location          = "${var.rg_location}"
+  wso2_name            = "${var.rg_prefix}-${var.rg_name}-${var.wso2_name}"
+  database_url         = "jdbc:postgresql://${var.rg_prefix}-${var.rg_name}-${var.postgres_name}.postgres.database.azure.com:5432/wso2is?user=${var.postgres_user}@${var.rg_prefix}-${var.rg_name}-${var.postgres_name}&password=${var.postgres_pass}&ssl=true"
+  docker_image         = "${var.wso2_docker_image}"
+  docker_tag           = "${var.wso2_docker_tag}"
+  environment_tag      = "${var.environment_tag}"
+  hammer_logstash_host = "${var.hammer_logstash_host}"
+  hammer_logstash_port = "${var.hammer_logstash_port}"
+  env_profile          = "${var.env_profile}"
 }
 
+/*
 module "mailhog" {
   source          = "../../modules/mailhog"
   rg_name         = "${var.rg_name}"
@@ -75,7 +75,7 @@ module "mailhog" {
   mailhog_name    = "${var.rg_prefix}-${var.rg_name}-${var.mailhog_name}"
   environment_tag = "${var.environment_tag}"
 }
-
+*/
 module "lpg-learner-record" {
   source                  = "../../modules/lpg-learner-record"
   rg_name                 = "${var.rg_name}"
@@ -117,7 +117,7 @@ module "lpg-learning-locker-worker" {
   docker_tag                  = "${var.ll_api_worker_docker_tag}"
   environment_tag             = "${var.environment_tag}"
   redis_port                  = "${module.redis.redis_port}"
-  redis_key                   = "${module.redis.redis_key}"
+  redis_password              = "${module.redis.redis_key}"
   redis_db                    = "0"
   redis_prefix                = "${var.redis_prefix}"
   hammer_http_server_port     = "${var.hammer_api_worker_http_server_port}"
@@ -174,7 +174,7 @@ module "lpg-learning-locker-ui" {
   docker_tag              = "${var.ll_ui_docker_tag}"
   learning_locker_ui_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}"
   environment_tag         = "${var.environment_tag}"
-  api_host                = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_api_server_name}.azurewebsites.net"
+  api_host                = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_api_server_name}.azurewebsites.net"
 }
 
 module "lpg-management" {

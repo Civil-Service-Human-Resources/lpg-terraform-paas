@@ -107,7 +107,7 @@ variable "ll_docker_tag" {
 
 ### learning-locker-xapi ###
 variable "lpg_learning_locker_xapi_name" {
-  default = "xapi"
+  default = "learning-locker-xapi"
 }
 
 variable "ll_xapi_docker_tag" {
@@ -116,7 +116,7 @@ variable "ll_xapi_docker_tag" {
 
 ### learning-locker-worker ###
 variable "lpg_learning_locker_worker_name" {
-  default = "api-worker"
+  default = "learning-locker-api-worker"
 }
 
 variable "ll_api_worker_docker_tag" {
@@ -174,7 +174,7 @@ variable "ll_setup_docker_tag" {
 
 ### learning-locker-api-server ###
 variable "lpg_learning_locker_api_server_name" {
-  default = "api-server"
+  default = "learning-locker-api-server"
 }
 
 variable "ll_api_server_docker_tag" {
@@ -187,7 +187,7 @@ variable "server_api_hammer_directory" {
 
 ### learning-locker-ui ###
 variable "lpg_learning_locker_ui_name" {
-  default = "ui"
+  default = "learning-locker-ui"
 }
 
 variable "ll_ui_docker_tag" {

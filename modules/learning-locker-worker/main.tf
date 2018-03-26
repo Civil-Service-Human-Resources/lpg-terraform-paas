@@ -61,8 +61,8 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                               "value": "${var.redis_prefix}"
                           },
                           {
-                              "name": "REDIS_KEY",
-                              "value": "${var.redis_key}"
+                              "name": "REDIS_PASSWORD",
+                              "value": "${var.redis_password}"
                           },
                           {
                               "name": "QUEUE_PROVIDER",
