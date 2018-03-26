@@ -85,7 +85,7 @@ variable "lpg_learner_record_name" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "latest"
+  default = "0a44bda01502cfa1cfc603a79b99da2620830d58"
 }
 
 variable "lpg_learner_record_auth_user" {
@@ -98,6 +98,10 @@ variable "lpg_learner_record_auth_password" {
 
 variable "xapi_url" {
   default = "xapi_url"
+}
+
+variable "lpg_learner_record_websites_port" {
+  default = "9000"
 }
 
 ### learning-locker-general ###
