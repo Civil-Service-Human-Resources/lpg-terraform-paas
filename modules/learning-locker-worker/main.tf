@@ -99,6 +99,10 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                           {
                               "name": "WEBSITES_PORT",
                               "value": "${var.websites_port}"
+                          },
+                          {
+                              "name": "TESTING",
+                              "value": "${var.testing}"
                           }
                       ]
                   },

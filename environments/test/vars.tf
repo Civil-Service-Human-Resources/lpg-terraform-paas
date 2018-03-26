@@ -102,7 +102,11 @@ variable "xapi_url" {
 
 ### learning-locker-general ###
 variable "ll_docker_tag" {
-  default = "d29392f370a186af9d9338fbe796e7d60c32fcd91bf23824c0fd86b6237fcd96"
+  default = "78d1c67e34d2e99a9d9e1c616df32589585acd14281adb8b9aff36be3067ba78"
+}
+
+variable "lpg_testing" {
+  default = "1"
 }
 
 ### learning-locker-xapi ###
@@ -110,17 +114,9 @@ variable "lpg_learning_locker_xapi_name" {
   default = "learning-locker-xapi"
 }
 
-variable "ll_xapi_docker_tag" {
-  default = "7e6b19d6d8bf99ce9d4c322b449a6744b7a33c23071e653bef827d0277b83441"
-}
-
 ### learning-locker-worker ###
 variable "lpg_learning_locker_worker_name" {
   default = "learning-locker-api-worker"
-}
-
-variable "ll_api_worker_docker_tag" {
-  default = "d37351bdb964f8789706c1a3e48cff71a8055db23be79e68947035e80cf664b7"
 }
 
 variable "hammer_api_worker_http_server_port" {
@@ -177,10 +173,6 @@ variable "lpg_learning_locker_api_server_name" {
   default = "learning-locker-api-server"
 }
 
-variable "ll_api_server_docker_tag" {
-  default = "d37351bdb964f8789706c1a3e48cff71a8055db23be79e68947035e80cf664b7"
-}
-
 variable "server_api_hammer_directory" {
   default = "/opt/learning-locker"
 }
@@ -190,12 +182,12 @@ variable "lpg_learning_locker_ui_name" {
   default = "learning-locker-ui"
 }
 
-variable "ll_ui_docker_tag" {
-  default = "b5cddb229c58e961b96b4566e99e8971ac2b56ee31189f14e7b510b029be89ee"
+variable "lpg_learning_locker_api_port" {
+  default = "8082"
 }
 
-variable "api_host" {
-  default = "api_host_here"
+variable "ll_ui_port" {
+  default = "80"
 }
 
 ### lpg-management ###
