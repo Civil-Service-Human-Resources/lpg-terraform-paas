@@ -114,6 +114,10 @@ variable "lpg_learning_locker_xapi_name" {
   default = "learning-locker-xapi"
 }
 
+variable "ll_xapi_express_port" {
+  default = "8083"
+}
+
 ### learning-locker-worker ###
 variable "lpg_learning_locker_worker_name" {
   default = "learning-locker-api-worker"

@@ -45,16 +45,36 @@ resource "azurerm_template_deployment" "learning-locker-xapi-app-service" {
                               "value": "${var.mongo_url}"
                           },
                           {
-                              "name": "MONGODB_PATH",
-                              "value": "${var.mongodb_path}"
-                          },
-                          {
                               "name": "REDIS_URL",
                               "value": "${var.redis_url}"
                           },
                           {
                               "name": "WEBSITES_PORT",
                               "value": "${var.websites_port}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_HOST",
+                              "value": "${var.hammer_logstash_host}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_PORT",
+                              "value": "${var.hammer_logstash_port}"
+                          },
+                          {
+                              "name": "ENV_PROFILE",
+                              "value": "${var.env_profile}"
+                          },
+                          {
+                              "name": "REDIS_USE_TLS",
+                              "value": "${var.redis_use_tls}"
+                          },
+                          {
+                              "name": "REDIS_PREFIX",
+                              "value": "${var.redis_prefix}"
+                          },
+                          {
+                              "name": "EXPRESS_PORT",
+                              "value": "${var.express_port}"
                           }
                       ]
                   },
@@ -100,7 +120,7 @@ resource "azurerm_template_deployment" "learning-locker-xapi-app-service" {
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
                 "alwaysOn": true,
-                "appCommandLine": "node /opt/xapi-service/dist/server"
+                "appCommandLine": "/bin/hammer node /opt/xapi-service/dist/server"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
