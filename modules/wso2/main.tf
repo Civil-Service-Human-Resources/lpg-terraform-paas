@@ -67,6 +67,14 @@ resource "azurerm_template_deployment" "wso2-app-service" {
                           {
                               "name": "ENV_PROFILE",
                               "value": "${var.env_profile}"
+                          },
+                          {
+                              "name": "LPG_UI_URL",
+                              "value": "${var.lpg_ui_url}"
+                          },
+                          {
+                              "name": "LPG_MANAGEMENT_UI_URL",
+                              "value": "${var.lpg_management_ui_url}"
                           }
                       ]
                   },

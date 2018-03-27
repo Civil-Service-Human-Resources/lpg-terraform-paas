@@ -49,3 +49,11 @@ variable "hammer_logstash_port" {
 variable "env_profile" {
   default = "test"
 }
+
+variable "lpg_ui_url" {
+  default = ""
+}
+
+variable "lpg_management_ui_url" {
+  default = ""
+}
