@@ -19,6 +19,14 @@ variable "environment_tag" {
   default = "test"
 }
 
+variable "lpg_ui_url" {
+  default = "https://test-lpg.cshr.digital"
+}
+
+variable "lpg_management_ui_url" {
+  default = "https://test-admin.cshr.digital"
+}
+
 ### postgres ###
 variable "postgres_name" {
   default = "postgres"
