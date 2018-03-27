@@ -19,6 +19,10 @@ variable "environment_tag" {
   default = "test"
 }
 
+variable "authentication_service_url" {
+  default = "test-identity.chsr.digital"
+}
+
 variable "lpg_ui_url" {
   default = "https://test-lpg.cshr.digital"
 }
@@ -215,10 +219,6 @@ variable "virtual_host" {
   default = "virtual_host"
 }
 
-variable "authentication_service_url" {
-  default = "auth_service_url"
-}
-
 variable "lpg_management_docker_tag" {
   default = "latest"
 }
@@ -257,15 +257,27 @@ variable "youtube_api_key" {
 }
 
 variable "gov_notify_api_key" {
-  default = ""
+  default = "test-22877568-4bca-40f9-8f54-8bf7922583cf-e2f80f22-e3de-4007-9ce2-b50a2b5785b7"
 }
 
 variable "google_analytics_id" {
   default = "UA-22141655-3"
 }
 
-variable "booking_alert_webhook" {
-  default = "booking_alert_webhook"
+variable "session_secret" {
+  default = "rx1SM5sniNO95X60"
+}
+
+variable "ui_hammer_working_directory" {
+  default = "/var/www/app/dist/ui"
+}
+
+variable "ui_websites_port" {
+  default = "3001"
+}
+
+variable "content_url" {
+  default = "http://local-cdn.cshr.digital/lpgdevcontent"
 }
 
 ### lpg-learning-catalogue ###

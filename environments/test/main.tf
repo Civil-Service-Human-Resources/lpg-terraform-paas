@@ -219,7 +219,6 @@ module "lpg-ui" {
   rg_location                     = "${var.rg_location}"
   lpg_ui_name                     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
   xapi_url                        = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net/data/xAPI"
-  virtual_host                    = "${var.virtual_host}"
   authentication_service_url      = "${var.authentication_service_url}"
   azure_storage_connection_string = "${module.blob.storage_connection_string}"
   environment_tag                 = "${var.environment_tag}"
@@ -231,10 +230,14 @@ module "lpg-ui" {
   learner_record_pass             = "${var.learner_record_pass}"
   youtube_api_key                 = "${var.youtube_api_key}"
   gov_notify_api_key              = "${var.gov_notify_api_key}"
-  booking_alert_webhook           = "${var.booking_alert_webhook}"
   hammer_logstash_host            = "${var.hammer_logstash_host}"
   hammer_logstash_port            = "${var.hammer_logstash_port}"
   env_profile                     = "${var.env_profile}"
+  google_analytics_id             = "${var.google_analytics_id}"
+  session_secret                  = "${var.session_secret}"
+  hammer_working_directory        = "${var.ui_hammer_working_directory}"
+  websites_port                   = "${var.ui_websites_port}"
+  content_url                     = "${var.content_url}"
 }
 
 module "lpg-learning-catalogue" {
