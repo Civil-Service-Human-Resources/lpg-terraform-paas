@@ -13,6 +13,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"sync"
 	"syscall"
 	"time"
 )
@@ -135,12 +136,48 @@ func (l *logger) Write(msg string, level string) {
 type proxy struct {
 	buf   []byte
 	file  *os.File
+	last  time.Time
 	level string
 	log   *logger
+	mutex sync.Mutex
+	quit  chan struct{}
+}
+
+func (p *proxy) Close() {
+	p.quit <- struct{}{}
+}
+
+func (p *proxy) Flush(checkTime bool) {
+	p.mutex.Lock()
+	if checkTime {
+		if time.Since(p.last) < 5*time.Second {
+			p.mutex.Unlock()
+			return
+		}
+	}
+	if len(p.buf) > 0 {
+		p.log.Write(string(p.buf), p.level)
+		p.buf = []byte{}
+	}
+	p.mutex.Unlock()
+}
+
+func (p *proxy) Run() {
+mainLoop:
+	for {
+		select {
+		case <-time.After(5 * time.Second):
+			p.Flush(true)
+		case <-p.quit:
+			p.Flush(false)
+			break mainLoop
+		}
+	}
 }
 
 func (p *proxy) Write(input []byte) (n int, err error) {
 	p.file.Write(input)
+	p.mutex.Lock()
 	buf := p.buf
 	seenNewline := false
 	for _, char := range input {
@@ -168,6 +205,8 @@ func (p *proxy) Write(input []byte) (n int, err error) {
 		buf = []byte{}
 	}
 	p.buf = buf
+	p.last = time.Now()
+	p.mutex.Unlock()
 	return len(input), nil
 }
 
@@ -293,14 +332,26 @@ func main() {
 	}
 
 	for {
+		stderr := &proxy{
+			[]byte{}, os.Stderr, time.Now(),
+			"error", log, sync.Mutex{}, make(chan struct{}),
+		}
+		go stderr.Run()
+		stdout := &proxy{
+			[]byte{}, os.Stdout, time.Now(),
+			"info", log, sync.Mutex{}, make(chan struct{}),
+		}
+		go stdout.Run()
 		cmd := &exec.Cmd{
 			Args:   args,
 			Dir:    workingDir,
 			Path:   cmdPath,
-			Stderr: &proxy{[]byte{}, os.Stderr, "error", log},
-			Stdout: &proxy{[]byte{}, os.Stdout, "info", log},
+			Stderr: stderr,
+			Stdout: stdout,
 		}
 		err := cmd.Run()
+		stderr.Close()
+		stdout.Close()
 		if err != nil {
 			log.Error("Got error running: %s: %#v", strings.Join(args, " "), err)
 		}
