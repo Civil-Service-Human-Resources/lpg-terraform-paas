@@ -93,3 +93,19 @@ variable "hammer_logstash_port" {
 variable "env_profile" {
   default = "test"
 }
+
+variable "websites_port" {
+  default = "3001"
+}
+
+variable "session_secret" {
+  default = ""
+}
+
+variable "hammer_working_directory" {
+  default = ""
+}
+
+variable "content_url" {
+  default = ""
+}

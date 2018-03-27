@@ -49,10 +49,6 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value": "${var.azure_storage_connection_string}"
                           },
                           {
-                              "name": "BOOKING_ALERT_WEBHOOK",
-                              "value": "${var.booking_alert_webhook}"
-                          },
-                          {
                               "name": "GOOGLE_ANALYTICS_ID",
                               "value": "${var.google_analytics_id}"
                           },
@@ -85,10 +81,6 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value": "${var.learner_record_pass}"
                           },
                           {
-                              "name": "VIRTUAL_HOST",
-                              "value": "${var.virtual_host}"
-                          },
-                          {
                               "name": "XAPI_URL",
                               "value": "${var.xapi_url}"
                           },
@@ -107,6 +99,22 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                           {
                               "name": "ENV_PROFILE",
                               "value": "${var.env_profile}"
+                          },
+                          {
+                              "name": "WEBSITES_PORT",
+                              "value": "${var.websites_port}"
+                          },
+                          {
+                              "name": "HAMMER_WORKING_DIRECTORY",
+                              "value": "${var.hammer_working_directory}"
+                          },
+                          {
+                              "name": "SESSION_SECRET",
+                              "value": "${var.session_secret}"
+                          },
+                          {
+                              "name": "CONTENT_URL",
+                              "value": "${var.content_url}"
                           }
                       ]
                   },
@@ -151,7 +159,8 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
-                "alwaysOn": true
+                "alwaysOn": true,
+                "appCommandLine": "/bin/hammer node ../node_modules/ui/server.js"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
