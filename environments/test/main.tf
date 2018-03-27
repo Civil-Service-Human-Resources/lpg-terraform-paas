@@ -202,14 +202,20 @@ module "lpg-management" {
   rg_location                     = "${var.rg_location}"
   docker_tag                      = "${var.lpg_management_docker_tag}"
   lpg_management_name             = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management_name}"
-  xapi_url                        = "http://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net:8083/data/xAPI"
-  virtual_host                    = "${var.virtual_host}"
   authentication_service_url      = "${var.authentication_service_url}"
   azure_storage_connection_string = "${module.blob.storage_connection_string}"
   environment_tag                 = "${var.environment_tag}"
   hammer_logstash_host            = "${var.hammer_logstash_host}"
   hammer_logstash_port            = "${var.hammer_logstash_port}"
   env_profile                     = "${var.env_profile}"
+  lpg_ui_server                   = "{${var.lpg_ui_server}"
+  session_secret                  = "${var.session_secret}"
+  hammer_working_directory        = "${var.management_ui_hammer_working_directory}"
+  websites_port                   = "${var.management_ui_websites_port}"
+  youtube_api_key                 = "${var.youtube_api_key}"
+  course_catalogue_url            = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_catalogue_name}.azurewebsites.net"
+  course_catalogue_user           = "${var.course_catalogue_user}"
+  course_catalogue_pass           = "${var.course_catalogue_pass}"
 }
 
 module "lpg-ui" {

@@ -27,6 +27,10 @@ variable "lpg_ui_url" {
   default = "https://test-lpg.cshr.digital"
 }
 
+variable "lpg_ui_server" {
+  default = "test-lpg.cshr.digital"
+}
+
 variable "lpg_management_ui_url" {
   default = "https://test-admin.cshr.digital"
 }
@@ -221,6 +225,14 @@ variable "virtual_host" {
 
 variable "lpg_management_docker_tag" {
   default = "latest"
+}
+
+variable "management_ui_hammer_working_directory" {
+  default = "/var/www/app/dist/management-ui"
+}
+
+variable "management_ui_websites_port" {
+  default = "3001"
 }
 
 ### lpg-ui ###

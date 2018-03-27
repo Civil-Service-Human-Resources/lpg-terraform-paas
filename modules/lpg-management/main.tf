@@ -41,14 +41,6 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                               "value": "false"
                           },
                           {
-                              "name": "XAPI_URL",
-                              "value": "${var.xapi_url}"
-                          },
-                          {
-                              "name": "VIRTUAL_HOST",
-                              "value": "${var.virtual_host}"
-                          },
-                          {
                               "name": "AUTHENTICATION_SERVICE_URL",
                               "value": "${var.authentication_service_url}"
                           },
@@ -67,6 +59,38 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                           {
                               "name": "ENV_PROFILE",
                               "value": "${var.env_profile}"
+                          },
+                          {
+                              "name": "LPG_UI_SERVER",
+                              "value": "${var.lpg_ui_server}"
+                          },
+                          {
+                              "name": "YOUTUBE_API_KEY",
+                              "value": "${var.youtube_api_key}"
+                          },
+                          {
+                              "name": "WEBSITES_PORT",
+                              "value": "${var.websites_port}"
+                          },
+                          {
+                              "name": "HAMMER_WORKING_DIRECTORY",
+                              "value": "${var.hammer_working_directory}"
+                          },
+                          {
+                              "name": "COURSE_CATALOGUE_URL",
+                              "value": "${var.course_catalogue_url}"
+                          },
+                          {
+                              "name": "COURSE_CATALOGUE_USER",
+                              "value": "${var.course_catalogue_user}"
+                          },
+                          {
+                              "name": "COURSE_CATALOGUE_PASS",
+                              "value": "${var.course_catalogue_pass}"
+                          },
+                          {
+                              "name": "SESSION_SECRET",
+                              "value": "${var.session_secret}"
                           }
                       ]
                   },
@@ -112,6 +136,7 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
                 "alwaysOn": true
+                "appCommandLine": "/bin/hammer node ../node_modules/management-ui/server.js"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
