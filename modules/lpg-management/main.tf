@@ -135,7 +135,7 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
-                "alwaysOn": true
+                "alwaysOn": true,
                 "appCommandLine": "/bin/hammer node ../node_modules/management-ui/server.js"
             },
             "dependsOn": [
