@@ -1,7 +1,7 @@
 ### Gen vars ###
 variable "rg_name" {
   type    = "string"
-  default = "testlab"
+  default = "prod"
 }
 
 variable "rg_prefix" {
@@ -16,23 +16,23 @@ variable "rg_location" {
 
 variable "environment_tag" {
   type    = "string"
-  default = "test"
+  default = "prod"
 }
 
 variable "authentication_service_url" {
-  default = "https://test-identity.cshr.digital"
+  default = "https://identity.cshr.digital"
 }
 
 variable "lpg_ui_url" {
-  default = "https://test-lpg.cshr.digital"
+  default = "https://lpg.cshr.digital"
 }
 
 variable "lpg_ui_server" {
-  default = "test-lpg.cshr.digital"
+  default = "lpg.cshr.digital"
 }
 
 variable "lpg_management_ui_url" {
-  default = "https://test-admin.cshr.digital"
+  default = "https://admin.cshr.digital"
 }
 
 ### postgres ###
@@ -140,7 +140,7 @@ variable "hammer_logstash_port" {
 }
 
 variable "env_profile" {
-  default = "test"
+  default = "prod"
 }
 
 variable "worker_api_env_app" {
@@ -237,11 +237,11 @@ variable "youtube_api_key" {
 }
 
 variable "gov_notify_api_key" {
-  default = "test-22877568-4bca-40f9-8f54-8bf7922583cf-e2f80f22-e3de-4007-9ce2-b50a2b5785b7"
+  default = "dev-22877568-4bca-40f9-8f54-8bf7922583cf-682358c6-79e7-4832-8690-b28a06a0baf6"
 }
 
 variable "google_analytics_id" {
-  default = "UA-22141655-3"
+  default = "UA-22141655-6"
 }
 
 variable "ui_hammer_working_directory" {
@@ -262,7 +262,7 @@ variable "lpg_learning_catalogue_name" {
 }
 
 variable "elasticsearch_uri" {
-  default = "https://test-elastic.cshr.digital:9200"
+  default = "https://elastic.cshr.digital:9200"
 }
 
 variable "learning_catalogue_docker_tag" {

@@ -81,3 +81,31 @@ variable "xapi_url" {
 variable "youtube_api_key" {
   default = "youtube_api_key"
 }
+
+variable "hammer_logstash_host" {
+  default = "54e2fb5d-be7a-47c2-b3cf-6f72f42b5dfb-ls.logit.io"
+}
+
+variable "hammer_logstash_port" {
+  default = "16690"
+}
+
+variable "env_profile" {
+  default = "test"
+}
+
+variable "websites_port" {
+  default = "3001"
+}
+
+variable "session_secret" {
+  default = ""
+}
+
+variable "hammer_working_directory" {
+  default = ""
+}
+
+variable "content_url" {
+  default = ""
+}

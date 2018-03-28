@@ -6,8 +6,9 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
-  name = "${var.lpg_learning_catalogue_name}"
+  name                = "${var.lpg_learning_catalogue_name}"
   resource_group_name = "${var.rg_name}"
+
   template_body = <<DEPLOY
   {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -48,20 +49,32 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
                               "value": "${var.auth_password}"
                           },
                           {
-                              "name": "ELASTICSEARCH_HOST",
-                              "value": "${var.elasticsearch_host}"
+                              "name": "ELASTICSEARCH_URI",
+                              "value": "${var.elasticsearch_uri}"
                           },
                           {
-                              "name": "ELASTICSEARCH_PORT",
-                              "value": "${var.elasticsearch_port}"
+                              "name": "ELASTICSEARCH_USER",
+                              "value": "${var.elasticsearch_user}"
                           },
                           {
-                              "name": "ELASTICSEARCH_CLUSTER",
-                              "value": "${var.elasticsearch_cluster}"
+                              "name": "ELASTICSEARCH_PASSWORD",
+                              "value": "${var.elasticsearch_password}"
                           },
                           {
                               "name": "WEBSITES_PORT",
                               "value": "${var.websites_port}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_HOST",
+                              "value": "${var.hammer_logstash_host}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_PORT",
+                              "value": "${var.hammer_logstash_port}"
+                          },
+                          {
+                              "name": "ENV_PROFILE",
+                              "value": "${var.env_profile}"
                           }
                       ]
                   },
@@ -108,7 +121,7 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
                 "alwaysOn": true,
-                "appCommandLine": "./wait-for-it.sh ${var.elasticsearch_host}:${var.elasticsearch_port} -- java -jar /data/app.jar"
+                "appCommandLine": "/bin/hammer java -jar /data/app.jar"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
@@ -117,6 +130,7 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
       ]
   }
   DEPLOY
+
   deployment_mode = "Incremental"
   depends_on      = ["azurerm_resource_group.rg"]
 }

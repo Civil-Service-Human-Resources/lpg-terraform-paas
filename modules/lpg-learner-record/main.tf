@@ -63,6 +63,18 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                           {
                               "name": "WEBSITES_PORT",
                               "value": "${var.websites_port}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_HOST",
+                              "value": "${var.hammer_logstash_host}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_PORT",
+                              "value": "${var.hammer_logstash_port}"
+                          },
+                          {
+                              "name": "ENV_PROFILE",
+                              "value": "${var.env_profile}"
                           }
                       ]
                   },
@@ -108,7 +120,8 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
-                "alwaysOn": true
+                "alwaysOn": true,
+                "appCommandLine": "/bin/hammer java -jar /data/app.jar"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

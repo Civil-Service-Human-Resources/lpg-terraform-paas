@@ -41,32 +41,44 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
                               "value": "false"
                           },
                           {
-                              "name": "MONGO_URL",
-                              "value": "${var.mongo_url}"
-                          },
-                          {
                               "name": "MONGODB_PATH",
                               "value": "${var.mongodb_path}"
-                          },
-                          {
-                              "name": "REDIS_URL",
-                              "value": "${var.redis_url}"
                           },
                           {
                               "name": "API_HOST",
                               "value": "${var.api_host}"
                           },
                           {
-                              "name": "VIRTUAL_HOST",
-                              "value": "${var.virtual_host}"
-                          },
-                          {
-                              "name": "VIRTUAL_PORT",
-                              "value": "${var.virtual_port}"
+                              "name": "API_PORT",
+                              "value": "${var.api_port}"
                           },
                           {
                               "name": "WEBSITES_PORT",
                               "value": "${var.websites_port}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_HOST",
+                              "value": "${var.hammer_logstash_host}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_PORT",
+                              "value": "${var.hammer_logstash_port}"
+                          },
+                          {
+                              "name": "ENV_PROFILE",
+                              "value": "${var.env_profile}"
+                          },
+                          {
+                              "name": "TESTING",
+                              "value": "${var.testing}"
+                          },
+                          {
+                              "name": "UI_HOST",
+                              "value": "${var.ui_host}"
+                          },
+                          {
+                              "name": "UI_PORT",
+                              "value": "${var.ui_port}"
                           }
                       ]
                   },
@@ -112,7 +124,7 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
                 "alwaysOn": true,
-                "appCommandLine": "node /opt/learning-locker/ui/dist/server"
+                "appCommandLine": "/bin/hammer /opt/learning-locker/run-ui.sh"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

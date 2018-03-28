@@ -6,8 +6,9 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_template_deployment" "learning-locker-api-server-app-service" {
-  name = "${var.learning_locker_api_server_name}"
+  name                = "${var.learning_locker_api_server_name}"
   resource_group_name = "${var.rg_name}"
+
   template_body = <<DEPLOY
   {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -40,20 +41,32 @@ resource "azurerm_template_deployment" "learning-locker-api-server-app-service" 
                               "value": "false"
                           },
                           {
-                              "name": "MONGO_URL",
-                              "value": "${var.mongo_url}"
-                          },
-                          {
                               "name": "MONGODB_PATH",
                               "value": "${var.mongodb_path}"
                           },
                           {
-                              "name": "REDIS_URL",
-                              "value": "${var.redis_url}"
-                          },
-                          {
                               "name": "WEBSITES_PORT",
                               "value": "${var.websites_port}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_HOST",
+                              "value": "${var.hammer_logstash_host}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_PORT",
+                              "value": "${var.hammer_logstash_port}"
+                          },
+                          {
+                              "name": "ENV_PROFILE",
+                              "value": "${var.env_profile}"
+                          },
+                          {
+                              "name": "HAMMER_WORKING_DIRECTORY",
+                              "value": "${var.hammer_working_directory}"
+                          },
+                          {
+                              "name": "TESTING",
+                              "value": "${var.testing}"
                           }
                       ]
                   },
@@ -99,7 +112,7 @@ resource "azurerm_template_deployment" "learning-locker-api-server-app-service" 
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
                 "alwaysOn": true,
-                "appCommandLine": "node /opt/learning-locker/api/dist/server"
+                "appCommandLine": "/bin/hammer node /opt/learning-locker/api/dist/server"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
@@ -108,6 +121,7 @@ resource "azurerm_template_deployment" "learning-locker-api-server-app-service" 
       ]
   }
   DEPLOY
+
   deployment_mode = "Incremental"
   depends_on      = ["azurerm_resource_group.rg"]
 }

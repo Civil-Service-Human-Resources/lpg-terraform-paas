@@ -41,3 +41,47 @@ variable "xapi_url" {
 variable "environment_tag" {
   default = "unknown"
 }
+
+variable "hammer_logstash_host" {
+  default = "54e2fb5d-be7a-47c2-b3cf-6f72f42b5dfb-ls.logit.io"
+}
+
+variable "hammer_logstash_port" {
+  default = "16690"
+}
+
+variable "env_profile" {
+  default = "test"
+}
+
+variable "youtube_api_key" {
+  default = ""
+}
+
+variable "hammer_working_directory" {
+  default = ""
+}
+
+variable "lpg_ui_server" {
+  default = ""
+}
+
+variable "course_catalogue_url" {
+  default = "url"
+}
+
+variable "course_catalogue_user" {
+  default = "user"
+}
+
+variable "course_catalogue_pass" {
+  default = "password"
+}
+
+variable "websites_port" {
+  default = "3001"
+}
+
+variable "session_secret" {
+  default = ""
+}

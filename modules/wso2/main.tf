@@ -55,6 +55,26 @@ resource "azurerm_template_deployment" "wso2-app-service" {
                           {
                               "name": "WEBSITES_CONTAINER_START_TIME_LIMIT",
                               "value": "600"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_HOST",
+                              "value": "${var.hammer_logstash_host}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_PORT",
+                              "value": "${var.hammer_logstash_port}"
+                          },
+                          {
+                              "name": "ENV_PROFILE",
+                              "value": "${var.env_profile}"
+                          },
+                          {
+                              "name": "LPG_UI_URL",
+                              "value": "${var.lpg_ui_url}"
+                          },
+                          {
+                              "name": "LPG_MANAGEMENT_UI_URL",
+                              "value": "${var.lpg_management_ui_url}"
                           }
                       ]
                   },
@@ -86,7 +106,7 @@ resource "azurerm_template_deployment" "wso2-app-service" {
               },
               "sku": {
                   "Tier": "Standard",
-                  "Name": "S2"
+                  "Name": "S3"
               },
               "kind": "linux"
           },
@@ -100,7 +120,8 @@ resource "azurerm_template_deployment" "wso2-app-service" {
                 "httpLoggingEnabled": true,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
-                "alwaysOn": true
+                "alwaysOn": true,
+                "appCommandLine": "/bin/hammer bin/wso2server.sh"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
