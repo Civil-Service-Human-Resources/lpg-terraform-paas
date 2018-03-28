@@ -20,7 +20,7 @@ variable "environment_tag" {
 }
 
 variable "authentication_service_url" {
-  default = "test-identity.chsr.digital"
+  default = "https://test-identity.cshr.digital"
 }
 
 variable "lpg_ui_url" {
@@ -50,14 +50,6 @@ variable "postgres_sku_capacity" {
 
 variable "postgres_sku_tier" {
   default = "Basic"
-}
-
-variable "postgres_user" {
-  default = ""
-}
-
-variable "postgres_pass" {
-  default = ""
 }
 
 ### cosmos ###
@@ -102,14 +94,6 @@ variable "lpg_learner_record_name" {
 
 variable "lpg_learner_record_docker_tag" {
   default = "0a44bda01502cfa1cfc603a79b99da2620830d58"
-}
-
-variable "lpg_learner_record_auth_user" {
-  default = "user"
-}
-
-variable "lpg_learner_record_auth_password" {
-  default = "password"
 }
 
 variable "xapi_url" {
@@ -244,24 +228,8 @@ variable "course_catalogue_url" {
   default = "course_catalogue_url"
 }
 
-variable "course_catalogue_user" {
-  default = "user"
-}
-
-variable "course_catalogue_pass" {
-  default = "password"
-}
-
 variable "learner_record_url" {
   default = "learner_record_url"
-}
-
-variable "learner_record_user" {
-  default = "user"
-}
-
-variable "learner_record_pass" {
-  default = "password"
 }
 
 variable "youtube_api_key" {
@@ -274,10 +242,6 @@ variable "gov_notify_api_key" {
 
 variable "google_analytics_id" {
   default = "UA-22141655-3"
-}
-
-variable "session_secret" {
-  default = "rx1SM5sniNO95X60"
 }
 
 variable "ui_hammer_working_directory" {
@@ -299,14 +263,6 @@ variable "lpg_learning_catalogue_name" {
 
 variable "elasticsearch_uri" {
   default = "https://test-elastic.cshr.digital:9200"
-}
-
-variable "elasticsearch_user" {
-  default = ""
-}
-
-variable "elasticsearch_password" {
-  default = ""
 }
 
 variable "learning_catalogue_docker_tag" {

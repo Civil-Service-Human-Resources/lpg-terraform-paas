@@ -65,7 +65,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value": "${var.learner_record_user}"
                           },
                           {
-                              "name": "LEARNER_RECORD_PASSWORD",
+                              "name": "LEARNER_RECORD_PASS",
                               "value": "${var.learner_record_pass}"
                           },
                           {
@@ -78,7 +78,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                           },
                           {
                               "name": "COURSE_CATALOGUE_PASS",
-                              "value": "${var.learner_record_pass}"
+                              "value": "${var.course_catalogue_pass}"
                           },
                           {
                               "name": "XAPI_URL",
