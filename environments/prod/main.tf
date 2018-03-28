@@ -106,7 +106,7 @@ module "lpg-learning-locker-xapi" {
   rg_location               = "${var.rg_location}"
   learning_locker_xapi_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}"
   mongo_url                 = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
-  redis_url                 = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0&password=${module.redis.redis_key}&ssl=True&abortConnect=False"
+  redis_url                 = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0?password=${module.redis.redis_key}"
   docker_tag                = "${var.ll_docker_tag}"
   environment_tag           = "${var.environment_tag}"
   hammer_logstash_host      = "${var.hammer_logstash_host}"
