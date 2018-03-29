@@ -68,16 +68,6 @@ module "wso2" {
   lpg_management_ui_url = "${var.lpg_management_ui_url}"
 }
 
-/*
-module "mailhog" {
-  source          = "../../modules/mailhog"
-  rg_name         = "${var.rg_name}"
-  rg_prefix       = "${var.rg_prefix}"
-  rg_location     = "${var.rg_location}"
-  mailhog_name    = "${var.rg_prefix}-${var.rg_name}-${var.mailhog_name}"
-  environment_tag = "${var.environment_tag}"
-}
-*/
 module "lpg-learner-record" {
   source                  = "../../modules/lpg-learner-record"
   rg_name                 = "${var.rg_name}"
@@ -139,44 +129,11 @@ module "lpg-learning-locker-worker" {
   redis_use_tls               = "${var.redis_use_tls}"
   hammer_working_directory    = "${var.worker_api_hammer_directory}"
   websites_port               = "${var.hammer_api_worker_http_server_port}"
-  queue_provider              = "REDIS"
-  queue_namespace             = "learninglocker"
+  queue_provider              = "${var.redis_queue_provider}"
+  queue_namespace             = "${var.redis_queue_namespace}"
   testing                     = "${var.lpg_testing}"
 }
 
-/*
-Not needed...
-module "lpg-learning-locker-setup" {
-  source                     = "../../modules/learning-locker-setup"
-  rg_name                    = "${var.rg_name}"
-  rg_prefix                  = "${var.rg_prefix}"
-  rg_location                = "${var.rg_location}"
-  learning_locker_setup_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_setup_name}"
-  mongo_url                  = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
-  mongodb_path               = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
-  redis_host                 = "${module.redis.redis_host}"
-  redis_url                  = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0&password=${module.redis.redis_key}&ssl=True&abortConnect=False"
-  docker_tag                 = "${var.ll_setup_docker_tag}"
-  environment_tag            = "${var.environment_tag}"
-}
-*/
-/*
-module "lpg-learning-locker-api-server" {
-  source                          = "../../modules/learning-locker-api-server"
-  rg_name                         = "${var.rg_name}"
-  rg_prefix                       = "${var.rg_prefix}"
-  rg_location                     = "${var.rg_location}"
-  mongodb_path                    = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
-  docker_tag                      = "${var.ll_docker_tag}"
-  learning_locker_api_server_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_api_server_name}"
-  environment_tag                 = "${var.environment_tag}"
-  hammer_logstash_host            = "${var.hammer_logstash_host}"
-  hammer_logstash_port            = "${var.hammer_logstash_port}"
-  env_profile                     = "${var.env_profile}"
-  hammer_working_directory        = "${var.server_api_hammer_directory}"
-  testing                         = "${var.lpg_testing}"
-}
-*/
 module "lpg-learning-locker-ui" {
   source                  = "../../modules/learning-locker-ui"
   rg_name                 = "${var.rg_name}"
@@ -200,7 +157,7 @@ module "lpg-management" {
   rg_name                         = "${var.rg_name}"
   rg_prefix                       = "${var.rg_prefix}"
   rg_location                     = "${var.rg_location}"
-  docker_tag                      = "${var.lpg_management_docker_tag}"
+  docker_tag                      = "${var.lpg_services_tag}"
   lpg_management_name             = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management_name}"
   authentication_service_url      = "${var.authentication_service_url}"
   azure_storage_connection_string = "${module.blob.storage_connection_string}"
@@ -228,6 +185,7 @@ module "lpg-ui" {
   authentication_service_url      = "${var.authentication_service_url}"
   azure_storage_connection_string = "${module.blob.storage_connection_string}"
   environment_tag                 = "${var.environment_tag}"
+  docker_tag                      = "${var.lpg_services_tag}"
   course_catalogue_url            = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_catalogue_name}.azurewebsites.net"
   course_catalogue_user           = "${var.course_catalogue_user}"
   course_catalogue_pass           = "${var.course_catalogue_pass}"
