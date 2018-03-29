@@ -20,6 +20,10 @@ resource "azurerm_redis_cache" "redis_cache" {
     maxmemory_delta    = "${var.redis_maxmemory_delta}"
     maxmemory_policy   = "${var.redis_maxmemory_policy}"
   }
+
+  tags {
+    environment = "${var.env_profile}"
+  }
 }
 
 output "redis_key" {

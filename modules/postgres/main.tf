@@ -21,4 +21,8 @@ resource "azurerm_postgresql_server" "test" {
   version                      = "${var.postgres_version}"
   storage_mb                   = "${var.postgres_storage_mb}"
   ssl_enforcement              = "${var.postgres_ssl_enforcement}"
+
+  tags {
+    environment = "${var.env_profile}"
+  }
 }

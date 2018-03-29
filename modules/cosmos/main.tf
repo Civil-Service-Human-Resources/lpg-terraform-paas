@@ -20,6 +20,10 @@ resource "azurerm_cosmosdb_account" "test" {
     location = "${var.cosmos_failover_policy_location}"
     priority = 0
   }
+
+  tags {
+    environment = "${var.env_profile}"
+  }
 }
 
 output "cosmos_password" {

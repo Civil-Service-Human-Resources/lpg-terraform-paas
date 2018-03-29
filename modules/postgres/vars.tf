@@ -37,3 +37,6 @@ variable "postgres_storage_mb" {
 variable "postgres_ssl_enforcement" {
   default = "Enabled"
 }
+variable "env_profile" {
+  default = ""
+}

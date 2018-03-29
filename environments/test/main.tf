@@ -12,6 +12,7 @@ module "redis" {
   redis_maxmemory_reserved  = "2"
   redis_maxmemory_delta     = "2"
   redis_maxmemory_policy    = "volatile-lru"
+  env_profile               = "${var.env_profile}"
 }
 
 module "postgres" {
@@ -28,6 +29,7 @@ module "postgres" {
   postgres_version         = "9.6"
   postgres_storage_mb      = "51200"
   postgres_ssl_enforcement = "Enabled"
+  env_profile              = "${var.env_profile}"
 }
 
 module "cosmos" {
@@ -36,6 +38,7 @@ module "cosmos" {
   rg_prefix   = "${var.rg_name}"
   rg_location = "${var.rg_location}"
   cosmos_name = "${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}"
+  env_profile = "${var.env_profile}"
 }
 
 module "blob" {
@@ -49,6 +52,7 @@ module "blob" {
   storage_account_replication = "ZRS"
   container_name              = "packages"
   container_accesstype        = "private"
+  env_profile                 = "${var.env_profile}"
 }
 
 module "wso2" {
