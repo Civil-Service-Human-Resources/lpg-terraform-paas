@@ -14,11 +14,6 @@ variable "rg_location" {
   default = "UK South"
 }
 
-variable "environment_tag" {
-  type    = "string"
-  default = "test"
-}
-
 variable "authentication_service_url" {
   default = "https://test-identity.cshr.digital"
 }

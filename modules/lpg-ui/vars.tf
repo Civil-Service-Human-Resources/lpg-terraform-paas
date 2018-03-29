@@ -62,10 +62,6 @@ variable "course_catalogue_pass" {
   default = "course_catalogue_pass"
 }
 
-variable "environment_tag" {
-  default = "unknown"
-}
-
 variable "xapi_url" {
   default = "xapi-url"
 }

@@ -85,7 +85,7 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
               "apiVersion": "2016-03-01",
               "location": "[resourceGroup().location]",
               "tags" : {
-                  "environment": "${var.environment_tag}"
+                  "environment": "${var.env_profile}"
               },
               "dependsOn": [
                   "[variables('hostingPlanName')]"

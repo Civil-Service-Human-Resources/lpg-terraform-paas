@@ -30,10 +30,6 @@ variable "azure_storage_connection_string" {
   default = "blob_connection_string"
 }
 
-variable "environment_tag" {
-  default = "unknown"
-}
-
 variable "hammer_logstash_host" {
   default = "54e2fb5d-be7a-47c2-b3cf-6f72f42b5dfb-ls.logit.io"
 }
