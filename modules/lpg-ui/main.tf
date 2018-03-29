@@ -118,6 +118,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                           }
                       ]
                   },
+                  "httpsOnly" : true,
                   "name": "[parameters('siteName')]",
                   "serverFarmId": "[variables('hostingPlanName')]",
                   "hostingEnvironment": ""
