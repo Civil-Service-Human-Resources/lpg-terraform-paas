@@ -19,11 +19,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/lpg-services-management-ui"
-}
-
-variable "virtual_host" {
-  default = "virtual_host"
+  default = "cshr/lpg-services"
 }
 
 variable "authentication_service_url" {
@@ -32,14 +28,6 @@ variable "authentication_service_url" {
 
 variable "azure_storage_connection_string" {
   default = "blob_connection_string"
-}
-
-variable "xapi_url" {
-  default = "xapi_url"
-}
-
-variable "environment_tag" {
-  default = "unknown"
 }
 
 variable "hammer_logstash_host" {

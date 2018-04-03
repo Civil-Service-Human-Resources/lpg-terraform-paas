@@ -34,10 +34,6 @@ variable "redis_host" {
   default = "hostname"
 }
 
-variable "environment_tag" {
-  default = "unknown"
-}
-
 variable "redis_port" {
   default = "6380"
 }

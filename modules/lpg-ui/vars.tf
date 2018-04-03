@@ -19,11 +19,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/lpg-services-ui"
-}
-
-variable "virtual_host" {
-  default = "virtual_host"
+  default = "cshr/lpg-services"
 }
 
 variable "authentication_service_url" {
@@ -32,10 +28,6 @@ variable "authentication_service_url" {
 
 variable "azure_storage_connection_string" {
   default = "blob_connection_string"
-}
-
-variable "booking_alert_webhook" {
-  default = "booking_alert_webhook"
 }
 
 variable "google_analytics_id" {
@@ -68,10 +60,6 @@ variable "course_catalogue_user" {
 
 variable "course_catalogue_pass" {
   default = "course_catalogue_pass"
-}
-
-variable "environment_tag" {
-  default = "unknown"
 }
 
 variable "xapi_url" {

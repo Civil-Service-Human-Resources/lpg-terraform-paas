@@ -19,3 +19,6 @@ variable "cosmos_consistency_policy_level" {
 variable "cosmos_failover_policy_location" {
   default = "UK West"
 }
+variable "env_profile" {
+  default = ""
+}

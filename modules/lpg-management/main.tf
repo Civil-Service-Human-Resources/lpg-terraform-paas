@@ -94,6 +94,7 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                           }
                       ]
                   },
+                  "httpsOnly" : true,
                   "name": "[parameters('siteName')]",
                   "serverFarmId": "[variables('hostingPlanName')]",
                   "hostingEnvironment": ""
@@ -101,7 +102,7 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
               "apiVersion": "2016-03-01",
               "location": "[resourceGroup().location]",
               "tags" : {
-                  "environment": "${var.environment_tag}"
+                  "environment": "${var.env_profile}"
               },
               "dependsOn": [
                   "[variables('hostingPlanName')]"

@@ -25,3 +25,6 @@ variable "container_name" {
 variable "container_accesstype" {
   default = "private"
 }
+variable "env_profile" {
+  default = ""
+}
