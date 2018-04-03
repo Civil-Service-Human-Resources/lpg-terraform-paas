@@ -12,6 +12,10 @@ resource "azurerm_storage_account" "blobsa" {
   account_tier             = "${var.storage_account_tier}"
   account_replication_type = "${var.storage_account_replication}"
   depends_on               = ["azurerm_resource_group.rg"]
+
+  tags {
+    environment = "${var.env_profile}"
+  }
 }
 
 resource "azurerm_storage_container" "blobc" {

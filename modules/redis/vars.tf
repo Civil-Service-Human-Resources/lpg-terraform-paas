@@ -45,3 +45,7 @@ variable "redis_maxmemory_delta" {
 variable "redis_maxmemory_policy" {
   default = "volatile-lru"
 }
+
+variable "env_profile" {
+  default = ""
+}

@@ -85,7 +85,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
               "apiVersion": "2016-03-01",
               "location": "[resourceGroup().location]",
               "tags" : {
-                  "environment": "${var.environment_tag}"
+                  "environment": "${var.env_profile}"
               },
               "dependsOn": [
                   "[variables('hostingPlanName')]"
@@ -110,7 +110,6 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
               "kind": "linux"
           },
           {
-            "comments": "Generalized from resource: '/subscriptions/72aa545d-e1e2-4b4e-ade4-34ef397aca13/resourceGroups/pptestlab/providers/Microsoft.Web/sites/lpg-learner-record/config/web'.",
             "type": "Microsoft.Web/sites/config",
             "name": "[concat(parameters('siteName'), '/web')]",
             "apiVersion": "2016-08-01",

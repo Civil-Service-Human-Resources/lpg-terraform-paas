@@ -34,10 +34,6 @@ variable "redis_url" {
   default = "url"
 }
 
-variable "environment_tag" {
-  default = "unknown"
-}
-
 variable "express_port" {
   default = "8083"
 }
