@@ -97,3 +97,23 @@ variable "hammer_working_directory" {
 variable "content_url" {
   default = ""
 }
+
+variable "vaultresourcegroup" {
+  default = ""
+}
+
+variable "vaultname" {
+  default = ""
+}
+
+variable "existingkeyvaultsecretname" {
+  default = ""
+}
+
+variable "certificatename" {
+  default = ""
+}
+
+variable "envurl" {
+  default = "local"
+}

@@ -59,7 +59,7 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
     },
     "websiteCustomName": {
       "type": "string",
-      "defaultvalue": "${var.envurl}-admin",
+      "defaultvalue": "${var.envurl}admin",
       "metadata": {
         "description": "Custom hostname for creating SSL binding."
       }

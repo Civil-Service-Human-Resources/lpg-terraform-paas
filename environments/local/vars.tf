@@ -38,6 +38,10 @@ variable "env_profile" {
   default = "localwso2"
 }
 
+variable "envurl" {
+  default = "local-"
+}
+
 ### docker tags ###
 variable "wso2_docker_tag" {
   default = "0a3168c832991fd4575a35ba816a417ecc154eb2-v2"

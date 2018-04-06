@@ -56,19 +56,24 @@ module "blob" {
 }
 
 module "wso2" {
-  source                = "../../modules/wso2"
-  rg_name               = "${var.rg_name}"
-  rg_prefix             = "${var.rg_prefix}"
-  rg_location           = "${var.rg_location}"
-  wso2_name             = "${var.rg_prefix}-${var.rg_name}-${var.wso2_name}"
-  database_url          = "jdbc:postgresql://${var.rg_prefix}-${var.rg_name}-${var.postgres_name}.postgres.database.azure.com:5432/wso2is?user=${var.postgres_user}@${var.rg_prefix}-${var.rg_name}-${var.postgres_name}&password=${var.postgres_pass}&ssl=true"
-  docker_image          = "${var.wso2_docker_image}"
-  docker_tag            = "${var.wso2_docker_tag}"
-  hammer_logstash_host  = "${var.hammer_logstash_host}"
-  hammer_logstash_port  = "${var.hammer_logstash_port}"
-  env_profile           = "${var.env_profile}"
-  lpg_ui_url            = "${var.lpg_ui_url}"
-  lpg_management_ui_url = "${var.lpg_management_ui_url}"
+  source                          = "../../modules/wso2"
+  rg_name                         = "${var.rg_name}"
+  rg_prefix                       = "${var.rg_prefix}"
+  rg_location                     = "${var.rg_location}"
+  wso2_name                       = "${var.rg_prefix}-${var.rg_name}-${var.wso2_name}"
+  database_url                    = "jdbc:postgresql://${var.rg_prefix}-${var.rg_name}-${var.postgres_name}.postgres.database.azure.com:5432/wso2is?user=${var.postgres_user}@${var.rg_prefix}-${var.rg_name}-${var.postgres_name}&password=${var.postgres_pass}&ssl=true"
+  docker_image                    = "${var.wso2_docker_image}"
+  docker_tag                      = "${var.wso2_docker_tag}"
+  hammer_logstash_host            = "${var.hammer_logstash_host}"
+  hammer_logstash_port            = "${var.hammer_logstash_port}"
+  env_profile                     = "${var.env_profile}"
+  lpg_ui_url                      = "${var.lpg_ui_url}"
+  lpg_management_ui_url           = "${var.lpg_management_ui_url}"
+  vaultresourcegroup              = "${var.vaultresourcegroup}"
+  vaultname                       = "${var.vaultname}"
+  existingkeyvaultsecretname      = "${var.existingkeyvaultsecretname}"
+  certificatename                 = "${var.certificatename}"
+  envurl                          = "${var.envurl}"
 }
 
 module "lpg-learner-record" {
@@ -171,6 +176,11 @@ module "lpg-management" {
   course_catalogue_url            = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_catalogue_name}.azurewebsites.net"
   course_catalogue_user           = "${var.course_catalogue_user}"
   course_catalogue_pass           = "${var.course_catalogue_pass}"
+  vaultresourcegroup              = "${var.vaultresourcegroup}"
+  vaultname                       = "${var.vaultname}"
+  existingkeyvaultsecretname      = "${var.existingkeyvaultsecretname}"
+  certificatename                 = "${var.certificatename}"
+  envurl                          = "${var.envurl}"
 }
 
 module "lpg-ui" {
@@ -199,6 +209,11 @@ module "lpg-ui" {
   hammer_working_directory        = "${var.ui_hammer_working_directory}"
   websites_port                   = "${var.ui_websites_port}"
   content_url                     = "${var.content_url}"
+  vaultresourcegroup              = "${var.vaultresourcegroup}"
+  vaultname                       = "${var.vaultname}"
+  existingkeyvaultsecretname      = "${var.existingkeyvaultsecretname}"
+  certificatename                 = "${var.certificatename}"
+  envurl                          = "${var.envurl}"
 }
 
 module "lpg-learning-catalogue" {

@@ -66,6 +66,10 @@ variable "content_url" {
   default = "http://local-cdn.cshr.digital/lpgdevcontent"
 }
 
+variable "envurl" {
+  default = "test-"
+}
+
 ### docker tags ###
 variable "wso2_docker_tag" {
   default = "0a3168c832991fd4575a35ba816a417ecc154eb2-v2"
