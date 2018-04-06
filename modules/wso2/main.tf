@@ -59,7 +59,7 @@ resource "azurerm_template_deployment" "wso2-app-service" {
     },
     "websiteCustomName": {
       "type": "string",
-      "defaultvalue": "${var.envurl}-identity",
+      "defaultvalue": "${var.envurl}identity",
       "metadata": {
         "description": "Custom hostname for creating SSL binding."
       }
