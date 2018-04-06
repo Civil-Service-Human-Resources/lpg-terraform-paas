@@ -53,3 +53,19 @@ variable "lpg_ui_url" {
 variable "lpg_management_ui_url" {
   default = ""
 }
+
+variable "vaultresourcegroup" {
+  default = ""
+}
+
+variable "vaultname" {
+  default = ""
+}
+
+variable "existingkeyvaultsecretname" {
+  default = ""
+}
+
+variable "certificatename" {
+  default = ""
+}
