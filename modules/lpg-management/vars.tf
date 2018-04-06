@@ -73,3 +73,23 @@ variable "websites_port" {
 variable "session_secret" {
   default = ""
 }
+
+variable "envurl" {
+  default = "local"
+}
+
+variable "vaultresourcegroup" {
+  default = ""
+}
+
+variable "vaultname" {
+  default = ""
+}
+
+variable "existingkeyvaultsecretname" {
+  default = ""
+}
+
+variable "certificatename" {
+  default = ""
+}

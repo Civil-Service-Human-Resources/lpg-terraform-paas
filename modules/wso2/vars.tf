@@ -69,3 +69,7 @@ variable "existingkeyvaultsecretname" {
 variable "certificatename" {
   default = ""
 }
+
+variable "envurl" {
+  default = "local"
+}
