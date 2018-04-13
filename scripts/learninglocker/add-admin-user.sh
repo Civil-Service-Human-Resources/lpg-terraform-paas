@@ -1,9 +1,9 @@
-#!/bin/bash -e
+#!/bin/bash -ev
 
 # setup the admin user in the database
-
+echo 'Num arguments provided ' $#
 if [[ $# -eq 0 ]]; then
-  echo "Please supply the following vars:"
+  echo "Please supply the following vars with single quotes around each:"
   echo "learning locker admin user"
   echo "learning locker admin password"
   echo "learning locker api key"
@@ -13,13 +13,13 @@ if [[ $# -eq 0 ]]; then
   exit 1
 fi
 
-if [[ $# -ge 6 ]]; then
-  echo "Too many arguments, exiting"
+if [[ $# -gt 6 ]]; then
+  echo "Too many arguments, 6 required, exiting"
   exit 1
 fi
 
-if [[ $# -le 6 ]]; then
-  echo "Too few arguments, exiting"
+if [[ $# -lt 6 ]]; then
+  echo "Too few arguments, 6 required, exiting"
   exit 1
 fi
 
