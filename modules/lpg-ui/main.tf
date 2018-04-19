@@ -108,10 +108,6 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
         "siteConfig": {
           "appSettings": [
             {
-              "name": "DOCKER_CUSTOM_IMAGE_NAME",
-              "value": "${var.docker_image}:${var.docker_tag}"
-            },
-            {
               "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
               "value": "false"
             },
@@ -241,7 +237,8 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
         "logsDirectorySizeLimit": 35,
         "detailedErrorLoggingEnabled": true,
         "alwaysOn": true,
-        "appCommandLine": "/bin/hammer node ../node_modules/ui/server.js"
+        "appCommandLine": "/bin/hammer node ../node_modules/ui/server.js",
+        "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}"
       },
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

@@ -33,10 +33,6 @@ resource "azurerm_template_deployment" "learning-locker-xapi-app-service" {
                   "siteConfig": {
                       "appSettings": [
                           {
-                              "name": "DOCKER_CUSTOM_IMAGE_NAME",
-                              "value": "${var.docker_image}:${var.docker_tag}"
-                          },
-                          {
                               "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
                               "value": "false"
                           },
@@ -120,7 +116,8 @@ resource "azurerm_template_deployment" "learning-locker-xapi-app-service" {
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
                 "alwaysOn": true,
-                "appCommandLine": "/bin/hammer node /opt/xapi-service/dist/server"
+                "appCommandLine": "/bin/hammer node /opt/xapi-service/dist/server",
+                "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
