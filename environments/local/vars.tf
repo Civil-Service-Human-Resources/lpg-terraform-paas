@@ -44,7 +44,7 @@ variable "envurl" {
 
 ### docker tags ###
 variable "wso2_docker_tag" {
-  default = "0a3168c832991fd4575a35ba816a417ecc154eb2-v2"
+  default = "56bbd5c3245510b2abe19e5d7b442b57c3ba1208"
 }
 
 ### postgres ###

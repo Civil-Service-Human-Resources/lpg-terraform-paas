@@ -33,10 +33,6 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
                   "siteConfig": {
                       "appSettings": [
                           {
-                              "name": "DOCKER_CUSTOM_IMAGE_NAME",
-                              "value": "${var.docker_image}:${var.docker_tag}"
-                          },
-                          {
                               "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
                               "value": "false"
                           },
@@ -110,7 +106,6 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
               "kind": "linux"
           },
           {
-            "comments": "Generalized from resource: '/subscriptions/72aa545d-e1e2-4b4e-ade4-34ef397aca13/resourceGroups/pptestlab/providers/Microsoft.Web/sites/lpg-learner-record/config/web'.",
             "type": "Microsoft.Web/sites/config",
             "name": "[concat(parameters('siteName'), '/web')]",
             "apiVersion": "2016-08-01",
@@ -121,7 +116,8 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
                 "alwaysOn": true,
-                "appCommandLine": "/bin/hammer java -jar /data/app.jar"
+                "appCommandLine": "/bin/hammer java -jar /data/app.jar",
+                "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

@@ -72,7 +72,7 @@ variable "envurl" {
 
 ### docker tags ###
 variable "wso2_docker_tag" {
-  default = "0a3168c832991fd4575a35ba816a417ecc154eb2-v2"
+  default = "56bbd5c3245510b2abe19e5d7b442b57c3ba1208"
 }
 
 variable "lpg_learner_record_docker_tag" {
@@ -80,11 +80,11 @@ variable "lpg_learner_record_docker_tag" {
 }
 
 variable "ll_docker_tag" {
-  default = "f3acd2da9269de225419034a024f6e44031b75c99fb85d99301354ef1abd4f49"
+  default = "fe8104bf2f0fedb8f5af138bd8860a9c27dd2bb12ecb827f09e754e279a70fa8"
 }
 
 variable "lpg_services_tag" {
-  default = "84a260a871e4f6289fb6544f57ad3f1793cf2c55"
+  default = "2163e2d5e572b9f6ff2d6ed70337e677892792ed"
 }
 
 variable "learning_catalogue_docker_tag" {
