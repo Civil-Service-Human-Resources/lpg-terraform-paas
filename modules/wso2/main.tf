@@ -237,20 +237,10 @@ resource "azurerm_template_deployment" "wso2-app-service" {
             "[resourceId('Microsoft.Web/sites', parameters('sitename'))]"
         ]
     }
-  ],
-  "outputs": {
-    "wso2_ip_addresses": {
-      "type": "String",
-      "value": "[reference(parameters('siteName')).outboundIpAddresses]"
-    }
-  }
+  ]
 }
   DEPLOY
 
   deployment_mode = "Incremental"
   depends_on      = ["azurerm_resource_group.rg"]
-}
-
-output "wso2_ip" {
-  value = "${azurerm_template_deployment.wso2-app-service.outputs["wso2_ip_addresses"]}"
 }

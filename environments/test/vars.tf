@@ -1,7 +1,7 @@
 ### Gen vars ###
 variable "rg_name" {
   type    = "string"
-  default = "testlab"
+  default = "lpgtest"
 }
 
 variable "rg_prefix" {
