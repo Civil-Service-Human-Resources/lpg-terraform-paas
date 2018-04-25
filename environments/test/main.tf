@@ -92,10 +92,6 @@ module "lpg-learner-record" {
   websites_port           = "${var.lpg_learner_record_websites_port}"
 }
 
-output "wso2_ip" {
-  value = "${module.wso2.wso2_ip}"
-}
-
 module "lpg-learning-locker-xapi" {
   source                    = "../../modules/learning-locker-xapi"
   rg_name                   = "${var.rg_name}"
