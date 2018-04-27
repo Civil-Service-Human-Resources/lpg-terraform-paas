@@ -16,9 +16,9 @@ resource "azurerm_cosmosdb_account" "test" {
     consistency_level = "${var.cosmos_consistency_policy_level}"
   }
 
-  failover_policy {
+  geo_location {
     location = "${var.cosmos_failover_policy_location}"
-    priority = 0
+    failover_priority = 0
   }
 
   tags {
