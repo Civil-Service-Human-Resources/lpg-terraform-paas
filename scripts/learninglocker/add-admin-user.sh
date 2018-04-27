@@ -26,4 +26,4 @@ fi
 docker run -it -w /opt/learning-locker -e LEARNING_LOCKER_ADMIN_USER=$1 \
    -e LEARNING_LOCKER_ADMIN_PASSWORD=$2 -e LEARNING_LOCKER_API_KEY=$3 \
    -e LEARNING_LOCKER_API_SECRET=$4 -e MONGODB_PATH=$5 -e TESTING='1' \
-   cshr/lpg-learning-locker:$6 /opt/learning-locker/./node_modules/.bin/babel-node /opt/learning-locker/mkadmin.js
+   cshr/lpg-learning-locker:$6 NODE_PATH=/opt/learning-locker /opt/learning-locker/./node_modules/.bin/babel-node /opt/learning-locker/mkadmin.js
