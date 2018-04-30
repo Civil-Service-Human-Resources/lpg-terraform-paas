@@ -14,4 +14,5 @@ if [[ $# -gt 3 ]]; then
   exit 1
 fi
 
-az webapp config appsettings set -n $1 -g $2 --settings DOCKER_CUSTOM_IMAGE_NAME=$3
+#az webapp config container set -n lpg-lpgdev-learning-locker-api-worker -g lpgdev -c cshr/lpg-learning-locker:213ad45eb11f7924fcec151e852bb729476279338f30ffb040daa3f2df896f5c-v2
+az webapp config container set -n $1 -g $2 -c $3
