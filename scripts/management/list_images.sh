@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 
 echo "This script will list the Docker images for the Azure Webapp for Containers within the resource group provided"
 echo "Ensure that you've already logged in to Azure via the CLI"
