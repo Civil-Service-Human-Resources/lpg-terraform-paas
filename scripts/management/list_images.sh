@@ -1,8 +1,9 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 
 echo "This script will list the Docker images for the Azure Webapp for Containers within the resource group provided"
 echo "Ensure that you've already logged in to Azure via the CLI"
 echo "Note that it may run a little slow, due to the number of calls to query Azure"
+echo "Example usage: ./list_images.sh lpgtest"
 
 if [[ $# -eq 0 ]]; then
   echo "Please pass the resource group name"
@@ -23,5 +24,5 @@ echo $1
 for i in "${arr[@]}"
 do
   webapp=$(awk -F/ '{print $9}' <<<$i)
-  echo $webapp : $(az webapp config container show -g $1 --ids $i -o table --query "[?name=='DOCKER_CUSTOM_IMAGE_NAME'].[value]" | grep -i cshr)
+  echo $webapp : $(az webapp config container show -g $1 --ids $i -o table --query "[?name=='DOCKER_CUSTOM_IMAGE_NAME'].[value]" | grep -i cshr | sed 's/\DOCKER\|//g')
 done
