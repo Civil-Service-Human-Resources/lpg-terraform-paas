@@ -99,6 +99,10 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                           {
                               "name": "TESTING",
                               "value": "${var.testing}"
+                          },
+                          {
+                              "name": "DOCKER_ENABLE_CI",
+                              "value": "true"
                           }
                       ]
                   },

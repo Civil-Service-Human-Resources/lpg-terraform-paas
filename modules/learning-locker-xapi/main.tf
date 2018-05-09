@@ -71,6 +71,10 @@ resource "azurerm_template_deployment" "learning-locker-xapi-app-service" {
                           {
                               "name": "EXPRESS_PORT",
                               "value": "${var.express_port}"
+                          },
+                          {
+                              "name": "DOCKER_ENABLE_CI",
+                              "value": "true"
                           }
                       ]
                   },

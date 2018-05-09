@@ -162,6 +162,10 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
             {
               "name": "SESSION_SECRET",
               "value": "${var.session_secret}"
+            },
+            {
+              "name": "DOCKER_ENABLE_CI",
+              "value": "true"
             }
           ]
         },
