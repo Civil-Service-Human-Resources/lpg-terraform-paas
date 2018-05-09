@@ -1,9 +1,11 @@
-#!/bin/bash -ev
+#!/bin/bash -e
 
-echo "This script will check the redis password for non URL safe characters and regenerate if any are found."
-echo "You need to have logged in via Azure CommandLine (az-cli)"
-echo "Parameters needed are: ResourceGroup, name of Redis cache"
-echo "Example: ./redis_password.sh lpgtest lpg-lpgtest-redis"
+# This script will check the redis password for non URL safe characters and regenerate if any are found.
+# You need to have logged in via Azure CommandLine (az-cli)
+#
+# Required parameters: resource group name, name of Redis cache
+#
+# Example: ./redis_password.sh lpgtest lpg-lpgtest-redis
 
 key=$(az redis list-keys -g $1 -n $2 -o tsv| awk -F ' ' '{print $1}')
 
