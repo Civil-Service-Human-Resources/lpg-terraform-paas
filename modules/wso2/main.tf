@@ -146,6 +146,10 @@ resource "azurerm_template_deployment" "wso2-app-service" {
             {
               "name": "LPG_MANAGEMENT_UI_URL",
               "value": "${var.lpg_management_ui_url}"
+            },
+            {
+              "name": "DOCKER_ENABLE_CI",
+              "value": "true"
             }
           ]
         },

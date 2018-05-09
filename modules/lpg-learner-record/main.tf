@@ -71,6 +71,10 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                           {
                               "name": "ENV_PROFILE",
                               "value": "${var.env_profile}"
+                          },
+                          {
+                              "name": "DOCKER_ENABLE_CI",
+                              "value": "true"
                           }
                       ]
                   },

@@ -186,6 +186,10 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
             {
               "name": "CONTENT_URL",
               "value": "${var.content_url}"
+            },
+            {
+              "name": "DOCKER_ENABLE_CI",
+              "value": "true"
             }
           ]
         },

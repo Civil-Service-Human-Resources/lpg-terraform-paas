@@ -75,6 +75,10 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
                           {
                               "name": "UI_PORT",
                               "value": "${var.ui_port}"
+                          },
+                          {
+                              "name": "DOCKER_ENABLE_CI",
+                              "value": "true"
                           }
                       ]
                   },
