@@ -15,21 +15,14 @@ module "redis" {
   env_profile               = "${var.env_profile}"
 }
 
-module "postgres" {
-  source                   = "../../modules/postgres"
-  rg_name                  = "${var.rg_name}"
-  rg_prefix                = "${var.rg_name}"
-  rg_location              = "${var.rg_location}"
-  postgres_name            = "${var.rg_prefix}-${var.rg_name}-${var.postgres_name}"
-  postgres_sku_name        = "${var.postgres_sku_name}"
-  postgres_sku_capacity    = "${var.postgres_sku_capacity}"
-  postgres_sku_tier        = "${var.postgres_sku_tier}"
-  postgres_admin_login     = "${var.postgres_user}"
-  postgres_admin_pass      = "${var.postgres_pass}"
-  postgres_version         = "9.6"
-  postgres_storage_mb      = "51200"
-  postgres_ssl_enforcement = "Enabled"
-  env_profile              = "${var.env_profile}"
+module "mysql" {
+  source                    = "../../modules/mysql"
+  rg_name                   = "${var.rg_name}"
+  rg_prefix                 = "${var.rg_name}"
+  rg_location               = "${var.rg_location}"
+  mysql_name                = "${var.rg_prefix}-${var.rg_name}-${var.mysql_name}"
+  mysql_admin_login         = "${var.mysql_user}"
+  mysql_admin_pass          = "${var.mysql_pass}"
 }
 
 module "cosmos" {
@@ -55,6 +48,7 @@ module "blob" {
   env_profile                 = "${var.env_profile}"
 }
 
+/*
 module "wso2" {
   source                     = "../../modules/wso2"
   rg_name                    = "${var.rg_name}"
@@ -75,6 +69,7 @@ module "wso2" {
   certificatename            = "${var.certificatename}"
   envurl                     = "${var.envurl}"
 }
+*/
 
 module "lpg-learner-record" {
   source                  = "../../modules/lpg-learner-record"
