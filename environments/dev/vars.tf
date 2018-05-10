@@ -91,23 +91,6 @@ variable "learning_catalogue_docker_tag" {
   default = "latest"
 }
 
-### postgres ###
-variable "postgres_name" {
-  default = "postgres"
-}
-
-variable "postgres_sku_name" {
-  default = "PGSQLB50"
-}
-
-variable "postgres_sku_capacity" {
-  default = 50
-}
-
-variable "postgres_sku_tier" {
-  default = "Basic"
-}
-
 ### cosmos ###
 variable "cosmos_name" {
   default = "cosmos"
@@ -233,4 +216,9 @@ variable "ui_websites_port" {
 ### lpg-learning-catalogue ###
 variable "lpg_learning_catalogue_name" {
   default = "lpg-learning-catalogue"
+}
+
+### mysql ###
+variable "mysql_name" {
+  default = "mysql"
 }
