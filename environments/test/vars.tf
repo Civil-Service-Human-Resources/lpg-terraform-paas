@@ -50,10 +50,6 @@ variable "youtube_api_key" {
   default = "AIzaSyDkapeVQajSishsrZTDmqi4rLRRq3HABrY"
 }
 
-variable "gov_notify_api_key" {
-  default = "test-22877568-4bca-40f9-8f54-8bf7922583cf-e2f80f22-e3de-4007-9ce2-b50a2b5785b7"
-}
-
 variable "google_analytics_id" {
   default = "UA-22141655-3"
 }
@@ -71,8 +67,8 @@ variable "envurl" {
 }
 
 ### docker tags ###
-variable "wso2_docker_tag" {
-  default = "56bbd5c3245510b2abe19e5d7b442b57c3ba1208"
+variable "identity_docker_tag" {
+  default = "latest"
 }
 
 variable "lpg_learner_record_docker_tag" {
@@ -89,23 +85,6 @@ variable "lpg_services_tag" {
 
 variable "learning_catalogue_docker_tag" {
   default = "78eaea0476c402ca5ca315ed723d5cb5b4acffe3"
-}
-
-### postgres ###
-variable "postgres_name" {
-  default = "postgres"
-}
-
-variable "postgres_sku_name" {
-  default = "PGSQLB50"
-}
-
-variable "postgres_sku_capacity" {
-  default = 50
-}
-
-variable "postgres_sku_tier" {
-  default = "Basic"
 }
 
 ### cosmos ###
@@ -142,13 +121,13 @@ variable "redis_use_tls" {
   default = "1"
 }
 
-### wso2 ###
-variable "wso2_name" {
-  default = "wso2"
+### identity ###
+variable "identity_name" {
+  default = "identity"
 }
 
-variable "wso2_docker_image" {
-  default = "cshr/lpg-wso2-is"
+variable "identity_docker_image" {
+  default = "cshr/identity-service"
 }
 
 ### lpg-learner-record ###
@@ -233,4 +212,9 @@ variable "ui_websites_port" {
 ### lpg-learning-catalogue ###
 variable "lpg_learning_catalogue_name" {
   default = "lpg-learning-catalogue"
+}
+
+### mysql ###
+variable "mysql_name" {
+  default = "mysql"
 }

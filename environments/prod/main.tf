@@ -15,21 +15,15 @@ module "redis" {
   env_profile               = "${var.env_profile}"
 }
 
-module "postgres" {
-  source                   = "../../modules/postgres"
-  rg_name                  = "${var.rg_name}"
-  rg_prefix                = "${var.rg_name}"
-  rg_location              = "${var.rg_location}"
-  postgres_name            = "${var.rg_prefix}-${var.rg_name}-${var.postgres_name}"
-  postgres_sku_name        = "${var.postgres_sku_name}"
-  postgres_sku_capacity    = "${var.postgres_sku_capacity}"
-  postgres_sku_tier        = "${var.postgres_sku_tier}"
-  postgres_admin_login     = "${var.postgres_user}"
-  postgres_admin_pass      = "${var.postgres_pass}"
-  postgres_version         = "9.6"
-  postgres_storage_mb      = "51200"
-  postgres_ssl_enforcement = "Enabled"
-  env_profile              = "${var.env_profile}"
+module "mysql" {
+  source                    = "../../modules/mysql"
+  rg_name                   = "${var.rg_name}"
+  rg_prefix                 = "${var.rg_name}"
+  rg_location               = "${var.rg_location}"
+  mysql_name                = "${var.rg_prefix}-${var.rg_name}-${var.mysql_name}"
+  mysql_admin_login         = "${var.mysql_user}"
+  mysql_admin_pass          = "${var.mysql_pass}"
+  env_profile               = "${var.env_profile}"
 }
 
 module "cosmos" {
@@ -55,25 +49,29 @@ module "blob" {
   env_profile                 = "${var.env_profile}"
 }
 
-module "wso2" {
-  source                          = "../../modules/wso2"
-  rg_name                         = "${var.rg_name}"
-  rg_prefix                       = "${var.rg_prefix}"
-  rg_location                     = "${var.rg_location}"
-  wso2_name                       = "${var.rg_prefix}-${var.rg_name}-${var.wso2_name}"
-  database_url                    = "jdbc:postgresql://${var.rg_prefix}-${var.rg_name}-${var.postgres_name}.postgres.database.azure.com:5432/wso2is?user=${var.postgres_user}@${var.rg_prefix}-${var.rg_name}-${var.postgres_name}&password=${var.postgres_pass}&ssl=true"
-  docker_image                    = "${var.wso2_docker_image}"
-  docker_tag                      = "${var.wso2_docker_tag}"
-  hammer_logstash_host            = "${var.hammer_logstash_host}"
-  hammer_logstash_port            = "${var.hammer_logstash_port}"
-  env_profile                     = "${var.env_profile}"
-  lpg_ui_url                      = "${var.lpg_ui_url}"
-  lpg_management_ui_url           = "${var.lpg_management_ui_url}"
-  vaultresourcegroup              = "${var.vaultresourcegroup}"
-  vaultname                       = "${var.vaultname}"
-  existingkeyvaultsecretname      = "${var.existingkeyvaultsecretname}"
-  certificatename                 = "${var.certificatename}"
-  envurl                          = "${var.envurl}"
+module "identity" {
+  source                                  = "../../modules/identity"
+  rg_name                                 = "${var.rg_name}"
+  rg_prefix                               = "${var.rg_prefix}"
+  rg_location                             = "${var.rg_location}"
+  identity_name                           = "${var.rg_prefix}-${var.rg_name}-${var.identity_name}"
+  datasource                              = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/oauth2?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
+  docker_image                            = "${var.identity_docker_image}"
+  docker_tag                              = "${var.identity_docker_tag}"
+  hammer_logstash_host                    = "${var.hammer_logstash_host}"
+  hammer_logstash_port                    = "${var.hammer_logstash_port}"
+  env_profile                             = "${var.env_profile}"
+  gov_notify_invite_template_id           = "${var.gov_notify_invite_template_id}"
+  gov_notify_reset_template_id            = "${var.gov_notify_reset_template_id}"
+  gov_notify_reset_successful_template_id = "${var.gov_notify_reset_successful_template_id}"
+  vaultresourcegroup                      = "${var.vaultresourcegroup}"
+  vaultname                               = "${var.vaultname}"
+  existingkeyvaultsecretname              = "${var.existingkeyvaultsecretname}"
+  certificatename                         = "${var.certificatename}"
+  gov_notify_api_key                      = "${var.gov_notify_api_key}"
+  envurl                                  = "${var.envurl}"
+  invite_signup_url                       = "http://${var.rg_prefix}-${var.rg_name}-${var.identity_name}.azurewebsites.net/signup/%s"
+  reset_url                               = "http://${var.rg_prefix}-${var.rg_name}-${var.identity_name}.azurewebsites.net/reset/%s"
 }
 
 module "lpg-learner-record" {
