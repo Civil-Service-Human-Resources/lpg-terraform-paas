@@ -23,6 +23,7 @@ module "mysql" {
   mysql_name                = "${var.rg_prefix}-${var.rg_name}-${var.mysql_name}"
   mysql_admin_login         = "${var.mysql_user}"
   mysql_admin_pass          = "${var.mysql_pass}"
+  env_profile               = "${var.env_profile}"
 }
 
 module "cosmos" {
@@ -54,7 +55,7 @@ module "identity" {
   rg_prefix                               = "${var.rg_prefix}"
   rg_location                             = "${var.rg_location}"
   identity_name                           = "${var.rg_prefix}-${var.rg_name}-${var.identity_name}"
-  datasource                              = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/oauth2?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.postgres_pass}&useSSL=true&requireSSL=false"
+  datasource                              = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/oauth2?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
   docker_image                            = "${var.identity_docker_image}"
   docker_tag                              = "${var.identity_docker_tag}"
   hammer_logstash_host                    = "${var.hammer_logstash_host}"
