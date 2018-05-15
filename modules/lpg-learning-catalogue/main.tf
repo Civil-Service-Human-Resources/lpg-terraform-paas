@@ -1,10 +1,5 @@
 ###### lpg-learning-catalogue ######
 
-resource "azurerm_resource_group" "rg" {
-  name     = "${var.rg_name}"
-  location = "${var.rg_location}"
-}
-
 resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
   name                = "${var.lpg_learning_catalogue_name}"
   resource_group_name = "${var.rg_name}"
@@ -132,5 +127,4 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
   DEPLOY
 
   deployment_mode = "Incremental"
-  depends_on      = ["azurerm_resource_group.rg"]
 }

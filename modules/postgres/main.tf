@@ -1,14 +1,9 @@
 ###### postgres ######
 
-resource "azurerm_resource_group" "rg" {
-  name     = "${var.rg_name}"
-  location = "${var.rg_location}"
-}
-
 resource "azurerm_postgresql_server" "test" {
   name                = "${var.postgres_name}"
   location            = "${var.postgres_location}"
-  resource_group_name = "${azurerm_resource_group.rg.name}"
+  resource_group_name = "${var.rg_name}"
 
   sku {
     name      = "${var.postgres_sku_name}"

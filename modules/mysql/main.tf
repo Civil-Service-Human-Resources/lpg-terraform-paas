@@ -1,14 +1,9 @@
 ###### mysql ######
 
-resource "azurerm_resource_group" "rg" {
-  name     = "${var.rg_name}"
-  location = "${var.rg_location}"
-}
-
 resource "azurerm_mysql_server" "lpg" {
   name                = "${var.mysql_name}"
   location            = "${var.mysql_location}"
-  resource_group_name = "${azurerm_resource_group.rg.name}"
+  resource_group_name = "${var.rg_name}"
 
   sku {
     name = "MYSQLB50"

@@ -1,7 +1,7 @@
 ### Gen vars ###
 variable "rg_name" {
   type    = "string"
-  default = "prod"
+  default = "lpgprod"
 }
 
 variable "rg_prefix" {
