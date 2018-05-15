@@ -1,17 +1,11 @@
 ###### blob ######
 
-resource "azurerm_resource_group" "rg" {
-  name     = "${var.rg_name}"
-  location = "${var.rg_location}"
-}
-
 resource "azurerm_storage_account" "blobsa" {
   name                     = "${var.storage_account_name}"
   resource_group_name      = "${var.rg_name}"
   location                 = "${var.storage_account_location}"
   account_tier             = "${var.storage_account_tier}"
   account_replication_type = "${var.storage_account_replication}"
-  depends_on               = ["azurerm_resource_group.rg"]
 
   tags {
     environment = "${var.env_profile}"

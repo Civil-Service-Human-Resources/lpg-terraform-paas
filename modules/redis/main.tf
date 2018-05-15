@@ -1,14 +1,9 @@
 ###### redis ######
 
-resource "azurerm_resource_group" "rg" {
-  name     = "${var.rg_name}"
-  location = "${var.rg_location}"
-}
-
 resource "azurerm_redis_cache" "redis_cache" {
   name                = "${var.redis_name}"
-  location            = "${azurerm_resource_group.rg.location}"
-  resource_group_name = "${azurerm_resource_group.rg.name}"
+  location            = "${var.rg_location}"
+  resource_group_name = "${var.rg_name}"
   capacity            = "${var.redis_capacity}"
   family              = "${var.redis_family}"
   sku_name            = "${var.redis_sku_name}"

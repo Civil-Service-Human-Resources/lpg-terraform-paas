@@ -1,7 +1,7 @@
 #!/bin/bash -ev
 
-# This script should get a list of all outbound ip's and add them to the postgres instance firewall rules
-# It may take a while (few minutes) for the changes to actual take effect in Azure
+# This script should get a list of all outbound ip's and add them to the mysql instance firewall rules
+# It may take a while (few minutes) for the changes to actually take effect in Azure
 # Assumes that you are logged in via Azure CLI and have it installed
 #
 # Inputs:

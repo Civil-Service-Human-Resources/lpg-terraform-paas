@@ -1,10 +1,5 @@
 ###### identity ######
 
-resource "azurerm_resource_group" "rg" {
-  name     = "${var.rg_name}"
-  location = "${var.rg_location}"
-}
-
 resource "azurerm_template_deployment" "identity-app-service" {
   name                = "${var.identity_name}"
   resource_group_name = "${var.rg_name}"
@@ -258,5 +253,4 @@ resource "azurerm_template_deployment" "identity-app-service" {
   DEPLOY
 
   deployment_mode = "Incremental"
-  depends_on      = ["azurerm_resource_group.rg"]
 }

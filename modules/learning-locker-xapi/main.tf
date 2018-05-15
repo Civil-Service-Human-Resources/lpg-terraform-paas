@@ -1,10 +1,5 @@
 ###### learning-locker-xapi ######
 
-resource "azurerm_resource_group" "rg" {
-  name     = "${var.rg_name}"
-  location = "${var.rg_location}"
-}
-
 resource "azurerm_template_deployment" "learning-locker-xapi-app-service" {
   name                = "${var.learning_locker_xapi_name}"
   resource_group_name = "${var.rg_name}"
@@ -132,5 +127,4 @@ resource "azurerm_template_deployment" "learning-locker-xapi-app-service" {
   DEPLOY
 
   deployment_mode = "Incremental"
-  depends_on      = ["azurerm_resource_group.rg"]
 }
