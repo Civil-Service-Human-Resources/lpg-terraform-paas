@@ -87,6 +87,10 @@ variable "learning_catalogue_docker_tag" {
   default = "78eaea0476c402ca5ca315ed723d5cb5b4acffe3"
 }
 
+variable "civil_servant_registry_docker_tag" {
+  default = "latest"
+}
+
 ### cosmos ###
 variable "cosmos_name" {
   default = "cosmos"
@@ -217,4 +221,9 @@ variable "lpg_learning_catalogue_name" {
 ### mysql ###
 variable "mysql_name" {
   default = "mysql"
+}
+
+### civil-servant-registry ###
+variable "civil_servant_registry_name" {
+  default = "civil-servant-registry"
 }
