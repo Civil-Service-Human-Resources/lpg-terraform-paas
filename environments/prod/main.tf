@@ -70,8 +70,8 @@ module "identity" {
   certificatename                         = "${var.certificatename}"
   gov_notify_api_key                      = "${var.gov_notify_api_key}"
   envurl                                  = "${var.envurl}"
-  invite_signup_url                       = "http://${var.rg_prefix}-${var.rg_name}-${var.identity_name}.azurewebsites.net/signup/%s"
-  reset_url                               = "http://${var.rg_prefix}-${var.rg_name}-${var.identity_name}.azurewebsites.net/reset/%s"
+  invite_signup_url                       = "https://identity.cshr.digital/signup/%s"
+  reset_url                               = "https://identity.cshr.digital/reset/%s"
 }
 
 module "lpg-learner-record" {
@@ -225,4 +225,24 @@ module "lpg-learning-catalogue" {
   elasticsearch_uri           = "${var.elasticsearch_uri}"
   elasticsearch_user          = "${var.elasticsearch_user}"
   elasticsearch_password      = "${var.elasticsearch_password}"
+}
+
+module "civil-servant-registry-service" {
+  source                      = "../../modules/civil-servant-registry-service"
+  rg_name                     = "${var.rg_name}"
+  rg_prefix                   = "${var.rg_prefix}"
+  rg_location                 = "${var.rg_location}"
+  env_profile                 = "${var.env_profile}"
+  hammer_logstash_host        = "${var.hammer_logstash_host}"
+  hammer_logstash_port        = "${var.hammer_logstash_port}"
+  docker_tag                  = "${var.civil_servant_registry_docker_tag}"
+  civil_servant_registry_name = "${var.rg_prefix}-${var.rg_name}-${var.civil_servant_registry_name}"
+  csrs_client_id              = "${var.csrs_client_id}"
+  csrs_client_secret          = "${var.csrs_client_secret}"
+  check_token_url             = "https://identity.cshr.digital/oauth/token"
+  datasource                  = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/identity?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
+  vaultresourcegroup          = "${var.vaultresourcegroup}"
+  vaultname                   = "${var.vaultname}"
+  existingkeyvaultsecretname  = "${var.existingkeyvaultsecretname}"
+  certificatename             = "${var.certificatename}"
 }
