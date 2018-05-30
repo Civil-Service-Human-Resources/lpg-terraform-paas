@@ -27,7 +27,7 @@ variable "lpg_ui_server" {
 }
 
 variable "lpg_management_ui_url" {
-  default = "https://admin.cshr.digital"
+  default = "https://management.cshr.digital"
 }
 
 variable "hammer_api_worker_http_server_port" {
@@ -59,7 +59,7 @@ variable "elasticsearch_uri" {
 }
 
 variable "content_url" {
-  default = "http://local-cdn.cshr.digital/lpgdevcontent"
+  default = "https://cdn.cshr.digital/packages"
 }
 
 variable "envurl" {
@@ -68,7 +68,7 @@ variable "envurl" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "latest"
+  default = "0.3.3.2"
 }
 
 variable "lpg_learner_record_docker_tag" {
@@ -80,11 +80,11 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "2163e2d5e572b9f6ff2d6ed70337e677892792ed"
+  default = "0.2.14.1"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "78eaea0476c402ca5ca315ed723d5cb5b4acffe3"
+  default = "10f5683bb8a49fc8fbbd7e48b81c31383a8e8db7"
 }
 
 variable "civil_servant_registry_docker_tag" {
@@ -200,6 +200,10 @@ variable "management_ui_websites_port" {
   default = "3001"
 }
 
+variable "lpg_management_server" {
+  default = "https://management.cshr.digital"
+}
+
 ### lpg-ui ###
 variable "lpg_ui_name" {
   default = "lpg-ui"
@@ -226,4 +230,8 @@ variable "mysql_name" {
 ### civil-servant-registry ###
 variable "civil_servant_registry_name" {
   default = "civil-servant-registry"
+}
+
+variable "registry_service_url" {
+  default = "https://civil-servant-registry.cshr.digital"
 }

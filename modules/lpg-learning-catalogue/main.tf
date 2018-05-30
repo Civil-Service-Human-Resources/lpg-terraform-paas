@@ -44,7 +44,7 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
                               "value": "${var.elasticsearch_uri}"
                           },
                           {
-                              "name": "ELASTICSEARCH_USER",
+                              "name": "ELASTICSEARCH_USERNAME",
                               "value": "${var.elasticsearch_user}"
                           },
                           {

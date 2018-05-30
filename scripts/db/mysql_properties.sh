@@ -13,7 +13,7 @@ slowlog=$(az mysql server configuration set -g $1 -s $2 -n slow_query_log --valu
 queriesnotusingindex=$(az mysql server configuration set -g $1 -s $2 -n log_queries_not_using_indexes --value on)
 charset=$(az mysql server configuration set -g $1 -s $2 -n character_set_server --value UTF8)
 
-up=$(az webapp config appsettings list -g lpgdev -n lpg-lpgdev-identity -o tsv| grep -i datasource | awk -F ' ' '{print $3}'| cut -d? -f2| awk -F '&' '{print $1} {print $2}' | cut -d= -f2)
+up=$(az webapp config appsettings list -g $1 -n lpg-$1-identity -o tsv| grep -i datasource | awk -F ' ' '{print $3}'| cut -d'?' -f2| awk -F '&' '{print $1} {print $2}' | cut -d'=' -f2)
 read -a arr <<< $up
 username=${arr[0]}
 password=${arr[1]}

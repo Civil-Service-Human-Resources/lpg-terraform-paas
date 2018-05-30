@@ -1,7 +1,7 @@
 ### Gen vars ###
 variable "rg_name" {
   type    = "string"
-  default = "lpgdev"
+  default = "lpgdev2"
 }
 
 variable "rg_prefix" {
@@ -15,19 +15,19 @@ variable "rg_location" {
 }
 
 variable "authentication_service_url" {
-  default = "https://dev-identity.cshr.digital"
+  default = "https://dev2-identity.cshr.digital"
 }
 
 variable "lpg_ui_url" {
-  default = "https://dev-lpg.cshr.digital"
+  default = "https://dev2-lpg.cshr.digital"
 }
 
 variable "lpg_ui_server" {
-  default = "dev-lpg.cshr.digital"
+  default = "dev2-lpg.cshr.digital"
 }
 
 variable "lpg_management_ui_url" {
-  default = "https://dev-admin.cshr.digital"
+  default = "https://dev2-management.cshr.digital"
 }
 
 variable "hammer_api_worker_http_server_port" {
@@ -43,7 +43,7 @@ variable "hammer_logstash_port" {
 }
 
 variable "env_profile" {
-  default = "dev"
+  default = "dev2"
 }
 
 variable "youtube_api_key" {
@@ -55,24 +55,24 @@ variable "google_analytics_id" {
 }
 
 variable "elasticsearch_uri" {
-  default = "https://demo-elastic.cshr.digital:9200"
+  default = "https://dev2-elastic.cshr.digital:9200"
 }
 
 variable "content_url" {
-  default = "http://local-cdn.cshr.digital/lpgdevcontent"
+  default = "https://dev2-cdn.cshr.digital/lpgdevcontent"
 }
 
 variable "envurl" {
-  default = "dev-"
+  default = "dev2-"
 }
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "latest"
+  default = "0.3.3.2"
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "0a44bda01502cfa1cfc603a79b99da2620830d58-v2"
+  default = "0a44bda01502cfa1cfc603a79b99da2620830d58"
 }
 
 variable "ll_docker_tag" {
@@ -80,10 +80,14 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "2163e2d5e572b9f6ff2d6ed70337e677892792ed"
+  default = "local-13"
 }
 
 variable "learning_catalogue_docker_tag" {
+  default = "222b2025e3c8f3ec2ad29b65304edc0f2a5a642d"
+}
+
+variable "civil_servant_registry_docker_tag" {
   default = "latest"
 }
 
@@ -196,6 +200,10 @@ variable "management_ui_websites_port" {
   default = "3001"
 }
 
+variable "lpg_management_server" {
+  default = "https://dev2-management.cshr.digital"
+}
+
 ### lpg-ui ###
 variable "lpg_ui_name" {
   default = "lpg-ui"
@@ -217,4 +225,13 @@ variable "lpg_learning_catalogue_name" {
 ### mysql ###
 variable "mysql_name" {
   default = "mysql"
+}
+
+### civil-servant-registry ###
+variable "civil_servant_registry_name" {
+  default = "civil-servant-registry"
+}
+
+variable "registry_service_url" {
+  default = "https://dev2-civil-servant-registry.cshr.digital"
 }

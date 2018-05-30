@@ -10,7 +10,6 @@ resource "azurerm_redis_cache" "redis_cache" {
   enable_non_ssl_port = "${var.redis_enable_non_ssl_port}"
   
   redis_configuration {
-    maxclients         = "${var.redis_max_clients}"
     maxmemory_reserved = "${var.redis_maxmemory_reserved}"
     maxmemory_delta    = "${var.redis_maxmemory_delta}"
     maxmemory_policy   = "${var.redis_maxmemory_policy}"

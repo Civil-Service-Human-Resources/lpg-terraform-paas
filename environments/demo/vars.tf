@@ -1,7 +1,7 @@
 ### Gen vars ###
 variable "rg_name" {
   type    = "string"
-  default = "lpgdemo"
+  default = "lpgdemo2"
 }
 
 variable "rg_prefix" {
@@ -15,19 +15,19 @@ variable "rg_location" {
 }
 
 variable "authentication_service_url" {
-  default = "https://demo-identity.cshr.digital"
+  default = "https://demo2-identity.cshr.digital"
 }
 
 variable "lpg_ui_url" {
-  default = "https://demo-lpg.cshr.digital"
+  default = "https://demo2-lpg.cshr.digital"
 }
 
 variable "lpg_ui_server" {
-  default = "demo-lpg.cshr.digital"
+  default = "demo2-lpg.cshr.digital"
 }
 
 variable "lpg_management_ui_url" {
-  default = "https://demo-admin.cshr.digital"
+  default = "https://demo2-management.cshr.digital"
 }
 
 variable "hammer_api_worker_http_server_port" {
@@ -43,7 +43,7 @@ variable "hammer_logstash_port" {
 }
 
 variable "env_profile" {
-  default = "demo"
+  default = "demo2"
 }
 
 variable "youtube_api_key" {
@@ -55,20 +55,20 @@ variable "google_analytics_id" {
 }
 
 variable "elasticsearch_uri" {
-  default = "https://demo-elastic.cshr.digital:9200"
+  default = "https://demo2-elastic.cshr.digital:9200"
 }
 
 variable "content_url" {
-  default = "http://local-cdn.cshr.digital/lpgdevcontent"
+  default = "https://demo2-cdn.cshr.digital/lpgdevcontent"
 }
 
 variable "envurl" {
-  default = "demo-"
+  default = "demo2-"
 }
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "latest"
+  default = "0.3.3.2"
 }
 
 variable "lpg_learner_record_docker_tag" {
@@ -80,10 +80,14 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "2163e2d5e572b9f6ff2d6ed70337e677892792ed"
+  default = "0.2.14.1"
 }
 
 variable "learning_catalogue_docker_tag" {
+  default = "10f5683bb8a49fc8fbbd7e48b81c31383a8e8db7"
+}
+
+variable "civil_servant_registry_docker_tag" {
   default = "latest"
 }
 
@@ -196,6 +200,10 @@ variable "management_ui_websites_port" {
   default = "3001"
 }
 
+variable "lpg_management_server" {
+  default = "https://demo2-management.cshr.digital"
+}
+
 ### lpg-ui ###
 variable "lpg_ui_name" {
   default = "lpg-ui"
@@ -217,4 +225,13 @@ variable "lpg_learning_catalogue_name" {
 ### mysql ###
 variable "mysql_name" {
   default = "mysql"
+}
+
+### civil-servant-registry ###
+variable "civil_servant_registry_name" {
+  default = "civil-servant-registry"
+}
+
+variable "registry_service_url" {
+  default = "https://demo2-civil-servant-registry.cshr.digital"
 }

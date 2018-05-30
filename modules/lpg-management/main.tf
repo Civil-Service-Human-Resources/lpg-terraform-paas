@@ -159,6 +159,14 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
               "value": "${var.session_secret}"
             },
             {
+              "name": "LPG_MANAGEMENT_SERVER",
+              "value": "${var.lpg_management_server}"
+            },
+            {
+              "name": "REGISTRY_SERVICE_URL",
+              "value": "${var.registry_service_url}"
+            },
+            {
               "name": "DOCKER_ENABLE_CI",
               "value": "true"
             }
