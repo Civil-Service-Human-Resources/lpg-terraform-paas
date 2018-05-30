@@ -185,6 +185,22 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
             {
               "name": "DOCKER_ENABLE_CI",
               "value": "true"
+            },
+            {
+              "name": "REGISTRY_SERVICE_URL",
+              "value": "${var.registry_service_url}"
+            },
+            {
+              "name": "LPG_UI_SERVER",
+              "value": "${var.lpg_ui_server}"
+            },
+            {
+              "name": "OAUTH_CLIENT_ID",
+              "value": "${var.lpg_ui_oauth_client_id}"
+            },
+            {
+              "name": "OAUTH_CLIENT_SECRET",
+              "value": "${var.lpg_ui_oauth_client_secret}"
             }
           ]
         },

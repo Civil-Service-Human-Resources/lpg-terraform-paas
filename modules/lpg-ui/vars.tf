@@ -117,3 +117,19 @@ variable "certificatename" {
 variable "envurl" {
   default = "local"
 }
+
+variable "registry_service_url" {
+  default = ""
+}
+
+variable "lpg_ui_server" {
+  default = ""
+}
+
+variable "lpg_ui_oauth_client_id" {
+  default = ""
+}
+
+variable "lpg_ui_oauth_client_secret" {
+  default = ""
+}

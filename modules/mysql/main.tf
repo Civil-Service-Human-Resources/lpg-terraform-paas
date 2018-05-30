@@ -6,15 +6,21 @@ resource "azurerm_mysql_server" "lpg" {
   resource_group_name = "${var.rg_name}"
 
   sku {
-    name = "MYSQLB50"
-    capacity = 50
+    name = "B_Gen5_2"
+    capacity = 2
     tier = "Basic"
+    family = "Gen5"
+  }
+
+  storage_profile {
+    storage_mb = "51200"
+    backup_retention_days = 30
+    geo_redundant_backup = "Disabled"
   }
 
   administrator_login          = "${var.mysql_admin_login}"
   administrator_login_password = "${var.mysql_admin_pass}"
   version                      = "5.7"
-  storage_mb                   = "51200"
   ssl_enforcement              = "Enabled"
 
   tags {

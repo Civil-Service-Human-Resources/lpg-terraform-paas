@@ -93,3 +93,19 @@ variable "existingkeyvaultsecretname" {
 variable "certificatename" {
   default = ""
 }
+
+variable "lpg_management_server" {
+  default = ""
+}
+
+variable "registry_service_url" {
+  default = ""
+}
+
+variable "lpg_management_oauth_client_id" {
+  default = ""
+}
+
+variable "lpg_management_oauth_client_secret" {
+  default = ""
+}
