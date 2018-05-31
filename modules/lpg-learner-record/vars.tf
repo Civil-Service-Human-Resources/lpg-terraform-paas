@@ -26,14 +26,6 @@ variable "websites_port" {
   default = "9000"
 }
 
-variable "auth_user" {
-  default = "user"
-}
-
-variable "auth_password" {
-  default = "password"
-}
-
 variable "xapi_url" {
   default = "xapi_url"
 }
@@ -56,4 +48,40 @@ variable "hammer_logstash_port" {
 
 variable "env_profile" {
   default = "test"
+}
+
+variable "authentication_service_url" {
+  default = ""
+}
+
+variable "learner_record_client_id" {
+  default = ""
+}
+
+variable "learner_record_client_secret" {
+  default = ""
+}
+
+variable "registry_service_url" {
+  default = ""
+}
+
+variable "course_catalogue_url" {
+  default = ""
+}
+
+variable "course_catalogue_user" {
+  default = ""
+}
+
+variable "course_catalogue_pass" {
+  default = ""
+}
+
+variable "govuk_notify_api_key" {
+  default = ""
+}
+
+variable "required_learning_template_id" {
+  default = ""
 }

@@ -32,12 +32,40 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                               "value": "false"
                           },
                           {
-                              "name": "AUTH_USER",
-                              "value": "${var.auth_user}"
+                              "name": "OAUTH_SERVICE_URL",
+                              "value": "${var.authentication_service_url}"
                           },
                           {
-                              "name": "AUTH_PASSWORD",
-                              "value": "${var.auth_password}"
+                              "name": "CLIENT_ID",
+                              "value": "${var.learner_record_client_id}"
+                          },
+                          {
+                              "name": "CLIENT_SECRET",
+                              "value": "${var.learner_record_client_secret}"
+                          },
+                          {
+                              "name": "REGISTRY_SERVICE_URL",
+                              "value": "${var.registry_service_url}"
+                          },
+                          {
+                              "name": "LEARNING_CATALOGUE_SERVICE_URL",
+                              "value": "${var.course_catalogue_url}"
+                          },
+                          {
+                              "name": "LEARNING_CATALOGUE_USERNAME",
+                              "value": "${var.course_catalogue_user}"
+                          },
+                          {
+                              "name": "LEARNING_CATALOGUE_PASSWORD",
+                              "value": "${var.course_catalogue_pass}"
+                          },
+                          {
+                              "name": "GOV_NOTIFY_API_KEY",
+                              "value": "${var.govuk_notify_api_key}"
+                          },
+                          {
+                              "name": "GOV_NOTIFY_REQUIRED_LEARNING_DUE_TEMPLATE_ID",
+                              "value": "${var.required_learning_template_id}"
                           },
                           {
                               "name": "XAPI_URL",
