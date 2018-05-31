@@ -127,14 +127,6 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
               "value": "${var.learner_record_url}"
             },
             {
-              "name": "LEARNER_RECORD_USER",
-              "value": "${var.learner_record_user}"
-            },
-            {
-              "name": "LEARNER_RECORD_PASS",
-              "value": "${var.learner_record_pass}"
-            },
-            {
               "name": "COURSE_CATALOGUE_URL",
               "value": "${var.course_catalogue_url}"
             },

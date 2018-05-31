@@ -42,14 +42,6 @@ variable "learner_record_url" {
   default = "learner_record_url"
 }
 
-variable "learner_record_user" {
-  default = "learner_record_user"
-}
-
-variable "learner_record_pass" {
-  default = "learner_record_password"
-}
-
 variable "course_catalogue_url" {
   default = "course_catalogue_url"
 }

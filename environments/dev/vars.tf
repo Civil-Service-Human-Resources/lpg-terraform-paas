@@ -80,7 +80,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "local-13"
+  default = "latest"
 }
 
 variable "learning_catalogue_docker_tag" {
