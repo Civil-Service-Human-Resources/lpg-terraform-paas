@@ -111,7 +111,7 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
                 "alwaysOn": true,
-                "appCommandLine": "",
+                "appCommandLine": "/bin/hammer java -jar /data/app.jar",
                 "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}"
             },
             "dependsOn": [
