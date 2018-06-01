@@ -61,7 +61,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                           },
                           {
                               "name": "GOV_NOTIFY_API_KEY",
-                              "value": "${var.govuk_notify_api_key}"
+                              "value": "${var.gov_notify_api_key}"
                           },
                           {
                               "name": "GOV_NOTIFY_REQUIRED_LEARNING_DUE_TEMPLATE_ID",

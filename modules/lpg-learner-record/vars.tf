@@ -78,7 +78,7 @@ variable "course_catalogue_pass" {
   default = ""
 }
 
-variable "govuk_notify_api_key" {
+variable "gov_notify_api_key" {
   default = ""
 }
 

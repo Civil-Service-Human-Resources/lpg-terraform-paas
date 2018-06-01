@@ -68,11 +68,11 @@ variable "envurl" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "0.3.3.2"
+  default = "330502651b206925e08fa893fa1b10def23a72f2"
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "0a44bda01502cfa1cfc603a79b99da2620830d58"
+  default = "8181fb3e0ff6e4ae736b4caf5e0efb1bd865d10b"
 }
 
 variable "ll_docker_tag" {
@@ -88,7 +88,7 @@ variable "learning_catalogue_docker_tag" {
 }
 
 variable "civil_servant_registry_docker_tag" {
-  default = "latest"
+  default = "82caf85211868e77a98d0e150bcb78a25b57a1ff"
 }
 
 ### cosmos ###
