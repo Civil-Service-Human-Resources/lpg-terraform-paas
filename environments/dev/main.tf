@@ -258,4 +258,5 @@ module "civil-servant-registry-service" {
   vaultname                   = "${var.vaultname}"
   existingkeyvaultsecretname  = "${var.existingkeyvaultsecretname}"
   certificatename             = "${var.certificatename}"
+  gov_notify_api_key          = "${var.gov_notify_api_key}"
 }
