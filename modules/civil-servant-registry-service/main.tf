@@ -66,6 +66,14 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
                           {
                             "name": "DATASOURCE",
                             "value": "${var.datasource}"
+                          },
+                          {
+                            "name": "GOV_NOTIFY_API_KEY",
+                            "value": "${var.gov_notify_api_key}"
+                          },
+                          {
+                            "name": "GOV_NOTIFY_LINEMANAGER_TEMPLATE_ID",
+                            "value": "${var.gov_notify_linemanager_template_id}"
                           }
                       ]
                   },

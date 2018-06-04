@@ -73,3 +73,11 @@ variable "csrs_client_id" {
 variable "csrs_client_secret" {
   default = ""
 }
+
+variable "gov_notify_api_key" {
+  default = ""
+}
+
+variable "gov_notify_linemanager_template_id" {
+  default = "52052be1-b468-40ad-a161-cb5e4f034d4f"
+}
