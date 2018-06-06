@@ -1,2 +1,18 @@
 .idea
 
+environments/demo/.terraform
+environments/dev/.terraform
+environments/prod/.terraform
+environments/test/.terraform
+environments/demo/demo-vars.tf
+environments/demo/state.tf
+environments/dev/dev-vars.tf
+environments/dev/state.tf
+environments/prod/prod-vars.tf
+environments/prod/state.tf
+environments/test/state.tf
+environments/test/test-vars.tf
+scripts/elastic-powershell/demo-elastic.json
+scripts/elastic-powershell/dev-elastic.json
+scripts/elastic-powershell/prod-elastic.json
+scripts/elastic-powershell/test-elastic.json
