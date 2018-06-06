@@ -1,7 +1,7 @@
 ###### lpg-learner-record ######
 
-resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
-  name                = "${var.lpg_learner_record_name}"
+resource "azurerm_template_deployment" "lpg-report-service-app-service" {
+  name                = "${var.lpg_report_service_name}"
   resource_group_name = "${var.rg_name}"
 
   template_body = <<DEPLOY
@@ -11,7 +11,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
       "parameters": {
           "siteName": {
               "type": "string",
-              "defaultvalue": "${var.lpg_learner_record_name}",
+              "defaultvalue": "${var.lpg_report_service_name}",
               "metadata": {
                   "description": "Name of azure web app"
               }
@@ -32,8 +32,8 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                               "value": "false"
                           },
                           {
-                              "name": "SPRING_PROFILES_ACTIVE",
-                              "value": "${var.spring_profiles_active}"
+                              "name": "LEARNER_RECORD_URL",
+                              "value": "${var.learner_record_url}"
                           },
                           {
                               "name": "OAUTH_SERVICE_URL",
@@ -41,47 +41,11 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                           },
                           {
                               "name": "CLIENT_ID",
-                              "value": "${var.learner_record_client_id}"
+                              "value": "${var.report_service_client_id}"
                           },
                           {
                               "name": "CLIENT_SECRET",
-                              "value": "${var.learner_record_client_secret}"
-                          },
-                          {
-                              "name": "REGISTRY_SERVICE_URL",
-                              "value": "${var.registry_service_url}"
-                          },
-                          {
-                              "name": "LEARNING_CATALOGUE_SERVICE_URL",
-                              "value": "${var.course_catalogue_url}"
-                          },
-                          {
-                              "name": "LEARNING_CATALOGUE_USERNAME",
-                              "value": "${var.course_catalogue_user}"
-                          },
-                          {
-                              "name": "LEARNING_CATALOGUE_PASSWORD",
-                              "value": "${var.course_catalogue_pass}"
-                          },
-                          {
-                              "name": "GOV_NOTIFY_API_KEY",
-                              "value": "${var.gov_notify_api_key}"
-                          },
-                          {
-                              "name": "GOV_NOTIFY_REQUIRED_LEARNING_DUE_TEMPLATE_ID",
-                              "value": "${var.required_learning_template_id}"
-                          },
-                          {
-                              "name": "XAPI_URL",
-                              "value": "${var.xapi_url}"
-                          },
-                          {
-                              "name": "XAPI_USERNAME",
-                              "value": "${var.xapi_username}"
-                          },
-                          {
-                              "name": "XAPI_PASSWORD",
-                              "value": "${var.xapi_password}"
+                              "value": "${var.report_service_client_secret}"
                           },
                           {
                               "name": "WEBSITES_PORT",

@@ -85,3 +85,7 @@ variable "gov_notify_api_key" {
 variable "required_learning_template_id" {
   default = ""
 }
+
+variable "spring_profiles_active" {
+  default = "default"
+}

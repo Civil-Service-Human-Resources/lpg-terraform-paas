@@ -92,6 +92,26 @@ module "lpg-learner-record" {
   course_catalogue_pass         = "${var.course_catalogue_pass}"
   registry_service_url          = "${var.registry_service_url}"
   required_learning_template_id = "${var.required_learning_template_id}"
+  authentication_service_url    = "${var.authentication_service_url}"
+  learner_record_client_id      = "${var.learner_record_client_id}"
+  learner_record_client_secret  = "${var.learner_record_client_secret}"
+}
+
+module "lpg-report-service" {
+  source                        = "../../modules/lpg-report-service"
+  rg_name                       = "${var.rg_name}"
+  rg_prefix                     = "${var.rg_prefix}"
+  rg_location                   = "${var.rg_location}"
+  lpg_report_service_name       = "${var.rg_prefix}-${var.rg_name}-${var.lpg_report_service_name}"
+  docker_tag                    = "${var.lpg_report_service_docker_tag}"
+  hammer_logstash_host          = "${var.hammer_logstash_host}"
+  hammer_logstash_port          = "${var.hammer_logstash_port}"
+  env_profile                   = "${var.env_profile}"
+  websites_port                 = "${var.report_service_websites_port}"
+  learner_record_url            = "${var.learner_record_url}"
+  authentication_service_url    = "${var.authentication_service_url}"
+  report_service_client_id      = "${var.report_service_client_id}"
+  report_service_client_secret  = "${var.report_service_client_secret}"
 }
 
 module "lpg-learning-locker-xapi" {
@@ -162,7 +182,7 @@ module "lpg-management" {
   docker_tag                          = "${var.lpg_services_tag}"
   lpg_management_name                 = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management_name}"
   authentication_service_url          = "${var.authentication_service_url}"
-  azure_storage_connection_string     = "${module.blob.storage_connection_string}"
+  azure_storage_connection_string     = "${var.blob_storage_connection_string}"
   hammer_logstash_host                = "${var.hammer_logstash_host}"
   hammer_logstash_port                = "${var.hammer_logstash_port}"
   env_profile                         = "${var.env_profile}"
@@ -193,7 +213,7 @@ module "lpg-ui" {
   lpg_ui_name                     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
   xapi_url                        = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}.azurewebsites.net/data/xAPI"
   authentication_service_url      = "${var.authentication_service_url}"
-  azure_storage_connection_string = "${module.blob.storage_connection_string}"
+  azure_storage_connection_string = "${var.blob_storage_connection_string}"
   docker_tag                      = "${var.lpg_services_tag}"
   course_catalogue_url            = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_catalogue_name}.azurewebsites.net"
   course_catalogue_user           = "${var.course_catalogue_user}"

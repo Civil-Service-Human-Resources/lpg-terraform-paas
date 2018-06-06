@@ -68,11 +68,11 @@ variable "envurl" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "330502651b206925e08fa893fa1b10def23a72f2"
+  default = "373d498d701623d70cf8b7a29973cff3622e22eb"
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "8181fb3e0ff6e4ae736b4caf5e0efb1bd865d10b"
+  default = "a76aae45b73bfcde447a455b013c58e178f9f917"
 }
 
 variable "ll_docker_tag" {
@@ -88,7 +88,11 @@ variable "learning_catalogue_docker_tag" {
 }
 
 variable "civil_servant_registry_docker_tag" {
-  default = "82caf85211868e77a98d0e150bcb78a25b57a1ff"
+  default = "9fe7cd23d21b7428786e14f6a8c3a548b6a7211f"
+}
+
+variable "lpg_report_service_docker_tag" {
+  default = "95d6bc36ffb26ee11d796c75b093b3b0684f8c2d"
 }
 
 ### cosmos ###
@@ -234,4 +238,16 @@ variable "civil_servant_registry_name" {
 
 variable "registry_service_url" {
   default = "https://dev2-civil-servant-registry.cshr.digital"
+}
+
+variable "learner_record_url" {
+  default = "https://dev2-learner-record.cshr.digital"
+}
+
+variable "lpg_report_service_name" {
+  default = "lpg-report-service"
+}
+
+variable "report_service_websites_port" {
+  default = "9004"
 }
