@@ -59,7 +59,7 @@ variable "elasticsearch_uri" {
 }
 
 variable "content_url" {
-  default = "http://test-cdn.cshr.digital/lpgdevcontent"
+  default = "https://test-cdn.cshr.digital/lpgdevcontent"
 }
 
 variable "envurl" {
@@ -68,11 +68,11 @@ variable "envurl" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "0.3.3.2"
+  default = "373d498d701623d70cf8b7a29973cff3622e22eb"
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "0a44bda01502cfa1cfc603a79b99da2620830d58-v2"
+  default = "a76aae45b73bfcde447a455b013c58e178f9f917"
 }
 
 variable "ll_docker_tag" {
@@ -80,15 +80,19 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "0.2.14.1"
+  default = "ab1e04f5a68efb4dbea648dcfd6a2bee10751c14"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "10f5683bb8a49fc8fbbd7e48b81c31383a8e8db7"
+  default = "222b2025e3c8f3ec2ad29b65304edc0f2a5a642d"
 }
 
 variable "civil_servant_registry_docker_tag" {
-  default = "latest"
+  default = "9fe7cd23d21b7428786e14f6a8c3a548b6a7211f"
+}
+
+variable "lpg_report_service_docker_tag" {
+  default = "95d6bc36ffb26ee11d796c75b093b3b0684f8c2d"
 }
 
 ### cosmos ###
@@ -234,4 +238,20 @@ variable "civil_servant_registry_name" {
 
 variable "registry_service_url" {
   default = "https://test-civil-servant-registry.cshr.digital"
+}
+
+variable "learner_record_url" {
+  default = "https://test-learner-record.cshr.digital"
+}
+
+variable "lpg_report_service_name" {
+  default = "lpg-report-service"
+}
+
+variable "report_service_websites_port" {
+  default = "9004"
+}
+
+variable "spring_profiles_active" {
+  default = "test"
 }

@@ -187,6 +187,101 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
             "thumbprint": "[reference(resourceId('Microsoft.Web/certificates', parameters('certificateName'))).Thumbprint]",
             "toUpdate": true,
             "hostType": "Standard"
+              "type": "Microsoft.Web/sites",
+              "name": "[parameters('siteName')]",
+              "properties": {
+                  "siteConfig": {
+                      "appSettings": [
+                          {
+                              "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+                              "value": "false"
+                          },
+                          {
+                              "name": "SPRING_PROFILES_ACTIVE",
+                              "value": "${var.spring_profiles_active}"
+                          },
+                          {
+                              "name": "OAUTH_SERVICE_URL",
+                              "value": "${var.authentication_service_url}"
+                          },
+                          {
+                              "name": "CLIENT_ID",
+                              "value": "${var.learner_record_client_id}"
+                          },
+                          {
+                              "name": "CLIENT_SECRET",
+                              "value": "${var.learner_record_client_secret}"
+                          },
+                          {
+                              "name": "REGISTRY_SERVICE_URL",
+                              "value": "${var.registry_service_url}"
+                          },
+                          {
+                              "name": "LEARNING_CATALOGUE_SERVICE_URL",
+                              "value": "${var.course_catalogue_url}"
+                          },
+                          {
+                              "name": "LEARNING_CATALOGUE_USERNAME",
+                              "value": "${var.course_catalogue_user}"
+                          },
+                          {
+                              "name": "LEARNING_CATALOGUE_PASSWORD",
+                              "value": "${var.course_catalogue_pass}"
+                          },
+                          {
+                              "name": "GOV_NOTIFY_API_KEY",
+                              "value": "${var.gov_notify_api_key}"
+                          },
+                          {
+                              "name": "GOV_NOTIFY_REQUIRED_LEARNING_DUE_TEMPLATE_ID",
+                              "value": "${var.required_learning_template_id}"
+                          },
+                          {
+                              "name": "XAPI_URL",
+                              "value": "${var.xapi_url}"
+                          },
+                          {
+                              "name": "XAPI_USERNAME",
+                              "value": "${var.xapi_username}"
+                          },
+                          {
+                              "name": "XAPI_PASSWORD",
+                              "value": "${var.xapi_password}"
+                          },
+                          {
+                              "name": "WEBSITES_PORT",
+                              "value": "${var.websites_port}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_HOST",
+                              "value": "${var.hammer_logstash_host}"
+                          },
+                          {
+                              "name": "HAMMER_LOGSTASH_PORT",
+                              "value": "${var.hammer_logstash_port}"
+                          },
+                          {
+                              "name": "ENV_PROFILE",
+                              "value": "${var.env_profile}"
+                          },
+                          {
+                              "name": "DOCKER_ENABLE_CI",
+                              "value": "true"
+                          }
+                      ]
+                  },
+                  "name": "[parameters('siteName')]",
+                  "serverFarmId": "[variables('hostingPlanName')]",
+                  "hostingEnvironment": ""
+              },
+              "apiVersion": "2016-03-01",
+              "location": "[resourceGroup().location]",
+              "tags" : {
+                  "environment": "${var.env_profile}"
+              },
+              "dependsOn": [
+                  "[variables('hostingPlanName')]"
+              ]
           },
           {
             "name": "[concat(parameters('siteName'),'.azurewebsites.net')]",

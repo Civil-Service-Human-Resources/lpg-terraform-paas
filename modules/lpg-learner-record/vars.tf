@@ -105,3 +105,7 @@ variable "certificatename" {
 variable "envurl" {
   default = ""
 }
+
+variable "spring_profiles_active" {
+  default = "default"
+}
