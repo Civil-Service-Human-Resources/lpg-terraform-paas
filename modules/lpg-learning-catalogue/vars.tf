@@ -57,3 +57,23 @@ variable "hammer_logstash_port" {
 variable "env_profile" {
   default = "test"
 }
+
+variable "vaultresourcegroup" {
+  default = ""
+}
+
+variable "vaultname" {
+  default = ""
+}
+
+variable "existingkeyvaultsecretname" {
+  default = ""
+}
+
+variable "certificatename" {
+  default = ""
+}
+
+variable "envurl" {
+  default = ""
+}

@@ -85,3 +85,23 @@ variable "gov_notify_api_key" {
 variable "required_learning_template_id" {
   default = ""
 }
+
+variable "vaultresourcegroup" {
+  default = ""
+}
+
+variable "vaultname" {
+  default = ""
+}
+
+variable "existingkeyvaultsecretname" {
+  default = ""
+}
+
+variable "certificatename" {
+  default = ""
+}
+
+variable "envurl" {
+  default = ""
+}
