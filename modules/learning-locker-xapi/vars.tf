@@ -57,3 +57,23 @@ variable "redis_prefix" {
 variable "redis_use_tls" {
   default = "1"
 }
+
+variable "vaultresourcegroup" {
+  default = ""
+}
+
+variable "vaultname" {
+  default = ""
+}
+
+variable "existingkeyvaultsecretname" {
+  default = ""
+}
+
+variable "certificatename" {
+  default = ""
+}
+
+variable "envurl" {
+  default = ""
+}
