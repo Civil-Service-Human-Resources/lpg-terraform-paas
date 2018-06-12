@@ -285,11 +285,7 @@ module "civil-servant-registry-service" {
   docker_tag                  = "${var.civil_servant_registry_docker_tag}"
   csrs_client_id              = "${var.csrs_client_id}"
   csrs_client_secret          = "${var.csrs_client_secret}"
-<<<<<<< HEAD
   check_token_url             = "https://${var.envurl}identity.cshr.digital/oauth/check_token"
-=======
-  check_token_url             = "https://test-identity.cshr.digital/oauth/check_token"
->>>>>>> 19c0cba... Updating demo to match dev and test. (+3 squashed commits)
   datasource                  = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/csrs?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
   vaultresourcegroup          = "${var.vaultresourcegroup}"
   vaultname                   = "${var.vaultname}"
