@@ -86,6 +86,10 @@ variable "required_learning_template_id" {
   default = ""
 }
 
+variable "complete_learning_template_id" {
+  default = ""
+}
+
 variable "vaultresourcegroup" {
   default = ""
 }

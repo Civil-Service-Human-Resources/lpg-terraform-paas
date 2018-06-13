@@ -81,3 +81,7 @@ variable "gov_notify_api_key" {
 variable "gov_notify_linemanager_template_id" {
   default = "52052be1-b468-40ad-a161-cb5e4f034d4f"
 }
+
+variable "authentication_service_url" {
+  default = ""
+}

@@ -127,8 +127,8 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
               "value": "true"
             },
             {
-              "name": "CHECK_TOKEN_URL",
-              "value": "${var.check_token_url}"
+              "name": "OAUTH_SERVICE_URL",
+              "value": "${var.authentication_service_url}"
             },
             {
               "name": "CLIENT_ID",

@@ -147,6 +147,10 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
               "value": "${var.required_learning_template_id}"
             },
             {
+              "name": "GOV_NOTIFY_LEARNING_COMPLETED_TEMPLATE_ID",
+              "value": "${var.complete_learning_template_id}"
+            },
+            {
               "name": "XAPI_URL",
               "value": "${var.xapi_url}"
             },
