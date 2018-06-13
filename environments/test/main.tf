@@ -118,6 +118,11 @@ module "lpg-report-service" {
   authentication_service_url    = "${var.authentication_service_url}"
   report_service_client_id      = "${var.report_service_client_id}"
   report_service_client_secret  = "${var.report_service_client_secret}"
+  vaultresourcegroup            = "${var.vaultresourcegroup}"
+  vaultname                     = "${var.vaultname}"
+  existingkeyvaultsecretname    = "${var.existingkeyvaultsecretname}"
+  certificatename               = "${var.certificatename}"
+  envurl                        = "${var.envurl}"
 }
 
 module "lpg-learning-locker-xapi" {

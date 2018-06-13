@@ -53,3 +53,23 @@ variable "report_service_client_id" {
 variable "report_service_client_secret" {
   default = ""
 }
+
+variable "vaultresourcegroup" {
+  default = ""
+}
+
+variable "vaultname" {
+  default = ""
+}
+
+variable "existingkeyvaultsecretname" {
+  default = ""
+}
+
+variable "certificatename" {
+  default = ""
+}
+
+variable "envurl" {
+  default = ""
+}
