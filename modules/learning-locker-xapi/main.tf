@@ -197,7 +197,7 @@ resource "azurerm_template_deployment" "learning-locker-xapi" {
         "logsDirectorySizeLimit": 35,
         "detailedErrorLoggingEnabled": true,
         "alwaysOn": true,
-        "appCommandLine": "",
+        "appCommandLine": "/bin/hammer node /opt/xapi-service/dist/server",
         "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}"
       },
       "dependsOn": [
