@@ -1,4 +1,4 @@
-###### lpg-learner-record ######
+###### lpg-report-service ######
 
 resource "azurerm_template_deployment" "lpg-report-service-app-service" {
   name                = "${var.lpg_report_service_name}"
