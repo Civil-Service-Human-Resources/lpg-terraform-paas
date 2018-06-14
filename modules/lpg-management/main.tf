@@ -169,6 +169,10 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
             {
               "name": "DOCKER_ENABLE_CI",
               "value": "true"
+            },
+            {
+              "name": "REPORT_SERVICE_URL",
+              "value": "${var.lpg_management_report_service_url}"
             }
           ]
         },
