@@ -72,7 +72,7 @@ variable "identity_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "745d17975ea60722db717a198d6c26b8feb574fb"
+  default = "c9baf7c8cca6484d9a195c7fb33bbb5bc53a72d0"
 }
 
 variable "ll_docker_tag" {
@@ -241,7 +241,7 @@ variable "registry_service_url" {
 }
 
 variable "learner_record_url" {
-  default = "https://test-learner-record.cshr.digital"
+  default = "https://test-learning-record.cshr.digital"
 }
 
 variable "lpg_report_service_name" {
@@ -250,6 +250,10 @@ variable "lpg_report_service_name" {
 
 variable "report_service_websites_port" {
   default = "9004"
+}
+
+variable "lpg_management_report_service_url" {
+  default = "https://test-report.cshr.digital"
 }
 
 variable "spring_profiles_active" {
