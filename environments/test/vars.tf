@@ -252,7 +252,7 @@ variable "report_service_websites_port" {
   default = "9004"
 }
 
-variable "lpg_management_report_service_url" {
+variable "report_service_url" {
   default = "https://test-report.cshr.digital"
 }
 

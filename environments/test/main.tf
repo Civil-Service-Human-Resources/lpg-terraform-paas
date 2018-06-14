@@ -220,7 +220,7 @@ module "lpg-management" {
   envurl                              = "${var.envurl}"
   lpg_management_oauth_client_id      = "${var.lpg_management_oauth_client_id}"
   lpg_management_oauth_client_secret  = "${var.lpg_management_oauth_client_secret}"
-  report_service_url                  = "${var.lpg_management_report_service_url}"
+  report_service_url                  = "${var.report_service_url}"
 }
 
 module "lpg-ui" {
