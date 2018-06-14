@@ -172,7 +172,7 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
             },
             {
               "name": "REPORT_SERVICE_URL",
-              "value": "${var.lpg_management_report_service_url}"
+              "value": "${var.report_service_url}"
             }
           ]
         },

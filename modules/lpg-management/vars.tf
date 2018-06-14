@@ -110,6 +110,6 @@ variable "lpg_management_oauth_client_secret" {
   default = ""
 }
 
-variable "lpg_management_report_service_url" {
+variable "report_service_url" {
   default = ""
 }
