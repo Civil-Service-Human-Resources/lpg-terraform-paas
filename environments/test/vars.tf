@@ -68,7 +68,7 @@ variable "envurl" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "373d498d701623d70cf8b7a29973cff3622e22eb"
+  default = "ae1f725a4ee5a94ab76488c12e4309bedc925a9b"
 }
 
 variable "lpg_learner_record_docker_tag" {
@@ -80,7 +80,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "4efd7f98a3bf8bd7b3cac770d4329852ddb070cb"
+  default = "61262da532c33e1edb2219a4c276c0e201f645f0"
 }
 
 variable "learning_catalogue_docker_tag" {
@@ -88,7 +88,7 @@ variable "learning_catalogue_docker_tag" {
 }
 
 variable "civil_servant_registry_docker_tag" {
-  default = "27f7d576b080447f8b3d939337c60a57910c430e"
+  default = "1b27ad13816515e8f7cbc0e71bc960b4b0ff8c83"
 }
 
 variable "lpg_report_service_docker_tag" {
@@ -256,6 +256,11 @@ variable "report_service_url" {
   default = "https://test-report.cshr.digital"
 }
 
+variable "course_catalogue_url" {
+  default = "https://test-learning-resources.cshr.digital"
+}
+
 variable "spring_profiles_active" {
   default = "test"
 }
+
