@@ -194,7 +194,9 @@ resource "azurerm_template_deployment" "lpg-report-service-app-service" {
         "detailedErrorLoggingEnabled": true,
         "alwaysOn": true,
         "appCommandLine": "",
-        "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}"
+        "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}",
+        "minTlsVersion": "1.0",
+        "ftpsState": "Disabled"
       },
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

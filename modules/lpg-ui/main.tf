@@ -245,7 +245,9 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
         "detailedErrorLoggingEnabled": true,
         "alwaysOn": true,
         "appCommandLine": "/bin/hammer node ../node_modules/ui/server.js",
-        "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}"
+        "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}",
+        "minTlsVersion": "1.0",
+        "ftpsState": "Disabled"
       },
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

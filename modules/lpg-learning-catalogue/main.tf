@@ -198,7 +198,9 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
         "detailedErrorLoggingEnabled": true,
         "alwaysOn": true,
         "appCommandLine": "/bin/hammer java -jar /data/app.jar",
-        "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}"
+        "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}",
+        "minTlsVersion": "1.0",
+        "ftpsState": "Disabled"
       },
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
