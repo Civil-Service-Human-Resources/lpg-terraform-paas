@@ -198,7 +198,9 @@ resource "azurerm_template_deployment" "learning-locker-xapi" {
         "detailedErrorLoggingEnabled": true,
         "alwaysOn": true,
         "appCommandLine": "/bin/hammer node /opt/xapi-service/dist/server",
-        "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}"
+        "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}",
+        "minTlsVersion": "1.0",
+        "ftpsState": "Disabled"
       },
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
