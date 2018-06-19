@@ -84,11 +84,11 @@ variable "lpg_services_tag" {
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "8bfe9d8df2dc89dbc16ec0840035c0a4d2bdf5ae"
+  default = "899c11c17afa5a9a83c37bfa68be325df39d8553"
 }
 
 variable "civil_servant_registry_docker_tag" {
-  default = "1b27ad13816515e8f7cbc0e71bc960b4b0ff8c83"
+  default = "1744b1a00ecb1fc9eceabb9520be464dbc602cd4"
 }
 
 variable "lpg_report_service_docker_tag" {
