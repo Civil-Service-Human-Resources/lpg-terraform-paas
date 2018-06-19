@@ -80,7 +80,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "61262da532c33e1edb2219a4c276c0e201f645f0"
+  default = "LPFG-494--Update-lpg-services-admin-ui-to-indicate-relevant-interests-1156"
 }
 
 variable "learning_catalogue_docker_tag" {
