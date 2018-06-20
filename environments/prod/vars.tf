@@ -80,7 +80,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "0.2.14.1"
+  default = "ab1e04f5a68efb4dbea648dcfd6a2bee10751c14"
 }
 
 variable "learning_catalogue_docker_tag" {
