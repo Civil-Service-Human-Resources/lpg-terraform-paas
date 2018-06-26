@@ -68,7 +68,7 @@ variable "envurl" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "adbb580d327eaad627eedcee4ae191537619c121"
+  default = "672e7b8044cb8e7b9d870ae4957c2b7b6690e8f2"
 }
 
 variable "lpg_learner_record_docker_tag" {
