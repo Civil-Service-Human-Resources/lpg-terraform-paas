@@ -27,3 +27,27 @@ resource "azurerm_mysql_server" "lpg" {
     environment = "${var.env_profile}"
   }
 }
+
+resource "azurerm_mysql_database" "learner_record" {
+  name                = "learner_record"
+  resource_group_name = "${var.rg_name}"
+  server_name         = "${var.mysql_name}"
+  charset             = "utf8"
+  collation           = "utf8_unicode_ci"
+}
+
+resource "azurerm_mysql_database" "identity" {
+  name                = "identity"
+  resource_group_name = "${var.rg_name}"
+  server_name         = "${var.mysql_name}"
+  charset             = "utf8"
+  collation           = "utf8_unicode_ci"
+}
+
+resource "azurerm_mysql_database" "csrs" {
+  name                = "csrs"
+  resource_group_name = "${var.rg_name}"
+  server_name         = "${var.mysql_name}"
+  charset             = "utf8"
+  collation           = "utf8_unicode_ci"
+}
