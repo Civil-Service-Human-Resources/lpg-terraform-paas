@@ -87,14 +87,38 @@ module "lpg-learner-record" {
   env_profile                   = "${var.env_profile}"
   websites_port                 = "${var.lpg_learner_record_websites_port}"
   gov_notify_api_key            = "${var.gov_notify_api_key}"
-  course_catalogue_url          = "https://${var.envurl}learning-record.cshr.digital"
+  course_catalogue_url          = "https://${var.envurl}learning-resources.cshr.digital"
   course_catalogue_user         = "${var.course_catalogue_user}"
   course_catalogue_pass         = "${var.course_catalogue_pass}"
   registry_service_url          = "${var.registry_service_url}"
   required_learning_template_id = "${var.required_learning_template_id}"
+  complete_learning_template_id = "${var.complete_learning_template_id}"
   authentication_service_url    = "${var.authentication_service_url}"
   learner_record_client_id      = "${var.learner_record_client_id}"
   learner_record_client_secret  = "${var.learner_record_client_secret}"
+  vaultresourcegroup            = "${var.vaultresourcegroup}"
+  vaultname                     = "${var.vaultname}"
+  existingkeyvaultsecretname    = "${var.existingkeyvaultsecretname}"
+  certificatename               = "${var.certificatename}"
+  envurl                        = "${var.envurl}"
+  spring_profiles_active        = "${var.spring_profiles_active}"
+}
+
+module "lpg-report-service" {
+  source                        = "../../modules/lpg-report-service"
+  rg_name                       = "${var.rg_name}"
+  rg_prefix                     = "${var.rg_prefix}"
+  rg_location                   = "${var.rg_location}"
+  lpg_report_service_name       = "${var.rg_prefix}-${var.rg_name}-${var.lpg_report_service_name}"
+  docker_tag                    = "${var.lpg_report_service_docker_tag}"
+  hammer_logstash_host          = "${var.hammer_logstash_host}"
+  hammer_logstash_port          = "${var.hammer_logstash_port}"
+  env_profile                   = "${var.env_profile}"
+  websites_port                 = "${var.report_service_websites_port}"
+  learner_record_url            = "${var.learner_record_url}"
+  authentication_service_url    = "${var.authentication_service_url}"
+  report_service_client_id      = "${var.report_service_client_id}"
+  report_service_client_secret  = "${var.report_service_client_secret}"
   vaultresourcegroup            = "${var.vaultresourcegroup}"
   vaultname                     = "${var.vaultname}"
   existingkeyvaultsecretname    = "${var.existingkeyvaultsecretname}"
@@ -196,6 +220,7 @@ module "lpg-management" {
   envurl                              = "${var.envurl}"
   lpg_management_oauth_client_id      = "${var.lpg_management_oauth_client_id}"
   lpg_management_oauth_client_secret  = "${var.lpg_management_oauth_client_secret}"
+  report_service_url                  = "${var.report_service_url}"
 }
 
 module "lpg-ui" {
@@ -275,4 +300,5 @@ module "civil-servant-registry-service" {
   certificatename             = "${var.certificatename}"
   gov_notify_api_key          = "${var.gov_notify_api_key}"
   envurl                      = "${var.envurl}"
+  authentication_service_url  = "${var.authentication_service_url}"
 }
