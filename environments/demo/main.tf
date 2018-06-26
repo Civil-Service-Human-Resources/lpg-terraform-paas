@@ -87,7 +87,7 @@ module "lpg-learner-record" {
   env_profile                   = "${var.env_profile}"
   websites_port                 = "${var.lpg_learner_record_websites_port}"
   gov_notify_api_key            = "${var.gov_notify_api_key}"
-  course_catalogue_url          = "https://${var.envurl}learning-record.cshr.digital"
+  course_catalogue_url          = "https://${var.envurl}learning-resources.cshr.digital"
   course_catalogue_user         = "${var.course_catalogue_user}"
   course_catalogue_pass         = "${var.course_catalogue_pass}"
   registry_service_url          = "${var.registry_service_url}"
