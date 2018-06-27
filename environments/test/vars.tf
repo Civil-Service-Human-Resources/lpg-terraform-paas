@@ -260,3 +260,6 @@ variable "spring_profiles_active" {
   default = "test"
 }
 
+variable "identity_management_name" {
+  default = "identity-management"
+}
