@@ -1,0 +1,79 @@
+variable "identity_management_name" {
+  default = "identity_management"
+}
+
+variable "rg_name" {
+  default = "holder"
+}
+
+variable "rg_prefix" {
+  default = "rgpref"
+}
+
+variable "rg_location" {
+  default = "location"
+}
+
+variable "docker_tag" {
+  default = "latest"
+}
+
+variable "docker_image" {
+  default = "docker_image"
+}
+
+variable "datasource" {
+  default = "db_url"
+}
+
+variable "websites_port" {
+  default = "8081"
+}
+
+variable "hammer_logstash_host" {
+  default = "54e2fb5d-be7a-47c2-b3cf-6f72f42b5dfb-ls.logit.io"
+}
+
+variable "hammer_logstash_port" {
+  default = "16690"
+}
+
+variable "env_profile" {
+  default = "test"
+}
+
+variable "vaultresourcegroup" {
+  default = ""
+}
+
+variable "vaultname" {
+  default = ""
+}
+
+variable "existingkeyvaultsecretname" {
+  default = ""
+}
+
+variable "certificatename" {
+  default = ""
+}
+
+variable "envurl" {
+  default = ""
+}
+
+variable "gov_notify_api_key" {
+  default = ""
+}
+
+variable "gov_notify_invite_template_id" {
+  default = ""
+}
+
+variable "invite_signup_url" {
+  default = ""
+}
+
+variable "reset_url" {
+  default = ""
+}
