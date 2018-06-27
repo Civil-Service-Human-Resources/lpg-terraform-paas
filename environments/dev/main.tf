@@ -319,4 +319,5 @@ module "civil-servant-registry-service" {
   certificatename             = "${var.certificatename}"
   gov_notify_api_key          = "${var.gov_notify_api_key}"
   envurl                      = "${var.envurl}"
+  authentication_service_url  = "https://${var.envurl}identity.cshr.digital"
 }
