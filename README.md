@@ -31,14 +31,16 @@ Authenticate with Azure:
 
 To install provider: 
 
-```terraform init```
+``` cd into environment directory```
+
+```terraform init ```
 
 Select environment/workspace dev|test|prod to deploy to:
 
 ``` terraform plan ```
 
-``` terrraform apply ```
+``` terraform apply ```
 
 Or to bypass the confirmation prompt:
 
-``` terrraform apply -auto-approve ```
+``` terraform apply -auto-approve ```
