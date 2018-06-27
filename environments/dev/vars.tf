@@ -247,3 +247,7 @@ variable "lpg_report_service_name" {
 variable "report_service_websites_port" {
   default = "9004"
 }
+
+variable "identity_management_name" {
+  default = "identity_management"
+}
