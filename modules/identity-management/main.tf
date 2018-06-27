@@ -115,7 +115,7 @@ resource "azurerm_template_deployment" "identity-management-app-service" {
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
                 "alwaysOn": true,
-                "appCommandLine": "/bin/hammer /opt/learning-locker/run-ui.sh",
+                "appCommandLine": "",
                 "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}",
                 "minTlsVersion": "1.0",
                 "ftpsState": "Disabled"
