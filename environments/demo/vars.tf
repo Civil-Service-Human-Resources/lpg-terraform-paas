@@ -14,10 +14,6 @@ variable "rg_location" {
   default = "UK South"
 }
 
-variable "authentication_service_url" {
-  default = "https://demo2-identity.cshr.digital"
-}
-
 variable "lpg_ui_url" {
   default = "https://demo2-lpg.cshr.digital"
 }
