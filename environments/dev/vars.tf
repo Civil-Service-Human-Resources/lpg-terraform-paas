@@ -249,5 +249,5 @@ variable "report_service_websites_port" {
 }
 
 variable "identity_management_name" {
-  default = "identity_management"
+  default = "identity-management"
 }
