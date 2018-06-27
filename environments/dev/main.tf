@@ -74,6 +74,28 @@ module "identity" {
   reset_url                               = "https://${var.envurl}identity.cshr.digital/reset/%s"
 }
 
+module "identity-management" {
+  source                                  = "../../modules/identity-management"
+  rg_name                                 = "${var.rg_name}"
+  rg_prefix                               = "${var.rg_prefix}"
+  rg_location                             = "${var.rg_location}"
+  identity_name                           = "${var.rg_prefix}-${var.rg_name}-${var.identity_management_name}"
+  datasource                              = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/identity?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
+  docker_image                            = "${var.identity_docker_image}"
+  docker_tag                              = "${var.identity_docker_tag}"
+  hammer_logstash_host                    = "${var.hammer_logstash_host}"
+  hammer_logstash_port                    = "${var.hammer_logstash_port}"
+  env_profile                             = "${var.env_profile}"
+  gov_notify_invite_template_id           = "${var.gov_notify_invite_template_id}"
+  vaultresourcegroup                      = "${var.vaultresourcegroup}"
+  vaultname                               = "${var.vaultname}"
+  existingkeyvaultsecretname              = "${var.existingkeyvaultsecretname}"
+  certificatename                         = "${var.certificatename}"
+  gov_notify_api_key                      = "${var.gov_notify_api_key}"
+  envurl                                  = "${var.envurl}"
+  invite_signup_url                       = "https://${var.envurl}identity.cshr.digital/signup/%s"
+}
+
 module "lpg-learner-record" {
   source                        = "../../modules/lpg-learner-record"
   rg_name                       = "${var.rg_name}"
