@@ -64,7 +64,7 @@ variable "envurl" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "ae1f725a4ee5a94ab76488c12e4309bedc925a9b"
+  default = "672e7b8044cb8e7b9d870ae4957c2b7b6690e8f2"
 }
 
 variable "lpg_learner_record_docker_tag" {
@@ -76,19 +76,19 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "e4b42410db49e449a5ccd8d4c3050f45bcea5a94"
+  default = "892fac60d179736762195cdd0a9813c491b5e014"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "899c11c17afa5a9a83c37bfa68be325df39d8553"
+  default = "08e98b011e061199a869bed35a1338265ecf5d7f"
 }
 
 variable "civil_servant_registry_docker_tag" {
-  default = "1744b1a00ecb1fc9eceabb9520be464dbc602cd4"
+  default = "4234a089fdeb55056d25b28385279e1f7866c142"
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "33dbad3c44acbe8ab4207fd23a405a448005ce0c"
+  default = "95d6bc36ffb26ee11d796c75b093b3b0684f8c2d"
 }
 
 ### cosmos ###
@@ -258,4 +258,8 @@ variable "course_catalogue_url" {
 
 variable "spring_profiles_active" {
   default = "test"
+}
+
+variable "identity_management_name" {
+  default = "identity-management"
 }

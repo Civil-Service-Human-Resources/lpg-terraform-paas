@@ -64,11 +64,11 @@ variable "envurl" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "373d498d701623d70cf8b7a29973cff3622e22eb"
+  default = "672e7b8044cb8e7b9d870ae4957c2b7b6690e8f2"
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "a76aae45b73bfcde447a455b013c58e178f9f917"
+  default = "65c638aecd33bab290be6e1a83378545f73cc4dd"
 }
 
 variable "ll_docker_tag" {
@@ -76,15 +76,15 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "ab1e04f5a68efb4dbea648dcfd6a2bee10751c14"
+  default = "892fac60d179736762195cdd0a9813c491b5e014"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "222b2025e3c8f3ec2ad29b65304edc0f2a5a642d"
+  default = "08e98b011e061199a869bed35a1338265ecf5d7f"
 }
 
 variable "civil_servant_registry_docker_tag" {
-  default = "9fe7cd23d21b7428786e14f6a8c3a548b6a7211f"
+  default = "4234a089fdeb55056d25b28385279e1f7866c142"
 }
 
 variable "lpg_report_service_docker_tag" {
@@ -246,4 +246,8 @@ variable "lpg_report_service_name" {
 
 variable "report_service_websites_port" {
   default = "9004"
+}
+
+variable "identity_management_name" {
+  default = "identity-management"
 }
