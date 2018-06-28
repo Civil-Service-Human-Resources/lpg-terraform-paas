@@ -88,7 +88,7 @@ variable "civil_servant_registry_docker_tag" {
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "95d6bc36ffb26ee11d796c75b093b3b0684f8c2d"
+  default = "33dbad3c44acbe8ab4207fd23a405a448005ce0c"
 }
 
 ### cosmos ###
