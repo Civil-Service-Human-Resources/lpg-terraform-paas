@@ -15,7 +15,7 @@ variable "rg_location" {
 }
 
 variable "docker_tag" {
-  default = ""
+  default = "latest"
 }
 
 variable "docker_image" {
