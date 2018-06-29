@@ -130,10 +130,6 @@ variable "identity_name" {
   default = "identity"
 }
 
-variable "identity_docker_image" {
-  default = "cshr/identity-service"
-}
-
 ### lpg-learner-record ###
 variable "lpg_learner_record_name" {
   default = "lpg-learner-record"

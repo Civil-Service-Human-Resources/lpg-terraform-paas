@@ -56,7 +56,6 @@ module "identity" {
   rg_location                             = "${var.rg_location}"
   identity_name                           = "${var.rg_prefix}-${var.rg_name}-${var.identity_name}"
   datasource                              = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/identity?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
-  docker_image                            = "${var.identity_docker_image}"
   docker_tag                              = "${var.identity_docker_tag}"
   hammer_logstash_host                    = "${var.hammer_logstash_host}"
   hammer_logstash_port                    = "${var.hammer_logstash_port}"
@@ -81,7 +80,6 @@ module "identity-management" {
   rg_location                             = "${var.rg_location}"
   identity_management_name                = "${var.rg_prefix}-${var.rg_name}-${var.identity_management_name}"
   datasource                              = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/identity?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
-  docker_image                            = "${var.identity_docker_image}"
   docker_tag                              = "${var.identity_docker_tag}"
   hammer_logstash_host                    = "${var.hammer_logstash_host}"
   hammer_logstash_port                    = "${var.hammer_logstash_port}"
@@ -319,4 +317,5 @@ module "civil-servant-registry-service" {
   certificatename             = "${var.certificatename}"
   gov_notify_api_key          = "${var.gov_notify_api_key}"
   envurl                      = "${var.envurl}"
+  authentication_service_url  = "https://${var.envurl}identity.cshr.digital"
 }
