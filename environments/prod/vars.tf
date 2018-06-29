@@ -245,11 +245,11 @@ variable "report_service_websites_port" {
 }
 
 variable "report_service_url" {
-  default = "https://test-report.cshr.digital"
+  default = "https://report.cshr.digital"
 }
 
 variable "course_catalogue_url" {
-  default = "https://test-learning-resources.cshr.digital"
+  default = "https://learning-resources.cshr.digital"
 }
 
 variable "spring_profiles_active" {

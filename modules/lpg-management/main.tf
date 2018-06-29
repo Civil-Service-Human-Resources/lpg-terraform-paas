@@ -173,6 +173,14 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
             {
               "name": "REPORT_SERVICE_URL",
               "value": "${var.report_service_url}"
+            },
+            {
+              "name": "OAUTH_CLIENT_ID",
+              "value": "${var.lpg_management_oauth_client_id}"
+            },
+            {
+              "name": "OAUTH_CLIENT_SECRET",
+              "value": "${var.lpg_management_oauth_client_secret}"
             }
           ]
         },

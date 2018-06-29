@@ -132,7 +132,6 @@ module "lpg-report-service" {
   rg_location                   = "${var.rg_location}"
   lpg_report_service_name       = "${var.rg_prefix}-${var.rg_name}-${var.lpg_report_service_name}"
   docker_tag                    = "${var.lpg_report_service_docker_tag}"
-  docker_tag                    = "${var.lpg_report_service_docker_tag}"
   hammer_logstash_host          = "${var.hammer_logstash_host}"
   hammer_logstash_port          = "${var.hammer_logstash_port}"
   env_profile                   = "${var.env_profile}"
@@ -242,7 +241,7 @@ module "lpg-management" {
   envurl                              = "${var.envurl}"
   lpg_management_oauth_client_id      = "${var.lpg_management_oauth_client_id}"
   lpg_management_oauth_client_secret  = "${var.lpg_management_oauth_client_secret}"
-  report_service_url                  = "${var.report_service_url}"
+  report_service_url                  = "https://${var.envurl}report.cshr.digital"
 }
 
 module "lpg-ui" {
