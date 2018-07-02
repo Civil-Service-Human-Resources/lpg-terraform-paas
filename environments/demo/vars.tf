@@ -14,16 +14,8 @@ variable "rg_location" {
   default = "UK South"
 }
 
-variable "lpg_ui_url" {
-  default = "https://demo2-lpg.cshr.digital"
-}
-
-variable "lpg_ui_server" {
-  default = "demo2-lpg.cshr.digital"
-}
-
-variable "lpg_management_ui_url" {
-  default = "https://demo2-management.cshr.digital"
+variable "envurl" {
+  default = "demo2-"
 }
 
 variable "hammer_api_worker_http_server_port" {
@@ -48,18 +40,6 @@ variable "youtube_api_key" {
 
 variable "google_analytics_id" {
   default = "UA-22141655-3"
-}
-
-variable "elasticsearch_uri" {
-  default = "https://demo2-elastic.cshr.digital:9200"
-}
-
-variable "content_url" {
-  default = "https://demo2-cdn.cshr.digital/lpgdevcontent"
-}
-
-variable "envurl" {
-  default = "demo2-"
 }
 
 ### docker tags ###
@@ -135,10 +115,6 @@ variable "lpg_learner_record_name" {
   default = "lpg-learner-record"
 }
 
-variable "xapi_url" {
-  default = "xapi_url"
-}
-
 variable "lpg_learner_record_websites_port" {
   default = "9000"
 }
@@ -196,10 +172,6 @@ variable "management_ui_websites_port" {
   default = "3001"
 }
 
-variable "lpg_management_server" {
-  default = "https://demo2-management.cshr.digital"
-}
-
 ### lpg-ui ###
 variable "lpg_ui_name" {
   default = "lpg-ui"
@@ -226,14 +198,6 @@ variable "mysql_name" {
 ### civil-servant-registry ###
 variable "civil_servant_registry_name" {
   default = "civil-servant-registry"
-}
-
-variable "registry_service_url" {
-  default = "https://demo2-civil-servant-registry.cshr.digital"
-}
-
-variable "learner_record_url" {
-  default = "https://demo2-learner-record.cshr.digital"
 }
 
 ### report-service ###

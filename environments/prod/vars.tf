@@ -14,16 +14,8 @@ variable "rg_location" {
   default = "UK South"
 }
 
-variable "lpg_ui_url" {
-  default = "https://lpg.cshr.digital"
-}
-
-variable "lpg_ui_server" {
-  default = "lpg.cshr.digital"
-}
-
-variable "lpg_management_ui_url" {
-  default = "https://management.cshr.digital"
+variable "envurl" {
+  default = ""
 }
 
 variable "hammer_api_worker_http_server_port" {
@@ -48,18 +40,6 @@ variable "youtube_api_key" {
 
 variable "google_analytics_id" {
   default = "UA-22141655-6"
-}
-
-variable "elasticsearch_uri" {
-  default = "https://elastic.cshr.digital:9200"
-}
-
-variable "content_url" {
-  default = "https://cdn.cshr.digital/packages"
-}
-
-variable "envurl" {
-  default = ""
 }
 
 ### docker tags ###
@@ -135,10 +115,6 @@ variable "lpg_learner_record_name" {
   default = "lpg-learner-record"
 }
 
-variable "xapi_url" {
-  default = "xapi_url"
-}
-
 variable "lpg_learner_record_websites_port" {
   default = "9000"
 }
@@ -196,10 +172,6 @@ variable "management_ui_websites_port" {
   default = "3001"
 }
 
-variable "lpg_management_server" {
-  default = "https://management.cshr.digital"
-}
-
 ### lpg-ui ###
 variable "lpg_ui_name" {
   default = "lpg-ui"
@@ -228,28 +200,12 @@ variable "civil_servant_registry_name" {
   default = "civil-servant-registry"
 }
 
-variable "registry_service_url" {
-  default = "https://civil-servant-registry.cshr.digital"
-}
-
-variable "learner_record_url" {
-  default = "https://learning-record.cshr.digital"
-}
-
 variable "lpg_report_service_name" {
   default = "lpg-report-service"
 }
 
 variable "report_service_websites_port" {
   default = "9004"
-}
-
-variable "report_service_url" {
-  default = "https://report.cshr.digital"
-}
-
-variable "course_catalogue_url" {
-  default = "https://learning-resources.cshr.digital"
 }
 
 variable "spring_profiles_active" {
