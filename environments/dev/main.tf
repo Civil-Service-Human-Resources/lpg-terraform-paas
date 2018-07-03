@@ -112,6 +112,7 @@ module "lpg-learner-record" {
   course_catalogue_pass         = "${var.course_catalogue_pass}"
   registry_service_url          = "https://${var.envurl}civil-servant-registry.cshr.digital"
   required_learning_template_id = "${var.required_learning_template_id}"
+  complete_learning_template_id = "${var.complete_learning_template_id}"
   authentication_service_url    = "https://${var.envurl}identity.cshr.digital"
   learner_record_client_id      = "${var.learner_record_client_id}"
   learner_record_client_secret  = "${var.learner_record_client_secret}"
@@ -238,6 +239,7 @@ module "lpg-management" {
   envurl                              = "${var.envurl}"
   lpg_management_oauth_client_id      = "${var.lpg_management_oauth_client_id}"
   lpg_management_oauth_client_secret  = "${var.lpg_management_oauth_client_secret}"
+  report_service_url                  = "https://${var.envurl}report.cshr.digital"
 }
 
 module "lpg-ui" {
