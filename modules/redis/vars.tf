@@ -27,11 +27,11 @@ variable "redis_sku_name" {
 }
 
 variable "redis_enable_non_ssl_port" {
-  default = "false"
+  default = "true"
 }
 
 variable "redis_max_clients" {
-  default = "256"
+  default = "2000"
 }
 
 variable "redis_maxmemory_reserved" {
