@@ -11,13 +11,13 @@ variable "storage_account_name" {
   default = "lpgpackages"
 }
 variable "storage_account_location" {
-  default = "uksouth"
+  default = "UK South"
 }
 variable "storage_account_tier" {
   default = "Standard"
 }
 variable "storage_account_replication" {
-  default = "LRS"
+  default = "ZRS"
 }
 variable "container_name" {
   default = "packages"

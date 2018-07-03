@@ -32,12 +32,7 @@ module "blob" {
   rg_name                     = "${var.rg_name}"
   rg_prefix                   = "${var.rg_prefix}"
   rg_location                 = "${var.rg_location}"
-  storage_account_location    = "UK South"
   storage_account_name        = "${var.rg_prefix}${var.rg_name}blob"
-  storage_account_tier        = "Standard"
-  storage_account_replication = "ZRS"
-  container_name              = "packages"
-  container_accesstype        = "private"
   env_profile                 = "${var.env_profile}"
 }
 
