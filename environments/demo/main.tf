@@ -238,6 +238,7 @@ module "lpg-management" {
   envurl                              = "${var.envurl}"
   lpg_management_oauth_client_id      = "${var.lpg_management_oauth_client_id}"
   lpg_management_oauth_client_secret  = "${var.lpg_management_oauth_client_secret}"
+  report_service_url                  = "https://${var.envurl}report.cshr.digital"
 }
 
 module "lpg-ui" {
