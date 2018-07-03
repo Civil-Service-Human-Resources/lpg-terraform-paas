@@ -4,14 +4,6 @@ module "redis" {
   rg_prefix                 = "${var.rg_prefix}"
   rg_location               = "${var.rg_location}"
   redis_name                = "${var.rg_prefix}-${var.rg_name}-redis"
-  redis_capacity            = "2"
-  redis_family              = "C"
-  redis_sku_name            = "Standard"
-  redis_enable_non_ssl_port = "true"
-  redis_max_clients         = "2000"
-  redis_maxmemory_reserved  = "2"
-  redis_maxmemory_delta     = "2"
-  redis_maxmemory_policy    = "volatile-lru"
   env_profile               = "${var.env_profile}"
 }
 
