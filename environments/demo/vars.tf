@@ -14,6 +14,14 @@ variable "rg_location" {
   default = "UK South"
 }
 
+variable "webapp_sku_tier" {
+  default = "Basic"
+}
+
+variable "webapp_sku_name" {
+  default = "B1"
+}
+
 variable "envurl" {
   default = "demo2-"
 }

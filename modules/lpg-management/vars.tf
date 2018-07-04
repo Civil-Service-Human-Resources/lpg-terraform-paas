@@ -14,6 +14,14 @@ variable "rg_location" {
   default = "location"
 }
 
+variable "webapp_sku_tier" {
+  default = "Basic"
+}
+
+variable "webapp_sku_name" {
+  default = "B1"
+}
+
 variable "docker_tag" {
   default = ""
 }

@@ -1,39 +1,39 @@
 module "redis" {
-  source                    = "../../modules/redis"
-  rg_name                   = "${var.rg_name}"
-  rg_prefix                 = "${var.rg_prefix}"
-  rg_location               = "${var.rg_location}"
-  redis_name                = "${var.rg_prefix}-${var.rg_name}-redis"
-  env_profile               = "${var.env_profile}"
+  source                                  = "../../modules/redis"
+  rg_name                                 = "${var.rg_name}"
+  rg_prefix                               = "${var.rg_prefix}"
+  rg_location                             = "${var.rg_location}"
+  redis_name                              = "${var.rg_prefix}-${var.rg_name}-redis"
+  env_profile                             = "${var.env_profile}"
 }
 
 module "mysql" {
-  source                    = "../../modules/mysql"
-  rg_name                   = "${var.rg_name}"
-  rg_prefix                 = "${var.rg_name}"
-  rg_location               = "${var.rg_location}"
-  mysql_name                = "${var.rg_prefix}-${var.rg_name}-${var.mysql_name}"
-  mysql_admin_login         = "${var.mysql_user}"
-  mysql_admin_pass          = "${var.mysql_pass}"
-  env_profile               = "${var.env_profile}"
+  source                                  = "../../modules/mysql"
+  rg_name                                 = "${var.rg_name}"
+  rg_prefix                               = "${var.rg_name}"
+  rg_location                             = "${var.rg_location}"
+  mysql_name                              = "${var.rg_prefix}-${var.rg_name}-${var.mysql_name}"
+  mysql_admin_login                       = "${var.mysql_user}"
+  mysql_admin_pass                        = "${var.mysql_pass}"
+  env_profile                             = "${var.env_profile}"
 }
 
 module "cosmos" {
-  source      = "../../modules/cosmos"
-  rg_name     = "${var.rg_name}"
-  rg_prefix   = "${var.rg_name}"
-  rg_location = "${var.rg_location}"
-  cosmos_name = "${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}"
-  env_profile = "${var.env_profile}"
+  source                                  = "../../modules/cosmos"
+  rg_name                                 = "${var.rg_name}"
+  rg_prefix                               = "${var.rg_name}"
+  rg_location                             = "${var.rg_location}"
+  cosmos_name                             = "${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}"
+  env_profile                             = "${var.env_profile}"
 }
 
 module "blob" {
-  source                      = "../../modules/blob"
-  rg_name                     = "${var.rg_name}"
-  rg_prefix                   = "${var.rg_prefix}"
-  rg_location                 = "${var.rg_location}"
-  storage_account_name        = "${var.rg_prefix}${var.rg_name}blob"
-  env_profile                 = "${var.env_profile}"
+  source                                  = "../../modules/blob"
+  rg_name                                 = "${var.rg_name}"
+  rg_prefix                               = "${var.rg_prefix}"
+  rg_location                             = "${var.rg_location}"
+  storage_account_name                    = "${var.rg_prefix}${var.rg_name}blob"
+  env_profile                             = "${var.env_profile}"
 }
 
 module "identity" {

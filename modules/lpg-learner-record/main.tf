@@ -91,8 +91,8 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
         "hostingEnvironment": ""
       },
       "sku": {
-        "Tier": "Standard",
-        "Name": "S3"
+        "Tier": "${var.webapp_sku_tier}",
+        "Name": "${var.webapp_sku_name}"
       },
       "kind": "linux"
     },
