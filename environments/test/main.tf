@@ -272,7 +272,7 @@ module "lpg-ui" {
   existingkeyvaultsecretname      = "${var.existingkeyvaultsecretname}"
   certificatename                 = "${var.certificatename}"
   envurl                          = "${var.envurl}"
-  registry_service_url            = ""
+  registry_service_url            = "https://${var.envurl}civil-servant-registry.cshr.digital"
   lpg_ui_server                   = "https://${var.envurl}lpg.cshr.digital"
   lpg_ui_oauth_client_id          = "${var.lpg_ui_oauth_client_id}"
   lpg_ui_oauth_client_secret      = "${var.lpg_ui_oauth_client_secret}"
