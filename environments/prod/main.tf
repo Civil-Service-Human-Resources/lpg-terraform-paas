@@ -258,7 +258,7 @@ module "lpg-learning-catalogue" {
   auth_password               = "${var.course_catalogue_pass}"
   docker_tag                  = "${var.learning_catalogue_docker_tag}"
   env_profile                 = "${var.env_profile}"
-  elasticsearch_uri           = "https://${var.envurl}cdn.cshr.digital/packages"
+  elasticsearch_uri           = "https://${var.envurl}elastic.cshr.digital:9200"
   elasticsearch_user          = "${var.elasticsearch_user}"
   elasticsearch_password      = "${var.elasticsearch_password}"
   vaultresourcegroup          = "${var.vaultresourcegroup}"
