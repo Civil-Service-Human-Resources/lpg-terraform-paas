@@ -22,14 +22,6 @@ variable "hammer_api_worker_http_server_port" {
   default = "8080"
 }
 
-variable "hammer_logstash_host" {
-  default = "54e2fb5d-be7a-47c2-b3cf-6f72f42b5dfb-ls.logit.io"
-}
-
-variable "hammer_logstash_port" {
-  default = "16690"
-}
-
 variable "env_profile" {
   default = "prod"
 }
