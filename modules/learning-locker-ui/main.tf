@@ -103,8 +103,8 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
                   "hostingEnvironment": ""
               },
               "sku": {
-                  "Tier": "Standard",
-                  "Name": "S1"
+                  "Tier": "${var.webapp_sku_tier}",
+                  "Name": "${var.webapp_sku_name}"
               },
               "kind": "linux"
           },

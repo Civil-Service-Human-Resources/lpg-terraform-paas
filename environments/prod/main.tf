@@ -1,39 +1,39 @@
 module "redis" {
-  source                    = "../../modules/redis"
-  rg_name                   = "${var.rg_name}"
-  rg_prefix                 = "${var.rg_prefix}"
-  rg_location               = "${var.rg_location}"
-  redis_name                = "${var.rg_prefix}-${var.rg_name}-redis"
-  env_profile               = "${var.env_profile}"
+  source                                  = "../../modules/redis"
+  rg_name                                 = "${var.rg_name}"
+  rg_prefix                               = "${var.rg_prefix}"
+  rg_location                             = "${var.rg_location}"
+  redis_name                              = "${var.rg_prefix}-${var.rg_name}-redis"
+  env_profile                             = "${var.env_profile}"
 }
 
 module "mysql" {
-  source                    = "../../modules/mysql"
-  rg_name                   = "${var.rg_name}"
-  rg_prefix                 = "${var.rg_name}"
-  rg_location               = "${var.rg_location}"
-  mysql_name                = "${var.rg_prefix}-${var.rg_name}-${var.mysql_name}"
-  mysql_admin_login         = "${var.mysql_user}"
-  mysql_admin_pass          = "${var.mysql_pass}"
-  env_profile               = "${var.env_profile}"
+  source                                  = "../../modules/mysql"
+  rg_name                                 = "${var.rg_name}"
+  rg_prefix                               = "${var.rg_name}"
+  rg_location                             = "${var.rg_location}"
+  mysql_name                              = "${var.rg_prefix}-${var.rg_name}-${var.mysql_name}"
+  mysql_admin_login                       = "${var.mysql_user}"
+  mysql_admin_pass                        = "${var.mysql_pass}"
+  env_profile                             = "${var.env_profile}"
 }
 
 module "cosmos" {
-  source      = "../../modules/cosmos"
-  rg_name     = "${var.rg_name}"
-  rg_prefix   = "${var.rg_name}"
-  rg_location = "${var.rg_location}"
-  cosmos_name = "${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}"
-  env_profile = "${var.env_profile}"
+  source                                  = "../../modules/cosmos"
+  rg_name                                 = "${var.rg_name}"
+  rg_prefix                               = "${var.rg_name}"
+  rg_location                             = "${var.rg_location}"
+  cosmos_name                             = "${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}"
+  env_profile                             = "${var.env_profile}"
 }
 
 module "blob" {
-  source                      = "../../modules/blob"
-  rg_name                     = "${var.rg_name}"
-  rg_prefix                   = "${var.rg_prefix}"
-  rg_location                 = "${var.rg_location}"
-  storage_account_name        = "${var.rg_prefix}${var.rg_name}blob"
-  env_profile                 = "${var.env_profile}"
+  source                                  = "../../modules/blob"
+  rg_name                                 = "${var.rg_name}"
+  rg_prefix                               = "${var.rg_prefix}"
+  rg_location                             = "${var.rg_location}"
+  storage_account_name                    = "${var.rg_prefix}${var.rg_name}blob"
+  env_profile                             = "${var.env_profile}"
 }
 
 module "identity" {
@@ -56,6 +56,8 @@ module "identity" {
   envurl                                  = "${var.envurl}"
   invite_signup_url                       = "https://${var.envurl}identity.cshr.digital/signup/%s"
   reset_url                               = "https://${var.envurl}identity.cshr.digital/reset/%s"
+  webapp_sku_tier                         = "Standard"
+  webapp_sku_name                         = "S1"
 }
 
 module "identity-management" {
@@ -75,6 +77,8 @@ module "identity-management" {
   gov_notify_api_key                      = "${var.gov_notify_api_key}"
   envurl                                  = "${var.envurl}"
   invite_signup_url                       = "https://${var.envurl}identity.cshr.digital/signup/%s"
+  webapp_sku_tier                         = "Standard"
+  webapp_sku_name                         = "S1"
 }
 
 
@@ -104,6 +108,8 @@ module "lpg-learner-record" {
   certificatename               = "${var.certificatename}"
   envurl                        = "${var.envurl}"
   spring_profiles_active        = "${var.spring_profiles_active}"
+  webapp_sku_tier               = "Standard"
+  webapp_sku_name               = "S1"
 }
 
 module "lpg-report-service" {
@@ -124,6 +130,8 @@ module "lpg-report-service" {
   existingkeyvaultsecretname    = "${var.existingkeyvaultsecretname}"
   certificatename               = "${var.certificatename}"
   envurl                        = "${var.envurl}"
+  webapp_sku_tier               = "Standard"
+  webapp_sku_name               = "S1"
 }
 
 module "lpg-learning-locker-xapi" {
@@ -145,6 +153,8 @@ module "lpg-learning-locker-xapi" {
   existingkeyvaultsecretname  = "${var.existingkeyvaultsecretname}"
   certificatename             = "${var.certificatename}"
   envurl                      = "${var.envurl}"
+  webapp_sku_tier             = "Standard"
+  webapp_sku_name             = "S1"
 }
 
 module "lpg-learning-locker-worker" {
@@ -168,21 +178,25 @@ module "lpg-learning-locker-worker" {
   queue_provider              = "${var.redis_queue_provider}"
   queue_namespace             = "${var.redis_queue_namespace}"
   testing                     = "${var.lpg_testing}"
+  webapp_sku_tier             = "Standard"
+  webapp_sku_name             = "S1"
 }
 
 module "lpg-learning-locker-ui" {
-  source                  = "../../modules/learning-locker-ui"
-  rg_name                 = "${var.rg_name}"
-  rg_prefix               = "${var.rg_prefix}"
-  rg_location             = "${var.rg_location}"
-  mongodb_path            = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
-  docker_tag              = "${var.ll_docker_tag}"
-  learning_locker_ui_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}"
-  api_host                = "localhost"
-  api_port                = "${var.lpg_learning_locker_api_port}"
-  env_profile             = "${var.env_profile}"
-  ui_host                 = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}.azurewebsites.net"
-  ui_port                 = "${var.ll_ui_port}"
+  source                      = "../../modules/learning-locker-ui"
+  rg_name                     = "${var.rg_name}"
+  rg_prefix                   = "${var.rg_prefix}"
+  rg_location                 = "${var.rg_location}"
+  mongodb_path                = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
+  docker_tag                  = "${var.ll_docker_tag}"
+  learning_locker_ui_name     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}"
+  api_host                    = "localhost"
+  api_port                    = "${var.lpg_learning_locker_api_port}"
+  env_profile                 = "${var.env_profile}"
+  ui_host                     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}.azurewebsites.net"
+  ui_port                     = "${var.ll_ui_port}"
+  webapp_sku_tier             = "Standard"
+  webapp_sku_name             = "S1"
 }
 
 module "lpg-management" {
@@ -213,6 +227,8 @@ module "lpg-management" {
   lpg_management_oauth_client_id      = "${var.lpg_management_oauth_client_id}"
   lpg_management_oauth_client_secret  = "${var.lpg_management_oauth_client_secret}"
   report_service_url                  = "https://${var.envurl}report.cshr.digital"
+  webapp_sku_tier                     = "Standard"
+  webapp_sku_name                     = "S1"
 }
 
 module "lpg-ui" {
@@ -246,6 +262,8 @@ module "lpg-ui" {
   lpg_ui_server                   = "https://${var.envurl}lpg.cshr.digital"
   lpg_ui_oauth_client_id          = "${var.lpg_ui_oauth_client_id}"
   lpg_ui_oauth_client_secret      = "${var.lpg_ui_oauth_client_secret}"
+  webapp_sku_tier                 = "Standard"
+  webapp_sku_name                 = "S2"
 }
 
 module "lpg-learning-catalogue" {
@@ -266,6 +284,8 @@ module "lpg-learning-catalogue" {
   existingkeyvaultsecretname  = "${var.existingkeyvaultsecretname}"
   certificatename             = "${var.certificatename}"
   envurl                      = "${var.envurl}"
+  webapp_sku_tier             = "Standard"
+  webapp_sku_name             = "S1"
 }
 
 module "civil-servant-registry-service" {
@@ -287,4 +307,6 @@ module "civil-servant-registry-service" {
   gov_notify_api_key          = "${var.gov_notify_api_key}"
   envurl                      = "${var.envurl}"
   authentication_service_url  = "https://${var.envurl}identity.cshr.digital"
+  webapp_sku_tier             = "Standard"
+  webapp_sku_name             = "S1"
 }
