@@ -289,7 +289,7 @@ module "lpg-learning-catalogue" {
   hammer_logstash_host        = "${var.hammer_logstash_host}"
   hammer_logstash_port        = "${var.hammer_logstash_port}"
   env_profile                 = "${var.env_profile}"
-  elasticsearch_uri           = "https://${var.envurl}elastic.cshr.digtal:9200"
+  elasticsearch_uri           = "https://${var.envurl}elastic.cshr.digital:9200"
   elasticsearch_user          = "${var.elasticsearch_user}"
   elasticsearch_password      = "${var.elasticsearch_password}"
   vaultresourcegroup          = "${var.vaultresourcegroup}"

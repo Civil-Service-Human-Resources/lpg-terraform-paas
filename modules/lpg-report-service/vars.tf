@@ -19,7 +19,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/report-service"
+  default = "cshr/lpg-report-service"
 }
 
 variable "websites_port" {
