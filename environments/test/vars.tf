@@ -48,7 +48,7 @@ variable "identity_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "77c2c0e8b2cdcd9f1a127aa671480dc6f68c6e78"
+  default = "0dfc157d683318d13b793e66bf465326539600b3"
 }
 
 variable "ll_docker_tag" {
