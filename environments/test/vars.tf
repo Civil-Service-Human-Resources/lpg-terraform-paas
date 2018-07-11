@@ -48,7 +48,7 @@ variable "identity_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "65c638aecd33bab290be6e1a83378545f73cc4dd"
+  default = "feature-LPFG-396-125"
 }
 
 variable "ll_docker_tag" {
@@ -56,15 +56,15 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "69fdec8074ad6c8cfae1c16baef3dc395dae2a9b"
+  default = "9758fb0003224460684a95d48972c0a8af599772"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "91135d7833b3aa0028f43cc6f593d9f80fc15a57"
+  default = "5daecc3ad753c2190f75f2f7166cd9925cec5e39"
 }
 
 variable "civil_servant_registry_docker_tag" {
-  default = "4234a089fdeb55056d25b28385279e1f7866c142"
+  default = "feature-LPFG-394-payment-methods-65"
 }
 
 variable "lpg_report_service_docker_tag" {
