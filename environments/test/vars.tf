@@ -48,7 +48,7 @@ variable "identity_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "feature-LPFG-396-125"
+  default = "feature-LPFG-396-126"
 }
 
 variable "ll_docker_tag" {
