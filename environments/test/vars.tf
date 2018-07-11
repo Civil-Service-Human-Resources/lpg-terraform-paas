@@ -56,7 +56,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "9758fb0003224460684a95d48972c0a8af599772"
+  default = "63c6b53d8582b5c1c0cc1d419a0c8a19a489eb7f"
 }
 
 variable "learning_catalogue_docker_tag" {
