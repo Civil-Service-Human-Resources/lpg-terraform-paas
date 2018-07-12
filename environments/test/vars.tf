@@ -48,7 +48,7 @@ variable "identity_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "feature-LPFG-396-128"
+  default = "feature-LPFG-396-129"
 }
 
 variable "ll_docker_tag" {
@@ -68,7 +68,7 @@ variable "civil_servant_registry_docker_tag" {
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "f15aad08b44f0d7dbc3e067a61fcf7341359c0ef"
+  default = "feature-lpfg-370-booking-feed-csv-report-4"
 }
 
 ### cosmos ###
