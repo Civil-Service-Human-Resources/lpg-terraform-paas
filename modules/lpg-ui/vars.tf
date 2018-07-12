@@ -19,7 +19,7 @@ variable "webapp_sku_tier" {
 }
 
 variable "webapp_sku_name" {
-  default = "B1"
+  default = "B2"
 }
 
 variable "docker_tag" {
