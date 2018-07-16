@@ -71,7 +71,7 @@ variable "lpg_report_service_docker_tag" {
   default = "feature-lpfg-370-booking-feed-csv-report-4"
 }
 
-### cosmos ###
+### cosmos ####
 variable "cosmos_name" {
   default = "cosmos"
 }
