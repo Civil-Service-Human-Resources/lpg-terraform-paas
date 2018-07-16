@@ -44,7 +44,7 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "0eb6e0e490c3f90cd79c17092980c533913c4faa"
+  default = "672e7b8044cb8e7b9d870ae4957c2b7b6690e8f2"
 }
 
 variable "lpg_learner_record_docker_tag" {
@@ -71,7 +71,7 @@ variable "lpg_report_service_docker_tag" {
   default = "feature-lpfg-370-booking-feed-csv-report-4"
 }
 
-### cosmos ####
+### cosmos ###
 variable "cosmos_name" {
   default = "cosmos"
 }
