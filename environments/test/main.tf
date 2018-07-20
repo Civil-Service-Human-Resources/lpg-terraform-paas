@@ -298,8 +298,8 @@ module "lpg-management2" {
   authentication_service_url          = "https://${var.envurl}identity.cshr.digital"
   env_profile                         = "${var.env_profile}"
   session_secret                      = "${var.session_secret}"
-  hammer_working_directory            = "${var.management2_hammer_working_directory}"
-  websites_port                       = "${var.management2_websites_port}"
+  hammer_working_directory            = "${var.lpg_management2_hammer_working_directory}"
+  websites_port                       = "${var.lpg_management2_websites_port}"
   vaultresourcegroup                  = "${var.vaultresourcegroup}"
   vaultname                           = "${var.vaultname}"
   existingkeyvaultsecretname          = "${var.existingkeyvaultsecretname}"
@@ -307,5 +307,5 @@ module "lpg-management2" {
   envurl                              = "${var.envurl}"
   lpg_management2_oauth_client_id      = "${var.lpg_management2_oauth_client_id}"
   lpg_management2_oauth_client_secret  = "${var.lpg_management2_oauth_client_secret}"
-  callback_url                        = "${var.callback_url}"
+  callback_url                        = "${var.lpg_management2_callback_url}"
 }
