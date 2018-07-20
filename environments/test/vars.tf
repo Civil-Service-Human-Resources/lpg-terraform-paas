@@ -226,14 +226,14 @@ variable "lpg_management2_name" {
   default = "lpg-management2"
 }
 
-variable "management2_hammer_working_directory" {
+variable "lpg_management2_hammer_working_directory" {
   default = "/var/www/app/dist/management2"
 }
 
-variable "management2_websites_port" {
+variable "lpg_management2_websites_port" {
   default = "3005"
 }
 
-variable "callback_url" {
+variable "lpg_management2_callback_url" {
   default = "https://lpg-lpgtest-lpg-management2.azurewebsites.net"
 }
