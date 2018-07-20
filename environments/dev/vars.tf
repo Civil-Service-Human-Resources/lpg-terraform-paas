@@ -44,7 +44,7 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "0eb6e0e490c3f90cd79c17092980c533913c4faa"
+  default = "e4aff54943f71dd6b270b33175606f7884a54ccb"
 }
 
 variable "lpg_learner_record_docker_tag" {
@@ -56,6 +56,10 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
+  default = "latest"
+}
+
+variable "lpg_management2_tag" {
   default = "latest"
 }
 
@@ -170,6 +174,23 @@ variable "management_ui_hammer_working_directory" {
 
 variable "management_ui_websites_port" {
   default = "3001"
+}
+
+### lpg-management2 ###
+variable "lpg_management2_name" {
+  default = "lpg-management2"
+}
+
+variable "management2_hammer_working_directory" {
+  default = "/var/www/app/dist/management2"
+}
+
+variable "management2_websites_port" {
+  default = "3005"
+}
+
+variable "callback_url" {
+  default = "https://lpg-lpgdev2-lpg-management2.azurewebsites.net"
 }
 
 ### lpg-ui ###
