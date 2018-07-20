@@ -286,3 +286,25 @@ module "civil-servant-registry-service" {
   envurl                      = "${var.envurl}"
   authentication_service_url  = "https://${var.envurl}identity.cshr.digital"
 }
+
+module "lpg-management2" {
+  source                              = "../../modules/lpg-management2"
+  rg_name                             = "${var.rg_name}"
+  rg_prefix                           = "${var.rg_prefix}"
+  rg_location                         = "${var.rg_location}"
+  docker_tag                          = "${var.lpg_management2_tag}"
+  lpg_management2_name                 = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management2_name}"
+  authentication_service_url          = "https://${var.envurl}identity.cshr.digital"
+  env_profile                         = "${var.env_profile}"
+  session_secret                      = "${var.session_secret}"
+  hammer_working_directory            = "${var.management2_hammer_working_directory}"
+  websites_port                       = "${var.management2_websites_port}"
+  vaultresourcegroup                  = "${var.vaultresourcegroup}"
+  vaultname                           = "${var.vaultname}"
+  existingkeyvaultsecretname          = "${var.existingkeyvaultsecretname}"
+  certificatename                     = "${var.certificatename}"
+  envurl                              = "${var.envurl}"
+  lpg_management2_oauth_client_id      = "${var.lpg_management2_oauth_client_id}"
+  lpg_management2_oauth_client_secret  = "${var.lpg_management2_oauth_client_secret}"
+  callback_url                        = "${var.callback_url}"
+}

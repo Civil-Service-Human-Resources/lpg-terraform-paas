@@ -71,6 +71,10 @@ variable "lpg_report_service_docker_tag" {
   default = "f15aad08b44f0d7dbc3e067a61fcf7341359c0ef"
 }
 
+variable "lpg_management2_tag" {
+  default = "latest"
+}
+
 ### cosmos ###
 variable "cosmos_name" {
   default = "cosmos"
@@ -211,4 +215,22 @@ variable "report_service_websites_port" {
 
 variable "identity_management_name" {
   default = "identity-management"
+}
+
+
+### lpg-management2 ###
+variable "lpg_management2_name" {
+  default = "lpg-management2"
+}
+
+variable "management2_hammer_working_directory" {
+  default = "/var/www/app/dist/management2"
+}
+
+variable "management2_websites_port" {
+  default = "3005"
+}
+
+variable "callback_url" {
+  default = "https://lpg-lpgdemo2-lpg-management2.azurewebsites.net"
 }

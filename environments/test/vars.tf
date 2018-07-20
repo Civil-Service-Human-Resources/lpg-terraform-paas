@@ -71,6 +71,10 @@ variable "lpg_report_service_docker_tag" {
   default = "feature-lpfg-370-booking-feed-csv-report-4"
 }
 
+variable "lpg_management2_tag" {
+  default = "latest"
+}
+
 ### cosmos ###
 variable "cosmos_name" {
   default = "cosmos"
@@ -214,4 +218,22 @@ variable "spring_profiles_active" {
 
 variable "identity_management_name" {
   default = "identity-management"
+}
+
+
+### lpg-management2 ###
+variable "lpg_management2_name" {
+  default = "lpg-management2"
+}
+
+variable "management2_hammer_working_directory" {
+  default = "/var/www/app/dist/management2"
+}
+
+variable "management2_websites_port" {
+  default = "3005"
+}
+
+variable "callback_url" {
+  default = "https://lpg-lpgtest-lpg-management2.azurewebsites.net"
 }
