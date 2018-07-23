@@ -22,6 +22,10 @@ variable "webapp_sku_name" {
   default = "S1"
 }
 
+variable "redis_capacity" {
+  default = "1"
+}
+
 variable "envurl" {
   default = ""
 }

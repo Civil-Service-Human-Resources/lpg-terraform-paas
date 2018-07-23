@@ -15,7 +15,7 @@ variable "redis_name" {
 }
 
 variable "redis_capacity" {
-  default = "2"
+  default = "0"
 }
 
 variable "redis_family" {
