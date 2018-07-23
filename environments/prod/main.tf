@@ -5,6 +5,7 @@ module "redis" {
   rg_location                             = "${var.rg_location}"
   redis_name                              = "${var.rg_prefix}-${var.rg_name}-redis"
   env_profile                             = "${var.env_profile}"
+  redis_capacity                          = "${var.redis_capacity}"
 }
 
 module "mysql" {
@@ -57,7 +58,7 @@ module "identity" {
   invite_signup_url                       = "https://${var.envurl}identity.cshr.digital/signup/%s"
   reset_url                               = "https://${var.envurl}identity.cshr.digital/reset/%s"
   webapp_sku_tier                         = "Standard"
-  webapp_sku_name                         = "S1"
+  webapp_sku_name                         = "${var.webapp_sku_name}"
 }
 
 module "identity-management" {
@@ -78,7 +79,7 @@ module "identity-management" {
   envurl                                  = "${var.envurl}"
   invite_signup_url                       = "https://${var.envurl}identity.cshr.digital/signup/%s"
   webapp_sku_tier                         = "Standard"
-  webapp_sku_name                         = "S1"
+  webapp_sku_name                         = "${var.webapp_sku_name}"
 }
 
 
@@ -109,7 +110,7 @@ module "lpg-learner-record" {
   envurl                        = "${var.envurl}"
   spring_profiles_active        = "${var.spring_profiles_active}"
   webapp_sku_tier               = "Standard"
-  webapp_sku_name               = "S1"
+  webapp_sku_name               = "${var.webapp_sku_name}"
 }
 
 module "lpg-report-service" {
@@ -131,7 +132,7 @@ module "lpg-report-service" {
   certificatename               = "${var.certificatename}"
   envurl                        = "${var.envurl}"
   webapp_sku_tier               = "Standard"
-  webapp_sku_name               = "S1"
+  webapp_sku_name               = "${var.webapp_sku_name}"
 }
 
 module "lpg-learning-locker-xapi" {
@@ -154,7 +155,7 @@ module "lpg-learning-locker-xapi" {
   certificatename             = "${var.certificatename}"
   envurl                      = "${var.envurl}"
   webapp_sku_tier             = "Standard"
-  webapp_sku_name             = "S1"
+  webapp_sku_name             = "${var.webapp_sku_name}"
 }
 
 module "lpg-learning-locker-worker" {
@@ -179,7 +180,7 @@ module "lpg-learning-locker-worker" {
   queue_namespace             = "${var.redis_queue_namespace}"
   testing                     = "${var.lpg_testing}"
   webapp_sku_tier             = "Standard"
-  webapp_sku_name             = "S1"
+  webapp_sku_name             = "${var.webapp_sku_name}"
 }
 
 module "lpg-learning-locker-ui" {
@@ -196,7 +197,7 @@ module "lpg-learning-locker-ui" {
   ui_host                     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}.azurewebsites.net"
   ui_port                     = "${var.ll_ui_port}"
   webapp_sku_tier             = "Standard"
-  webapp_sku_name             = "S1"
+  webapp_sku_name             = "${var.webapp_sku_name}"
 }
 
 module "lpg-management" {
@@ -228,7 +229,7 @@ module "lpg-management" {
   lpg_management_oauth_client_secret  = "${var.lpg_management_oauth_client_secret}"
   report_service_url                  = "https://${var.envurl}report.cshr.digital"
   webapp_sku_tier                     = "Standard"
-  webapp_sku_name                     = "S1"
+  webapp_sku_name                     = "${var.webapp_sku_name}"
 }
 
 module "lpg-ui" {
@@ -285,7 +286,7 @@ module "lpg-learning-catalogue" {
   certificatename             = "${var.certificatename}"
   envurl                      = "${var.envurl}"
   webapp_sku_tier             = "Standard"
-  webapp_sku_name             = "S1"
+  webapp_sku_name             = "${var.webapp_sku_name}"
 }
 
 module "civil-servant-registry-service" {
@@ -308,5 +309,5 @@ module "civil-servant-registry-service" {
   envurl                      = "${var.envurl}"
   authentication_service_url  = "https://${var.envurl}identity.cshr.digital"
   webapp_sku_tier             = "Standard"
-  webapp_sku_name             = "S1"
+  webapp_sku_name             = "${var.webapp_sku_name}"
 }
