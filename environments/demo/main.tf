@@ -307,4 +307,5 @@ module "lpg-management2" {
   lpg_management2_oauth_client_id      = "${var.lpg_management2_oauth_client_id}"
   lpg_management2_oauth_client_secret  = "${var.lpg_management2_oauth_client_secret}"
   callback_url                        = "${var.lpg_management2_callback_url}"
+  lpg_ui_url                   = "https://${var.envurl}lpg.cshr.digital"
 }

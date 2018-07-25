@@ -70,6 +70,10 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
             {
               "name": "CALLBACK_URL",
               "value": "${var.callback_url}"
+            },
+            {
+              "name": "LPG_UI_URL",
+              "value": "${var.lpg_ui_url}"
             }
           ]
                   },

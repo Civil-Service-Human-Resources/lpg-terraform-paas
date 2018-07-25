@@ -93,3 +93,7 @@ variable "lpg_management2_oauth_client_secret" {
 variable "callback_url" {
   default = ""
 }
+
+variable "lpg_ui_url" {
+  default = ""
+}
