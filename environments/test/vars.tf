@@ -72,7 +72,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_management2_tag" {
-  default = "latest"
+  default = "a2577acdbbd131a75295ad7bffd2c7b25700ee05"
 }
 
 ### cosmos ###

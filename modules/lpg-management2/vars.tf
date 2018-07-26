@@ -93,3 +93,19 @@ variable "lpg_management2_oauth_client_secret" {
 variable "callback_url" {
   default = ""
 }
+
+variable "lpg_ui_url" {
+  default = ""
+}
+
+variable "course_catalogue_url" {
+  default = "course_catalogue_url"
+}
+
+variable "course_catalogue_user" {
+  default = "course_catalogue_user"
+}
+
+variable "course_catalogue_pass" {
+  default = "course_catalogue_pass"
+}

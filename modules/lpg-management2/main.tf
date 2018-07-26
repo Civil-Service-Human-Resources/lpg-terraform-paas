@@ -1,9 +1,7 @@
 ###### identity-management ######
-
 resource "azurerm_template_deployment" "lpg-management2-app-service" {
   name                = "${var.lpg_management2_name}"
   resource_group_name = "${var.rg_name}"
-
   template_body = <<DEPLOY
   {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -30,6 +28,10 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
             {
               "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
               "value": "false"
+            },
+            {
+              "name": "AUTHENTICATION_SERVICE_URL",
+              "value": "${var.authentication_service_url}"
             },
             {
               "name": "HAMMER_LOGSTASH_HOST",
@@ -70,6 +72,22 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
             {
               "name": "CALLBACK_URL",
               "value": "${var.callback_url}"
+            },
+            {
+              "name": "LPG_UI_URL",
+              "value": "${var.lpg_ui_url}"
+            },
+            {
+              "name": "COURSE_CATALOGUE_URL",
+              "value": "${var.course_catalogue_url}"
+            },
+            {
+              "name": "COURSE_CATALOGUE_USER",
+              "value": "${var.course_catalogue_user}"
+            },
+            {
+              "name": "COURSE_CATALOGUE_PASS",
+              "value": "${var.course_catalogue_pass}"
             }
           ]
                   },
@@ -127,6 +145,5 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
       ]
   }
   DEPLOY
-
   deployment_mode = "Incremental"
 }
