@@ -56,6 +56,7 @@ module "identity" {
   envurl                                  = "${var.envurl}"
   invite_signup_url                       = "https://${var.envurl}identity.cshr.digital/signup/%s"
   reset_url                               = "https://${var.envurl}identity.cshr.digital/reset/%s"
+  webapp_sku_name                         = "B2"
 }
 
 module "identity-management" {
@@ -103,6 +104,7 @@ module "lpg-learner-record" {
   certificatename               = "${var.certificatename}"
   envurl                        = "${var.envurl}"
   spring_profiles_active        = "${var.spring_profiles_active}"
+  webapp_sku_name               = "B2"
 }
 
 module "lpg-report-service" {
@@ -286,6 +288,7 @@ module "civil-servant-registry-service" {
   gov_notify_api_key          = "${var.gov_notify_api_key}"
   envurl                      = "${var.envurl}"
   authentication_service_url  = "https://${var.envurl}identity.cshr.digital"
+  webapp_sku_name             = "B2"
 }
 
 module "lpg-management2" {
