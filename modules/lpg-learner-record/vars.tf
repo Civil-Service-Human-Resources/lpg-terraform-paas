@@ -26,6 +26,10 @@ variable "docker_tag" {
   default = "latest"
 }
 
+variable "datasource" {
+  default = "db_url"
+}
+
 variable "docker_image" {
   default = "cshr/lpg-learner-record"
 }

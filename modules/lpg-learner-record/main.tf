@@ -111,6 +111,10 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
               "value": "${var.spring_profiles_active}"
             },
             {
+              "name": "DATASOURCE",
+              "value": "${var.datasource}"
+            },
+            {
               "name": "OAUTH_SERVICE_URL",
               "value": "${var.authentication_service_url}"
             },
