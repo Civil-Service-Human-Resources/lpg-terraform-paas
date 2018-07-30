@@ -48,7 +48,7 @@ variable "identity_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "chore-performance-async-metadata-131"
+  default = "chore-large-records-137"
 }
 
 variable "ll_docker_tag" {
@@ -56,11 +56,11 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-    default = "6eb98a2015dee395573cb8933baa4f118598e688"
+    default = "chore-performance-1326"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "0c764901fbc5d9d2b6d50d575751dd2b8b2bc1c3"
+  default = "e3d5694c03c2196f62789789bff549084e430ffb"
 }
 
 variable "civil_servant_registry_docker_tag" {
@@ -213,7 +213,7 @@ variable "report_service_websites_port" {
 }
 
 variable "spring_profiles_active" {
-  default = "test"
+  default = "test,production"
 }
 
 variable "identity_management_name" {

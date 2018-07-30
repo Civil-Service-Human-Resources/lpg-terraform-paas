@@ -44,11 +44,11 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "e4aff54943f71dd6b270b33175606f7884a54ccb"
+  default = "chore-performance-156"
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "77c2c0e8b2cdcd9f1a127aa671480dc6f68c6e78"
+  default = "chore-large-records-136"
 }
 
 variable "ll_docker_tag" {
@@ -60,15 +60,15 @@ variable "lpg_services_tag" {
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "91135d7833b3aa0028f43cc6f593d9f80fc15a57"
+  default = "e3d5694c03c2196f62789789bff549084e430ffb"
 }
 
 variable "civil_servant_registry_docker_tag" {
-  default = "4234a089fdeb55056d25b28385279e1f7866c142"
+  default = "feature-LPFG-394-payment-methods-65"
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "f15aad08b44f0d7dbc3e067a61fcf7341359c0ef"
+  default = "feature-lpfg-370-booking-feed-csv-report-4"
 }
 
 variable "lpg_management2_tag" {
@@ -210,6 +210,10 @@ variable "lpg_report_service_name" {
 
 variable "report_service_websites_port" {
   default = "9004"
+}
+
+variable "spring_profiles_active" {
+  default = "production"
 }
 
 variable "identity_management_name" {
