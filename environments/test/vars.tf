@@ -48,7 +48,11 @@ variable "identity_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
+<<<<<<< HEAD
   default = "chore-large-records-139"
+=======
+  default = "chore-large-records-137"
+>>>>>>> Updating versions
 }
 
 variable "ll_docker_tag" {
@@ -56,7 +60,11 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
+<<<<<<< HEAD
     default = "chore-performance-1328"
+=======
+    default = "chore-performance-1326"
+>>>>>>> Updating versions
 }
 
 variable "learning_catalogue_docker_tag" {
