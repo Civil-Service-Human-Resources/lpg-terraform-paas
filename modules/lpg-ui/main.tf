@@ -193,6 +193,10 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
             {
               "name": "OAUTH_CLIENT_SECRET",
               "value": "${var.lpg_ui_oauth_client_secret}"
+            },
+            {
+             "name": "LPG_MANAGEMENT_SERVER",
+             "value": "${var.lpg_management_server}"
             }
           ]
         },

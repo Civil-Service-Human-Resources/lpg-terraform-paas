@@ -249,6 +249,7 @@ module "lpg-ui" {
   lpg_ui_server                   = "https://${var.envurl}lpg.cshr.digital"
   lpg_ui_oauth_client_id          = "${var.lpg_ui_oauth_client_id}"
   lpg_ui_oauth_client_secret      = "${var.lpg_ui_oauth_client_secret}"
+  lpg_management_server           = "https://lpg-lpgtest-lpg-management2.azurewebsites.net"
 }
 
 module "lpg-learning-catalogue" {
