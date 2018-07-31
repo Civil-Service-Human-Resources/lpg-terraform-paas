@@ -133,3 +133,7 @@ variable "lpg_ui_oauth_client_id" {
 variable "lpg_ui_oauth_client_secret" {
   default = ""
 }
+
+variable "lpg_management_server" {
+  default = ""
+}
