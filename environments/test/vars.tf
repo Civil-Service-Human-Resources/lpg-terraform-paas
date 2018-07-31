@@ -48,7 +48,7 @@ variable "identity_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "chore-large-records-138"
+  default = "chore-large-records-139"
 }
 
 variable "ll_docker_tag" {
