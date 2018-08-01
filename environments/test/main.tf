@@ -106,8 +106,7 @@ module "lpg-learner-record" {
   spring_profiles_active        = "${var.spring_profiles_active}"
   datasource                    = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/learner_record?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
   webapp_sku_name               = "B2"
-  datasource                    = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/learner_record?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
-}
+ }
 
 module "lpg-report-service" {
   source                        = "../../modules/lpg-report-service"
