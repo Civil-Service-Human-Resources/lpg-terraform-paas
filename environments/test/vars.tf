@@ -233,7 +233,3 @@ variable "lpg_management2_hammer_working_directory" {
 variable "lpg_management2_websites_port" {
   default = "3005"
 }
-
-variable "lpg_management2_callback_url" {
-  default = "https://lpg-lpgtest-lpg-management2.azurewebsites.net"
-}
