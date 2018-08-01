@@ -246,7 +246,7 @@ module "lpg-ui" {
   lpg_ui_server                   = "https://${var.envurl}lpg.cshr.digital"
   lpg_ui_oauth_client_id          = "${var.lpg_ui_oauth_client_id}"
   lpg_ui_oauth_client_secret      = "${var.lpg_ui_oauth_client_secret}"
-  lpg_management_server           = "https://lpg-lpgdev2-lpg-management2.azurewebsites.net"
+  lpg_management_server           = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_management2_name}.azurewebsites.net"
 }
 
 module "lpg-learning-catalogue" {
@@ -309,7 +309,7 @@ module "lpg-management2" {
   envurl                              = "${var.envurl}"
   lpg_management2_oauth_client_id     = "${var.lpg_management2_oauth_client_id}"
   lpg_management2_oauth_client_secret = "${var.lpg_management2_oauth_client_secret}"
-  callback_url                        = "${var.lpg_management2_callback_url}"
+  callback_url                        = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_management2_name}.azurewebsites.net"
   lpg_ui_url                          = "https://${var.envurl}lpg.cshr.digital"
   course_catalogue_url                = "https://${var.envurl}learning-resources.cshr.digital"
   course_catalogue_user               = "${var.course_catalogue_user}"
