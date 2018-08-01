@@ -56,7 +56,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-    default = "chore-performance-1327"
+    default = "chore-performance-1328"
 }
 
 variable "learning_catalogue_docker_tag" {
