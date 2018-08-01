@@ -13,7 +13,9 @@
 ##
 ########################################
 
-#az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
+az login --service-principal --username "" --password "" --tenant ""
+az login --service-principal --username "" --password "" --tenant ""
+
 subs=$(az account list | grep -i \"id\"\: | awk -F ':' '{gsub(/\"|\,/,"")}1 {print $2}')
 read -a subsarr <<< $subs
 
@@ -70,7 +72,7 @@ else
 
                 for i in "${arr[@]}"; do
                     echo "Updating $i RU for $c collection"
-                    az cosmosdb collection update --c "$i" -d admin --throughput "$down" --key "$key" -n ${c}
+                    az cosmosdb collection update --c "$i" -d admin --throughput "$sdown" --key "$key" -n ${c}
                 done
              else
                 echo "admin database does not exist for $c"
