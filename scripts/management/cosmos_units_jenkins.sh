@@ -4,6 +4,7 @@
 ##
 ## This script will update the cosmos units for all cosmos DBs based on time frame
 ##
+## WARNING - This will only work on with Az CLI 2.0.28 currently!
 ##
 ## Usage:
 ## ./cosmos_units_jenkins.sh
@@ -45,7 +46,7 @@ if [[ $time > "06:59" ]] && [[ $time < "18:59" ]]; then
 
                 for i in "${arr[@]}"; do
                     echo "Updating $i RU for $c collection"
-                    az cosmosdb collection update --c "$i" -d admin --throughput "$sup" --key "$key" -n ${c}
+                    az cosmosdb collection update --c "$i" -d admin --throughput "$sup" --key "$key" -n ${c} &>/dev/null
                 done
              else
                 echo "admin database does not exist for $c"
@@ -72,7 +73,7 @@ else
 
                 for i in "${arr[@]}"; do
                     echo "Updating $i RU for $c collection"
-                    az cosmosdb collection update --c "$i" -d admin --throughput "$sdown" --key "$key" -n ${c}
+                    az cosmosdb collection update --c "$i" -d admin --throughput "$sdown" --key "$key" -n ${c} &>/dev/null
                 done
              else
                 echo "admin database does not exist for $c"
