@@ -109,6 +109,7 @@ module "lpg-learner-record" {
   certificatename               = "${var.certificatename}"
   envurl                        = "${var.envurl}"
   spring_profiles_active        = "${var.spring_profiles_active}"
+  datasource                    = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/learner_record?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
   webapp_sku_tier               = "Standard"
   webapp_sku_name               = "${var.webapp_sku_name}"
 }
@@ -263,6 +264,7 @@ module "lpg-ui" {
   lpg_ui_server                   = "https://${var.envurl}lpg.cshr.digital"
   lpg_ui_oauth_client_id          = "${var.lpg_ui_oauth_client_id}"
   lpg_ui_oauth_client_secret      = "${var.lpg_ui_oauth_client_secret}"
+  lpg_management_server           = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_management2_name}.azurewebsites.net"
   webapp_sku_tier                 = "Standard"
   webapp_sku_name                 = "S2"
 }

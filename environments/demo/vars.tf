@@ -44,11 +44,11 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "0eb6e0e490c3f90cd79c17092980c533913c4faa"
+  default = "chore-performance-156"
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "77c2c0e8b2cdcd9f1a127aa671480dc6f68c6e78"
+  default = "bug-LPFG-642-141"
 }
 
 variable "ll_docker_tag" {
@@ -56,23 +56,23 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "69fdec8074ad6c8cfae1c16baef3dc395dae2a9b"
+    default = "d1aa322d62d594f4a2d6b1cbaa041fafeee0fdab"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "91135d7833b3aa0028f43cc6f593d9f80fc15a57"
+  default = "e3d5694c03c2196f62789789bff549084e430ffb"
 }
 
 variable "civil_servant_registry_docker_tag" {
-  default = "4234a089fdeb55056d25b28385279e1f7866c142"
+  default = "feature-LPFG-394-payment-methods-65"
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "f15aad08b44f0d7dbc3e067a61fcf7341359c0ef"
+  default = "feature-lpfg-370-booking-feed-csv-report-4"
 }
 
 variable "lpg_management2_tag" {
-  default = "latest"
+  default = "7761d10cec7cdf7fdf1e3a57d60ca83c6946127a"
 }
 
 ### cosmos ###
