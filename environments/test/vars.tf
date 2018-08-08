@@ -48,7 +48,7 @@ variable "identity_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "chore-large-records-139"
+  default = "bug-LPFG-642-141"
 }
 
 variable "ll_docker_tag" {
@@ -56,7 +56,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-    default = "chore-performance-1328"
+    default = "d1aa322d62d594f4a2d6b1cbaa041fafeee0fdab"
 }
 
 variable "learning_catalogue_docker_tag" {
@@ -72,7 +72,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_management2_tag" {
-  default = "62ac2a0d504a403f0f9c8c59be0e8bc0ba2cf99c"
+  default = "7761d10cec7cdf7fdf1e3a57d60ca83c6946127a"
 }
 
 ### cosmos ###
