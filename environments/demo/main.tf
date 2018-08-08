@@ -102,6 +102,7 @@ module "lpg-learner-record" {
   existingkeyvaultsecretname    = "${var.existingkeyvaultsecretname}"
   certificatename               = "${var.certificatename}"
   envurl                        = "${var.envurl}"
+  datasource                    = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/learner_record?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
 }
 
 module "lpg-report-service" {
