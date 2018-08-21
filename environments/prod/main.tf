@@ -231,6 +231,7 @@ module "lpg-management" {
   report_service_url                  = "https://${var.envurl}report.cshr.digital"
   webapp_sku_tier                     = "Standard"
   webapp_sku_name                     = "${var.webapp_sku_name}"
+  content_container                   = "${var.content_container}"
 }
 
 module "lpg-ui" {

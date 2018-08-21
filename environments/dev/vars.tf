@@ -232,3 +232,7 @@ variable "lpg_management2_hammer_working_directory" {
 variable "lpg_management2_websites_port" {
   default = "3005"
 }
+
+variable "content_container" {
+  default = "lpgdevcontent"
+}
