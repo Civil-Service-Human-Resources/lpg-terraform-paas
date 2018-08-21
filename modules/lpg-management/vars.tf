@@ -121,3 +121,7 @@ variable "lpg_management_oauth_client_secret" {
 variable "report_service_url" {
   default = ""
 }
+
+variable "content_container" {
+  default = "lpgdevcontent"
+}
