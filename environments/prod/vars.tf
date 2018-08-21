@@ -52,7 +52,7 @@ variable "identity_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "bug-LPFG-642-141"
+  default = "feature-LPFG-615-145"
 }
 
 variable "ll_docker_tag" {
@@ -60,7 +60,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-    default = "d1aa322d62d594f4a2d6b1cbaa041fafeee0fdab"
+    default = "feature-LPFG-615-1340"
 }
 
 variable "learning_catalogue_docker_tag" {
