@@ -1,7 +1,7 @@
 ### Gen vars ###
 variable "rg_name" {
   type    = "string"
-  default = "lpgtest"
+  default = "lpgstaging"
 }
 
 variable "rg_prefix" {
@@ -23,7 +23,7 @@ variable "webapp_sku_name" {
 }
 
 variable "envurl" {
-  default = "test-"
+  default = "staging-"
 }
 
 variable "hammer_api_worker_http_server_port" {
@@ -31,7 +31,7 @@ variable "hammer_api_worker_http_server_port" {
 }
 
 variable "env_profile" {
-  default = "test"
+  default = "staging"
 }
 
 variable "youtube_api_key" {
