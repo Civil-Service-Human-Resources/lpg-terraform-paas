@@ -109,6 +109,10 @@ variable "redis_use_tls" {
   default = "1"
 }
 
+variable "redis_capacity" {
+  default = "0"
+}
+
 ### identity ###
 variable "identity_name" {
   default = "identity"
