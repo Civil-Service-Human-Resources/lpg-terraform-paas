@@ -117,3 +117,16 @@ variable "content_url" {
 variable "youtube_api_key" {
   default = ""
 }
+
+
+variable "acr_url" {
+  default = ""
+}
+
+variable "acr_username" {
+  default = ""
+}
+
+variable "acr_password" {
+  default = ""
+}

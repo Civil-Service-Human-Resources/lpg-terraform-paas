@@ -2,7 +2,6 @@
 resource "azurerm_template_deployment" "lpg-management2-app-service" {
   name                = "${var.lpg_management2_name}"
   resource_group_name = "${var.rg_name}"
-
   template_body = <<DEPLOY
   {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -91,6 +90,19 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
               "value": "${var.course_catalogue_pass}"
             },
             {
+              "name": "DOCKER_REGISTRY_SERVER_URL",
+              "value": "https://${var.acr_url}"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+              "value": "${var.acr_username}"
+            },
+
+            {
+              "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+              "value": "${var.acr_password}"
+            },
+            {
               "name": "CONTENT_URL",
               "value": "${var.content_url}"
             },
@@ -154,6 +166,5 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
       ]
   }
   DEPLOY
-
   deployment_mode = "Incremental"
 }
