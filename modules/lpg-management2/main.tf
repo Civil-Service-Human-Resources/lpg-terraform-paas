@@ -88,6 +88,19 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
             {
               "name": "COURSE_CATALOGUE_PASS",
               "value": "${var.course_catalogue_pass}"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_URL",
+              "value": "https://${var.acr_url}"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+              "value": "${var.acr_username}"
+            },
+
+            {
+              "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+              "value": "${var.acr_password}"
             }
           ]
                   },

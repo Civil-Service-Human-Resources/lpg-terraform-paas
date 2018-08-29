@@ -109,3 +109,15 @@ variable "course_catalogue_user" {
 variable "course_catalogue_pass" {
   default = "course_catalogue_pass"
 }
+
+variable "acr_url" {
+  default = ""
+}
+
+variable "acr_username" {
+  default = ""
+}
+
+variable "acr_password" {
+  default = ""
+}
