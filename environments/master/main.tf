@@ -339,4 +339,7 @@ module "lpg-management2" {
   course_catalogue_url                = "https://${var.envurl}learning-resources.cshr.digital"
   course_catalogue_user               = "${var.course_catalogue_user}"
   course_catalogue_pass               = "${var.course_catalogue_pass}"
+  acr_url                             = ""
+  acr_username                        = ""
+  acr_password                        = ""
 }
