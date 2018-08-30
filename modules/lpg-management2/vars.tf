@@ -110,14 +110,14 @@ variable "course_catalogue_pass" {
   default = "course_catalogue_pass"
 }
 
-variable "acr_url" {
+variable "docker_registry_server_url" {
   default = ""
 }
 
-variable "acr_username" {
+variable "docker_registry_server_username" {
   default = ""
 }
 
-variable "acr_password" {
+variable "docker_registry_server_password" {
   default = ""
 }
