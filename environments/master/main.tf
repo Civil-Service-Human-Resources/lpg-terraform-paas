@@ -339,7 +339,7 @@ module "lpg-management2" {
   course_catalogue_url                = "https://${var.envurl}learning-resources.cshr.digital"
   course_catalogue_user               = "${var.course_catalogue_user}"
   course_catalogue_pass               = "${var.course_catalogue_pass}"
-  docker_registry_server_url          = "${var.docker_registry_server_url}}"
+  docker_registry_server_url          = "${var.docker_registry_server_url}"
   docker_registry_server_username     = "${var.docker_registry_server_username}"
   docker_registry_server_password     = "${var.docker_registry_server_password}"
 }
