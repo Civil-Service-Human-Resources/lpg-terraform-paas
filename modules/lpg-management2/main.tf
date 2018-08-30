@@ -91,16 +91,15 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
             },
             {
               "name": "DOCKER_REGISTRY_SERVER_URL",
-              "value": "https://${var.acr_url}"
+              "value": "https://${var.docker_registry_server_url}"
             },
             {
               "name": "DOCKER_REGISTRY_SERVER_USERNAME",
-              "value": "${var.acr_username}"
+              "value": "${var.docker_registry_server_username}"
             },
-
             {
               "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
-              "value": "${var.acr_password}"
+              "value": "${var.docker_registry_server_password}"
             },
             {
               "name": "CONTENT_URL",
@@ -155,7 +154,7 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
                 "detailedErrorLoggingEnabled": true,
                 "alwaysOn": true,
                 "appCommandLine": "",
-                "linuxFxVersion": "DOCKER|${var.acr_url}/${var.docker_image}:${var.docker_tag}",
+                "linuxFxVersion": "DOCKER|${var.docker_registry_server_url}x/${var.docker_image}:${var.docker_tag}",
                 "minTlsVersion": "1.0",
                 "ftpsState": "Disabled"
             },
