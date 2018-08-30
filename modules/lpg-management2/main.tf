@@ -154,7 +154,7 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
                 "detailedErrorLoggingEnabled": true,
                 "alwaysOn": true,
                 "appCommandLine": "",
-                "linuxFxVersion": "DOCKER|${var.docker_registry_server_url}x/${var.docker_image}:${var.docker_tag}",
+                "linuxFxVersion": "DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
                 "minTlsVersion": "1.0",
                 "ftpsState": "Disabled"
             },
