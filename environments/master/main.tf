@@ -59,6 +59,9 @@ module "identity" {
   reset_url                               = "https://${var.envurl}identity.cshr.digital/reset/%s"
   webapp_sku_tier                         = "Standard"
   webapp_sku_name                         = "${var.webapp_sku_name}"
+  docker_registry_server_url              = "${var.docker_registry_server_url}"
+  docker_registry_server_username         = "${var.docker_registry_server_username}"
+  docker_registry_server_password         = "${var.docker_registry_server_password}"
 }
 
 module "identity-management" {
@@ -80,6 +83,9 @@ module "identity-management" {
   invite_signup_url                       = "https://${var.envurl}identity.cshr.digital/signup/%s"
   webapp_sku_tier                         = "Standard"
   webapp_sku_name                         = "${var.webapp_sku_name}"
+  docker_registry_server_url              = "${var.docker_registry_server_url}"
+  docker_registry_server_username         = "${var.docker_registry_server_username}"
+  docker_registry_server_password         = "${var.docker_registry_server_password}"
 }
 
 
