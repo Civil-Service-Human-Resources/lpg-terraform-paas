@@ -27,7 +27,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/identity-service"
+  default = "identity-service"
 }
 
 variable "datasource" {
