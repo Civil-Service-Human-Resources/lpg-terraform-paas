@@ -231,6 +231,7 @@ module "lpg-management" {
   webapp_sku_tier                    = "Standard"
   webapp_sku_name                    = "${var.webapp_sku_name}"
   content_url                        = "https://${var.envurl}cdn.cshr.digital/packages"
+  content_container                  = "${var.content_container}"
 }
 
 module "lpg-ui" {

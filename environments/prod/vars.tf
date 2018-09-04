@@ -240,3 +240,8 @@ variable "lpg_management2_websites_port" {
 variable "lpg_management2_callback_url" {
   default = "https://lpg-lpgprod-lpg-management2.azurewebsites.net"
 }
+
+# Content
+variable "content_container" {
+  default = "packages"
+}
