@@ -60,7 +60,7 @@ variable "lpg_services_tag" {
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "c32abff23cb9190881edab9c774eebb0d859ddad"
+  default = "9141f41532e1d8ec4db5535d834c6c5bfc670cd0"
 }
 
 variable "civil_servant_registry_docker_tag" {
@@ -231,8 +231,4 @@ variable "lpg_management2_hammer_working_directory" {
 
 variable "lpg_management2_websites_port" {
   default = "3005"
-}
-
-variable "content_url" {
-  default = "https://dev2-cdn.cshr.digital/lpgdevcontent"
 }

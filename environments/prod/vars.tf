@@ -60,7 +60,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-    default = "feature-LPFG-615-1340"
+  default = "feature-LPFG-615-1340"
 }
 
 variable "learning_catalogue_docker_tag" {
@@ -224,7 +224,6 @@ variable "identity_management_name" {
   default = "identity-management"
 }
 
-
 ### lpg-management2 ###
 variable "lpg_management2_name" {
   default = "lpg-management2"
@@ -238,6 +237,6 @@ variable "lpg_management2_websites_port" {
   default = "3005"
 }
 
-variable "content_container" {
-  default = "packages"
+variable "lpg_management2_callback_url" {
+  default = "https://lpg-lpgprod-lpg-management2.azurewebsites.net"
 }

@@ -2,6 +2,7 @@
 resource "azurerm_template_deployment" "lpg-management2-app-service" {
   name                = "${var.lpg_management2_name}"
   resource_group_name = "${var.rg_name}"
+
   template_body = <<DEPLOY
   {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -153,5 +154,6 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
       ]
   }
   DEPLOY
+
   deployment_mode = "Incremental"
 }
