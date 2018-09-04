@@ -185,6 +185,10 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
             {
               "name": "CONTENT_URL",
               "value": "${var.content_url}"
+            },
+            {
+              "name": "CONTENT_CONTAINER",
+              "value": "${var.content_container}"
             }
           ]
         },
