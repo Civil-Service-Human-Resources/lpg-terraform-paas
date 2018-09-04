@@ -183,8 +183,8 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
               "value": "${var.lpg_management_oauth_client_secret}"
             },
             {
-              "name": "CONTENT_CONTAINER",
-              "value": "${var.content_container}"
+              "name": "CONTENT_URL",
+              "value": "${var.content_url}"
             }
           ]
         },

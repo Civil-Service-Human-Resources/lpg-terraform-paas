@@ -213,7 +213,7 @@ module "lpg-management" {
   lpg_management_oauth_client_id      = "${var.lpg_management_oauth_client_id}"
   lpg_management_oauth_client_secret  = "${var.lpg_management_oauth_client_secret}"
   report_service_url                  = "https://${var.envurl}report.cshr.digital"
-  content_container                   = "${var.content_container}"
+  content_url                         = "${var.content_url}"
 }
 
 module "lpg-ui" {
@@ -315,4 +315,6 @@ module "lpg-management2" {
   course_catalogue_url                = "https://${var.envurl}learning-resources.cshr.digital"
   course_catalogue_user               = "${var.course_catalogue_user}"
   course_catalogue_pass               = "${var.course_catalogue_pass}"
+  content_url                         = "${var.content_url}"
+  youtube_api_key                     = "${var.youtube_api_key}"
 }
