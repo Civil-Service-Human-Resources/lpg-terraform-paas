@@ -122,6 +122,6 @@ variable "report_service_url" {
   default = ""
 }
 
-variable "content_container" {
-  default = "lpgdevcontent"
+variable "content_url" {
+  default = ""
 }

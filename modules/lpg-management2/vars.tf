@@ -109,3 +109,11 @@ variable "course_catalogue_user" {
 variable "course_catalogue_pass" {
   default = "course_catalogue_pass"
 }
+
+variable "content_url" {
+  default = ""
+}
+
+variable "youtube_api_key" {
+  default = ""
+}
