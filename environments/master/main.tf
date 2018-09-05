@@ -88,7 +88,6 @@ module "identity-management" {
   docker_registry_server_password         = "${var.docker_registry_server_password}"
 }
 
-
 module "lpg-learner-record" {
   source                        = "../../modules/lpg-learner-record"
   rg_name                       = "${var.rg_name}"
@@ -237,6 +236,7 @@ module "lpg-management" {
   report_service_url                  = "https://${var.envurl}report.cshr.digital"
   webapp_sku_tier                     = "Standard"
   webapp_sku_name                     = "${var.webapp_sku_name}"
+  content_url                         = "https://${var.envurl}cdn.cshr.digital/packages"
   content_container                   = "${var.content_container}"
 }
 
@@ -348,6 +348,8 @@ module "lpg-management2" {
   course_catalogue_url                = "https://${var.envurl}learning-resources.cshr.digital"
   course_catalogue_user               = "${var.course_catalogue_user}"
   course_catalogue_pass               = "${var.course_catalogue_pass}"
+  youtube_api_key                     = "${var.youtube_api_key}"
+  content_url                         = "https://${var.envurl}cdn.cshr.digital/packages"
   docker_registry_server_url          = "${var.docker_registry_server_url}"
   docker_registry_server_username     = "${var.docker_registry_server_username}"
   docker_registry_server_password     = "${var.docker_registry_server_password}"
