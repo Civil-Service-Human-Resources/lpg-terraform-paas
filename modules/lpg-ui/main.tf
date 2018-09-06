@@ -197,6 +197,18 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
             {
              "name": "LPG_MANAGEMENT_SERVER",
              "value": "${var.lpg_management_server}"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_URL",
+              "value": "https://${var.docker_registry_server_url}"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+              "value": "${var.docker_registry_server_username}"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+              "value": "${var.docker_registry_server_password}"
             }
           ]
         },

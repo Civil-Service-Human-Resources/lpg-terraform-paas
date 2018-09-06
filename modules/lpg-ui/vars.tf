@@ -137,3 +137,15 @@ variable "lpg_ui_oauth_client_secret" {
 variable "lpg_management_server" {
   default = ""
 }
+
+variable "docker_registry_server_url" {
+  default = ""
+}
+
+variable "docker_registry_server_username" {
+  default = ""
+}
+
+variable "docker_registry_server_password" {
+  default = ""
+}

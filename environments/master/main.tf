@@ -280,6 +280,9 @@ module "lpg-ui" {
   lpg_management_server           = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_management2_name}.azurewebsites.net"
   webapp_sku_tier                 = "Standard"
   webapp_sku_name                 = "S2"
+  docker_registry_server_url      = "${var.docker_registry_server_url}"
+  docker_registry_server_username = "${var.docker_registry_server_username}"
+  docker_registry_server_password = "${var.docker_registry_server_password}"
 }
 
 module "lpg-learning-catalogue" {
