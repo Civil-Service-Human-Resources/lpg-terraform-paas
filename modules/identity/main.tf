@@ -166,7 +166,6 @@ resource "azurerm_template_deployment" "identity-app-service" {
               "name": "DOCKER_REGISTRY_SERVER_USERNAME",
               "value": "${var.docker_registry_server_username}"
             },
-
             {
               "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
               "value": "${var.docker_registry_server_password}"
