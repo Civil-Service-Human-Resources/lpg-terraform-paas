@@ -129,3 +129,15 @@ variable "content_url" {
 variable "content_container" {
   default = "lpgdevcontent"
 }
+
+variable "docker_registry_server_url" {
+  default = ""
+}
+
+variable "docker_registry_server_username" {
+  default = ""
+}
+
+variable "docker_registry_server_password" {
+  default = ""
+}

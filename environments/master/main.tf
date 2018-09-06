@@ -139,6 +139,9 @@ module "lpg-report-service" {
   envurl                        = "${var.envurl}"
   webapp_sku_tier               = "Standard"
   webapp_sku_name               = "${var.webapp_sku_name}"
+  docker_registry_server_url      = "${var.docker_registry_server_url}"
+  docker_registry_server_username = "${var.docker_registry_server_username}"
+  docker_registry_server_password = "${var.docker_registry_server_password}"
 }
 
 module "lpg-learning-locker-xapi" {
@@ -238,6 +241,9 @@ module "lpg-management" {
   webapp_sku_name                     = "${var.webapp_sku_name}"
   content_url                         = "https://${var.envurl}cdn.cshr.digital/packages"
   content_container                   = "${var.content_container}"
+  docker_registry_server_url          = "${var.docker_registry_server_url}"
+  docker_registry_server_username     = "${var.docker_registry_server_username}"
+  docker_registry_server_password     = "${var.docker_registry_server_password}"
 }
 
 module "lpg-ui" {
