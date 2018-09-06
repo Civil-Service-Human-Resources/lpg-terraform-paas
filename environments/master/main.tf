@@ -302,6 +302,9 @@ module "lpg-learning-catalogue" {
   envurl                      = "${var.envurl}"
   webapp_sku_tier             = "Standard"
   webapp_sku_name             = "${var.webapp_sku_name}"
+  docker_registry_server_url      = "${var.docker_registry_server_url}"
+  docker_registry_server_username = "${var.docker_registry_server_username}"
+  docker_registry_server_password = "${var.docker_registry_server_password}"
 }
 
 module "civil-servant-registry-service" {
