@@ -117,6 +117,9 @@ module "lpg-learner-record" {
   datasource                    = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/learner_record?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
   webapp_sku_tier               = "Standard"
   webapp_sku_name               = "${var.webapp_sku_name}"
+  docker_registry_server_url      = "${var.docker_registry_server_url}"
+  docker_registry_server_username = "${var.docker_registry_server_username}"
+  docker_registry_server_password = "${var.docker_registry_server_password}"
 }
 
 module "lpg-report-service" {
