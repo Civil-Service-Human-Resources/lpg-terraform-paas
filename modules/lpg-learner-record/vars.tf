@@ -31,7 +31,7 @@ variable "datasource" {
 }
 
 variable "docker_image" {
-  default = "cshr/lpg-learner-record"
+  default = "lpg-learner-record"
 }
 
 variable "websites_port" {

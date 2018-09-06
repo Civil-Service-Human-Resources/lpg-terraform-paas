@@ -27,7 +27,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/lpg-services"
+  default = "lpg-services"
 }
 
 variable "authentication_service_url" {
