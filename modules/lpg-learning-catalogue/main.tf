@@ -107,12 +107,12 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
               "value": "false"
             },
             {
-              "name": "AUTH_USER",
-              "value": "${var.auth_user}"
+              "name": "CLIENT_ID",
+              "value": "${var.lpg_learning_catalogue_oauth_client_id}"
             },
             {
-              "name": "AUTH_PASSWORD",
-              "value": "${var.auth_password}"
+              "name": "CLIENT_SECRET",
+              "value": "${var.lpg_learning_catalogue_oauth_client_secret}"
             },
             {
               "name": "ELASTICSEARCH_URI",

@@ -82,14 +82,6 @@ variable "course_catalogue_url" {
   default = ""
 }
 
-variable "course_catalogue_user" {
-  default = ""
-}
-
-variable "course_catalogue_pass" {
-  default = ""
-}
-
 variable "gov_notify_api_key" {
   default = ""
 }

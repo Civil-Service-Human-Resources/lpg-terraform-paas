@@ -131,14 +131,6 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
               "value": "${var.course_catalogue_url}"
             },
             {
-              "name": "COURSE_CATALOGUE_USER",
-              "value": "${var.course_catalogue_user}"
-            },
-            {
-              "name": "COURSE_CATALOGUE_PASS",
-              "value": "${var.course_catalogue_pass}"
-            },
-            {
               "name": "XAPI_URL",
               "value": "${var.xapi_url}"
             },

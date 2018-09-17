@@ -34,12 +34,12 @@ variable "websites_port" {
   default = "9001"
 }
 
-variable "auth_user" {
-  default = "user"
+variable "lpg_learning_catalogue_oauth_client_id" {
+  default = ""
 }
 
-variable "auth_password" {
-  default = "password"
+variable "lpg_learning_catalogue_oauth_client_secret" {
+  default = ""
 }
 
 variable "elasticsearch_uri" {

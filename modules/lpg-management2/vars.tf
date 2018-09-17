@@ -102,14 +102,6 @@ variable "course_catalogue_url" {
   default = "course_catalogue_url"
 }
 
-variable "course_catalogue_user" {
-  default = "course_catalogue_user"
-}
-
-variable "course_catalogue_pass" {
-  default = "course_catalogue_pass"
-}
-
 variable "content_url" {
   default = ""
 }

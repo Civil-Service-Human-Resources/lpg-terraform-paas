@@ -135,14 +135,6 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
               "value": "${var.course_catalogue_url}"
             },
             {
-              "name": "LEARNING_CATALOGUE_USERNAME",
-              "value": "${var.course_catalogue_user}"
-            },
-            {
-              "name": "LEARNING_CATALOGUE_PASSWORD",
-              "value": "${var.course_catalogue_pass}"
-            },
-            {
               "name": "GOV_NOTIFY_API_KEY",
               "value": "${var.gov_notify_api_key}"
             },

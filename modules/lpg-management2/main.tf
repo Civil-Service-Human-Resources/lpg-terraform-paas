@@ -83,14 +83,6 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
               "value": "${var.course_catalogue_url}"
             },
             {
-              "name": "COURSE_CATALOGUE_USER",
-              "value": "${var.course_catalogue_user}"
-            },
-            {
-              "name": "COURSE_CATALOGUE_PASS",
-              "value": "${var.course_catalogue_pass}"
-            },
-            {
               "name": "CONTENT_URL",
               "value": "${var.content_url}"
             },
