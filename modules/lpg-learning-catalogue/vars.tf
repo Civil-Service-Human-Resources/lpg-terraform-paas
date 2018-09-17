@@ -34,6 +34,10 @@ variable "websites_port" {
   default = "9001"
 }
 
+variable "authentication_service_url" {
+  default = ""
+}
+
 variable "lpg_learning_catalogue_oauth_client_id" {
   default = ""
 }

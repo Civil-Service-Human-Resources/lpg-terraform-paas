@@ -107,6 +107,10 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
               "value": "false"
             },
             {
+              "name": "OAUTH_SERVICE_URL",
+              "value": "${var.authentication_service_url}"
+            },
+            {
               "name": "CLIENT_ID",
               "value": "${var.lpg_learning_catalogue_oauth_client_id}"
             },

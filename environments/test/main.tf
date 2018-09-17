@@ -252,6 +252,7 @@ module "lpg-learning-catalogue" {
   rg_prefix                                 = "${var.rg_prefix}"
   rg_location                               = "${var.rg_location}"
   lpg_learning_catalogue_name               = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_catalogue_name}"
+  authentication_service_url                = "https://${var.envurl}identity.cshr.digital"
   lpg_learning_catalogue_oauth_client_id    = "${var.lpg_learning_catalogue_oauth_client_id}"
   lpg_learning_catalogue_oauth_client_secret= "${var.lpg_learning_catalogue_oauth_client_secret}"
   docker_tag                                = "${var.learning_catalogue_docker_tag}"

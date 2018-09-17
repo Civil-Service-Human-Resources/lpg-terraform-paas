@@ -250,6 +250,7 @@ module "lpg-learning-catalogue" {
   rg_prefix                   = "${var.rg_prefix}"
   rg_location                 = "${var.rg_location}"
   lpg_learning_catalogue_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_catalogue_name}"
+  authentication_service_url  = "https://${var.envurl}identity.cshr.digital"
   docker_tag                  = "${var.learning_catalogue_docker_tag}"
   env_profile                 = "${var.env_profile}"
   elasticsearch_uri           = "https://${var.envurl}elastic.cshr.digital:9200"
