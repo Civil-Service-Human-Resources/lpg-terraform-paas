@@ -27,7 +27,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/lpg-learning-catalogue"
+  default = "lpg-learning-catalogue"
 }
 
 variable "websites_port" {
@@ -83,5 +83,17 @@ variable "certificatename" {
 }
 
 variable "envurl" {
+  default = ""
+}
+
+variable "docker_registry_server_url" {
+  default = ""
+}
+
+variable "docker_registry_server_username" {
+  default = ""
+}
+
+variable "docker_registry_server_password" {
   default = ""
 }

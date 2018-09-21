@@ -12,7 +12,4 @@ environments/prod/prod-vars.tf
 environments/prod/state.tf
 environments/test/state.tf
 environments/test/test-vars.tf
-scripts/elastic-powershell/demo-elastic.json
-scripts/elastic-powershell/dev-elastic.json
-scripts/elastic-powershell/prod-elastic.json
-scripts/elastic-powershell/test-elastic.json
+scripts/elastic-powershell/*.json

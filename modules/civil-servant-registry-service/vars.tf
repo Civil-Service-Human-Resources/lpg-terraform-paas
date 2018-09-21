@@ -27,7 +27,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/civil-servant-registry-service"
+  default = "civil-servant-registry-service"
 }
 
 variable "datasource" {
@@ -91,5 +91,17 @@ variable "gov_notify_linemanager_template_id" {
 }
 
 variable "authentication_service_url" {
+  default = ""
+}
+
+variable "docker_registry_server_url" {
+  default = ""
+}
+
+variable "docker_registry_server_username" {
+  default = ""
+}
+
+variable "docker_registry_server_password" {
   default = ""
 }

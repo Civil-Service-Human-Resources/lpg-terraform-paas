@@ -27,7 +27,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/lpg-report-service"
+  default = "lpg-report-service"
 }
 
 variable "websites_port" {
@@ -79,5 +79,17 @@ variable "certificatename" {
 }
 
 variable "envurl" {
+  default = ""
+}
+
+variable "docker_registry_server_url" {
+  default = ""
+}
+
+variable "docker_registry_server_username" {
+  default = ""
+}
+
+variable "docker_registry_server_password" {
   default = ""
 }
