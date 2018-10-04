@@ -97,6 +97,10 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
             {
               "name": "YOUTUBE_API_KEY",
               "value": "${var.youtube_api_key}"
+            },
+            {
+              "name": "REGISTRY_SERVICE_URL",
+              "value": "${var.registry_service_url}"
             }
           ]
                   },

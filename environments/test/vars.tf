@@ -48,7 +48,7 @@ variable "identity_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "60891d9bf8b3428133ab2036a4a823c241de5dba"
+  default = "87fbada730d6f6914828739c6c6cf39551f351eb"
 }
 
 variable "ll_docker_tag" {
@@ -56,11 +56,11 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-    default = "97c3992298a973c46d9b74b51659d387be6ffc79"
+    default = "339f8471bcdd19dc868993322288a17a20dcb1c6"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "9141f41532e1d8ec4db5535d834c6c5bfc670cd0"
+  default = "38f529448beb6176d01c37a4d0d5e1997c63e974"
 }
 
 variable "civil_servant_registry_docker_tag" {
@@ -72,7 +72,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_management2_tag" {
-  default = "7ccecf77f6390c15fed84fe7b54b4a831fc479a3"
+  default = "bb43b6c837d97ee37de5af69201d8c44f409b43c"
 }
 
 ### cosmos ###

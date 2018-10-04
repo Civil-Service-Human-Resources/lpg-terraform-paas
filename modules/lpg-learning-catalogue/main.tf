@@ -145,6 +145,14 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
             {
               "name": "DOCKER_ENABLE_CI",
               "value": "true"
+            },
+            {
+              "name": "AZURE_ACCOUNT_KEY",
+              "value": "${var.azure_account_key}"
+            },
+            {
+              "name": "OAUTH_SERVICE_URL",
+              "value": "${var.oauth_service_url}"
             }
           ]
         },

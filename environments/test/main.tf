@@ -270,6 +270,8 @@ module "lpg-learning-catalogue" {
   existingkeyvaultsecretname  = "${var.existingkeyvaultsecretname}"
   certificatename             = "${var.certificatename}"
   envurl                      = "${var.envurl}"
+  azure_account_key           = "${var.azure_account_key}"
+  oauth_service_url           = "https://${var.envurl}identity.cshr.digital"
 }
 
 module "civil-servant-registry-service" {
@@ -320,4 +322,5 @@ module "lpg-management2" {
   course_catalogue_pass               = "${var.course_catalogue_pass}"
   content_url                         = "https://${var.envurl}cdn.cshr.digital/lpgdevcontent"
   youtube_api_key                     = "${var.youtube_api_key}"
+  registry_service_url                = "https://${var.envurl}civil-servant-registry.cshr.digital"
 }

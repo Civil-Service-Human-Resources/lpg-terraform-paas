@@ -117,3 +117,7 @@ variable "content_url" {
 variable "youtube_api_key" {
   default = ""
 }
+
+variable "registry_service_url" {
+  default = ""
+}
