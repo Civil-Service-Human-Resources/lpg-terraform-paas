@@ -18,8 +18,12 @@ variable "webapp_sku_tier" {
   default = "Basic"
 }
 
-variable "webapp_sku_name" {
+variable "webapp_sku_name_1" {
   default = "B1"
+}
+
+variable "webapp_sku_name_2" {
+  default = "B2"
 }
 
 variable "envurl" {
