@@ -189,6 +189,18 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
             {
               "name": "CONTENT_CONTAINER",
               "value": "${var.content_container}"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_URL",
+              "value": "https://${var.docker_registry_server_url}"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+              "value": "${var.docker_registry_server_username}"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+              "value": "${var.docker_registry_server_password}"
             }
           ]
         },
@@ -242,7 +254,7 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
         "detailedErrorLoggingEnabled": true,
         "alwaysOn": true,
         "appCommandLine": "/bin/hammer node ../node_modules/management-ui/server.js",
-        "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}",
+        "linuxFxVersion": "DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
         "minTlsVersion": "1.0",
         "ftpsState": "Disabled"
       },

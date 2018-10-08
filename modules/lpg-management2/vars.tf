@@ -27,7 +27,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/lpg-management-ui"
+  default = "lpg-management-ui"
 }
 
 variable "authentication_service_url" {
@@ -107,5 +107,17 @@ variable "content_url" {
 }
 
 variable "youtube_api_key" {
+  default = ""
+}
+
+variable "docker_registry_server_url" {
+  default = ""
+}
+
+variable "docker_registry_server_username" {
+  default = ""
+}
+
+variable "docker_registry_server_password" {
   default = ""
 }

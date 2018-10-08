@@ -149,6 +149,19 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
             {
               "name": "GOV_NOTIFY_LINEMANAGER_TEMPLATE_ID",
               "value": "${var.gov_notify_linemanager_template_id}"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_URL",
+              "value": "https://${var.docker_registry_server_url}"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+              "value": "${var.docker_registry_server_username}"
+            },
+
+            {
+              "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+              "value": "${var.docker_registry_server_password}"
             }
           ]
         },
@@ -202,7 +215,7 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
         "detailedErrorLoggingEnabled": true,
         "alwaysOn": true,
         "appCommandLine": "/bin/hammer java -jar /data/app.jar",
-        "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}",
+        "linuxFxVersion": "DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
         "minTlsVersion": "1.0",
         "ftpsState": "Disabled"
       },

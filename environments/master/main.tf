@@ -57,8 +57,11 @@ module "identity" {
   envurl                                  = "${var.envurl}"
   invite_signup_url                       = "https://${var.envurl}identity.cshr.digital/signup/%s"
   reset_url                               = "https://${var.envurl}identity.cshr.digital/reset/%s"
-  webapp_sku_tier                         = "Standard"
-  webapp_sku_name                         = "${var.webapp_sku_name}"
+  webapp_sku_tier                         = "${var.webapp_sku_tier}"
+  webapp_sku_name                         = "${var.webapp_sku_name_2}"
+  docker_registry_server_url              = "${var.docker_registry_server_url}"
+  docker_registry_server_username         = "${var.docker_registry_server_username}"
+  docker_registry_server_password         = "${var.docker_registry_server_password}"
 }
 
 module "identity-management" {
@@ -78,10 +81,12 @@ module "identity-management" {
   gov_notify_api_key                      = "${var.gov_notify_api_key}"
   envurl                                  = "${var.envurl}"
   invite_signup_url                       = "https://${var.envurl}identity.cshr.digital/signup/%s"
-  webapp_sku_tier                         = "Standard"
-  webapp_sku_name                         = "${var.webapp_sku_name}"
+  webapp_sku_tier                         = "${var.webapp_sku_tier}"
+  webapp_sku_name                         = "${var.webapp_sku_name_1}"
+  docker_registry_server_url              = "${var.docker_registry_server_url}"
+  docker_registry_server_username         = "${var.docker_registry_server_username}"
+  docker_registry_server_password         = "${var.docker_registry_server_password}"
 }
-
 
 module "lpg-learner-record" {
   source                        = "../../modules/lpg-learner-record"
@@ -108,8 +113,11 @@ module "lpg-learner-record" {
   envurl                        = "${var.envurl}"
   spring_profiles_active        = "${var.spring_profiles_active}"
   datasource                    = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/learner_record?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
-  webapp_sku_tier               = "Standard"
-  webapp_sku_name               = "${var.webapp_sku_name}"
+  webapp_sku_tier               = "${var.webapp_sku_tier}"
+  webapp_sku_name               = "${var.webapp_sku_name_2}"
+  docker_registry_server_url      = "${var.docker_registry_server_url}"
+  docker_registry_server_username = "${var.docker_registry_server_username}"
+  docker_registry_server_password = "${var.docker_registry_server_password}"
 }
 
 module "lpg-report-service" {
@@ -130,8 +138,11 @@ module "lpg-report-service" {
   existingkeyvaultsecretname    = "${var.existingkeyvaultsecretname}"
   certificatename               = "${var.certificatename}"
   envurl                        = "${var.envurl}"
-  webapp_sku_tier               = "Standard"
-  webapp_sku_name               = "${var.webapp_sku_name}"
+  webapp_sku_tier               = "${var.webapp_sku_tier}"
+  webapp_sku_name               = "${var.webapp_sku_name_1}"
+  docker_registry_server_url      = "${var.docker_registry_server_url}"
+  docker_registry_server_username = "${var.docker_registry_server_username}"
+  docker_registry_server_password = "${var.docker_registry_server_password}"
 }
 
 module "lpg-learning-locker-xapi" {
@@ -153,8 +164,8 @@ module "lpg-learning-locker-xapi" {
   existingkeyvaultsecretname  = "${var.existingkeyvaultsecretname}"
   certificatename             = "${var.certificatename}"
   envurl                      = "${var.envurl}"
-  webapp_sku_tier             = "Standard"
-  webapp_sku_name             = "${var.webapp_sku_name}"
+  webapp_sku_tier             = "${var.webapp_sku_tier}"
+  webapp_sku_name             = "${var.webapp_sku_name_1}"
 }
 
 module "lpg-learning-locker-worker" {
@@ -178,8 +189,8 @@ module "lpg-learning-locker-worker" {
   queue_provider              = "${var.redis_queue_provider}"
   queue_namespace             = "${var.redis_queue_namespace}"
   testing                     = "${var.lpg_testing}"
-  webapp_sku_tier             = "Standard"
-  webapp_sku_name             = "${var.webapp_sku_name}"
+  webapp_sku_tier             = "${var.webapp_sku_tier}"
+  webapp_sku_name             = "${var.webapp_sku_name_1}"
 }
 
 module "lpg-learning-locker-ui" {
@@ -195,8 +206,8 @@ module "lpg-learning-locker-ui" {
   env_profile                 = "${var.env_profile}"
   ui_host                     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}.azurewebsites.net"
   ui_port                     = "${var.ll_ui_port}"
-  webapp_sku_tier             = "Standard"
-  webapp_sku_name             = "${var.webapp_sku_name}"
+  webapp_sku_tier             = "${var.webapp_sku_tier}"
+  webapp_sku_name             = "${var.webapp_sku_name_1}"
 }
 
 module "lpg-management" {
@@ -225,9 +236,13 @@ module "lpg-management" {
   lpg_management_oauth_client_id      = "${var.lpg_management_oauth_client_id}"
   lpg_management_oauth_client_secret  = "${var.lpg_management_oauth_client_secret}"
   report_service_url                  = "https://${var.envurl}report.cshr.digital"
-  webapp_sku_tier                     = "Standard"
-  webapp_sku_name                     = "${var.webapp_sku_name}"
+  webapp_sku_tier                     = "${var.webapp_sku_tier}"
+  webapp_sku_name                     = "${var.webapp_sku_name_1}"
+  content_url                         = "https://${var.envurl}cdn.cshr.digital/packages"
   content_container                   = "${var.content_container}"
+  docker_registry_server_url          = "${var.docker_registry_server_url}"
+  docker_registry_server_username     = "${var.docker_registry_server_username}"
+  docker_registry_server_password     = "${var.docker_registry_server_password}"
 }
 
 module "lpg-ui" {
@@ -260,54 +275,63 @@ module "lpg-ui" {
   lpg_ui_oauth_client_id          = "${var.lpg_ui_oauth_client_id}"
   lpg_ui_oauth_client_secret      = "${var.lpg_ui_oauth_client_secret}"
   lpg_management_server           = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_management2_name}.azurewebsites.net"
-  webapp_sku_tier                 = "Standard"
-  webapp_sku_name                 = "S2"
+  webapp_sku_tier                 = "${var.webapp_sku_tier}"
+  webapp_sku_name                 = "${var.webapp_sku_name_2}"
+  docker_registry_server_url      = "${var.docker_registry_server_url}"
+  docker_registry_server_username = "${var.docker_registry_server_username}"
+  docker_registry_server_password = "${var.docker_registry_server_password}"
 }
 
 module "lpg-learning-catalogue" {
-  source                                    = "../../modules/lpg-learning-catalogue"
-  rg_name                                   = "${var.rg_name}"
-  rg_prefix                                 = "${var.rg_prefix}"
-  rg_location                               = "${var.rg_location}"
-  lpg_learning_catalogue_name               = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_catalogue_name}"
-  authentication_service_url                = "https://${var.envurl}identity.cshr.digital"
-  lpg_learning_catalogue_oauth_client_id    = "${var.lpg_learning_catalogue_oauth_client_id}"
-  lpg_learning_catalogue_oauth_client_secret= "${var.lpg_learning_catalogue_oauth_client_secret}"
-  docker_tag                                = "${var.learning_catalogue_docker_tag}"
-  env_profile                               = "${var.env_profile}"
-  elasticsearch_uri                         = "https://${var.envurl}elastic.cshr.digital:9200"
-  elasticsearch_user                        = "${var.elasticsearch_user}"
-  elasticsearch_password                    = "${var.elasticsearch_password}"
-  vaultresourcegroup                        = "${var.vaultresourcegroup}"
-  vaultname                                 = "${var.vaultname}"
-  existingkeyvaultsecretname                = "${var.existingkeyvaultsecretname}"
-  certificatename                           = "${var.certificatename}"
-  envurl                                    = "${var.envurl}"
-  webapp_sku_tier                           = "Standard"
-  webapp_sku_name                           = "${var.webapp_sku_name}"
+  source                                      = "../../modules/lpg-learning-catalogue"
+  rg_name                                     = "${var.rg_name}"
+  rg_prefix                                   = "${var.rg_prefix}"
+  rg_location                                 = "${var.rg_location}"
+  lpg_learning_catalogue_name                 = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_catalogue_name}"
+  authentication_service_url                  = "https://${var.envurl}identity.cshr.digital"
+  lpg_learning_catalogue_oauth_client_id      = "${var.lpg_learning_catalogue_oauth_client_id}"
+  lpg_learning_catalogue_oauth_client_secret  = "${var.lpg_learning_catalogue_oauth_client_secret}"
+  docker_tag                                  = "${var.learning_catalogue_docker_tag}"
+  env_profile                                 = "${var.env_profile}"
+  elasticsearch_uri                           = "https://${var.envurl}elastic.cshr.digital:9200"
+  elasticsearch_user                          = "${var.elasticsearch_user}"
+  elasticsearch_password                      = "${var.elasticsearch_password}"
+  vaultresourcegroup                          = "${var.vaultresourcegroup}"
+  vaultname                                   = "${var.vaultname}"
+  existingkeyvaultsecretname                  = "${var.existingkeyvaultsecretname}"
+  certificatename                             = "${var.certificatename}"
+  envurl                                      = "${var.envurl}"
+  webapp_sku_tier                             = "${var.webapp_sku_tier}"
+  webapp_sku_name                             = "${var.webapp_sku_name_1}"
+  docker_registry_server_url                  = "${var.docker_registry_server_url}"
+  docker_registry_server_username             = "${var.docker_registry_server_username}"
+  docker_registry_server_password             = "${var.docker_registry_server_password}"
 }
 
 module "civil-servant-registry-service" {
-  source                      = "../../modules/civil-servant-registry-service"
-  rg_name                     = "${var.rg_name}"
-  rg_prefix                   = "${var.rg_prefix}"
-  rg_location                 = "${var.rg_location}"
-  civil_servant_registry_name = "${var.rg_prefix}-${var.rg_name}-${var.civil_servant_registry_name}"
-  env_profile                 = "${var.env_profile}"
-  docker_tag                  = "${var.civil_servant_registry_docker_tag}"
-  csrs_client_id              = "${var.csrs_client_id}"
-  csrs_client_secret          = "${var.csrs_client_secret}"
-  check_token_url             = "https://${var.envurl}identity.cshr.digital/oauth/check_token"
-  datasource                  = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/csrs?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
-  vaultresourcegroup          = "${var.vaultresourcegroup}"
-  vaultname                   = "${var.vaultname}"
-  existingkeyvaultsecretname  = "${var.existingkeyvaultsecretname}"
-  certificatename             = "${var.certificatename}"
-  gov_notify_api_key          = "${var.gov_notify_api_key}"
-  envurl                      = "${var.envurl}"
-  authentication_service_url  = "https://${var.envurl}identity.cshr.digital"
-  webapp_sku_tier             = "Standard"
-  webapp_sku_name             = "${var.webapp_sku_name}"
+  source                              = "../../modules/civil-servant-registry-service"
+  rg_name                             = "${var.rg_name}"
+  rg_prefix                           = "${var.rg_prefix}"
+  rg_location                         = "${var.rg_location}"
+  civil_servant_registry_name         = "${var.rg_prefix}-${var.rg_name}-${var.civil_servant_registry_name}"
+  env_profile                         = "${var.env_profile}"
+  docker_tag                          = "${var.civil_servant_registry_docker_tag}"
+  csrs_client_id                      = "${var.csrs_client_id}"
+  csrs_client_secret                  = "${var.csrs_client_secret}"
+  check_token_url                     = "https://${var.envurl}identity.cshr.digital/oauth/check_token"
+  datasource                          = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/csrs?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
+  vaultresourcegroup                  = "${var.vaultresourcegroup}"
+  vaultname                           = "${var.vaultname}"
+  existingkeyvaultsecretname          = "${var.existingkeyvaultsecretname}"
+  certificatename                     = "${var.certificatename}"
+  gov_notify_api_key                  = "${var.gov_notify_api_key}"
+  envurl                              = "${var.envurl}"
+  authentication_service_url          = "https://${var.envurl}identity.cshr.digital"
+  webapp_sku_tier                     = "${var.webapp_sku_tier}"
+  webapp_sku_name                     = "${var.webapp_sku_name_2}"
+  docker_registry_server_url          = "${var.docker_registry_server_url}"
+  docker_registry_server_username     = "${var.docker_registry_server_username}"
+  docker_registry_server_password     = "${var.docker_registry_server_password}"
 }
 
 module "lpg-management2" {
@@ -332,4 +356,11 @@ module "lpg-management2" {
   callback_url                        = "https://${var.rg_prefix}-${var.rg_name}-${var.lpg_management2_name}.azurewebsites.net"
   lpg_ui_url                          = "https://${var.envurl}lpg.cshr.digital"
   course_catalogue_url                = "https://${var.envurl}learning-resources.cshr.digital"
+  content_url                         = "https://${var.envurl}cdn.cshr.digital/packages"
+  youtube_api_key                     = "${var.youtube_api_key}"
+  docker_registry_server_url          = "${var.docker_registry_server_url}"
+  docker_registry_server_username     = "${var.docker_registry_server_username}"
+  docker_registry_server_password     = "${var.docker_registry_server_password}"
+  webapp_sku_tier                     = "${var.webapp_sku_tier}"
+  webapp_sku_name                     = "${var.webapp_sku_name_1}"
 }

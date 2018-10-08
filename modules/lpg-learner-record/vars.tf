@@ -31,7 +31,7 @@ variable "datasource" {
 }
 
 variable "docker_image" {
-  default = "cshr/lpg-learner-record"
+  default = "lpg-learner-record"
 }
 
 variable "websites_port" {
@@ -116,4 +116,16 @@ variable "envurl" {
 
 variable "spring_profiles_active" {
   default = "default"
+}
+
+variable "docker_registry_server_url" {
+  default = ""
+}
+
+variable "docker_registry_server_username" {
+  default = ""
+}
+
+variable "docker_registry_server_password" {
+  default = ""
 }

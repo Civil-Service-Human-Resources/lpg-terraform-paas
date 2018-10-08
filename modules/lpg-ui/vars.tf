@@ -27,7 +27,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/lpg-services"
+  default = "lpg-services"
 }
 
 variable "authentication_service_url" {
@@ -53,7 +53,6 @@ variable "learner_record_url" {
 variable "course_catalogue_url" {
   default = "course_catalogue_url"
 }
-
 
 variable "xapi_url" {
   default = "xapi-url"
@@ -128,5 +127,17 @@ variable "lpg_ui_oauth_client_secret" {
 }
 
 variable "lpg_management_server" {
+  default = ""
+}
+
+variable "docker_registry_server_url" {
+  default = ""
+}
+
+variable "docker_registry_server_username" {
+  default = ""
+}
+
+variable "docker_registry_server_password" {
   default = ""
 }

@@ -18,8 +18,12 @@ variable "webapp_sku_tier" {
   default = "Basic"
 }
 
-variable "webapp_sku_name" {
+variable "webapp_sku_name_1" {
   default = "B1"
+}
+
+variable "webapp_sku_name_2" {
+  default = "B2"
 }
 
 variable "envurl" {
@@ -48,7 +52,7 @@ variable "identity_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "feature-LPFG-615-145"
+  default = "60891d9bf8b3428133ab2036a4a823c241de5dba"
 }
 
 variable "ll_docker_tag" {
@@ -56,11 +60,11 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-    default = "feature-LPFG-615-1340"
+  default = "latest"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "e3d5694c03c2196f62789789bff549084e430ffb"
+  default = "9141f41532e1d8ec4db5535d834c6c5bfc670cd0"
 }
 
 variable "civil_servant_registry_docker_tag" {
@@ -72,7 +76,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_management2_tag" {
-  default = "7761d10cec7cdf7fdf1e3a57d60ca83c6946127a"
+  default = "7ccecf77f6390c15fed84fe7b54b4a831fc479a3"
 }
 
 ### cosmos ###
@@ -224,7 +228,6 @@ variable "identity_management_name" {
   default = "identity-management"
 }
 
-
 ### lpg-management2 ###
 variable "lpg_management2_name" {
   default = "lpg-management2"
@@ -241,4 +244,3 @@ variable "lpg_management2_websites_port" {
 variable "content_container" {
   default = "lpgdevcontent"
 }
-

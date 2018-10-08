@@ -27,7 +27,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/identity-service"
+  default = "identity-service"
 }
 
 variable "datasource" {
@@ -83,5 +83,17 @@ variable "invite_signup_url" {
 }
 
 variable "reset_url" {
+  default = ""
+}
+
+variable "docker_registry_server_url" {
+  default = ""
+}
+
+variable "docker_registry_server_username" {
+  default = ""
+}
+
+variable "docker_registry_server_password" {
   default = ""
 }

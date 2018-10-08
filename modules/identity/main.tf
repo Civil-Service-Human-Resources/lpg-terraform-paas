@@ -157,6 +157,18 @@ resource "azurerm_template_deployment" "identity-app-service" {
             {
               "name": "RESET_URL",
               "value": "${var.reset_url}"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_URL",
+              "value": "https://${var.docker_registry_server_url}"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+              "value": "${var.docker_registry_server_username}"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+              "value": "${var.docker_registry_server_password}"
             }
           ]
         },
@@ -210,7 +222,7 @@ resource "azurerm_template_deployment" "identity-app-service" {
         "detailedErrorLoggingEnabled": true,
         "alwaysOn": true,
         "appCommandLine": "",
-        "linuxFxVersion": "DOCKER|${var.docker_image}:${var.docker_tag}",
+        "linuxFxVersion": "DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
         "minTlsVersion": "1.0",
         "ftpsState": "Disabled"
       },

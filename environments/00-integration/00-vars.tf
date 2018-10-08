@@ -18,8 +18,12 @@ variable "webapp_sku_tier" {
   default = "Basic"
 }
 
-variable "webapp_sku_name" {
+variable "webapp_sku_name_1" {
   default = "B1"
+}
+
+variable "webapp_sku_name_2" {
+  default = "B2"
 }
 
 variable "envurl" {
@@ -48,7 +52,7 @@ variable "identity_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "chore-large-records-136"
+  default = "60891d9bf8b3428133ab2036a4a823c241de5dba"
 }
 
 variable "ll_docker_tag" {
@@ -60,7 +64,7 @@ variable "lpg_services_tag" {
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "e3d5694c03c2196f62789789bff549084e430ffb"
+  default = "9141f41532e1d8ec4db5535d834c6c5bfc670cd0"
 }
 
 variable "civil_servant_registry_docker_tag" {
@@ -72,7 +76,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_management2_tag" {
-  default = "62ac2a0d504a403f0f9c8c59be0e8bc0ba2cf99c"
+  default = "7ccecf77f6390c15fed84fe7b54b4a831fc479a3"
 }
 
 ### cosmos ###
