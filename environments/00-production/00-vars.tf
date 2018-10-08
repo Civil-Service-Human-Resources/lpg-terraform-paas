@@ -18,8 +18,12 @@ variable "webapp_sku_tier" {
   default = "Standard"
 }
 
-variable "webapp_sku_name" {
+variable "webapp_sku_name_1" {
   default = "S1"
+}
+
+variable "webapp_sku_name_2" {
+  default = "S2"
 }
 
 variable "redis_capacity" {
