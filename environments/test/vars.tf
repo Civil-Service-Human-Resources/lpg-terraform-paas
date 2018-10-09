@@ -60,7 +60,7 @@ variable "lpg_services_tag" {
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "38f529448beb6176d01c37a4d0d5e1997c63e974"
+  default = "ceac59a49160eee3747566386676f6d5e8793bef"
 }
 
 variable "civil_servant_registry_docker_tag" {
@@ -72,7 +72,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_management2_tag" {
-  default = "3b02ca4dc0cd240ce5efcb894e9ca0dfd2e8a8d0"
+  default = "5bd2fc947c5c4980136a43c9a5a200a3a10bcf51"
 }
 
 ### cosmos ###
