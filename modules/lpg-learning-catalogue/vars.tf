@@ -86,6 +86,14 @@ variable "envurl" {
   default = ""
 }
 
+variable "azure_account_key" {
+  default = ""
+}
+
+variable "oauth_service_url" {
+  default = "oauth_service_url"
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }
