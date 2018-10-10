@@ -2,6 +2,7 @@
 resource "azurerm_template_deployment" "lpg-management2-app-service" {
   name                = "${var.lpg_management2_name}"
   resource_group_name = "${var.rg_name}"
+
   template_body = <<DEPLOY
   {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -108,6 +109,10 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
             {
               "name": "YOUTUBE_API_KEY",
               "value": "${var.youtube_api_key}"
+            },
+            {
+              "name": "REGISTRY_SERVICE_URL",
+              "value": "${var.registry_service_url}"
             }
           ]
                   },
@@ -165,5 +170,6 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
       ]
   }
   DEPLOY
+
   deployment_mode = "Incremental"
 }

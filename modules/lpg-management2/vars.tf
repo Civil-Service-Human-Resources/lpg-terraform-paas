@@ -118,6 +118,10 @@ variable "youtube_api_key" {
   default = ""
 }
 
+variable "registry_service_url" {
+  default = ""
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }
