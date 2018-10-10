@@ -147,6 +147,14 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
               "value": "true"
             },
             {
+              "name": "AZURE_ACCOUNT_KEY",
+              "value": "${var.azure_account_key}"
+            },
+            {
+              "name": "OAUTH_SERVICE_URL",
+              "value": "${var.oauth_service_url}"
+            },
+            {
               "name": "DOCKER_REGISTRY_SERVER_URL",
               "value": "https://${var.docker_registry_server_url}"
             },
