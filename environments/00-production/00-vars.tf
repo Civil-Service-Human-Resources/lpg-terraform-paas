@@ -171,19 +171,6 @@ variable "ll_ui_port" {
   default = "80"
 }
 
-### lpg-management ###
-variable "lpg_management_name" {
-  default = "lpg-management-ui"
-}
-
-variable "management_ui_hammer_working_directory" {
-  default = "/var/www/app/dist/management-ui"
-}
-
-variable "management_ui_websites_port" {
-  default = "3001"
-}
-
 ### lpg-ui ###
 variable "lpg_ui_name" {
   default = "lpg-ui"
