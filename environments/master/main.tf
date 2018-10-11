@@ -332,3 +332,24 @@ module "lpg-management2" {
   webapp_sku_name                     = "${var.webapp_sku_name_1}"
   registry_service_url                = "https://${var.envurl}civil-servant-registry.cshr.digital"
 }
+
+module "notification-service" {
+  source                                    = "../../modules/notification-service"
+  rg_name                                   = "${var.rg_name}"
+  rg_prefix                                 = "${var.rg_prefix}}"
+  rg_location                               = "${var.rg_location}}"
+  notification_service_name                 = "${var.rg_prefix}-${var.rg_name}-${var.notification_service_name}"
+  docker_tag                                = "${var.notification_service_tag}"
+  env_profile                               = "${var.env_profile}"
+  gov_notify_api_key                        = "${var.gov_notify_api_key}"
+  gov_notify_invite_template_id             = "${var.gov_notify_invite_template_id}"
+  gov_notify_reset_template_id              = "${var.gov_notify_reset_template_id}"
+  gov_notify_reset_successful_template_id   = "${var.gov_notify_reset_successful_template_id}"
+  gov_notify_event_invite_template_id       = "${var.gov_notify_event_invite_template_id}"
+  gov_notify_event_cancellation_template_id = "${var.gov_notify_event_cancellation_template_id}"
+  docker_registry_server_url                = "${var.docker_registry_server_url}"
+  docker_registry_server_username           = "${var.docker_registry_server_username}"
+  docker_registry_server_password           = "${var.docker_registry_server_password}"
+  webapp_sku_tier                           = "${var.webapp_sku_tier}"
+  webapp_sku_name                           = "${var.webapp_sku_name_1}"
+}

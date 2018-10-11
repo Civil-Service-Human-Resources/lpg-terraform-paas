@@ -1,4 +1,5 @@
 ###### identity-management ######
+
 resource "azurerm_template_deployment" "lpg-management2-app-service" {
   name                = "${var.lpg_management2_name}"
   resource_group_name = "${var.rg_name}"
