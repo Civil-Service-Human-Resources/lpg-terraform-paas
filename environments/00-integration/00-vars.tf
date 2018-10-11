@@ -79,6 +79,10 @@ variable "lpg_management2_tag" {
   default = "7ccecf77f6390c15fed84fe7b54b4a831fc479a3"
 }
 
+variable "notification_service_tag" {
+  default = "PR-1-8"
+}
+
 ### cosmos ###
 variable "cosmos_name" {
   default = "cosmos"
@@ -230,4 +234,9 @@ variable "lpg_management2_websites_port" {
 
 variable "content_container" {
   default = "lpgdevcontent"
+}
+
+### notification-service ###
+variable "notification_service_name" {
+  default = "notification-service"
 }
