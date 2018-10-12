@@ -218,7 +218,7 @@ module "lpg-ui" {
   lpg_ui_name                     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
   xapi_url                        = "https://${var.envurl}xapi.cshr.digital/data/xAPI"
   authentication_service_url      = "https://${var.envurl}identity.cshr.digital"
-  azure_storage_connection_string = "${module.blob.storage_connection_string}"
+  azure_storage_connection_string = "${var.blob_storage_connection_string}"
   docker_tag                      = "${var.lpg_services_tag}"
   course_catalogue_url            = "https://${var.envurl}learning-resources.cshr.digital"
   learner_record_url              = "https://${var.envurl}learning-record.cshr.digital"
