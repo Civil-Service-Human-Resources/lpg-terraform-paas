@@ -98,9 +98,8 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
   			},
   			"dependsOn": [
   				"[variables('hostingPlanName')]"
-  			]
-  		},
-  		{
+  			]},
+  		    {
   			"apiVersion": "2016-09-01",
   			"name": "[variables('hostingPlanName')]",
   			"type": "Microsoft.Web/serverfarms",
@@ -117,8 +116,8 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
   				"Name": "${var.webapp_sku_name}"
   			},
   			"kind": "linux"
-  		},
-  		{
+  		    },
+  		    {
   			"type": "Microsoft.Web/sites/config",
   			"name": "[concat(parameters('siteName'), '/web')]",
   			"apiVersion": "2016-08-01",
