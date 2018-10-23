@@ -52,11 +52,11 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "chore-performance-156"
+  default = "LPFG-833-167"
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "56a379ce040687b3fb41b9fa993b680e18942f30"
+  default = "PR-40-2"
 }
 
 variable "ll_docker_tag" {
@@ -72,7 +72,7 @@ variable "learning_catalogue_docker_tag" {
 }
 
 variable "civil_servant_registry_docker_tag" {
-  default = "feature-LPFG-394-payment-methods-65"
+  default = "fc2ff2f6fc53be91d56900ec17ba0b7a101b85dd"
 }
 
 variable "lpg_report_service_docker_tag" {
