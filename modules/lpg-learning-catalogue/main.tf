@@ -155,6 +155,14 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
               "value": "${var.oauth_service_url}"
             },
             {
+              "name": "CLIENT_ID",
+              "value": "${var.client_id}"
+            },
+            {
+              "name": "CLIENT_SECRET",
+              "value": "${var.client_secret}"
+            },
+            {
               "name": "DOCKER_REGISTRY_SERVER_URL",
               "value": "https://${var.docker_registry_server_url}"
             },
