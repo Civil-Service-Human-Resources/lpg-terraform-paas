@@ -151,6 +151,14 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
               "value": "${var.azure_account_key}"
             },
             {
+              "name": "AZURE_ACCOUNT_NAME",
+              "value": "${var.azure_account_name}"
+            },
+            {
+              "name": "AZURE_STORAGE_CONTAINER",
+              "value": "${var.azure_storage_container}"
+            },
+            {
               "name": "OAUTH_SERVICE_URL",
               "value": "${var.oauth_service_url}"
             },
@@ -161,10 +169,6 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
             {
               "name": "CLIENT_SECRET",
               "value": "${var.client_secret}"
-            },
-            {
-              "name": "AZURE_STORAGE_CONTAINER",
-              "value": "${var.azure_storage_container}"
             },
             {
               "name": "DOCKER_REGISTRY_SERVER_URL",
