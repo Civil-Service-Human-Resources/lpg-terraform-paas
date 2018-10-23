@@ -307,6 +307,7 @@ module "lpg-learning-catalogue" {
   oauth_service_url               = "https://${var.envurl}identity.cshr.digital"
   client_id                       = "${var.lpg_learning_catalogue_oauth_client_id}"
   client_secret                   = "${var.lpg_learning_catalogue_oauth_client_secret}"
+  azure_storage_container         = "${var.content_container}"
 }
 
 module "civil-servant-registry-service" {
