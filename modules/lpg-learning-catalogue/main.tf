@@ -163,6 +163,10 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
               "value": "${var.client_secret}"
             },
             {
+              "name": "AZURE_STORAGE_CONTAINER",
+              "value": "${var.azure_storage_container}"
+            },
+            {
               "name": "DOCKER_REGISTRY_SERVER_URL",
               "value": "https://${var.docker_registry_server_url}"
             },

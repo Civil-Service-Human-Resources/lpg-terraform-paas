@@ -102,6 +102,10 @@ variable "client_secret" {
   default = ""
 }
 
+variable "azure_storage_container" {
+  default = "lpgdevcontent"
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }
