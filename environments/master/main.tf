@@ -305,6 +305,8 @@ module "lpg-learning-catalogue" {
   docker_registry_server_password = "${var.docker_registry_server_password}"
   azure_account_key               = "${var.azure_account_key}"
   oauth_service_url               = "https://${var.envurl}identity.cshr.digital"
+  client_id                       = "${var.lpg_learning_catalogue_oauth_client_id}"
+  client_secret                   = "${var.lpg_learning_catalogue_oauth_client_secret}"
 }
 
 module "civil-servant-registry-service" {
