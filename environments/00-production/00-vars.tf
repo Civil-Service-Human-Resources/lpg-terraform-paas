@@ -64,7 +64,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-    default = "PR-421-4"
+    default = "PR-421-7"
 }
 
 variable "learning_catalogue_docker_tag" {
@@ -80,7 +80,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_management2_tag" {
-  default = "fix-prod-deploy-1"
+  default = "PR-115-5"
 }
 
 ### cosmos ###
