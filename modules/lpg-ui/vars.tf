@@ -34,10 +34,6 @@ variable "authentication_service_url" {
   default = "http://identity-something.cshr.digital"
 }
 
-variable "azure_storage_connection_string" {
-  default = "blob_connection_string"
-}
-
 variable "google_analytics_id" {
   default = "google_analytics_id"
 }
