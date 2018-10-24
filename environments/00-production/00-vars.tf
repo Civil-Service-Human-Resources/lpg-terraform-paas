@@ -64,7 +64,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-    default = "PR-421-8"
+  default = "PR-421-8"
 }
 
 variable "learning_catalogue_docker_tag" {
