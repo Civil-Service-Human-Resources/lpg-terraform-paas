@@ -75,7 +75,7 @@ variable "lpg_report_service_docker_tag" {
   default = "feature-lpfg-370-booking-feed-csv-report-4"
 }
 
-variable "lpg_management2_tag" {
+variable "lpg_management_tag" {
   default = "c555e66f89e0aa73c2c04c4bc498288918dfed1c"
 }
 
@@ -219,16 +219,16 @@ variable "identity_management_name" {
   default = "identity-management"
 }
 
-### lpg-management2 ###
-variable "lpg_management2_name" {
-  default = "lpg-management2"
+### lpg-management ###
+variable "lpg_management_name" {
+  default = "lpg-management"
 }
 
-variable "lpg_management2_hammer_working_directory" {
+variable "lpg_management_hammer_working_directory" {
   default = "/var/www/app/dist/management2"
 }
 
-variable "lpg_management2_websites_port" {
+variable "lpg_management_websites_port" {
   default = "3005"
 }
 

@@ -1,4 +1,4 @@
-variable "lpg_management2_name" {
+variable "lpg_management_name" {
   default = "name"
 }
 
@@ -82,11 +82,11 @@ variable "lpg_management2_server" {
   default = ""
 }
 
-variable "lpg_management2_oauth_client_id" {
+variable "lpg_management_oauth_client_id" {
   default = ""
 }
 
-variable "lpg_management2_oauth_client_secret" {
+variable "lpg_management_oauth_client_secret" {
   default = ""
 }
 
