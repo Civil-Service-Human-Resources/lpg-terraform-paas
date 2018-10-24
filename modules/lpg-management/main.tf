@@ -1,7 +1,7 @@
-###### identity-management ######
+###### lpg-management ######
 
-resource "azurerm_template_deployment" "lpg-management2-app-service" {
-  name                = "${var.lpg_management2_name}"
+resource "azurerm_template_deployment" "lpg-management-app-service" {
+  name                = "${var.lpg_management_name}"
   resource_group_name = "${var.rg_name}"
 
   template_body = <<DEPLOY
@@ -11,7 +11,7 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
       "parameters": {
           "siteName": {
               "type": "string",
-              "defaultvalue": "${var.lpg_management2_name}",
+              "defaultvalue": "${var.lpg_management_name}",
               "metadata": {
                   "description": "Name of azure web app"
               }
@@ -65,11 +65,11 @@ resource "azurerm_template_deployment" "lpg-management2-app-service" {
             },
             {
               "name": "OAUTH_CLIENT_ID",
-              "value": "${var.lpg_management2_oauth_client_id}"
+              "value": "${var.lpg_management_oauth_client_id}"
             },
             {
               "name": "OAUTH_CLIENT_SECRET",
-              "value": "${var.lpg_management2_oauth_client_secret}"
+              "value": "${var.lpg_management_oauth_client_secret}"
             },
             {
               "name": "CALLBACK_URL",
