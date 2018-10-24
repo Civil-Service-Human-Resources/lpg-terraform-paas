@@ -23,7 +23,7 @@ variable "container_name" {
   default = "packages"
 }
 variable "container_accesstype" {
-  default = "private"
+  default = "container"
 }
 variable "env_profile" {
   default = ""
