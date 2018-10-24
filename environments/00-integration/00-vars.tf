@@ -48,11 +48,11 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "chore-performance-156"
+  default = "LPFG-833-167"
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "60891d9bf8b3428133ab2036a4a823c241de5dba"
+  default = "PR-40-2"
 }
 
 variable "ll_docker_tag" {
@@ -60,15 +60,15 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "latest"
+  default = "PR-421-8"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "9141f41532e1d8ec4db5535d834c6c5bfc670cd0"
+  default = "PR-51-3"
 }
 
 variable "civil_servant_registry_docker_tag" {
-  default = "feature-LPFG-394-payment-methods-65"
+  default = "fc2ff2f6fc53be91d56900ec17ba0b7a101b85dd"
 }
 
 variable "lpg_report_service_docker_tag" {
@@ -76,7 +76,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_management_tag" {
-  default = "7ccecf77f6390c15fed84fe7b54b4a831fc479a3"
+  default = "PR-115-5"
 }
 
 variable "notification_service_tag" {
@@ -212,7 +212,7 @@ variable "report_service_websites_port" {
 }
 
 variable "spring_profiles_active" {
-  default = "production"
+  default = "test,production"
 }
 
 variable "identity_management_name" {
