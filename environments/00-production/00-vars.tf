@@ -68,7 +68,7 @@ variable "lpg_services_tag" {
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "fix-courses-doc-name-2"
+  default = "PR-51-3"
 }
 
 variable "civil_servant_registry_docker_tag" {
