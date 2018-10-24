@@ -111,10 +111,6 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
               "value": "${var.authentication_service_url}"
             },
             {
-              "name": "AZURE_STORAGE_CONNECTION_STRING",
-              "value": "${var.azure_storage_connection_string}"
-            },
-            {
               "name": "GOOGLE_ANALYTICS_ID",
               "value": "${var.google_analytics_id}"
             },
