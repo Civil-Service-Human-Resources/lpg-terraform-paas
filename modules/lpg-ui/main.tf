@@ -300,6 +300,162 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
               "dependsOn":[
                   "[resourceId('Microsoft.Web/sites', parameters('sitename'))]"
               ]
+          },
+          {
+              "type":"Microsoft.Insights/autoscalesettings",
+              "name":"${var.lpg_ui_name}-scale",
+              "dependsOn":[
+                  "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+              ],
+              "apiVersion":"2014-04-01",
+              "location":"[resourceGroup().location]",
+              "properties":{
+                  "profiles":[
+                      {
+                          "name":"Scale_Out_Hours",
+                          "capacity":{
+                              "minimum":"2",
+                              "maximum":"2",
+                              "default":"2"
+                          },
+                          "rules":[
+
+                          ],
+                          "recurrence":{
+                              "frequency":"Week",
+                              "schedule":{
+                                  "timeZone":"GMT Standard Time",
+                                  "days":[
+                                      "Monday",
+                                      "Tuesday",
+                                      "Wednesday",
+                                      "Thursday",
+                                      "Friday",
+                                      "Saturday",
+                                      "Sunday"
+                                  ],
+                                  "hours":[
+                                      7
+                                  ],
+                                  "minutes":[
+                                      0
+                                  ]
+                              }
+                          }
+                      },
+                      {
+                          "name":"Scale_In_Hours",
+                          "capacity":{
+                              "minimum":"1",
+                              "maximum":"1",
+                              "default":"1"
+                          },
+                          "rules":[
+
+                          ],
+                          "recurrence":{
+                              "frequency":"Week",
+                              "schedule":{
+                                  "timeZone":"GMT Standard Time",
+                                  "days":[
+                                      "Monday",
+                                      "Tuesday",
+                                      "Wednesday",
+                                      "Thursday",
+                                      "Friday",
+                                      "Saturday",
+                                      "Sunday"
+                                  ],
+                                  "hours":[
+                                      18
+                                  ],
+                                  "minutes":[
+                                      0
+                                  ]
+                              }
+                          }
+                      },
+                      {
+                          "name":"{\"name\":\"Default_Rule\",\"for\":\"Scale_Out_Hours\"}",
+                          "capacity":{
+                              "minimum":"1",
+                              "maximum":"1",
+                              "default":"1"
+                          },
+                          "rules":[
+
+                          ],
+                          "recurrence":{
+                              "frequency":"Week",
+                              "schedule":{
+                                  "timeZone":"GMT Standard Time",
+                                  "days":[
+                                      "Monday",
+                                      "Tuesday",
+                                      "Wednesday",
+                                      "Thursday",
+                                      "Friday",
+                                      "Saturday",
+                                      "Sunday"
+                                  ],
+                                  "hours":[
+                                      17
+                                  ],
+                                  "minutes":[
+                                      59
+                                  ]
+                              }
+                          }
+                      },
+                      {
+                          "name":"{\"name\":\"Default_Rule\",\"for\":\"Scale_In_Hours\"}",
+                          "capacity":{
+                              "minimum":"1",
+                              "maximum":"1",
+                              "default":"1"
+                          },
+                          "rules":[
+
+                          ],
+                          "recurrence":{
+                              "frequency":"Week",
+                              "schedule":{
+                                  "timeZone":"GMT Standard Time",
+                                  "days":[
+                                      "Monday",
+                                      "Tuesday",
+                                      "Wednesday",
+                                      "Thursday",
+                                      "Friday",
+                                      "Saturday",
+                                      "Sunday"
+                                  ],
+                                  "hours":[
+                                      6
+                                  ],
+                                  "minutes":[
+                                      59
+                                  ]
+                              }
+                          }
+                      }
+                  ],
+                  "notifications":[
+                      {
+                          "operation":"Scale",
+                          "email":{
+                              "sendToSubscriptionAdministrator":false,
+                              "sendToSubscriptionCoAdministrators":false,
+                              "customEmails":[
+                                  "${var.custom_emails}"
+                              ]
+                          },
+                          "webhooks":[]
+                      }
+                  ],
+                  "enabled":"${var.scaling_enabled}",
+                  "targetResourceUri":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+              }
           }
       ]
   }
