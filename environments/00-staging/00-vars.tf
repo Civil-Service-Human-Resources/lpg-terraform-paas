@@ -193,6 +193,10 @@ variable "lpg_learning_catalogue_name" {
   default = "lpg-learning-catalogue"
 }
 
+variable "azure_account_name" {
+  default = "lpgdev"
+}
+
 ### mysql ###
 variable "mysql_name" {
   default = "mysql"
