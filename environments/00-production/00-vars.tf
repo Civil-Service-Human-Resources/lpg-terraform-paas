@@ -80,7 +80,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_management_tag" {
-  default = "PR-115-5"
+  default = "fix-file-types-upload-1"
 }
 
 variable "notification_service_tag" {
