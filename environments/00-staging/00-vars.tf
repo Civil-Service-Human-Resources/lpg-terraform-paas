@@ -60,7 +60,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "PR-421-8"
+  default = "fix-suggestions-and-survey-1"
 }
 
 variable "learning_catalogue_docker_tag" {
@@ -76,7 +76,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_management_tag" {
-  default = "PR-115-5"
+  default = "PR-118-3"
 }
 
 variable "notification_service_tag" {

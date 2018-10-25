@@ -26,10 +26,6 @@ variable "webapp_sku_name_2" {
   default = "S2"
 }
 
-variable "redis_capacity" {
-  default = "1"
-}
-
 variable "envurl" {
   default = ""
 }
@@ -64,7 +60,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "PR-423-1"
+  default = "fix-suggestions-and-survey-1"
 }
 
 variable "learning_catalogue_docker_tag" {
@@ -80,7 +76,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_management_tag" {
-  default = "fix-file-types-upload-1"
+  default = "PR-118-3"
 }
 
 variable "notification_service_tag" {
@@ -118,6 +114,10 @@ variable "redis_prefix" {
 }
 
 variable "redis_use_tls" {
+  default = "1"
+}
+
+variable "redis_capacity" {
   default = "1"
 }
 
