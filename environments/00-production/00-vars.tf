@@ -48,7 +48,7 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "fix-update-ci-174"
+  default = "fix-update-ci-175"
 }
 
 variable "lpg_learner_record_docker_tag" {
@@ -60,7 +60,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "PR-425-2"
+  default = "PR-425-3"
 }
 
 variable "learning_catalogue_docker_tag" {
@@ -243,4 +243,8 @@ variable "content_container" {
 ### notification-service ###
 variable "notification_service_name" {
   default = "notification-service"
+}
+
+variable "feedback_recipient" {
+  default = "feedback@cslearning.gov.uk"
 }

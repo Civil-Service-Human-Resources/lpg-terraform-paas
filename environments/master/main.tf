@@ -239,6 +239,7 @@ module "lpg-ui" {
   lpg_ui_oauth_client_id          = "${var.lpg_ui_oauth_client_id}"
   lpg_ui_oauth_client_secret      = "${var.lpg_ui_oauth_client_secret}"
   lpg_management_server           = "https://${var.envurl}management.cshr.digital"
+  feedback_recipient              = "${var.feedback_recipient}"
   webapp_sku_tier                 = "${var.webapp_sku_tier}"
   webapp_sku_name                 = "${var.webapp_sku_name_2}"
   docker_registry_server_url      = "${var.docker_registry_server_url}"

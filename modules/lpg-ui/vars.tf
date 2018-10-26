@@ -134,6 +134,10 @@ variable "lpg_management_server" {
   default = ""
 }
 
+variable "feedback_recipient" {
+  default = ""
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }
