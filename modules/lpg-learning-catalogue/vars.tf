@@ -121,3 +121,11 @@ variable "docker_registry_server_username" {
 variable "docker_registry_server_password" {
   default = ""
 }
+
+variable "custom_emails" {
+  default = ""
+}
+
+variable "scaling_enabled" {
+  default = ""
+}
