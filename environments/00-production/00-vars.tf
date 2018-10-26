@@ -48,7 +48,7 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "master-7"
+  default = "fix-update-ci-174"
 }
 
 variable "lpg_learner_record_docker_tag" {
