@@ -48,7 +48,7 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "LPFG-833-167"
+  default = "master-7"
 }
 
 variable "lpg_learner_record_docker_tag" {
@@ -60,7 +60,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "fix-suggestions-and-survey-1"
+  default = "PR-425-2"
 }
 
 variable "learning_catalogue_docker_tag" {
