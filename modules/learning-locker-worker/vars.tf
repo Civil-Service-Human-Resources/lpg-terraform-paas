@@ -97,3 +97,11 @@ variable "websites_port" {
 variable "testing" {
   default = "1"
 }
+
+variable "custom_emails" {
+  default = ""
+}
+
+variable "scaling_enabled" {
+  default = ""
+}
