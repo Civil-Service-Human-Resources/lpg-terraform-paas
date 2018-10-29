@@ -85,3 +85,11 @@ variable "certificatename" {
 variable "envurl" {
   default = ""
 }
+
+variable "custom_emails" {
+  default = ""
+}
+
+variable "scaling_enabled" {
+  default = ""
+}
