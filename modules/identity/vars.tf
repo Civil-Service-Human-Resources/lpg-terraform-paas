@@ -94,6 +94,10 @@ variable "reset_url" {
   default = ""
 }
 
+variable "lpg_ui_url" {
+  default = ""
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }
