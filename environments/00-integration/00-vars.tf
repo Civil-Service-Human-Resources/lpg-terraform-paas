@@ -48,7 +48,7 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "fix-update-ci-175"
+  default = "7cf3ae5a74bdead9b718ac4b5cd062aaa4eafb20"
 }
 
 variable "lpg_learner_record_docker_tag" {
@@ -76,7 +76,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_management_tag" {
-  default = "PR-118-3"
+  default = "master-36"
 }
 
 variable "notification_service_tag" {

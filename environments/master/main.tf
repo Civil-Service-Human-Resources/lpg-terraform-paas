@@ -57,6 +57,7 @@ module "identity" {
   envurl                                  = "${var.envurl}"
   invite_signup_url                       = "https://${var.envurl}identity.cshr.digital/signup/%s"
   reset_url                               = "https://${var.envurl}identity.cshr.digital/reset/%s"
+  lpg_ui_url                              = "https://${var.envurl}lpg.cshr.digital"
   scaling_enabled                         = "false"
   custom_emails                           = "${var.custom_emails}"
   webapp_sku_tier                         = "${var.webapp_sku_tier}"

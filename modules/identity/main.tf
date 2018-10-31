@@ -159,6 +159,10 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "value":"${var.reset_url}"
                           },
                           {
+                              "name":"LPG_UI_URL",
+                              "value":"${var.lpg_ui_url}"
+                          },
+                          {
                               "name":"DOCKER_REGISTRY_SERVER_URL",
                               "value":"https://${var.docker_registry_server_url}"
                           },
