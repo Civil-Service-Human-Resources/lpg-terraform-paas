@@ -48,7 +48,7 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "identity_docker_tag" {
-  default = "7cf3ae5a74bdead9b718ac4b5cd062aaa4eafb20"
+  default = "85bfd3b3f44d3f7e20fd7b1968e95e24668d6694"
 }
 
 variable "lpg_learner_record_docker_tag" {
