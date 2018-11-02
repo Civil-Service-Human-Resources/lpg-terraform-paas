@@ -430,7 +430,7 @@ resource "azurerm_template_deployment" "identity-app-service" {
                                       "metricResourceUri":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
                                       "operator":"GreaterThan",
                                       "statistic":"Average",
-                                      "threshold":85,
+                                      "threshold":70,
                                       "timeAggregation":"Average",
                                       "timeGrain":"PT1M",
                                       "timeWindow":"PT10M"
@@ -449,7 +449,7 @@ resource "azurerm_template_deployment" "identity-app-service" {
                                       "metricResourceUri":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
                                       "operator":"GreaterThan",
                                       "statistic":"Average",
-                                      "threshold":75,
+                                      "threshold":65,
                                       "timeAggregation":"Average",
                                       "timeGrain":"PT1M",
                                       "timeWindow":"PT10M"
@@ -485,9 +485,7 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "maximum":"1",
                               "default":"1"
                           },
-                          "rules":[
-
-                          ],
+                          "rules":[],
                           "recurrence":{
                               "frequency":"Week",
                               "schedule":{
@@ -517,6 +515,66 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "maximum":"1",
                               "default":"1"
                           },
+                          "rules":[],
+                          "recurrence":{
+                              "frequency":"Week",
+                              "schedule":{
+                                  "timeZone":"GMT Standard Time",
+                                  "days":[
+                                      "Monday",
+                                      "Tuesday",
+                                      "Wednesday",
+                                      "Thursday",
+                                      "Friday",
+                                      "Saturday",
+                                      "Sunday"
+                                  ],
+                                  "hours":[
+                                      6
+                                  ],
+                                  "minutes":[
+                                      59
+                                  ]
+                              }
+                          }
+                      },
+                      {
+                          "name":"{\"name\":\"Default_Rule\",\"for\":\"CPU_Scale\"}",
+                          "capacity":{
+                              "minimum":"1",
+                              "maximum":"1",
+                              "default":"1"
+                          },
+                          "rules":[],
+                          "recurrence":{
+                              "frequency":"Week",
+                              "schedule":{
+                                  "timeZone":"GMT Standard Time",
+                                  "days":[
+                                      "Monday",
+                                      "Tuesday",
+                                      "Wednesday",
+                                      "Thursday",
+                                      "Friday",
+                                      "Saturday",
+                                      "Sunday"
+                                  ],
+                                  "hours":[
+                                      5
+                                  ],
+                                  "minutes":[
+                                      59
+                                  ]
+                              }
+                          }
+                      },
+                      {
+                          "name":"{\"name\":\"Default_Rule\",\"for\":\"Memory_Scale\"}",
+                          "capacity":{
+                              "minimum":"1",
+                              "maximum":"1",
+                              "default":"1"
+                          },
                           "rules":[
 
                           ],
@@ -534,7 +592,7 @@ resource "azurerm_template_deployment" "identity-app-service" {
                                       "Sunday"
                                   ],
                                   "hours":[
-                                      6
+                                      5
                                   ],
                                   "minutes":[
                                       59
