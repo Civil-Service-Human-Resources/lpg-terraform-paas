@@ -227,15 +227,151 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                           }
                       },
                       {
+                          "name":"CPU_Scale",
+                          "capacity":{
+                              "minimum":"1",
+                              "maximum":"3",
+                              "default":"1"
+                          },
+                          "rules":[
+                              {
+                                  "scaleAction":{
+                                      "direction":"Increase",
+                                      "type":"ChangeCount",
+                                      "value":"1",
+                                      "cooldown":"PT5M"
+                                  },
+                                  "metricTrigger":{
+                                      "metricName":"CpuPercentage",
+                                      "metricNamespace":"",
+                                      "metricResourceUri":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+                                      "operator":"GreaterThan",
+                                      "statistic":"Average",
+                                      "threshold":35,
+                                      "timeAggregation":"Average",
+                                      "timeGrain":"PT1M",
+                                      "timeWindow":"PT10M"
+                                  }
+                              },
+                              {
+                                  "scaleAction":{
+                                      "direction":"Decrease",
+                                      "type":"ChangeCount",
+                                      "value":"1",
+                                      "cooldown":"PT5M"
+                                  },
+                                  "metricTrigger":{
+                                      "metricName":"CpuPercentage",
+                                      "metricNamespace":"",
+                                      "metricResourceUri":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+                                      "operator":"GreaterThan",
+                                      "statistic":"Average",
+                                      "threshold":15,
+                                      "timeAggregation":"Average",
+                                      "timeGrain":"PT1M",
+                                      "timeWindow":"PT10M"
+                                  }
+                              }
+                          ],
+                          "recurrence":{
+                              "frequency":"Week",
+                              "schedule":{
+                                  "timeZone":"GMT Standard Time",
+                                  "days":[
+                                      "Monday",
+                                      "Tuesday",
+                                      "Wednesday",
+                                      "Thursday",
+                                      "Friday",
+                                      "Saturday",
+                                      "Sunday"
+                                  ],
+                                  "hours":[
+                                      6
+                                  ],
+                                  "minutes":[
+                                      0
+                                  ]
+                              }
+                          }
+                      },
+                      {
+                          "name":"Memory_Scale",
+                          "capacity":{
+                              "minimum":"1",
+                              "maximum":"3",
+                              "default":"1"
+                          },
+                          "rules":[
+                              {
+                                  "scaleAction":{
+                                      "direction":"Increase",
+                                      "type":"ChangeCount",
+                                      "value":"1",
+                                      "cooldown":"PT5M"
+                                  },
+                                  "metricTrigger":{
+                                      "metricName":"MemoryPercentage",
+                                      "metricNamespace":"",
+                                      "metricResourceUri":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+                                      "operator":"GreaterThan",
+                                      "statistic":"Average",
+                                      "threshold":70,
+                                      "timeAggregation":"Average",
+                                      "timeGrain":"PT1M",
+                                      "timeWindow":"PT10M"
+                                  }
+                              },
+                              {
+                                  "scaleAction":{
+                                      "direction":"Decrease",
+                                      "type":"ChangeCount",
+                                      "value":"1",
+                                      "cooldown":"PT5M"
+                                  },
+                                  "metricTrigger":{
+                                      "metricName":"MemoryPercentage",
+                                      "metricNamespace":"",
+                                      "metricResourceUri":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+                                      "operator":"GreaterThan",
+                                      "statistic":"Average",
+                                      "threshold":65,
+                                      "timeAggregation":"Average",
+                                      "timeGrain":"PT1M",
+                                      "timeWindow":"PT10M"
+                                  }
+                              }
+                          ],
+                          "recurrence":{
+                              "frequency":"Week",
+                              "schedule":{
+                                  "timeZone":"GMT Standard Time",
+                                  "days":[
+                                      "Monday",
+                                      "Tuesday",
+                                      "Wednesday",
+                                      "Thursday",
+                                      "Friday",
+                                      "Saturday",
+                                      "Sunday"
+                                  ],
+                                  "hours":[
+                                      6
+                                  ],
+                                  "minutes":[
+                                      0
+                                  ]
+                              }
+                          }
+                      },
+                      {
                           "name":"{\"name\":\"Default_Rule\",\"for\":\"Scale_Out_Hours\"}",
                           "capacity":{
                               "minimum":"1",
                               "maximum":"1",
                               "default":"1"
                           },
-                          "rules":[
-
-                          ],
+                          "rules":[],
                           "recurrence":{
                               "frequency":"Week",
                               "schedule":{
@@ -265,6 +401,66 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                               "maximum":"1",
                               "default":"1"
                           },
+                          "rules":[],
+                          "recurrence":{
+                              "frequency":"Week",
+                              "schedule":{
+                                  "timeZone":"GMT Standard Time",
+                                  "days":[
+                                      "Monday",
+                                      "Tuesday",
+                                      "Wednesday",
+                                      "Thursday",
+                                      "Friday",
+                                      "Saturday",
+                                      "Sunday"
+                                  ],
+                                  "hours":[
+                                      6
+                                  ],
+                                  "minutes":[
+                                      59
+                                  ]
+                              }
+                          }
+                      },
+                      {
+                          "name":"{\"name\":\"Default_Rule\",\"for\":\"CPU_Scale\"}",
+                          "capacity":{
+                              "minimum":"1",
+                              "maximum":"1",
+                              "default":"1"
+                          },
+                          "rules":[],
+                          "recurrence":{
+                              "frequency":"Week",
+                              "schedule":{
+                                  "timeZone":"GMT Standard Time",
+                                  "days":[
+                                      "Monday",
+                                      "Tuesday",
+                                      "Wednesday",
+                                      "Thursday",
+                                      "Friday",
+                                      "Saturday",
+                                      "Sunday"
+                                  ],
+                                  "hours":[
+                                      5
+                                  ],
+                                  "minutes":[
+                                      59
+                                  ]
+                              }
+                          }
+                      },
+                      {
+                          "name":"{\"name\":\"Default_Rule\",\"for\":\"Memory_Scale\"}",
+                          "capacity":{
+                              "minimum":"1",
+                              "maximum":"1",
+                              "default":"1"
+                          },
                           "rules":[
 
                           ],
@@ -282,7 +478,7 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                                       "Sunday"
                                   ],
                                   "hours":[
-                                      6
+                                      5
                                   ],
                                   "minutes":[
                                       59
