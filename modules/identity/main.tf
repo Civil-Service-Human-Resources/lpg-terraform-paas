@@ -279,7 +279,9 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "maximum":"2",
                               "default":"2"
                           },
-                          "rules":[],
+                          "rules":[
+
+                          ],
                           "recurrence":{
                               "frequency":"Week",
                               "schedule":{
@@ -309,7 +311,9 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "maximum":"1",
                               "default":"1"
                           },
-                          "rules":[],
+                          "rules":[
+
+                          ],
                           "recurrence":{
                               "frequency":"Week",
                               "schedule":{
@@ -477,7 +481,9 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "maximum":"1",
                               "default":"1"
                           },
-                          "rules":[],
+                          "rules":[
+
+                          ],
                           "recurrence":{
                               "frequency":"Week",
                               "schedule":{
@@ -507,7 +513,9 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "maximum":"1",
                               "default":"1"
                           },
-                          "rules":[],
+                          "rules":[
+
+                          ],
                           "recurrence":{
                               "frequency":"Week",
                               "schedule":{
@@ -541,7 +549,9 @@ resource "azurerm_template_deployment" "identity-app-service" {
                                   "${var.custom_emails}"
                               ]
                           },
-                          "webhooks":[]
+                          "webhooks":[
+
+                          ]
                       }
                   ],
                   "enabled":"${var.scaling_enabled}",
