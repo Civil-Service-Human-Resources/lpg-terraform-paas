@@ -426,7 +426,7 @@ resource "azurerm_template_deployment" "identity-app-service" {
                                       "metricResourceUri":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
                                       "operator":"GreaterThan",
                                       "statistic":"Average",
-                                      "threshold":70,
+                                      "threshold":85,
                                       "timeAggregation":"Average",
                                       "timeGrain":"PT1M",
                                       "timeWindow":"PT10M"
@@ -445,7 +445,7 @@ resource "azurerm_template_deployment" "identity-app-service" {
                                       "metricResourceUri":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
                                       "operator":"GreaterThan",
                                       "statistic":"Average",
-                                      "threshold":65,
+                                      "threshold":75,
                                       "timeAggregation":"Average",
                                       "timeGrain":"PT1M",
                                       "timeWindow":"PT10M"

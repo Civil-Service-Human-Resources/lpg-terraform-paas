@@ -549,6 +549,68 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
                                   ]
                               }
                           }
+                      },
+                      {
+                          "name":"{\"name\":\"Default_Rule\",\"for\":\"CPU_Scale\"}",
+                          "capacity":{
+                              "minimum":"1",
+                              "maximum":"1",
+                              "default":"1"
+                          },
+                          "rules":[],
+                          "recurrence":{
+                              "frequency":"Week",
+                              "schedule":{
+                                  "timeZone":"GMT Standard Time",
+                                  "days":[
+                                      "Monday",
+                                      "Tuesday",
+                                      "Wednesday",
+                                      "Thursday",
+                                      "Friday",
+                                      "Saturday",
+                                      "Sunday"
+                                  ],
+                                  "hours":[
+                                      5
+                                  ],
+                                  "minutes":[
+                                      59
+                                  ]
+                              }
+                          }
+                      },
+                      {
+                          "name":"{\"name\":\"Default_Rule\",\"for\":\"Memory_Scale\"}",
+                          "capacity":{
+                              "minimum":"1",
+                              "maximum":"1",
+                              "default":"1"
+                          },
+                          "rules":[
+
+                          ],
+                          "recurrence":{
+                              "frequency":"Week",
+                              "schedule":{
+                                  "timeZone":"GMT Standard Time",
+                                  "days":[
+                                      "Monday",
+                                      "Tuesday",
+                                      "Wednesday",
+                                      "Thursday",
+                                      "Friday",
+                                      "Saturday",
+                                      "Sunday"
+                                  ],
+                                  "hours":[
+                                      5
+                                  ],
+                                  "minutes":[
+                                      59
+                                  ]
+                              }
+                          }
                       }
                   ],
                   "notifications":[
