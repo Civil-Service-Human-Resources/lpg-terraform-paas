@@ -58,23 +58,15 @@ variable "gov_notify_api_key" {
   default = ""
 }
 
-variable "gov_notify_invite_template_id" {
+variable "authentication_service_url" {
   default = ""
 }
 
-variable "gov_notify_reset_template_id" {
+variable "notification_service_client_id" {
   default = ""
 }
 
-variable "gov_notify_reset_successful_template_id" {
-  default = ""
-}
-
-variable "gov_notify_event_invite_template_id" {
-  default = ""
-}
-
-variable "gov_notify_event_cancellation_template_id" {
+variable "notification_service_client_secret" {
   default = ""
 }
 
