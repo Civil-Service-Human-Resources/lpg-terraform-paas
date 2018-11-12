@@ -54,26 +54,6 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
   							"value": "${var.gov_notify_api_key}"
   						},
   						{
-  							"name": "GOV_NOTIFY_INVITE_TEMPLATE_ID",
-  							"value": "${var.gov_notify_invite_template_id}"
-  						},
-  						{
-  							"name": "GOV_NOTIFY_RESET_TEMPLATE_ID",
-  							"value": "${var.gov_notify_reset_template_id}"
-  						},
-  						{
-  							"name": "GOV_NOTIFY_RESET_SUCCESSFUL_TEMPLATE_ID",
-  							"value": "${var.gov_notify_reset_successful_template_id}"
-  						},
-  						{
-  							"name": "GOV_NOTIFY_EVENT_INVITE_TEMPLATE_ID",
-  							"value": "${var.gov_notify_event_invite_template_id}"
-  						},
-  						{
-  							"name": "GOV_NOTIFY_EVENT_CANCELLATION_TEMPLATE_ID",
-  							"value": "${var.gov_notify_event_cancellation_template_id}"
-  						},
-  						{
   							"name": "DOCKER_REGISTRY_SERVER_URL",
   							"value": "https://${var.docker_registry_server_url}"
   						},
@@ -84,7 +64,19 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
   						{
   							"name": "DOCKER_REGISTRY_SERVER_PASSWORD",
   							"value": "${var.docker_registry_server_password}"
-  						}
+  						},
+                        {
+                            "name":"OAUTH_SERVICE_URL",
+                            "value":"${var.authentication_service_url}"
+                        },
+                        {
+                            "name":"CLIENT_ID",
+                            "value":"${var.notification_service_client_id}"
+                        },
+                        {
+                            "name":"CLIENT_SECRET",
+                            "value":"${var.notification_service_client_secret}"
+                        },
   					]
   				},
   				"name": "[parameters('siteName')]",
