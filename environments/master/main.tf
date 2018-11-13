@@ -345,6 +345,7 @@ module "lpg-management" {
   webapp_sku_tier                     = "${var.webapp_sku_tier}"
   webapp_sku_name                     = "${var.webapp_sku_name_1}"
   registry_service_url                = "https://${var.envurl}civil-servant-registry.cshr.digital"
+  learner_record_url                  = "https://${var.envurl}learning-record.cshr.digital"
 }
 
 module "notification-service" {
