@@ -69,3 +69,15 @@ variable "ui_host" {
 variable "ui_port" {
   default = "80"
 }
+
+variable "docker_registry_server_url" {
+  default = ""
+}
+
+variable "docker_registry_server_username" {
+  default = ""
+}
+
+variable "docker_registry_server_password" {
+  default = ""
+}
