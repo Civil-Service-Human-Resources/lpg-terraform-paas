@@ -86,18 +86,6 @@ variable "envurl" {
   default = ""
 }
 
-variable "docker_registry_server_url" {
-  default = ""
-}
-
-variable "docker_registry_server_username" {
-  default = ""
-}
-
-variable "docker_registry_server_password" {
-  default = ""
-}
-
 variable "custom_emails" {
   default = ""
 }
