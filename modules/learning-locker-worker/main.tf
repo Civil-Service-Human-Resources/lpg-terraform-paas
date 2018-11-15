@@ -156,7 +156,7 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                   "detailedErrorLoggingEnabled":true,
                   "alwaysOn":true,
                   "appCommandLine":"/bin/hammer node /opt/learning-locker/worker/dist/server",
-                  "linuxFxVersion":"DOCKER|${var.docker_image}:${var.docker_tag}",
+                  "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
                   "minTlsVersion":"1.0",
                   "ftpsState":"Disabled"
               },
