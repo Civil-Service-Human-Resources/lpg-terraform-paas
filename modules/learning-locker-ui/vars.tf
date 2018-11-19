@@ -27,7 +27,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "cshr/lpg-learning-locker"
+  default = "lpg-learning-locker"
 }
 
 variable "mongodb_path" {
