@@ -132,7 +132,7 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
                   "detailedErrorLoggingEnabled":true,
                   "alwaysOn":true,
                   "appCommandLine":"/bin/hammer /opt/learning-locker/run-ui.sh",
-                  "linuxFxVersion":"DOCKER|${var.docker_image}:${var.docker_tag}",
+                  "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
                   "minTlsVersion":"1.0",
                   "ftpsState":"Disabled"
               },
