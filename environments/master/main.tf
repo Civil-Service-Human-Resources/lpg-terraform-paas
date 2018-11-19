@@ -173,6 +173,9 @@ module "lpg-learning-locker-xapi" {
   custom_emails               = "${var.custom_emails}"
   webapp_sku_tier             = "${var.webapp_sku_tier}"
   webapp_sku_name             = "${var.webapp_sku_name_1}"
+  docker_registry_server_url      = "${var.docker_registry_server_url}"
+  docker_registry_server_username = "${var.docker_registry_server_username}"
+  docker_registry_server_password = "${var.docker_registry_server_password}"
 }
 
 module "lpg-learning-locker-worker" {
@@ -200,6 +203,9 @@ module "lpg-learning-locker-worker" {
   custom_emails               = "${var.custom_emails}"
   webapp_sku_tier             = "${var.webapp_sku_tier}"
   webapp_sku_name             = "${var.webapp_sku_name_1}"
+  docker_registry_server_url      = "${var.docker_registry_server_url}"
+  docker_registry_server_username = "${var.docker_registry_server_username}"
+  docker_registry_server_password = "${var.docker_registry_server_password}"
 }
 
 module "lpg-learning-locker-ui" {
@@ -217,6 +223,9 @@ module "lpg-learning-locker-ui" {
   ui_port                     = "${var.ll_ui_port}"
   webapp_sku_tier             = "${var.webapp_sku_tier}"
   webapp_sku_name             = "${var.webapp_sku_name_1}"
+  docker_registry_server_url      = "${var.docker_registry_server_url}"
+  docker_registry_server_username = "${var.docker_registry_server_username}"
+  docker_registry_server_password = "${var.docker_registry_server_password}"
 }
 
 module "lpg-ui" {
