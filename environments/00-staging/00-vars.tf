@@ -52,7 +52,7 @@ variable "identity_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "PR-40-2"
+  default = "PR-55-1"
 }
 
 variable "ll_docker_tag" {
