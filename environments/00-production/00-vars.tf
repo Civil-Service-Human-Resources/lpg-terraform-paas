@@ -47,36 +47,36 @@ variable "google_analytics_id" {
 }
 
 ### docker tags ###
-variable "identity_docker_tag" {
-  default = "3a5c890d32248bc6abcf8e4b4c1fa35d8226097c"
+variable "civil_servant_registry_docker_tag" {
+  default = "PR-33-1"
 }
 
-variable "lpg_learner_record_docker_tag" {
-  default = "PR-40-2"
+variable "identity_docker_tag" {
+  default = "3a5c890d32248bc6abcf8e4b4c1fa35d8226097c"
 }
 
 variable "ll_docker_tag" {
   default = "fe8104bf2f0fedb8f5af138bd8860a9c27dd2bb12ecb827f09e754e279a70fa8"
 }
 
-variable "lpg_services_tag" {
-  default = "PR-425-3"
+variable "lpg_learner_record_docker_tag" {
+  default = "PR-55-1"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "PR-51-3"
+  default = "master-22"
 }
 
-variable "civil_servant_registry_docker_tag" {
-  default = "fc2ff2f6fc53be91d56900ec17ba0b7a101b85dd"
+variable "lpg_management_tag" {
+  default = "PR-121-18"
 }
 
 variable "lpg_report_service_docker_tag" {
   default = "feature-lpfg-370-booking-feed-csv-report-4"
 }
 
-variable "lpg_management_tag" {
-  default = "PR-118-3"
+variable "lpg_services_tag" {
+  default = "PR-441-4"
 }
 
 variable "notification_service_tag" {
