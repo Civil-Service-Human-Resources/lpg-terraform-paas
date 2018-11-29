@@ -64,7 +64,7 @@ variable "lpg_services_tag" {
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "master-22"
+  default = "PR-63-5"
 }
 
 variable "civil_servant_registry_docker_tag" {
