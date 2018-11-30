@@ -171,6 +171,10 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
                               "value":"${var.client_secret}"
                           },
                           {
+                              "name":"LEARNER_RECORD_URL",
+                              "value":"${var.learner_record_url}"
+                          },
+                          {
                               "name":"DOCKER_REGISTRY_SERVER_URL",
                               "value":"https://${var.docker_registry_server_url}"
                           },

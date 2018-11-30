@@ -110,6 +110,10 @@ variable "client_secret" {
   default = ""
 }
 
+variable "learner_record_url" {
+  default = ""
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }

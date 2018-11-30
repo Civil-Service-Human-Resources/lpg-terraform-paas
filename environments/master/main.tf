@@ -289,6 +289,7 @@ module "lpg-learning-catalogue" {
   oauth_service_url               = "https://${var.envurl}identity.cshr.digital"
   client_id                       = "${var.lpg_learning_catalogue_oauth_client_id}"
   client_secret                   = "${var.lpg_learning_catalogue_oauth_client_secret}"
+  learner_record_url              = "https://${var.envurl}learning-record.cshr.digital"
   scaling_enabled                 = "false"
   custom_emails                   = "${var.custom_emails}"
   webapp_sku_tier                 = "${var.webapp_sku_tier}"
