@@ -52,7 +52,7 @@ variable "civil_servant_registry_docker_tag" {
 }
 
 variable "identity_docker_tag" {
-  default = "3e9689f276f0e1d068eca895a91886099324aae1"
+  default = "master-14"
 }
 
 variable "ll_docker_tag" {
@@ -76,7 +76,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "master-49"
+  default = "master-50"
 }
 
 variable "notification_service_tag" {
