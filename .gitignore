@@ -13,4 +13,4 @@ environments/prod/prod-vars.tf
 environments/prod/state.tf
 environments/test/state.tf
 environments/test/test-vars.tf
-scripts/elastic-powershell/*.json
+scripts/elastic-deploy/*.json
