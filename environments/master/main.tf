@@ -116,6 +116,8 @@ module "lpg-learner-record" {
   envurl                          = "${var.envurl}"
   spring_profiles_active          = "${var.spring_profiles_active}"
   datasource                      = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name}.mysql.database.azure.com:3306/learner_record?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
+  lpg_ui_url                      = "https://${var.envurl}lpg.cshr.digital"
+  notification_service_url        = "https://${var.rg_prefix}-${var.rg_name}-${var.notification_service_name}.azurewebsites.net"
   scaling_enabled                 = "false"
   custom_emails                   = "${var.custom_emails}"
   webapp_sku_tier                 = "${var.webapp_sku_tier}"

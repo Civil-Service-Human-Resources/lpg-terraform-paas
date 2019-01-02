@@ -187,6 +187,14 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                               "value":"true"
                           },
                           {
+                              "name":"LPG_UI_URL",
+                              "value":"${var.lpg_ui_url}"
+                          },
+                          {
+                              "name":"NOTIFICATION_SERVICE_URL",
+                              "value":"${var.notification_service_url}"
+                          },
+                          {
                               "name":"DOCKER_REGISTRY_SERVER_URL",
                               "value":"https://${var.docker_registry_server_url}"
                           },

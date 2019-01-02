@@ -126,6 +126,14 @@ variable "spring_profiles_active" {
   default = "default"
 }
 
+variable "lpg_ui_url" {
+  default = ""
+}
+
+variable "notification_service_url" {
+  default = ""
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }
