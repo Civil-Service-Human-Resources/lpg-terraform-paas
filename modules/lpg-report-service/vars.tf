@@ -93,3 +93,11 @@ variable "docker_registry_server_username" {
 variable "docker_registry_server_password" {
   default = ""
 }
+
+variable "registry_service_url" {
+  default = ""
+}
+
+variable "course_catalogue_url" {
+  default = ""
+}

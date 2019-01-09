@@ -138,6 +138,8 @@ module "lpg-report-service" {
   websites_port                   = "${var.report_service_websites_port}"
   learner_record_url              = "https://${var.envurl}learning-record.cshr.digital"
   authentication_service_url      = "https://${var.envurl}identity.cshr.digital"
+  course_catalogue_url            = "https://${var.envurl}learning-resources.cshr.digital"
+  registry_service_url            = "https://${var.envurl}civil-servant-registry.cshr.digital"
   report_service_client_id        = "${var.report_service_client_id}"
   report_service_client_secret    = "${var.report_service_client_secret}"
   vaultresourcegroup              = "${var.vaultresourcegroup}"
