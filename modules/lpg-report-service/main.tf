@@ -115,6 +115,14 @@ resource "azurerm_template_deployment" "lpg-report-service-app-service" {
                 "value": "${var.authentication_service_url}"
             },
             {
+                "name": "REGISTRY_SERVICE_URL",
+                "value": "${var.registry_service_url}"
+            },
+            {
+                "name": "LEARNING_CATALOGUE_SERVICE_URL",
+                "value": "${var.course_catalogue_url}"
+            },
+            {
                 "name": "CLIENT_ID",
                 "value": "${var.report_service_client_id}"
             },
