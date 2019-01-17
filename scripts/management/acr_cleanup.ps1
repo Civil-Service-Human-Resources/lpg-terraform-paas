@@ -41,11 +41,6 @@ Param(
     [Parameter (Mandatory=$false)]
     [ValidateNotNullOrEmpty()]
     [String] $NoOfDays = "30"
-
-    # Gets minimum no of images to keep from user; images over this could be removed
-    [Parameter (Mandatory=$false)]
-    [ValidateNotNullOrEmpty()]
-    [String] $imageKeepCount = "20"
 )
 
 Write-Host "Establishing authentication with Azure..."
@@ -77,14 +72,14 @@ foreach($repository in $repositoryList) {
 
         $count++
 
-        if ($count -le $imageKeepCount) {
+        if ($count -le 20) {
             Write-Host "$count/20 - Skipping $imageName"
         } elseif ($imageName -in $deployed.tag) {
             Write-Host "Skipping as deployed: $imageName"
-            Pause
         } elseif ($parseDate -lt $((Get-Date).AddDays(-$NoOfDays))) {
             Write-Host "Older than 30 days. Deleting image: $imageName"
-            #az acr repository delete --name $azureRegistryName --image $imageName --yes
+            $delete = $repository + ":" + $imageName
+            az acr repository delete --name $azureRegistryName --image $delete --yes
         } else {
             Write-Host "Image likely not over 30 days - $imageName $parseDate $createDate"
         }
