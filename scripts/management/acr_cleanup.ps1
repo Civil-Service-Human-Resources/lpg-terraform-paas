@@ -1,6 +1,5 @@
-# This script check and removes the old docker images from the azure container registry
-
-# This script will cleaup images in Azure ACR
+# This script will cleaup images in Azure ACR based on the createdTime
+# It will preserve the first 20 images of each repository + any image less than 30 days old
 #
 # Required arguments:
 # Service Principal Name
