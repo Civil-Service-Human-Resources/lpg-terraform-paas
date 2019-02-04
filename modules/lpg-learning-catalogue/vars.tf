@@ -114,6 +114,10 @@ variable "learner_record_url" {
   default = ""
 }
 
+variable "registry_service_url" {
+  default = ""
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }
