@@ -89,6 +89,7 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
                           }
                       ]
                   },
+                  "httpsOnly":true,
                   "name":"[parameters('siteName')]",
                   "serverFarmId":"[variables('hostingPlanName')]",
                   "hostingEnvironment":""
