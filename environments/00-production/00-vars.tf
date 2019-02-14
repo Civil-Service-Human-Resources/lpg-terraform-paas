@@ -30,6 +30,10 @@ variable "envurl" {
   default = ""
 }
 
+variable "domain" {
+  default = "learn.civilservice.gov.uk"
+}
+
 variable "hammer_api_worker_http_server_port" {
   default = "8080"
 }
