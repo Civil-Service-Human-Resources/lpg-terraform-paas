@@ -30,6 +30,10 @@ variable "envurl" {
   default = "integration-"
 }
 
+variable "domain" {
+  default = "cshr.digital"
+}
+
 variable "hammer_api_worker_http_server_port" {
   default = "8080"
 }
