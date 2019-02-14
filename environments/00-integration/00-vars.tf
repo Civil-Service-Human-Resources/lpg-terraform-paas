@@ -34,6 +34,10 @@ variable "domain" {
   default = "cshr.digital"
 }
 
+variable "lpgurl" {
+  default = "lpg."
+}
+
 variable "hammer_api_worker_http_server_port" {
   default = "8080"
 }
