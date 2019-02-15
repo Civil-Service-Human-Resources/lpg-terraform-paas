@@ -31,7 +31,7 @@ variable "envurl" {
 }
 
 variable "domain" {
-  default = "learn.civilservice.gov.uk"
+  default = "cshr.digital"
 }
 
 variable "lpgurl" {
