@@ -98,6 +98,10 @@ variable "lpg_ui_url" {
   default = ""
 }
 
+variable "report_service_url" {
+  default = ""
+}
+
 variable "course_catalogue_url" {
   default = "course_catalogue_url"
 }
