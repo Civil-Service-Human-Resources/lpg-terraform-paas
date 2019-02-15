@@ -155,6 +155,10 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                               "value":"${var.lpg_ui_url}"
                           },
                           {
+                              "name":"REPORT_SERVICE_URL",
+                              "value":"${var.report_service_url}"
+                          },
+                          {
                               "name":"COURSE_CATALOGUE_URL",
                               "value":"${var.course_catalogue_url}"
                           },

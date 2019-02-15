@@ -351,6 +351,7 @@ module "lpg-management" {
   lpg_management_oauth_client_secret  = "${var.lpg_management_oauth_client_secret}"
   callback_url                        = "https://${var.envurl}management.${var.domain}"
   lpg_ui_url                          = "https://${var.envurl}${var.lpgurl}${var.domain}"
+  report_service_url                  = "https://${var.envurl}report.${var.domain}"
   course_catalogue_url                = "https://${var.envurl}learning-resources.${var.domain}"
   content_url                         = "https://${var.envurl}cdn.${var.domain}/${var.content_container}"
   youtube_api_key                     = "${var.youtube_api_key}"
