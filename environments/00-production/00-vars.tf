@@ -68,7 +68,7 @@ variable "learning_catalogue_docker_tag" {
 }
 
 variable "lpg_management_tag" {
-  default = "master-89"
+  default = "master-91"
 }
 
 variable "lpg_report_service_docker_tag" {
