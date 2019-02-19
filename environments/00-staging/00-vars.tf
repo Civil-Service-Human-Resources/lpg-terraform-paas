@@ -56,7 +56,7 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "master-16"
+  default = "PR-48-2"
 }
 
 variable "identity_docker_tag" {
