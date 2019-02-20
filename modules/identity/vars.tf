@@ -98,6 +98,10 @@ variable "lpg_ui_url" {
   default = ""
 }
 
+variable "whitelisted_domains" {
+  default = ""
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }
