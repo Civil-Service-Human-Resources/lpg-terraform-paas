@@ -55,6 +55,7 @@ module "identity" {
   certificatename                         = "${var.certificatename}"
   gov_notify_api_key                      = "${var.gov_notify_api_key}"
   envurl                                  = "${var.envurl}"
+  whitelisted_domains                     = "${var.whitelisted_domains}"
   invite_signup_url                       = "https://${var.envurl}identity.${var.domain}/signup/%s"
   reset_url                               = "https://${var.envurl}identity.${var.domain}/reset/%s"
   lpg_ui_url                              = "https://${var.envurl}${var.lpgurl}${var.domain}"
