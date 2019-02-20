@@ -60,7 +60,7 @@ variable "civil_servant_registry_docker_tag" {
 }
 
 variable "identity_docker_tag" {
-  default = "LPFG-1290-fix-password-validator-1"
+  default = "master-33"
 }
 
 variable "ll_docker_tag" {
@@ -84,7 +84,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "master-65"
+  default = "master-66"
 }
 
 variable "notification_service_tag" {
