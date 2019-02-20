@@ -88,7 +88,7 @@ variable "lpg_services_tag" {
 }
 
 variable "notification_service_tag" {
-  default = "PR-1-8"
+  default = "PR-2-7"
 }
 
 ### cosmos ###
