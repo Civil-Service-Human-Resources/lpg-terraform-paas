@@ -38,6 +38,10 @@ variable "lpgurl" {
   default = "lpg."
 }
 
+variable "scaling_enabled" {
+  default = "false"
+}
+
 variable "hammer_api_worker_http_server_port" {
   default = "8080"
 }
