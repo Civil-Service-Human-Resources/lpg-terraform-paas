@@ -30,6 +30,10 @@ variable "docker_image" {
   default = "identity-service"
 }
 
+variable "domain" {
+  default = ""
+}
+
 variable "datasource" {
   default = "db_url"
 }

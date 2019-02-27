@@ -30,6 +30,10 @@ variable "docker_image" {
   default = "lpg-learning-locker"
 }
 
+variable "domain" {
+  default = ""
+}
+
 variable "websites_port" {
   default = "8083"
 }
