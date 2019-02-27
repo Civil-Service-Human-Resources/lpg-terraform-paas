@@ -30,6 +30,10 @@ variable "docker_image" {
   default = "civil-servant-registry-service"
 }
 
+variable "domain" {
+  default = ""
+}
+
 variable "datasource" {
   default = "db_url"
 }

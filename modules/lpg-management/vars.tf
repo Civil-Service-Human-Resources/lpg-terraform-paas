@@ -30,6 +30,10 @@ variable "docker_image" {
   default = "lpg-management-ui"
 }
 
+variable "domain" {
+  default = ""
+}
+
 variable "authentication_service_url" {
   default = ""
 }

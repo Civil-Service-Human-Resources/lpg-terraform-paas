@@ -47,7 +47,7 @@ resource "azurerm_template_deployment" "learning-locker-xapi" {
           },
           "websiteCustomDomain":{
               "type":"string",
-              "defaultvalue":"cshr.digital",
+              "defaultvalue":"${var.domain}",
               "metadata":{
                   "description":"Custom domain for creating SSL binding."
               }
