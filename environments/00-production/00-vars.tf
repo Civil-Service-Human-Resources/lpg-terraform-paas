@@ -31,11 +31,15 @@ variable "envurl" {
 }
 
 variable "domain" {
-  default = "cshr.digital"
+  default = "learn.civilservice.gov.uk"
 }
 
 variable "lpgurl" {
   default = ""
+}
+
+variable "scaling_enabled" {
+  default = "true"
 }
 
 variable "hammer_api_worker_http_server_port" {
@@ -56,11 +60,11 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "master-16"
+  default = "master-17"
 }
 
 variable "identity_docker_tag" {
-  default = "master-33"
+  default = "master-36"
 }
 
 variable "ll_docker_tag" {
@@ -68,23 +72,23 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "master-43"
+  default = "master-48"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "master-42"
+  default = "PR-89-2"
 }
 
 variable "lpg_management_tag" {
-  default = "master-91"
+  default = "PR-194-5"
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "master-5"
+  default = "PR-16-3"
 }
 
 variable "lpg_services_tag" {
-  default = "master-66"
+  default = "PR-541-2"
 }
 
 variable "notification_service_tag" {
