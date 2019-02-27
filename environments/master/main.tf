@@ -244,6 +244,7 @@ module "lpg-ui" {
   rg_location                     = "${var.rg_location}"
   lpg_ui_name                     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
   domain                          = "${var.domain}"
+  lpgurl                          = "${var.lpgurl}"
   xapi_url                        = "https://${var.envurl}xapi.${var.domain}/data/xAPI"
   authentication_service_url      = "https://${var.envurl}identity.${var.domain}"
   docker_tag                      = "${var.lpg_services_tag}"
