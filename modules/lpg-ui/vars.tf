@@ -30,8 +30,16 @@ variable "docker_image" {
   default = "lpg-services"
 }
 
+variable "domain" {
+  default = ""
+}
+
+variable "lpgurl" {
+  default = ""
+}
+
 variable "authentication_service_url" {
-  default = "http://identity-something.cshr.digital"
+  default = ""
 }
 
 variable "google_analytics_id" {

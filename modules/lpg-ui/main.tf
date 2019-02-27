@@ -47,14 +47,14 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
           },
           "websiteCustomDomain":{
               "type":"string",
-              "defaultvalue":"cshr.digital",
+              "defaultvalue":"${var.domain}",
               "metadata":{
                   "description":"Custom domain for creating SSL binding."
               }
           },
           "websiteCustomName":{
               "type":"string",
-              "defaultvalue":"${var.envurl}lpg",
+              "defaultvalue":"${var.envurl}${var.lpgurl}",
               "metadata":{
                   "description":"Custom hostname for creating SSL binding."
               }
@@ -218,7 +218,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                   "hostingEnvironment":"",
                   "hostNameSslStates":[
                       {
-                          "name":"[concat(parameters('websiteCustomName'),'.',parameters('websiteCustomDomain'))]",
+                          "name":"[concat(parameters('websiteCustomName'),parameters('websiteCustomDomain'))]",
                           "sslState":"SniEnabled",
                           "thumbprint":"[reference(resourceId('Microsoft.Web/certificates', parameters('certificateName'))).Thumbprint]",
                           "toUpdate":true,
@@ -286,7 +286,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
           },
           {
               "type":"Microsoft.Web/sites/hostNameBindings",
-              "name":"[concat(parameters('sitename'), '/', parameters('websiteCustomName'), '.', parameters('websiteCustomDomain'))]",
+              "name":"[concat(parameters('sitename'), '/', parameters('websiteCustomName'), parameters('websiteCustomDomain'))]",
               "apiVersion":"2016-08-01",
               "location":"UK South",
               "scale":null,
