@@ -60,11 +60,11 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "master-15"
+  default = "master-17"
 }
 
 variable "identity_docker_tag" {
-  default = "4b178645d4c9b7f897f09d5e6a52dc48503a444a"
+  default = "master-36"
 }
 
 variable "ll_docker_tag" {
@@ -72,23 +72,23 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "master-23"
+  default = "master-48"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "master-28"
+  default = "PR-89-2"
 }
 
 variable "lpg_management_tag" {
-  default = "master-56"
+  default = "PR-194-5"
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "feature-lpfg-370-booking-feed-csv-report-4"
+  default = "PR-16-3"
 }
 
 variable "lpg_services_tag" {
-  default = "PR-479-1"
+  default = "PR-541-2"
 }
 
 variable "notification_service_tag" {
