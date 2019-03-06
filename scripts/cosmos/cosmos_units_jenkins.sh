@@ -10,11 +10,11 @@
 ## ./cosmos_units_jenkins.sh
 ##
 ## Created by:       Robert Marks
-## Creation Date:    01/08/2018
+## Creation date:    2018/08/01
+## Last updated:     2019/03/07
 ##
 ########################################
 
-az login --service-principal --username "" --password "" --tenant ""
 az login --service-principal --username "" --password "" --tenant ""
 
 subs=$(az account list | grep -i \"id\"\: | awk -F ':' '{gsub(/\"|\,/,"")}1 {print $2}')
@@ -23,8 +23,12 @@ read -a subsarr <<< $subs
 time=$(date +%H:%M)
 echo $time
 
-sdown=400
-sup=1000
+intStgProdMin=400
+intStgDay=1000
+prodQueryBuilderCaches=6000
+prodQueryBuilderCacheValues=4500
+prodStatements=4500
+
 
 if [[ $time > "06:59" ]] && [[ $time < "18:59" ]]; then
     echo "Scaling Up!"
@@ -40,14 +44,34 @@ if [[ $time > "06:59" ]] && [[ $time < "18:59" ]]; then
             exists=$(az cosmosdb database exists --db-name admin -n ${c} --key "$key")
 
             if [[ "$exists" == true ]] ; then
-                echo "admin database exists - changing RUs per collection for $c"
-                db=$(az cosmosdb collection list --db-name admin -n ${c} --key "$key" | grep -i \"id\"\: | awk -F ':' '{gsub(/\"|\,/,"")}1 {print $2}')
-                read -a arr <<< $db
+                if [[ "$c" == "lpg-lpgprod-cosmos" ]] ; then
+                    echo "admin database exists - changing RUs per collection for $c"
+                    db=$(az cosmosdb collection list --db-name admin -n ${c} --key "$key" | grep -i \"id\"\: | awk -F ':' '{gsub(/\"|\,/,"")}1 {print $2}')
+                    read -a arr <<< $db
 
-                for i in "${arr[@]}"; do
-                    echo "Updating $i RU for $c collection"
-                    az cosmosdb collection update --c "$i" -d admin --throughput "$sup" --key "$key" -n ${c} &>/dev/null
-                done
+                    for i in "${arr[@]}"; do
+                        echo "Updating $i RU for $c collection"
+
+                        if [[ "$i" == "queryBuilderCaches" ]] ; then
+                            az cosmosdb collection update --c "$i" -d admin --throughput "$prodQueryBuilderCaches" --key "$key" -n ${c} &>/dev/null
+                        elif [[ "$i" == "queryBuilderCacheValues" ]] ; then
+                            az cosmosdb collection update --c "$i" -d admin --throughput "$prodQueryBuilderCacheValues" --key "$key" -n ${c} &>/dev/null
+                        elif [[ "$i" == "statements" ]] ; then
+                            az cosmosdb collection update --c "$i" -d admin --throughput "$prodStatements" --key "$key" -n ${c} &>/dev/null
+                        else
+                            az cosmosdb collection update --c "$i" -d admin --throughput "$intStgProdMin" --key "$key" -n ${c} &>/dev/null
+                        fi
+                    done
+                else
+                    echo "admin database exists - changing RUs per collection for $c"
+                    db=$(az cosmosdb collection list --db-name admin -n ${c} --key "$key" | grep -i \"id\"\: | awk -F ':' '{gsub(/\"|\,/,"")}1 {print $2}')
+                    read -a arr <<< $db
+
+                    for i in "${arr[@]}"; do
+                        echo "Updating $i RU for $c collection"
+                        az cosmosdb collection update --c "$i" -d admin --throughput "$intStgDay" --key "$key" -n ${c} &>/dev/null
+                    done
+                fi
              else
                 echo "admin database does not exist for $c"
             fi
@@ -73,7 +97,7 @@ else
 
                 for i in "${arr[@]}"; do
                     echo "Updating $i RU for $c collection"
-                    az cosmosdb collection update --c "$i" -d admin --throughput "$sdown" --key "$key" -n ${c} &>/dev/null
+                    az cosmosdb collection update --c "$i" -d admin --throughput "$intStgProdMin" --key "$key" -n ${c} &>/dev/null
                 done
              else
                 echo "admin database does not exist for $c"
