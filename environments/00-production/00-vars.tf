@@ -39,7 +39,7 @@ variable "lpgurl" {
 }
 
 variable "scaling_enabled" {
-  default = "true"
+  default = "false"
 }
 
 variable "hammer_api_worker_http_server_port" {
