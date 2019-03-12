@@ -31,7 +31,7 @@ prodStatements=4500
 
 
 if [[ $time > "06:59" ]] && [[ $time < "18:59" ]]; then
-    echo "Scaling Up!"
+    echo "Scaling Up"
     for s in "${subsarr[@]}"; do
 
         az account set --subscription "${s}"
@@ -50,15 +50,17 @@ if [[ $time > "06:59" ]] && [[ $time < "18:59" ]]; then
                     read -a arr <<< $db
 
                     for i in "${arr[@]}"; do
-                        echo "Updating $i RU for $c collection"
-
                         if [[ "$i" == "queryBuilderCaches" ]] ; then
+                        	echo "Updating $i to $prodQueryBuilderCaches RU"
                             az cosmosdb collection update --c "$i" -d admin --throughput "$prodQueryBuilderCaches" --key "$key" -n ${c} &>/dev/null
                         elif [[ "$i" == "queryBuilderCacheValues" ]] ; then
+                        	echo "Updating $i to $prodQueryBuilderCacheValues RU"
                             az cosmosdb collection update --c "$i" -d admin --throughput "$prodQueryBuilderCacheValues" --key "$key" -n ${c} &>/dev/null
                         elif [[ "$i" == "statements" ]] ; then
+                        	echo "Updating $i to $prodStatements RU"
                             az cosmosdb collection update --c "$i" -d admin --throughput "$prodStatements" --key "$key" -n ${c} &>/dev/null
                         else
+                        	echo "Updating $i to $intStgProdMin RU"
                             az cosmosdb collection update --c "$i" -d admin --throughput "$intStgProdMin" --key "$key" -n ${c} &>/dev/null
                         fi
                     done
@@ -68,7 +70,7 @@ if [[ $time > "06:59" ]] && [[ $time < "18:59" ]]; then
                     read -a arr <<< $db
 
                     for i in "${arr[@]}"; do
-                        echo "Updating $i RU for $c collection"
+                        echo "Updating $i to $intStgDay RU"
                         az cosmosdb collection update --c "$i" -d admin --throughput "$intStgDay" --key "$key" -n ${c} &>/dev/null
                     done
                 fi
@@ -78,7 +80,7 @@ if [[ $time > "06:59" ]] && [[ $time < "18:59" ]]; then
         done
     done
 else
-    echo "Scaling Down!"
+    echo "Scaling Down"
     for s in "${subsarr[@]}"; do
 
         az account set --subscription "${s}"
@@ -96,7 +98,7 @@ else
                 read -a arr <<< $db
 
                 for i in "${arr[@]}"; do
-                    echo "Updating $i RU for $c collection"
+                    echo "Updating $i to $intStgProdMin RU"
                     az cosmosdb collection update --c "$i" -d admin --throughput "$intStgProdMin" --key "$key" -n ${c} &>/dev/null
                 done
              else
