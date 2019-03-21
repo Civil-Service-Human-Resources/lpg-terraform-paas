@@ -88,7 +88,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "master-73"
+  default = "master-74"
 }
 
 variable "notification_service_tag" {
