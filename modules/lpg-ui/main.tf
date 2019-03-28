@@ -322,9 +322,9 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                       {
                           "name":"Scale_Out_Hours",
                           "capacity":{
-                              "minimum":"2",
-                              "maximum":"2",
-                              "default":"2"
+                              "minimum":"4",
+                              "maximum":"5",
+                              "default":"4"
                           },
                           "rules":[
 
@@ -354,9 +354,9 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                       {
                           "name":"Scale_In_Hours",
                           "capacity":{
-                              "minimum":"1",
-                              "maximum":"1",
-                              "default":"1"
+                              "minimum":"4",
+                              "maximum":"4",
+                              "default":"4"
                           },
                           "rules":[
 
@@ -386,9 +386,9 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                       {
                           "name":"CPU_Scale",
                           "capacity":{
-                              "minimum":"1",
-                              "maximum":"3",
-                              "default":"1"
+                              "minimum":"4",
+                              "maximum":"5",
+                              "default":"4"
                           },
                           "rules":[
                               {
@@ -455,9 +455,9 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                       {
                           "name":"Memory_Scale",
                           "capacity":{
-                              "minimum":"1",
-                              "maximum":"3",
-                              "default":"1"
+                              "minimum":"4",
+                              "maximum":"5",
+                              "default":"4"
                           },
                           "rules":[
                               {
@@ -524,9 +524,9 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                       {
                           "name":"{\"name\":\"Default_Rule\",\"for\":\"Scale_Out_Hours\"}",
                           "capacity":{
-                              "minimum":"1",
-                              "maximum":"1",
-                              "default":"1"
+                              "minimum":"4",
+                              "maximum":"4",
+                              "default":"4"
                           },
                           "rules":[],
                           "recurrence":{
@@ -554,9 +554,9 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                       {
                           "name":"{\"name\":\"Default_Rule\",\"for\":\"Scale_In_Hours\"}",
                           "capacity":{
-                              "minimum":"1",
-                              "maximum":"1",
-                              "default":"1"
+                              "minimum":"4",
+                              "maximum":"4",
+                              "default":"4"
                           },
                           "rules":[],
                           "recurrence":{
@@ -584,9 +584,9 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                       {
                           "name":"{\"name\":\"Default_Rule\",\"for\":\"CPU_Scale\"}",
                           "capacity":{
-                              "minimum":"1",
-                              "maximum":"1",
-                              "default":"1"
+                              "minimum":"4",
+                              "maximum":"4",
+                              "default":"4"
                           },
                           "rules":[],
                           "recurrence":{
@@ -614,9 +614,9 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                       {
                           "name":"{\"name\":\"Default_Rule\",\"for\":\"Memory_Scale\"}",
                           "capacity":{
-                              "minimum":"1",
-                              "maximum":"1",
-                              "default":"1"
+                              "minimum":"4",
+                              "maximum":"4",
+                              "default":"4"
                           },
                           "rules":[
 
