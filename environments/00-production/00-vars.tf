@@ -64,7 +64,7 @@ variable "civil_servant_registry_docker_tag" {
 }
 
 variable "identity_docker_tag" {
-  default = "master-38"
+  default = "master-39"
 }
 
 variable "ll_docker_tag" {
@@ -76,11 +76,11 @@ variable "lpg_learner_record_docker_tag" {
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "master-51"
+  default = "master-52"
 }
 
 variable "lpg_management_tag" {
-  default = "master-100"
+  default = "master-101"
 }
 
 variable "lpg_report_service_docker_tag" {
@@ -88,7 +88,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "master-74"
+  default = "master-75"
 }
 
 variable "notification_service_tag" {
