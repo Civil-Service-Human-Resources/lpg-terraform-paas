@@ -25,9 +25,9 @@ echo $time
 
 intStgProdMin=400
 intStgDay=1000
-prodQueryBuilderCaches=6000
-prodQueryBuilderCacheValues=4500
-prodStatements=4500
+prodQueryBuilderCaches=7000
+prodQueryBuilderCacheValues=7000
+prodStatements=24000
 
 
 if [[ $time > "06:59" ]] && [[ $time < "18:59" ]]; then
