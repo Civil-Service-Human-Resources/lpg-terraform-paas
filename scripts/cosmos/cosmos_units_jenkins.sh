@@ -27,7 +27,7 @@ intStgProdMin=400
 intStgDay=1000
 prodQueryBuilderCaches=7000
 prodQueryBuilderCacheValues=7000
-prodStatements=24000
+prodStatements=10000
 
 
 if [[ $time > "06:59" ]] && [[ $time < "18:59" ]]; then
