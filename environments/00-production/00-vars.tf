@@ -80,7 +80,7 @@ variable "learning_catalogue_docker_tag" {
 }
 
 variable "lpg_management_tag" {
-  default = "chore-update-report-timeout-1"
+  default = "master-100"
 }
 
 variable "lpg_report_service_docker_tag" {
