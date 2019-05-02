@@ -70,6 +70,14 @@ variable "authentication_service_url" {
   default = ""
 }
 
+variable "identity_management_client_id" {
+  default = ""
+}
+
+variable "identity_management_client_secret" {
+  default = ""
+}
+
 variable "learner_record_client_id" {
   default = ""
 }

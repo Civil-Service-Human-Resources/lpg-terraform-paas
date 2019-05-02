@@ -67,6 +67,10 @@ variable "identity_docker_tag" {
   default = "master-37"
 }
 
+variable "identity_management_docker_tag" {
+  default = "master-6"
+}
+
 variable "ll_docker_tag" {
   default = "fe8104bf2f0fedb8f5af138bd8860a9c27dd2bb12ecb827f09e754e279a70fa8"
 }
