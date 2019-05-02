@@ -70,11 +70,15 @@ variable "envurl" {
   default = ""
 }
 
-variable "gov_notify_api_key" {
+
+variable "authentication_service_url" {
+  default = ""
+}
+variable "identity_management_client_id" {
   default = ""
 }
 
-variable "gov_notify_invite_template_id" {
+variable "identity_management_client_secret" {
   default = ""
 }
 
@@ -82,10 +86,17 @@ variable "invite_signup_url" {
   default = ""
 }
 
-variable "reset_url" {
+variable "learner_record_url" {
   default = ""
 }
 
+variable "registry_service_url" {
+  default = ""
+}
+
+variable "notification_service_url" {
+  default = ""
+}
 variable "docker_registry_server_url" {
   default = ""
 }
