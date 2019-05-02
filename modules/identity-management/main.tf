@@ -44,32 +44,40 @@ resource "azurerm_template_deployment" "identity-management-app-service" {
                             "value": "600"
                           },
                           {
-                            "name": "HAMMER_LOGSTASH_HOST",
-                            "value": "${var.hammer_logstash_host}"
-                          },
-                          {
-                            "name": "HAMMER_LOGSTASH_PORT",
-                            "value": "${var.hammer_logstash_port}"
-                          },
-                          {
                             "name": "ENV_PROFILE",
                             "value": "${var.env_profile}"
-                          },
-                          {
-                            "name": "GOV_NOTIFY_API_KEY",
-                            "value": "${var.gov_notify_api_key}"
                           },
                           {
                             "name": "DOCKER_ENABLE_CI",
                             "value": "true"
                           },
                           {
-                            "name": "GOV_NOTIFY_INVITE_TEMPLATE_ID",
-                            "value": "${var.gov_notify_invite_template_id}"
+                            "name": "OAUTH_URL",
+                            "value": "${var.authentication_service_url}"
+                          },
+                          {
+                            "name": "CLIENT_ID",
+                            "value": "${var.identity_management_client_id}"
+                          },
+                          {
+                            "name": "CLIENT_SECRET",
+                            "value": "${var.identity_management_client_secret}"
                           },
                           {
                             "name": "INVITE_SIGNUP_URL",
                             "value": "${var.invite_signup_url}"
+                          },
+                          {
+                            "name": "LEARNER_RECORD_URL",
+                            "value": "${var.learner_record_url}"
+                          },
+                          {
+                            "name": "REGISTRY_SERVICE_URL",
+                            "value": "${var.registry_service_url}"
+                          },
+                          {
+                            "name": "NOTIFICATION_SERVICE_URL",
+                            "value": "${var.notification_service_url}"
                           },
                           {
                             "name": "DOCKER_REGISTRY_SERVER_URL",
