@@ -27,7 +27,7 @@ variable "docker_tag" {
 }
 
 variable "docker_image" {
-  default = "identity-service"
+  default = "identity-management"
 }
 
 variable "datasource" {
