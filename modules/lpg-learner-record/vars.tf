@@ -157,3 +157,11 @@ variable "custom_emails" {
 variable "scaling_enabled" {
   default = ""
 }
+
+variable "cosmos_connection_string" {
+  default = ""
+}
+
+variable "database" {
+  default = ""
+}

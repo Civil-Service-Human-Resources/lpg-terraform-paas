@@ -132,6 +132,8 @@ module "lpg-learner-record" {
   docker_registry_server_url      = "${var.docker_registry_server_url}"
   docker_registry_server_username = "${var.docker_registry_server_username}"
   docker_registry_server_password = "${var.docker_registry_server_password}"
+  cosmos_connection_string        = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
+  database                        = "admin"
 }
 
 module "lpg-report-service" {
