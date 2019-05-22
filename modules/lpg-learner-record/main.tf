@@ -205,6 +205,14 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                           {
                               "name":"DOCKER_REGISTRY_SERVER_PASSWORD",
                               "value":"${var.docker_registry_server_password}"
+                          },
+                          {
+                              "name":"COSMOS_CONNECTION_STRING",
+                              "value":"${var.cosmos_connection_string}"
+                          },
+                          {
+                              "name":"DATABASE",
+                              "value":"${var.database}"
                           }
                       ]
                   },
