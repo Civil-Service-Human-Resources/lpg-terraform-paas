@@ -111,6 +111,10 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "value":"${var.datasource}"
                           },
                           {
+                              "name": "OAUTH_SERVICE_URL",
+                              "value": "${var.authentication_service_url}"
+                          },
+                          {
                               "name":"WEBSITES_PORT",
                               "value":"${var.websites_port}"
                           },

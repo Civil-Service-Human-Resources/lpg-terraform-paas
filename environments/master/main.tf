@@ -67,6 +67,7 @@ module "identity" {
   docker_registry_server_url              = "${var.docker_registry_server_url}"
   docker_registry_server_username         = "${var.docker_registry_server_username}"
   docker_registry_server_password         = "${var.docker_registry_server_password}"
+  authentication_service_url              = "https://${var.envurl}identity.${var.domain}"
 }
 
 module "identity-management" {
