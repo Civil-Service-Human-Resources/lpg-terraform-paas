@@ -1,22 +1,32 @@
 #!/usr/bin/env bash
+ENV=$1
 
-env=integration
-
-echo "setting up for $env"
-
-if [[ "$env" == integration ]] ; then
-    ln -s /keybase/team/lpg/ops/azure/cabinet-azure/00-integration/state.tf state.tf
-    ln -s /keybase/team/lpg/ops/azure/cabinet-azure/00-integration/integration-vars.tf integration-vars.tf
-    ln -s ../00-integration/00-vars.tf 00-vars.tf
-
-elif [[ "$env" == staging ]] ; then
-    ln -s ../00-staging/00-vars.tf 00-vars.tf
-    ln -s /keybase/team/lpg/ops/azure/cabinet-azure/00-staging/state.tf state.tf
-    ln -s /keybase/team/lpg/ops/azure/cabinet-azure/00-staging/staging-vars.tf staging-vars.tf
-
-elif [[ "$env" == production ]] ; then
-    ln -s ../00-production/00-vars.tf 00-vars.tf
-    ln -s /keybase/team/lpg/ops/azure/cabinet-azure/00-production/state.tf state.tf
-    ln -s /keybase/team/lpg/ops/azure/cabinet-azure/00-production/production-vars.tf production-vars.tf
-
+if [[ "$PWD" == */environments/master ]]; then
+    echo "Environment setup initialising"
+else
+    echo "Environment setup failed"
+    echo "Please run from environments/master directory"
+    exit
 fi
+
+if [[ "$ENV" =~ ^(production|staging|integration)$ ]]; then
+    echo "Setting symlink: $1"
+else
+    echo "$ENV is not a valid environment"
+    exit
+fi
+
+echo "Removing .terraform state directory"
+rm -rf .terraform
+
+echo "Un-linking any symlink files"
+unlink state.tf
+unlink 00-vars.tf
+unlink *-vars.tf
+
+echo "Creating symlink for $ENV files"
+ln -s ../00-$ENV/00-vars.tf
+ln -s /keybase/team/lpg/ops/azure/cabinet-azure/00-$ENV/state.tf
+ln -s /keybase/team/lpg/ops/azure/cabinet-azure/00-$ENV/$ENV-vars.tf
+
+echo "Complete"

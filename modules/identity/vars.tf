@@ -125,3 +125,7 @@ variable "custom_emails" {
 variable "scaling_enabled" {
   default = ""
 }
+
+variable "authentication_service_url" {
+  default = ""
+}
