@@ -16,6 +16,7 @@ resource "azurerm_mysql_server" "lpg" {
     storage_mb = "51200"
     backup_retention_days = 30
     geo_redundant_backup = "Disabled"
+    auto_grow = "Disabled"
   }
 
   administrator_login          = "${var.mysql_admin_login}"
