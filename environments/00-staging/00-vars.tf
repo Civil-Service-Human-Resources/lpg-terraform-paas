@@ -26,6 +26,10 @@ variable "webapp_sku_name_2" {
   default = "B2"
 }
 
+variable "webapp_sku_name_3" {
+  default = "B3"
+}
+
 variable "envurl" {
   default = "staging-"
 }

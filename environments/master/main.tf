@@ -63,7 +63,7 @@ module "identity" {
   scaling_enabled                         = "${var.scaling_enabled}"
   custom_emails                           = "${var.custom_emails}"
   webapp_sku_tier                         = "${var.webapp_sku_tier}"
-  webapp_sku_name                         = "${var.webapp_sku_name_2}"
+  webapp_sku_name                         = "${var.webapp_sku_name_3}"
   docker_registry_server_url              = "${var.docker_registry_server_url}"
   docker_registry_server_username         = "${var.docker_registry_server_username}"
   docker_registry_server_password         = "${var.docker_registry_server_password}"

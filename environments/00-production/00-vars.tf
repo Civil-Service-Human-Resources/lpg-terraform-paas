@@ -26,6 +26,10 @@ variable "webapp_sku_name_2" {
   default = "S2"
 }
 
+variable "webapp_sku_name_3" {
+  default = "S3"
+}
+
 variable "envurl" {
   default = ""
 }
