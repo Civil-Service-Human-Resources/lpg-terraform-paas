@@ -107,6 +107,10 @@ resource "azurerm_template_deployment" "learning-locker-xapi" {
                               "value":"false"
                           },
                           {
+                              "name":"APPINSIGHTS_INSTRUMENTATIONKEY",
+                              "value":"${var.ai_instrument_key}"
+                          },
+                          {
                               "name":"MONGO_URL",
                               "value":"${var.mongo_url}"
                           },

@@ -1,6 +1,9 @@
 variable "lpg_ui_name" {
   default = "name"
 }
+variable "ai_instrument_key" {
+  default = "c79ba178-0bb8-48cd-a7d2-20d73ba59b5d"
+}
 
 variable "rg_name" {
   default = "holder"

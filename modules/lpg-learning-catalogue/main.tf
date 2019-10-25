@@ -107,6 +107,10 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
                               "value":"false"
                           },
                           {
+                              "name":"APPINSIGHTS_INSTRUMENTATIONKEY",
+                              "value":"${var.ai_instrument_key}"
+                          },
+                          {
                               "name":"AUTH_USER",
                               "value":"${var.auth_user}"
                           },

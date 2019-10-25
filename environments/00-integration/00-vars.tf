@@ -4,6 +4,11 @@ variable "rg_name" {
   default = "lpgintegration"
 }
 
+variable "ai_instrument_key" {
+  type = "string"
+  default = "c79ba178-0bb8-48cd-a7d2-20d73ba59b5d"
+}
+
 variable "rg_prefix" {
   type    = "string"
   default = "lpg"
