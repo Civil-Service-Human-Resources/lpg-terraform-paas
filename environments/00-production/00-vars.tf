@@ -3,6 +3,10 @@ variable "rg_name" {
   type    = "string"
   default = "lpgprod"
 }
+variable "ai_instrument_key" {
+  type = "string"
+  default = "c2b75b49-1abf-42dc-a4ef-1c17fd1936d9"
+}
 
 variable "rg_prefix" {
   type    = "string"

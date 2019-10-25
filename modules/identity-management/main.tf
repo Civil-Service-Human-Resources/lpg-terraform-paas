@@ -32,6 +32,10 @@ resource "azurerm_template_deployment" "identity-management-app-service" {
                             "value": "false"
                           },
                           {
+                              "name":"APPINSIGHTS_INSTRUMENTATIONKEY",
+                              "value":"${var.ai_instrument_key}"
+                          },
+                          {
                             "name": "DATASOURCE",
                             "value": "${var.datasource}"
                           },

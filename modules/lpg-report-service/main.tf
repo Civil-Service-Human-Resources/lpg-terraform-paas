@@ -107,6 +107,10 @@ resource "azurerm_template_deployment" "lpg-report-service-app-service" {
                 "value": "false"
             },
             {
+                "name":"instrumentation_key",
+                "value":"${var.ai_instrument_key}"
+            },
+            {
                 "name": "LEARNER_RECORD_URL",
                 "value": "${var.learner_record_url}"
             },
