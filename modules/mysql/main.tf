@@ -6,10 +6,10 @@ resource "azurerm_mysql_server" "lpg" {
   resource_group_name = "${var.rg_name}"
 
   sku {
-    name = "B_Gen5_2"
-    capacity = 2
-    tier = "Basic"
-    family = "Gen5"
+    name = "${var.lpg_skumname}"
+    capacity = "${var.lpg_capacity}"
+    tier = "${var.lpg_tier}"
+    family = "${var.lpg_family}"
   }
 
   storage_profile {
