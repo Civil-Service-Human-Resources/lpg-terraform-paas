@@ -22,3 +22,18 @@ variable "mysql_admin_login" {
 variable "mysql_admin_pass" {
   default = ""
 }
+variable "lpg_skumname"{
+    default = "B_Gen5_2"
+}
+
+variable "lpg_capacity"{
+    default = 2
+}
+   
+variable "lpg_tier"{
+    default = "Basic"
+}
+
+variable "lpg_family"{
+    default="Gen5"
+}
