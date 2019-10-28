@@ -1,14 +1,14 @@
 ###### mysql ######
 
 resource "azurerm_mysql_server" "lpg" {
-  name                = "${var.mysql_name}"
+  name                = "${var.mysql_nameGP}"
   location            = "${var.mysql_location}"
   resource_group_name = "${var.rg_name}"
 
   sku {
-    name = "B_Gen5_2"
-    capacity = 2
-    tier = "Basic"
+    name = "GP_Gen5_8" 
+    capacity = 8
+    tier = "GeneralPurpose"
     family = "Gen5"
   }
 
