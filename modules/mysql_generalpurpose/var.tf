@@ -10,8 +10,8 @@ variable "rg_location" {
 variable "mysql_location" {
   default = "West Europe"
 }
-variable "mysql_name" {
-  default = "mysql"
+variable "mysql_name_gp" {
+  default = "mysql_gp"
 }
 variable "env_profile" {
   default = ""
@@ -22,18 +22,19 @@ variable "mysql_admin_login" {
 variable "mysql_admin_pass" {
   default = ""
 }
-variable "lpg_skumname"{
-    default = "B_Gen5_2"
+
+variable "lpg_gp_skumname"{
+    default = "GP_Gen5_8"
 }
 
-variable "lpg_capacity"{
-    default = 2
+variable "lpg_gp_capacity"{
+    default = 8
 }
    
-variable "lpg_tier"{
-    default = "Basic"
+variable "lpg_gp_tier"{
+    default = "GeneralPurpose"
 }
-
-variable "lpg_family"{
+    
+variable "lpg_gp_family"{
     default="Gen5"
 }
