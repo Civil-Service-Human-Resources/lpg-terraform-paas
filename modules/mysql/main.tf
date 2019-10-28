@@ -1,7 +1,7 @@
 ###### mysql ######
 
 resource "azurerm_mysql_server" "lpg" {
-  name                = "${var.mysql_nameGP}"
+  name                = "${var.mysql_namegp}"
   location            = "${var.mysql_location}"
   resource_group_name = "${var.rg_name}"
 
