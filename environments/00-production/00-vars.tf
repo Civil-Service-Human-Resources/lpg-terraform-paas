@@ -138,6 +138,10 @@ variable "redis_use_tls" {
 }
 
 variable "redis_capacity" {
+  default = "2"
+}
+
+variable "redis_session_capacity" {
   default = "1"
 }
 

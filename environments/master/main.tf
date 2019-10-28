@@ -8,6 +8,16 @@ module "redis" {
   redis_capacity                          = "${var.redis_capacity}"
 }
 
+module "redis-session" {
+  source                                  = "../../modules/redis"
+  rg_name                                 = "${var.rg_name}"
+  rg_prefix                               = "${var.rg_prefix}"
+  rg_location                             = "${var.rg_location}"
+  redis_name                              = "${var.rg_prefix}-${var.rg_name}-redis-session"
+  env_profile                             = "${var.env_profile}"
+  redis_capacity                          = "${var.redis_session_capacity}"
+}
+
 module "mysql" {
   source                                  = "../../modules/mysql"
   rg_name                                 = "${var.rg_name}"
@@ -71,6 +81,8 @@ module "identity" {
   invite_signup_url                       = "https://${var.envurl}identity.${var.domain}/signup/%s"
   reset_url                               = "https://${var.envurl}identity.${var.domain}/reset/%s"
   lpg_ui_url                              = "https://${var.envurl}${var.lpgurl}${var.domain}"
+  redis_url                               = "redis://${module.redis-session.redis_host}:${module.redis-session.redis_port}/0?password=${module.redis-session.redis_key}"
+  redis_use_tls                           = "${var.redis_use_tls}"
   scaling_enabled                         = "${var.scaling_enabled}"
   custom_emails                           = "${var.custom_emails}"
   webapp_sku_tier                         = "${var.webapp_sku_tier}"
