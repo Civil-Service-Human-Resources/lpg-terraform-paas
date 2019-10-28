@@ -163,6 +163,14 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "value":"${var.reset_url}"
                           },
                           {
+                              "name":"REDIS_URL",
+                              "value":"${var.redis_url}"
+                          },
+                          {
+                              "name":"REDIS_USE_TLS",
+                              "value":"${var.redis_use_tls}"
+                          },
+                          {
                               "name":"LPG_UI_URL",
                               "value":"${var.lpg_ui_url}"
                           },

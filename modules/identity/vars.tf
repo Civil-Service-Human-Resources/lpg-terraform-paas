@@ -106,6 +106,14 @@ variable "whitelisted_domains" {
   default = ""
 }
 
+variable "redis_url" {
+  default = ""
+}
+
+variable "redis_use_tls" {
+  default = ""
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }
