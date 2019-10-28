@@ -146,6 +146,10 @@ variable "feedback_recipient" {
   default = ""
 }
 
+variable "uv_threadpool_size" {
+  default = "16"
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }

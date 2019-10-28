@@ -199,6 +199,10 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value":"${var.feedback_recipient}"
                           },
                           {
+                              "name":"UV_THREADPOOL_SIZE",
+                              "value":"${var.uv_threadpool_size}"
+                          },
+                          {
                               "name":"DOCKER_REGISTRY_SERVER_URL",
                               "value":"https://${var.docker_registry_server_url}"
                           },
