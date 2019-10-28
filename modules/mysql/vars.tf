@@ -13,6 +13,9 @@ variable "mysql_location" {
 variable "mysql_name" {
   default = "mysql"
 }
+variable "mysql_namegp" {
+  default = "mysql"
+}
 variable "env_profile" {
   default = ""
 }
