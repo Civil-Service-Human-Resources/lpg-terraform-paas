@@ -10,7 +10,7 @@ variable "rg_location" {
 variable "mysql_location" {
   default = "West Europe"
 }
-variable "mysql_name_gp" {
+variable "mysql_name" {
   default = "mysql_gp"
 }
 variable "env_profile" {
