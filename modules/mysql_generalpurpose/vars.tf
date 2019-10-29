@@ -11,7 +11,7 @@ variable "mysql_location" {
   default = "West Europe"
 }
 variable "mysql_name" {
-  default = "mysql_gp"
+  default = "mysql-gp"
 }
 variable "env_profile" {
   default = ""

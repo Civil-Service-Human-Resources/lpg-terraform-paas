@@ -73,7 +73,7 @@ variable "civil_servant_registry_docker_tag" {
 }
 
 variable "identity_docker_tag" {
-  default = "master-47"
+  default = "master-49"
 }
 
 variable "identity_management_docker_tag" {
