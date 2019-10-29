@@ -22,6 +22,11 @@ variable "webapp_sku_tier" {
   default = "Standard"
 }
 
+variable "webapp_sku_tier_pseries" {
+  default = "P2v2"
+}
+
+
 variable "webapp_sku_name_1" {
   default = "S1"
 }
@@ -32,6 +37,10 @@ variable "webapp_sku_name_2" {
 
 variable "webapp_sku_name_3" {
   default = "S3"
+}
+
+variable "webapp_sku_name_pseries" {
+  default = "P2v2"
 }
 
 variable "envurl" {
