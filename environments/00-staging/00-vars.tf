@@ -228,7 +228,7 @@ variable "mysql_name" {
 
 ### mysql_gp ###
 variable "mysql_name_gp" {
-  default = "mysql-gp-staging"
+  default = "gp"
 }
 
 
