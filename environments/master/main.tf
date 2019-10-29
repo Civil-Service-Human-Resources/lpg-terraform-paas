@@ -91,6 +91,7 @@ module "identity" {
   docker_registry_server_username         = "${var.docker_registry_server_username}"
   docker_registry_server_password         = "${var.docker_registry_server_password}"
   authentication_service_url              = "https://${var.envurl}identity.${var.domain}"
+  ai_instrument_key                       = "${var.ai_instrument_key}"
 }
 
 module "identity-management" {
@@ -306,6 +307,7 @@ module "lpg-ui" {
   docker_registry_server_url      = "${var.docker_registry_server_url}"
   docker_registry_server_username = "${var.docker_registry_server_username}"
   docker_registry_server_password = "${var.docker_registry_server_password}"
+  ai_instrument_key               = "${var.ai_instrument_key}"
 }
 
 module "lpg-learning-catalogue" {
@@ -367,6 +369,7 @@ module "civil-servant-registry-service" {
   docker_registry_server_url          = "${var.docker_registry_server_url}"
   docker_registry_server_username     = "${var.docker_registry_server_username}"
   docker_registry_server_password     = "${var.docker_registry_server_password}"
+  ai_instrument_key                   = "${var.ai_instrument_key}"
 }
 
 module "lpg-management" {
