@@ -232,7 +232,7 @@ variable "mysql_name" {
 }
 
 variable "mysql_name_gp" {
-  default = "mysql-gp-integration"
+  default = "gp"
 }
 
 ### civil-servant-registry ###
