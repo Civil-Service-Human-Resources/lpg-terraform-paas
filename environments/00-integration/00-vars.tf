@@ -69,11 +69,11 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "master-7"
+  default = "master-8"
 }
 
 variable "identity_docker_tag" {
-  default = "master-44"
+  default = "master-47"
 }
 
 variable "identity_management_docker_tag" {
