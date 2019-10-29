@@ -232,11 +232,7 @@ variable "mysql_name" {
 }
 
 variable "mysql_name_gp" {
-<<<<<<< HEAD
   default = "gp"
-=======
-  default = "mysql-gp"
->>>>>>> shortening name of mysql server based on length restrictions
 }
 
 ### civil-servant-registry ###
