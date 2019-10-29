@@ -231,6 +231,10 @@ variable "mysql_name" {
   default = "mysql"
 }
 
+variable "mysql_name_gp" {
+  default = "mysql_gp"
+}
+
 ### civil-servant-registry ###
 variable "civil_servant_registry_name" {
   default = "civil-servant-registry"
