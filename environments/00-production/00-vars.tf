@@ -230,13 +230,9 @@ variable "mysql_name" {
   default = "mysql"
 }
 
-### mysql_gp ###
+### mysql_gp ###s
 variable "mysql_name_gp" {
-<<<<<<< HEAD
   default = "gp"
-=======
-  default = "mysql-gp"
->>>>>>> New mysql connection string and update identity ref
 }
 
 
