@@ -17,4 +17,3 @@ up=$(az webapp config appsettings list -g $1 -n lpg-$1-identity -o tsv| grep -i 
 read -a arr <<< $up
 username=${arr[0]}
 password=${arr[1]}
-mysql -h $2.mysql.database.azure.com -u${username} -p${password} -e "create database if not exists identity;"
