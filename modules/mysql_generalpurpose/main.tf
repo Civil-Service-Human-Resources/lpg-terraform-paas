@@ -1,7 +1,7 @@
 ###### mysql: General Purpose tier ######
 
 resource "azurerm_mysql_server" "lpg_gp" {
-  name                = "${var.mysql_namegp}"
+  name                = "${var.mysql_name_gp}"
   location            = "${var.mysql_location}"
   resource_group_name = "${var.rg_name}"
 
