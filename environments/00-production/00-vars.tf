@@ -230,7 +230,7 @@ variable "mysql_name" {
   default = "mysql"
 }
 
-### mysql_gp ###s
+### mysql_gp ###
 variable "mysql_name_gp" {
   default = "gp"
 }
