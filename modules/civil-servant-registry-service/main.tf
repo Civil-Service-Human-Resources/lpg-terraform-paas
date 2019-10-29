@@ -158,7 +158,10 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
               "name": "DOCKER_REGISTRY_SERVER_USERNAME",
               "value": "${var.docker_registry_server_username}"
             },
-
+            {
+              "name": "instrumentation_key",
+              "value": "${var.ai_instrument_key}"
+            },
             {
               "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
               "value": "${var.docker_registry_server_password}"
