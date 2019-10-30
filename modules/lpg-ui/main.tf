@@ -88,12 +88,12 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                   "workerSizeId":"1",
                   "reserved":true,
                   "numberOfWorkers":"1",
-                  "hostingEnvironment":"",
-                  "capacity": "${var.lpg_ui_capacity}"
+                  "hostingEnvironment":""
               },
               "sku":{
                   "Tier":"${var.webapp_sku_tier}",
-                  "Name":"${var.webapp_sku_name}"
+                  "Name":"${var.webapp_sku_name}",
+                  "capacity": "${var.lpg_ui_capacity}"
               },
               "kind":"linux"
           },

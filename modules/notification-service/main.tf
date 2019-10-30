@@ -105,12 +105,12 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
               "workerSizeId":"1",
               "reserved":true,
               "numberOfWorkers":"1",
-              "hostingEnvironment":"",
-              "capacity": "${var.notification_capacity}"
+              "hostingEnvironment":""
            },
            "sku":{
               "Tier":"${var.webapp_sku_tier}",
-              "Name":"${var.webapp_sku_name}"
+              "Name":"${var.webapp_sku_name}",
+              "capacity": "${var.notification_capacity}"
            },
            "kind":"linux"
         },
