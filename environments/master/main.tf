@@ -81,8 +81,9 @@ module "identity" {
   invite_signup_url                       = "https://${var.envurl}identity.${var.domain}/signup/%s"
   reset_url                               = "https://${var.envurl}identity.${var.domain}/reset/%s"
   lpg_ui_url                              = "https://${var.envurl}${var.lpgurl}${var.domain}"
-  redis_url                               = "redis://${module.redis-session.redis_host}:${module.redis-session.redis_port}/0?password=${module.redis-session.redis_key}"
-  redis_use_tls                           = "${var.redis_use_tls}"
+  redis_host                              = "${module.redis-session.redis_host}"
+  redis_password                          = "${module.redis-session.redis_key}"
+  redis_port                              = "6379"
   scaling_enabled                         = "${var.scaling_enabled}"
   custom_emails                           = "${var.custom_emails}"
   webapp_sku_tier                         = "${var.webapp_sku_tier_p2}"
@@ -312,6 +313,9 @@ module "lpg-ui" {
   docker_registry_server_username = "${var.docker_registry_server_username}"
   docker_registry_server_password = "${var.docker_registry_server_password}"
   ai_instrument_key               = "${var.ai_instrument_key}"
+  redis_host                      = "${module.redis-session.redis_host}"
+  redis_password                  = "${module.redis-session.redis_key}"
+  redis_port                      = "6379"
 }
 
 module "lpg-learning-catalogue" {

@@ -157,6 +157,18 @@ variable "uv_threadpool_size" {
   default = "16"
 }
 
+variable "redis_host" {
+  default = ""
+}
+
+variable "redis_password" {
+  default = ""
+}
+
+variable "redis_port" {
+  default = ""
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }
