@@ -35,6 +35,34 @@ variable "webapp_sku_name_3" {
   default = "B3"
 }
 
+variable "identity_capacity" {
+  default = ""
+}
+
+variable "csrs_capacity" {
+  default = ""
+}
+
+variable "xapi_capacity" {
+  default = ""
+}
+
+variable "learner_record_capacity" {
+  default = ""
+}
+
+variable "learning_catalogue_capacity" {
+  default = ""
+}
+
+variable "lpg_ui_capacity" {
+  default = ""
+}
+
+variable "notification_capacity" {
+  default = ""
+}
+
 variable "envurl" {
   default = "integration-"
 }
