@@ -88,12 +88,12 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                   "workerSizeId":"1",
                   "reserved":true,
                   "numberOfWorkers":"1",
-                  "hostingEnvironment":"",
-                  "capacity": "${var.learner_record_capacity}"
+                  "hostingEnvironment":""
               },
               "sku":{
                   "Tier":"${var.webapp_sku_tier}",
-                  "Name":"${var.webapp_sku_name}"
+                  "Name":"${var.webapp_sku_name}",
+                  "capacity": "${var.learner_record_capacity}"
               },
               "kind":"linux"
           },
