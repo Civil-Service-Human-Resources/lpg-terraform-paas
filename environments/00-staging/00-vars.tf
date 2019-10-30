@@ -72,7 +72,7 @@ variable "civil_servant_registry_docker_tag" {
 }
 
 variable "identity_docker_tag" {
-  default = "master-49"
+  default = "PR-111-8"
 }
 
 variable "identity_management_docker_tag" {
@@ -100,7 +100,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "master-11"
+  default = "PR-596-4"
 }
 
 variable "notification_service_tag" {
@@ -142,6 +142,10 @@ variable "redis_use_tls" {
 }
 
 variable "redis_capacity" {
+  default = "0"
+}
+
+variable "redis_session_capacity" {
   default = "0"
 }
 

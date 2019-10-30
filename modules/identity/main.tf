@@ -183,10 +183,6 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "value":"3600"
                           },
                           {
-                              "name":"REDIS_USE_TLS",
-                              "value":"${var.redis_use_tls}"
-                          },
-                          {
                               "name":"LPG_UI_URL",
                               "value":"${var.lpg_ui_url}"
                           },
