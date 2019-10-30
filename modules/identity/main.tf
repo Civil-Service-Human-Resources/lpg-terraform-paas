@@ -168,12 +168,20 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "value":"${var.reset_url}"
                           },
                           {
-                              "name":"REDIS_URL",
-                              "value":"${var.redis_url}"
+                              "name":"REDIS_HOST",
+                              "value":"${var.redis_host}"
                           },
                           {
-                              "name":"REDIS_USE_TLS",
-                              "value":"${var.redis_use_tls}"
+                              "name":"REDIS_PASSWORD",
+                              "value":"${var.redis_password}"
+                          },
+                          {
+                              "name":"REDIS_PORT",
+                              "value":"${var.redis_port}"
+                          },
+                          {
+                              "name":"SESSION_TIMEOUT",
+                              "value":"3600"
                           },
                           {
                               "name":"LPG_UI_URL",
