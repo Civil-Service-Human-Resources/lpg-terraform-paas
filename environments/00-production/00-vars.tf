@@ -23,7 +23,7 @@ variable "webapp_sku_tier" {
 }
 
 variable "webapp_sku_tier_p2" {
-  default = "P2v2"
+  default = "PremiumV2"
 }
 
 variable "webapp_sku_name_1" {
