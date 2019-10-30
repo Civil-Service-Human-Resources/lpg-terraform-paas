@@ -89,7 +89,7 @@ resource "azurerm_template_deployment" "identity-app-service" {
                   "reserved":true,
                   "numberOfWorkers":"1",
                   "hostingEnvironment":"",
-                  "capacity": "10"
+                  "capacity": "${var.identity_capacity}"
               },
               "sku":{
                   "Tier":"${var.webapp_sku_tier}",
