@@ -11,14 +11,21 @@
 # Example: ./add_ip.sh lpgtest lpg-lpgtest-wso2
 
 IN=$(az webapp show -g $1 -n $2 --query possibleOutboundIpAddresses -o tsv)
-existing=$(az mysql server firewall-rule list -g $1 -s lpg-$1-mysql | grep -i startipaddress)
+existingMySQL=$(az mysql server firewall-rule list -g $1 -s lpg-$1-mysql | grep -i startipaddress)
+existingRedis=$(az redis firewall-rules list -g $1 -n lpg-$1-redis-session | grep -i startIp)
 
 ipList=$(echo ${IN} | tr "," "\n")
+az webapp show -g $1 -n $2 --query possibleOutboundIpAddresses -o tsv
+
 for i in ${ipList}
 do
   # do something here
-  if [[ ${existing} != *"${i}"* ]]; then
+  if [[ ${existingMySQL} != *"${i}"* ]]; then
     echo "Adding rule for ${i}"
-    addRule=$(az mysql server firewall-rule create -g $1 -s lpg-$1-mysql --name Rule_${1}_${i//./} --start-ip-address ${i} --end-ip-address ${i})
+    addMySQLRule=$(az mysql server firewall-rule create -g $1 -s lpg-$1-gp --name Rule_${1}_${i//./} --start-ip-address ${i} --end-ip-address ${i})
+  fi
+  if [[ ${existingRedis} != *"${i}"* ]]; then
+    echo "Adding rule to Redis for ${i}"
+    addRedisRule=$(az redis firewall-rules create -g $1 -n lpg-$1-redis-session --rule-name Rule_${1}_${i//./} --start-ip ${i} --end-ip ${i})
   fi
 done
