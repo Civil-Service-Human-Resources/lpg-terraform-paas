@@ -89,7 +89,7 @@ resource "azurerm_template_deployment" "learning-locker-xapi" {
                   "reserved":true,
                   "numberOfWorkers":"1",
                   "hostingEnvironment":"",
-                  "capacity": "5"
+                  "capacity": "${var.xapi_capacity}"
               },
               "sku":{
                   "Tier":"${var.webapp_sku_tier}",

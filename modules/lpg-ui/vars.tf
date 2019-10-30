@@ -25,6 +25,10 @@ variable "webapp_sku_name" {
   default = "B2"
 }
 
+variable "lpg_ui_capacity" {
+  default = "1"
+}
+
 variable "docker_tag" {
   default = "latest"
 }

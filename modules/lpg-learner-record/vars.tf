@@ -25,6 +25,10 @@ variable "webapp_sku_name" {
   default = "B1"
 }
 
+variable "learner_record_capacity" {
+  default = "1" 
+}
+
 variable "docker_tag" {
   default = "latest"
 }
