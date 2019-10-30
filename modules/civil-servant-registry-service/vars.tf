@@ -113,3 +113,11 @@ variable "docker_registry_server_password" {
 variable "ai_instrument_key" {
   default = ""
 }
+
+variable "custom_emails" {
+  default = ""
+}
+
+variable "scaling_enabled" {
+  default = ""
+}
