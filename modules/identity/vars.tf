@@ -109,7 +109,15 @@ variable "whitelisted_domains" {
   default = ""
 }
 
-variable "redis_url" {
+variable "redis_host" {
+  default = ""
+}
+
+variable "redis_password" {
+  default = ""
+}
+
+variable "redis_port" {
   default = ""
 }
 

@@ -207,6 +207,22 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value":"${var.uv_threadpool_size}"
                           },
                           {
+                              "name":"REDIS_HOST",
+                              "value":"${var.redis_host}"
+                          },
+                          {
+                              "name":"REDIS_PASSWORD",
+                              "value":"${var.redis_password}"
+                          },
+                          {
+                              "name":"REDIS_PORT",
+                              "value":"${var.redis_port}"
+                          },
+                          {
+                              "name":"REDIS_USE_TLS",
+                              "value":"${var.redis_use_tls}"
+                          },
+                          {
                               "name":"DOCKER_REGISTRY_SERVER_URL",
                               "value":"https://${var.docker_registry_server_url}"
                           },
