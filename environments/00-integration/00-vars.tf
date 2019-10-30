@@ -23,6 +23,10 @@ variable "webapp_sku_tier" {
   default = "Basic"
 }
 
+variable "webapp_sku_tier_p2" {
+  default = "PremiumV2"
+}
+
 variable "webapp_sku_name_1" {
   default = "B1"
 }
@@ -33,6 +37,10 @@ variable "webapp_sku_name_2" {
 
 variable "webapp_sku_name_3" {
   default = "B3"
+}
+
+variable "webapp_sku_name_p2" {
+  default = "P1v2"
 }
 
 variable "identity_capacity" {
