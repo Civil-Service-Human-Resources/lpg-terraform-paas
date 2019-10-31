@@ -9,7 +9,7 @@ else
     exit
 fi
 
-if [[ "$ENV" =~ ^(production|staging|integration)$ ]]; then
+if [[ "$ENV" =~ ^(production|staging|integration|perf)$ ]]; then
     echo "Setting symlink: $1"
 else
     echo "$ENV is not a valid environment"
