@@ -49,6 +49,15 @@ module "cosmos" {
   env_profile                             = "${var.env_profile}"
 }
 
+module "cosmos_migration" {
+  source                                  = "../../modules/cosmos"
+  rg_name                                 = "${var.rg_name}"
+  rg_prefix                               = "${var.rg_name}"
+  rg_location                             = "${var.rg_location}"
+  cosmos_name                             = "${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}-migration"
+  env_profile                             = "${var.env_profile}"
+}
+
 module "blob" {
   source                                  = "../../modules/blob"
   rg_name                                 = "${var.rg_name}"
