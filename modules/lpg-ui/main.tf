@@ -101,6 +101,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
               "type":"Microsoft.Web/sites",
               "name":"[parameters('siteName')]",
               "properties":{
+                  "clientAffinityEnabled": false,
                   "siteConfig":{
                       "appSettings":[
                           {
