@@ -196,6 +196,7 @@ module "lpg-report-service" {
   envurl                          = "${var.envurl}"
   webapp_sku_tier                 = "${var.webapp_sku_tier}"
   webapp_sku_name                 = "${var.webapp_sku_name_1}"
+  ai_instrument_key               = "${var.ai_instrument_key}"
   docker_registry_server_url      = "${var.docker_registry_server_url}"
   docker_registry_server_username = "${var.docker_registry_server_username}"
   docker_registry_server_password = "${var.docker_registry_server_password}"
@@ -443,5 +444,6 @@ module "notification-service" {
   docker_registry_server_password           = "${var.docker_registry_server_password}"
   webapp_sku_tier                           = "${var.webapp_sku_tier}"
   webapp_sku_name                           = "${var.webapp_sku_name_1}"
+  ai_instrument_key                         = "${var.ai_instrument_key}"
   notification_capacity                     = "${var.notification_capacity}"
 }
