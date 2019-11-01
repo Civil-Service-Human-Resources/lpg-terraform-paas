@@ -125,7 +125,7 @@ variable "lpg_learner_record_docker_tag" {
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "master-4"
+  default = "perf-add-appInsights-1"
 }
 
 variable "lpg_management_tag" {
@@ -133,7 +133,7 @@ variable "lpg_management_tag" {
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "master-16"
+  default = "perf-add-appInsights-1"
 }
 
 variable "lpg_services_tag" {
@@ -141,7 +141,7 @@ variable "lpg_services_tag" {
 }
 
 variable "notification_service_tag" {
-  default = "PR-2-7"
+  default = "perf-add-appInsights-1"
 }
 
 ### cosmos ###
