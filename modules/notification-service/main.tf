@@ -56,6 +56,10 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
                        "value":"${var.gov_notify_api_key}"
                     },
                     {
+                       "name":"APPINSIGHTS_INSTRUMENTATIONKEY",
+                       "value":"${var.ai_instrument_key}"
+                    },
+                    {
                        "name":"DOCKER_REGISTRY_SERVER_URL",
                        "value":"https://${var.docker_registry_server_url}"
                     },
