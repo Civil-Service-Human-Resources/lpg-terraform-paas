@@ -5,7 +5,7 @@ variable "rg_name" {
 }
 variable "ai_instrument_key" {
   type = "string"
-  default = "c2b75b49-1abf-42dc-a4ef-1c17fd1936d9"
+  default = "a455f407-a0ba-4ed5-a236-f9ac00960aa1"
 }
 
 variable "rg_prefix" {
