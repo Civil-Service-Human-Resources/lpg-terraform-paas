@@ -32,7 +32,7 @@ cleanup() {
             echo "${2} from ${1} in use - skipping"
         else
             echo "Deleting ${image} from ${1}"
-            #az acr repository delete --name ${registry} --image ${1}:${image} --yes --verbose
+            az acr repository delete --name ${registry} --image ${1}:${image} --yes --verbose
         fi
     done
 }
@@ -41,10 +41,10 @@ cleanup() {
 dockerPull() {
     az account set -s CSL-Staging
     az acr login --name ${registry}
-    # for image in ${2}
-    # do
-    #     #docker pull ${registry}.azurecr.io/${1}:${2}
-    # done
+    for image in ${2}
+    do
+        docker pull ${registry}.azurecr.io/${1}:${2}
+    done
 }
 
 # Get all in use containers from all envs
