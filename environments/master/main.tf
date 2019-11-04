@@ -357,6 +357,7 @@ module "lpg-learning-catalogue" {
   custom_emails                   = "${var.custom_emails}"
   webapp_sku_tier                 = "${var.webapp_sku_tier}"
   webapp_sku_name                 = "${var.webapp_sku_name_1}"
+  ai_instrument_key               = "${var.ai_instrument_key}"
   learning_catalogue_capacity     = "${var.learning_catalogue_capacity}"
   docker_registry_server_url      = "${var.docker_registry_server_url}"
   docker_registry_server_username = "${var.docker_registry_server_username}"
