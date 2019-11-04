@@ -24,7 +24,7 @@ getContainer() {
 
 # Function to cleanup ACR
 cleanup() {
-    IMAGES_FULL=`az acr repository show-tags --repository ${registry} --name ${1} -o tsv | sort`
+    IMAGES_FULL=`az acr repository show-tags --repository ${1} --name ${registry} -o tsv | sort`
     
     for image in ${IMAGES_FULL}
     do
@@ -41,10 +41,10 @@ cleanup() {
 dockerPull() {
     az account set -s CSL-Staging
     az acr login --name ${registry}
-    for image in ${2}
-    do
-        docker pull ${registry}.azurecr.io/${1}:${2}
-    done
+    # for image in ${2}
+    # do
+    #     #docker pull ${registry}.azurecr.io/${1}:${2}
+    # done
 }
 
 # Get all in use containers from all envs
