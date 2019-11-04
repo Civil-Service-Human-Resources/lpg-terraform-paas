@@ -39,9 +39,10 @@ cleanup() {
 
 # Function to pull in use containers
 dockerPull() {
+    az account set -s CSL-Staging
+    az acr login --name ${registry}
     for image in ${2}
     do
-        az acr login --name ${registry}
         docker pull ${registry}.azurecr.io/${1}:${2}
     done
 }
