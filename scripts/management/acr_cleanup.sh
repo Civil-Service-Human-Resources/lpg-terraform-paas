@@ -6,9 +6,11 @@
 #
 # Example: ./acr_cleanup.sh registryname
 
+registry=${1}
+
 # Function to set to correct subscription per env
 setSub() {
-    if [[ ${2} == "integration" ]] || [[ ${2} == "staging" ]]; then
+    if [[ ${1} == "integration" ]] || [[ ${1} == "staging" ]]; then
         az account set -s CSL-Staging
     else
         az account set -s CSL-Production
@@ -17,30 +19,30 @@ setSub() {
 
 # Function to get the container from webapp config
 getContainer() {
-    container=`az webapp config container show -g lpg${2} --name ${3} -o table --query "[?name=='DOCKER_CUSTOM_IMAGE_NAME'].[value]" | grep -i \: | awk  -F ':' '{gsub(/\"|\,/,"")}1 {print $2}'`
+    container=`az webapp config container show -g lpg${1} --name ${2} -o table --query "[?name=='DOCKER_CUSTOM_IMAGE_NAME'].[value]" | grep -i \: | awk  -F ':' '{gsub(/\"|\,/,"")}1 {print $2}'`
 }
 
 # Function to cleanup ACR
 cleanup() {
-    IMAGES_FULL=`az acr repository show-tags --repository ${2} --name ${1} -o tsv | sort`
+    IMAGES_FULL=`az acr repository show-tags --repository ${registry} --name ${1} -o tsv | sort`
     
     for image in ${IMAGES_FULL}
     do
-        if [[ "${3}" == "${image}" ]]; then
-            echo "${3} from ${2} in use - skipping"
+        if [[ "${2}" == "${image}" ]]; then
+            echo "${2} from ${1} in use - skipping"
         else
-            echo "Deleting ${image} from ${2}"
-            #az acr repository delete --name ${1} --image ${2}:${image} --yes --verbose
+            echo "Deleting ${image} from ${1}"
+            #az acr repository delete --name ${registry} --image ${1}:${image} --yes --verbose
         fi
     done
 }
 
 # Function to pull in use containers
 dockerPull() {
-    for image in ${3}
+    for image in ${2}
     do
-        az acr login --name ${1}
-        docker pull ${1}.azurecr.io/${2}:${3}
+        az acr login --name ${registry}
+        docker pull ${registry}.azurecr.io/${1}:${2}
     done
 }
 
