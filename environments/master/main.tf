@@ -171,6 +171,7 @@ module "lpg-learner-record" {
   docker_registry_server_password = "${var.docker_registry_server_password}"
   cosmos_connection_string        = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   database                        = "admin"
+  ai_instrument_key               = "${var.ai_instrument_key}"
 }
 
 module "lpg-report-service" {
