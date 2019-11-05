@@ -38,6 +38,10 @@ variable "webapp_sku_name_3" {
   default = "B3"
 }
 
+variable "webapp_sku_name_p1" {
+  default = "P1v2"
+}
+
 variable "webapp_sku_name_p2" {
   default = "P1v2"
 }
