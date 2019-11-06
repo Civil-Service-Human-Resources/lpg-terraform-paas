@@ -15,7 +15,7 @@ resource "azurerm_redis_cache" "redis_cache" {
     maxmemory_policy   = "${var.redis_maxmemory_policy}"
   }
 
-  tags {
+  tags = {
     environment = "${var.env_profile}"
   }
 }

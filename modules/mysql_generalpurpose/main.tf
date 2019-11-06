@@ -24,7 +24,7 @@ resource "azurerm_mysql_server" "lpg_gp" {
   version                      = "5.7"
   ssl_enforcement              = "Enabled"
 
-  tags {
+  tags = {
     environment = "${var.env_profile}"
   }
 }

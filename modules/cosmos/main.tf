@@ -16,7 +16,7 @@ resource "azurerm_cosmosdb_account" "test" {
     failover_priority = 0
   }
 
-  tags {
+  tags = {
     environment = "${var.env_profile}"
   }
 }
