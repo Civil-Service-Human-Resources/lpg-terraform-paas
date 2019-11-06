@@ -43,11 +43,11 @@ variable "webapp_sku_name_p2" {
 }
 
 variable "identity_capacity" {
-  default = "10"
+  default = "6"
 }
 
 variable "csrs_capacity" {
-  default = "10"
+  default = "6"
 }
 
 variable "xapi_capacity" {
@@ -55,15 +55,15 @@ variable "xapi_capacity" {
 }
 
 variable "learner_record_capacity" {
-  default = "10"
+  default = "6"
 }
 
 variable "learning_catalogue_capacity" {
-  default = "10"
+  default = "6"
 }
 
 variable "lpg_ui_capacity" {
-  default = "10"
+  default = "6"
 }
 
 variable "notification_capacity" {
