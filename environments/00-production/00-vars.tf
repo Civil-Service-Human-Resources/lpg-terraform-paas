@@ -124,7 +124,7 @@ variable "lpg_learner_record_docker_tag" {
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "master-4"
+  default = "master-7"
 }
 
 variable "lpg_management_tag" {
@@ -132,15 +132,15 @@ variable "lpg_management_tag" {
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "master-16"
+  default = "master-3"
 }
 
 variable "lpg_services_tag" {
-  default = "master-13"
+  default = "master-14"
 }
 
 variable "notification_service_tag" {
-  default = "PR-2-7"
+  default = "master-5"
 }
 
 ### cosmos ###
