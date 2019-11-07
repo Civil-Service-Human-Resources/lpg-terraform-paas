@@ -6,7 +6,7 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
 
   template_body = <<DEPLOY
   {
-      "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+      "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion":"1.0.0.0",
       "parameters":{
           "siteName":{
@@ -95,10 +95,9 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
                   },
                   "httpsOnly":true,
                   "name":"[parameters('siteName')]",
-                  "serverFarmId":"[variables('hostingPlanName')]",
-                  "hostingEnvironment":""
+                  "serverFarmId":"[variables('hostingPlanName')]"
               },
-              "apiVersion":"2016-03-01",
+              "apiVersion":"2019-08-01",
               "location":"[resourceGroup().location]",
               "tags":{
                   "environment":"${var.env_profile}"
@@ -108,29 +107,28 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
               ]
           },
           {
-              "apiVersion":"2016-09-01",
+              "apiVersion":"2019-08-01",
               "name":"[variables('hostingPlanName')]",
               "type":"Microsoft.Web/serverfarms",
               "location":"[resourceGroup().location]",
               "properties":{
                   "name":"[variables('hostingPlanName')]",
-                  "workerSizeId":"1",
+                  "workerTierName":null,
+                  "adminSiteName":null,
                   "reserved":true,
-                  "numberOfWorkers":"1",
-                  "hostingEnvironment":""
+                  "kind":"linux",
+                  "perSiteScaling":false
               },
               "sku":{
                   "Tier":"${var.webapp_sku_tier}",
                   "Name":"${var.webapp_sku_name}"
-              },
-              "kind":"linux"
+              }
           },
           {
               "type":"Microsoft.Web/sites/config",
               "name":"[concat(parameters('siteName'), '/web')]",
               "apiVersion":"2016-08-01",
-              "location":"UK South",
-              "scale":null,
+              "location":"[resourceGroup().location]",
               "properties":{
                   "httpLoggingEnabled":true,
                   "logsDirectorySizeLimit":35,
@@ -138,7 +136,7 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
                   "alwaysOn":true,
                   "appCommandLine":"/bin/hammer /opt/learning-locker/run-ui.sh",
                   "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
-                  "minTlsVersion":"1.0",
+                  "minTlsVersion":"1.2",
                   "ftpsState":"Disabled"
               },
               "dependsOn":[
