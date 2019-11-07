@@ -262,11 +262,6 @@ variable "azure_account_name" {
   default = "lpgdev"
 }
 
-### mysql ###
-variable "mysql_name" {
-  default = "mysql"
-}
-
 variable "mysql_name_gp" {
   default = "gp"
 }
