@@ -261,16 +261,10 @@ variable "azure_account_name" {
   default = "lpglpgprodblob"
 }
 
-### mysql ###
-variable "mysql_name" {
-  default = "mysql"
-}
-
 ### mysql_gp ###
 variable "mysql_name_gp" {
   default = "gp"
 }
-
 
 ### civil-servant-registry ###
 variable "civil_servant_registry_name" {
