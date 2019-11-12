@@ -436,3 +436,28 @@ module "notification-service" {
   ai_instrument_key                         = "${var.ai_instrument_key}"
   notification_capacity                     = "${var.notification_capacity}"
 }
+
+module "overview-dashboard" {
+  source                      = "../../modules/dashboards"
+  overview_dashboard_name     = "CSL ${title(var.env_profile)} Service Overview"
+  rg_name                     = "${var.rg_name}"
+  rg_prefix                   = "${var.rg_prefix}"
+  rg_location                 = "${var.rg_location}"
+  env_profile                 = "${var.env_profile}"
+  civil_servant_registry_name = "${var.rg_prefix}-${var.rg_name}-${var.civil_servant_registry_name}"
+  identity_management_name    = "${var.rg_prefix}-${var.rg_name}-${var.identity_management_name}"
+  identity_name               = "${var.rg_prefix}-${var.rg_name}-${var.identity_name}"
+  learning_locker_worker_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_worker_name}"
+  learning_locker_ui_name     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}"
+  learning_locker_xapi_name   = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}"
+  lpg_learner_record_name     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learner_record_name}"
+  lpg_learning_catalogue_name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_catalogue_name}"
+  lpg_management_name         = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management_name}"
+  lpg_report_service_name     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_report_service_name}"
+  lpg_ui_name                 = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
+  notification_service_name   = "${var.rg_prefix}-${var.rg_name}-${var.notification_service_name}"
+  redis_name                  = "${var.rg_prefix}-${var.rg_name}-redis"
+  redis_name_session          = "${var.rg_prefix}-${var.rg_name}-redis-session"
+  mysql_name                  = "${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}"
+  cosmos_name                 = "${var.rg_prefix}-${var.rg_name}-${var.cosmos_name}"
+}
