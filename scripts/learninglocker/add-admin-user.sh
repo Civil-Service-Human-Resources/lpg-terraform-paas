@@ -1,5 +1,10 @@
 #!/bin/bash -ev
 
+# ################################################################
+# This script is no longer used or needed. Please read the readme 
+# file for instructions on creating a LL admin user
+# ################################################################
+
 # setup the admin user in the database
 echo 'Num arguments provided ' $#
 if [[ $# -eq 0 ]]; then
