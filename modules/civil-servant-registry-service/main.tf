@@ -152,7 +152,7 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
                 "value": "${var.gov_notify_linemanager_template_id}"
               },
               {
-                "name": "instrumentation_key",
+                "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
                 "value": "${var.ai_instrument_key}"
               },
               {
