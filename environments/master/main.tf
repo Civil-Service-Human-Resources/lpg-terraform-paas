@@ -365,13 +365,20 @@ module "civil-servant-registry-service" {
   gov_notify_api_key                  = "${var.gov_notify_api_key}"
   envurl                              = "${var.envurl}"
   authentication_service_url          = "https://${var.envurl}identity.${var.domain}"
+<<<<<<< HEAD
   webapp_sku_tier                     = "${var.webapp_sku_tier_p2}"
   webapp_sku_name                     = "${var.webapp_sku_name_p1}"
+=======
+  webapp_sku_tier                     = "${var.webapp_sku_tier}"
+  webapp_sku_name                     = "${var.webapp_sku_name_2}"
+>>>>>>> Civil servant egistry service new template
   csrs_capacity                       = "${var.csrs_capacity}"
   docker_registry_server_url          = "${var.docker_registry_server_url}"
   docker_registry_server_username     = "${var.docker_registry_server_username}"
   docker_registry_server_password     = "${var.docker_registry_server_password}"
   ai_instrument_key                   = "${var.ai_instrument_key}"
+  scaling_enabled                     = "${var.scaling_enabled}"
+  custom_emails                       = "${var.custom_emails}"
 }
 
 module "lpg-management" {
