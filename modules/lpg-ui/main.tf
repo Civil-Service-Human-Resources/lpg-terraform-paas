@@ -233,13 +233,14 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                           }
                       ]
                   },
+                  "clientAffinityEnabled":true,
                   "httpsOnly":true,
                   "reserved":true,
                   "name":"[parameters('siteName')]",
                   "serverFarmId":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
                   "hostNameSslStates":[
                       {
-                          "name":"[concat(parameters('websiteCustomName'),'.',parameters('websiteCustomDomain'))]",
+                          "name":"[concat(parameters('websiteCustomName'),parameters('websiteCustomDomain'))]",
                           "sslState":"SniEnabled",
                           "thumbprint":"[reference(resourceId('Microsoft.Web/certificates', parameters('certificateName'))).Thumbprint]",
                           "toUpdate":true,
@@ -278,7 +279,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
           },
           {
               "type":"Microsoft.Web/sites/hostNameBindings",
-              "name":"[concat(parameters('sitename'), '/', parameters('websiteCustomName'), '.', parameters('websiteCustomDomain'))]",
+              "name":"[concat(parameters('sitename'), '/', parameters('websiteCustomName'), parameters('websiteCustomDomain'))]",
               "apiVersion":"2019-08-01",
               "location":"[resourceGroup().location]",
               "properties":{
