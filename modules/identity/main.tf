@@ -75,8 +75,7 @@ resource "azurerm_template_deployment" "identity-app-service" {
                   "serverFarmId":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
               },
               "dependsOn":[
-                  "[variables('hostingPlanName')]",
-                  "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
+                  "[variables('hostingPlanName')]"
               ]
           },
           {
