@@ -6,7 +6,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
 
   template_body = <<DEPLOY
   {
-      "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+      "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion":"1.0.0.0",
       "parameters":{
           "siteName":{
@@ -67,7 +67,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
           {
               "type":"Microsoft.Web/certificates",
               "name":"[parameters('certificateName')]",
-              "apiVersion":"2016-03-01",
+              "apiVersion":"2019-08-01",
               "location":"[resourceGroup().location]",
               "properties":{
                   "keyVaultId":"[parameters('existingKeyVaultId')]",
@@ -79,23 +79,23 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
               ]
           },
           {
-              "apiVersion":"2016-09-01",
+              "apiVersion":"2019-08-01",
               "name":"[variables('hostingPlanName')]",
               "type":"Microsoft.Web/serverfarms",
               "location":"[resourceGroup().location]",
               "properties":{
                   "name":"[variables('hostingPlanName')]",
-                  "workerSizeId":"1",
+                  "workerTierName":null,
+                  "adminSiteName":null,
                   "reserved":true,
-                  "numberOfWorkers":"1",
-                  "hostingEnvironment":""
+                  "kind":"linux",
+                  "perSiteScaling":false
               },
               "sku":{
                   "Tier":"${var.webapp_sku_tier}",
                   "Name":"${var.webapp_sku_name}",
                   "capacity": "${var.learner_record_capacity}"
-              },
-              "kind":"linux"
+              }
           },
           {
               "type":"Microsoft.Web/sites",
@@ -222,9 +222,9 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                       ]
                   },
                   "httpsOnly":true,
+                  "reserved":true,
                   "name":"[parameters('siteName')]",
-                  "serverFarmId":"[variables('hostingPlanName')]",
-                  "hostingEnvironment":"",
+                  "serverFarmId":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
                   "hostNameSslStates":[
                       {
                           "name":"[concat(parameters('websiteCustomName'),'.',parameters('websiteCustomDomain'))]",
@@ -232,24 +232,10 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                           "thumbprint":"[reference(resourceId('Microsoft.Web/certificates', parameters('certificateName'))).Thumbprint]",
                           "toUpdate":true,
                           "hostType":"Standard"
-                      },
-                      {
-                          "name":"[concat(parameters('siteName'),'.azurewebsites.net')]",
-                          "sslState":"Disabled",
-                          "thumbprint":null,
-                          "toUpdate":true,
-                          "hostType":"Standard"
-                      },
-                      {
-                          "name":"[concat(parameters('siteName'),'.scm.azurewebsites.net')]",
-                          "sslState":"Disabled",
-                          "thumbprint":null,
-                          "toUpdate":true,
-                          "hostType":"Standard"
                       }
                   ]
               },
-              "apiVersion":"2016-03-01",
+              "apiVersion":"2019-08-01",
               "location":"[resourceGroup().location]",
               "tags":{
                   "environment":"${var.env_profile}"
@@ -262,9 +248,8 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
           {
               "type":"Microsoft.Web/sites/config",
               "name":"[concat(parameters('siteName'), '/web')]",
-              "apiVersion":"2016-08-01",
-              "location":"UK South",
-              "scale":null,
+              "apiVersion":"2019-08-01",
+              "location":"[resourceGroup().location]",
               "properties":{
                   "httpLoggingEnabled":true,
                   "logsDirectorySizeLimit":35,
@@ -272,7 +257,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                   "alwaysOn":true,
                   "appCommandLine":"/bin/hammer java -jar /data/app.jar",
                   "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
-                  "minTlsVersion":"1.0",
+                  "minTlsVersion":"1.2",
                   "ftpsState":"Disabled"
               },
               "dependsOn":[
@@ -281,25 +266,9 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
           },
           {
               "type":"Microsoft.Web/sites/hostNameBindings",
-              "name":"[concat(parameters('sitename'), '/', parameters('sitename'), '.azurewebsites.net')]",
-              "apiVersion":"2016-08-01",
-              "location":"UK South",
-              "scale":null,
-              "properties":{
-                  "siteName":"[parameters('sitename')]",
-                  "domainId":null,
-                  "hostNameType":"Verified"
-              },
-              "dependsOn":[
-                  "[resourceId('Microsoft.Web/sites', parameters('sitename'))]"
-              ]
-          },
-          {
-              "type":"Microsoft.Web/sites/hostNameBindings",
               "name":"[concat(parameters('sitename'), '/', parameters('websiteCustomName'), '.', parameters('websiteCustomDomain'))]",
-              "apiVersion":"2016-08-01",
-              "location":"UK South",
-              "scale":null,
+              "apiVersion":"2019-08-01",
+              "location":"[resourceGroup().location]",
               "properties":{
                   "siteName":"[parameters('sitename')]",
                   "domainId":null,
@@ -317,7 +286,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
               "dependsOn":[
                   "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
               ],
-              "apiVersion":"2014-04-01",
+              "apiVersion":"2015-04-01",
               "location":"[resourceGroup().location]",
               "properties":{
                   "profiles":[
@@ -328,9 +297,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                               "maximum":"2",
                               "default":"2"
                           },
-                          "rules":[
-
-                          ],
+                          "rules":[],
                           "recurrence":{
                               "frequency":"Week",
                               "schedule":{
@@ -360,9 +327,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                               "maximum":"2",
                               "default":"2"
                           },
-                          "rules":[
-
-                          ],
+                          "rules":[],
                           "recurrence":{
                               "frequency":"Week",
                               "schedule":{
@@ -530,9 +495,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                               "maximum":"2",
                               "default":"2"
                           },
-                          "rules":[
-
-                          ],
+                          "rules":[],
                           "recurrence":{
                               "frequency":"Week",
                               "schedule":{
@@ -562,9 +525,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                               "maximum":"2",
                               "default":"2"
                           },
-                          "rules":[
-
-                          ],
+                          "rules":[],
                           "recurrence":{
                               "frequency":"Week",
                               "schedule":{
@@ -624,9 +585,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                               "maximum":"2",
                               "default":"2"
                           },
-                          "rules":[
-
-                          ],
+                          "rules":[],
                           "recurrence":{
                               "frequency":"Week",
                               "schedule":{
