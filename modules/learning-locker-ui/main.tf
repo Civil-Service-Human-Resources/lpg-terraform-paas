@@ -127,7 +127,7 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
           {
               "type":"Microsoft.Web/sites/config",
               "name":"[concat(parameters('siteName'), '/web')]",
-              "apiVersion":"2016-08-01",
+              "apiVersion":"2019-08-01",
               "location":"[resourceGroup().location]",
               "properties":{
                   "httpLoggingEnabled":true,
