@@ -98,8 +98,9 @@ resource "azurerm_template_deployment" "identity-management-app-service" {
                       ]
                   },
                   "httpsOnly":true,
+                  "reserved":true,
                   "name": "[parameters('siteName')]",
-                  "serverFarmId": "[variables('hostingPlanName')]"
+                  "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
               },
               "apiVersion": "2019-08-01",
               "location": "[resourceGroup().location]",

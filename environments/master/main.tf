@@ -88,7 +88,7 @@ module "identity" {
   custom_emails                           = "${var.custom_emails}"
   webapp_sku_tier                         = "${var.webapp_sku_tier_p2}"
   webapp_sku_name                         = "${var.webapp_sku_name_p2}"
-  identity_capacity                         = "${var.identity_capacity}"
+  identity_capacity                       = "${var.identity_capacity}"
   docker_registry_server_url              = "${var.docker_registry_server_url}"
   docker_registry_server_username         = "${var.docker_registry_server_username}"
   docker_registry_server_password         = "${var.docker_registry_server_password}"
