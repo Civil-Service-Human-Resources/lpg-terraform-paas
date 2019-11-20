@@ -217,20 +217,6 @@ resource "azurerm_template_deployment" "identity-app-service" {
                           "thumbprint":"[reference(resourceId('Microsoft.Web/certificates', parameters('certificateName'))).Thumbprint]",
                           "toUpdate":true,
                           "hostType":"Standard"
-                      },
-                      {
-                          "name":"[concat(parameters('siteName'),'.azurewebsites.net')]",
-                          "sslState":"Disabled",
-                          "thumbprint":null,
-                          "toUpdate":true,
-                          "hostType":"Standard"
-                      },
-                      {
-                          "name":"[concat(parameters('siteName'),'.scm.azurewebsites.net')]",
-                          "sslState":"Disabled",
-                          "thumbprint":null,
-                          "toUpdate":true,
-                          "hostType":"Standard"
                       }
                   ]
               },
@@ -260,20 +246,6 @@ resource "azurerm_template_deployment" "identity-app-service" {
               },
               "dependsOn":[
                   "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
-              ]
-          },
-          {
-              "type":"Microsoft.Web/sites/hostNameBindings",
-              "name":"[concat(parameters('sitename'), '/', parameters('sitename'), '.azurewebsites.net')]",
-              "apiVersion":"2019-08-01",
-              "location":"[resourceGroup().location]",
-              "properties":{
-                  "siteName":"[parameters('sitename')]",
-                  "domainId":null,
-                  "hostNameType":"Verified"
-              },
-              "dependsOn": [
-                  "[resourceId('Microsoft.Web/sites', parameters('sitename'))]"
               ]
           },
           {
