@@ -202,6 +202,22 @@ resource "azurerm_template_deployment" "identity-app-service" {
                           {
                               "name":"DOCKER_REGISTRY_SERVER_PASSWORD",
                               "value":"${var.docker_registry_server_password}"
+                          },
+                          {
+                              "name":"MAINTENANCE_ENABLED",
+                              "value":"${var.maintenance_enabled}"
+                          },
+                          {
+                              "name":"MAINTENANCE_WINDOW_MESSAGE",
+                              "value":"${var.maintenance_window_message}"
+                          },
+                          {
+                              "name":"MAINTENANCE_TOKEN_NAME",
+                              "value":"${var.maintenance_token_name}"
+                          },
+                          {
+                              "name":"MAINTENANCE_TOKEN_VALUE",
+                              "value":"${var.maintenance_token_value}"
                           }
                       ]
                   },

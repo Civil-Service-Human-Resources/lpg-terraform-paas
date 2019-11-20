@@ -88,12 +88,16 @@ module "identity" {
   custom_emails                           = "${var.custom_emails}"
   webapp_sku_tier                         = "${var.webapp_sku_tier_p2}"
   webapp_sku_name                         = "${var.webapp_sku_name_p2}"
-  identity_capacity                         = "${var.identity_capacity}"
+  identity_capacity                       = "${var.identity_capacity}"
   docker_registry_server_url              = "${var.docker_registry_server_url}"
   docker_registry_server_username         = "${var.docker_registry_server_username}"
   docker_registry_server_password         = "${var.docker_registry_server_password}"
   authentication_service_url              = "https://${var.envurl}identity.${var.domain}"
   ai_instrument_key                       = "${var.ai_instrument_key}"
+  maintenance_enabled                     = "${var.maintenance_enabled}"
+  maintenance_window_message              = "${var.maintenance_window_message}"
+  maintenance_token_name                  = "${var.maintenance_token_name}"
+  maintenance_token_value                 = "${var.maintenance_token_value}"
 }
 
 module "identity-management" {
@@ -318,6 +322,10 @@ module "lpg-ui" {
   redis_host                      = "${module.redis-session.redis_host}"
   redis_password                  = "${module.redis-session.redis_key}"
   redis_port                      = "6379"
+  maintenance_enabled             = "${var.maintenance_enabled}"
+  maintenance_window_message      = "${var.maintenance_window_message}"
+  maintenance_token_name          = "${var.maintenance_token_name}"
+  maintenance_token_value         = "${var.maintenance_token_value}"
 }
 
 module "lpg-learning-catalogue" {

@@ -314,3 +314,20 @@ variable "content_container" {
 variable "notification_service_name" {
   default = "notification-service"
 }
+
+### maintenance window vars ###
+variable "maintenance_enabled" {
+  default = "false"
+}
+
+variable "maintenance_window_message" {
+  default = "message"
+}
+
+variable "maintenance_token_name" {
+  default = "token"
+}
+
+variable "maintenance_token_value" {
+  default = "token_value"
+}
