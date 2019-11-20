@@ -118,6 +118,7 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                       ]
                   },
                   "httpsOnly":true,
+                  "reserved":true,
                   "name": "[parameters('siteName')]",
                   "serverFarmId": "[variables('hostingPlanName')]"
               },
