@@ -38,3 +38,7 @@ variable "lpg_gp_tier"{
 variable "lpg_gp_family"{
     default="Gen5"
 }
+
+variable "mysql_storage" {
+     default = "51200"
+}

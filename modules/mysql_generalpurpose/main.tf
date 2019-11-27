@@ -13,7 +13,7 @@ resource "azurerm_mysql_server" "lpg_gp" {
   }
 
   storage_profile {
-    storage_mb = "51200"
+    storage_mb = "${var.mysql_storage}"
     backup_retention_days = 30
     geo_redundant_backup = "Disabled"
     auto_grow = "Disabled"
