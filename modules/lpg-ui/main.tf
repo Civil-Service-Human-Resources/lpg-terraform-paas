@@ -230,6 +230,14 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                           {
                               "name":"DOCKER_REGISTRY_SERVER_PASSWORD",
                               "value":"${var.docker_registry_server_password}"
+                          },
+                          {
+                              "name":"XAPI_USER",
+                              "value":"${var.xapi_user}"
+                          },
+                          {
+                              "name":"XAPI_PASS",
+                              "value":"${var.xapi_pass}"
                           }
                       ]
                   },

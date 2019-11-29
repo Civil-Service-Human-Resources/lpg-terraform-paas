@@ -152,6 +152,8 @@ module "lpg-learner-record" {
   cosmos_connection_string        = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
   database                        = "admin"
   ai_instrument_key               = "${var.ai_instrument_key}"
+  xapi_username                   = "${var.xapi_username}"
+  xapi_password                   = "${var.xapi_password}"
 }
 
 module "lpg-report-service" {
@@ -307,6 +309,8 @@ module "lpg-ui" {
   redis_host                      = "${module.redis-session.redis_host}"
   redis_password                  = "${module.redis-session.redis_key}"
   redis_port                      = "6379"
+  xapi_user                       = "${var.xapi_username}"
+  xapi_pass                       = "${var.xapi_password}"
 }
 
 module "lpg-learning-catalogue" {

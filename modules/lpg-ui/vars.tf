@@ -188,3 +188,10 @@ variable "custom_emails" {
 variable "scaling_enabled" {
   default = ""
 }
+
+variable "xapi_user" {
+  default = "username"
+}
+variable "xapi_pass" {
+  default = "password"
+}
