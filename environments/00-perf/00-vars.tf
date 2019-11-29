@@ -147,6 +147,9 @@ variable "notification_service_tag" {
   default = "master-5"
 }
 
+variable "data_transchiver_tag" {
+  default = "master-5"
+}
 ### cosmos ###
 variable "cosmos_name" {
   default = "cosmos"
@@ -323,4 +326,13 @@ variable "notification_service_name" {
 
 variable "feedback_recipient" {
   default = "feedback@cslearning.gov.uk"
+}
+
+### data-transchriver ###ß
+variable "data_transchiver_name" {
+  default = "lpg-data-transchriver"
+}
+
+variable "job_schedule" {
+  default = "0 1 1 * * *"
 }
