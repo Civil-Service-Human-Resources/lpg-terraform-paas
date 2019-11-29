@@ -124,23 +124,23 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "master-2"
+  default = "master-5"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "master-4"
+  default = "master-7"
 }
 
 variable "lpg_management_tag" {
-  default = "fix-report-timeout-1"
+  default = "master-9"
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "master-16"
+  default = "master-3"
 }
 
 variable "lpg_services_tag" {
-  default = "master-13"
+  default = "master-16"
 }
 
 variable "notification_service_tag" {
