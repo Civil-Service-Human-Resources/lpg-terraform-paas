@@ -132,7 +132,7 @@ variable "learning_catalogue_docker_tag" {
 }
 
 variable "lpg_management_tag" {
-  default = "fix-report-timeout-1"
+  default = "master-9"
 }
 
 variable "lpg_report_service_docker_tag" {
@@ -140,7 +140,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "master-14"
+  default = "master-16"
 }
 
 variable "notification_service_tag" {
