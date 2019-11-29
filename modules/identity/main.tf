@@ -240,6 +240,7 @@ resource "azurerm_template_deployment" "identity-app-service" {
                   "logsDirectorySizeLimit":35,
                   "detailedErrorLoggingEnabled":true,
                   "alwaysOn":true,
+                  "appCommandLine": "java  -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar",
                   "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
                   "minTlsVersion":"1.2",
                   "ftpsState":"Disabled"
