@@ -148,6 +148,10 @@ variable "notification_service_tag" {
   default = "master-5"
 }
 
+variable "data_transchiver_tag" {
+  default = "fix-schedule-1"
+}
+
 ### cosmos ###
 variable "cosmos_name" {
   default = "cosmos"
@@ -266,8 +270,18 @@ variable "azure_account_name" {
   default = "lpgdev"
 }
 
+### mysql_gp ###
 variable "mysql_name_gp" {
   default = "gp"
+}
+
+### mysql_ll ###
+variable "mysql_name_ll" {
+  default = "ll"
+}
+
+variable "mysql_storage" {
+  default = "4194304"
 }
 
 ### civil-servant-registry ###
@@ -311,4 +325,13 @@ variable "content_container" {
 ### notification-service ###
 variable "notification_service_name" {
   default = "notification-service"
+}
+
+### data-transchriver ###ß
+variable "data_transchiver_name" {
+  default = "lpg-data-transchriver"
+}
+
+variable "job_schedule" {
+  default = "0 1 1 * * *"
 }
