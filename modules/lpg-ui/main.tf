@@ -220,6 +220,14 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value":"${var.redis_port}"
                           },
                           {
+                              "name":"XAPI_USER",
+                              "value":"${var.xapi_username}"
+                          },
+                          {
+                              "name":"XAPI_PASS",
+                              "value":"${var.xapi_password}"
+                          },
+                          {
                               "name":"DOCKER_REGISTRY_SERVER_URL",
                               "value":"https://${var.docker_registry_server_url}"
                           },
@@ -233,7 +241,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                           }
                       ]
                   },
-                  "clientAffinityEnabled":true,
+                  "clientAffinityEnabled":false,
                   "httpsOnly":true,
                   "reserved":true,
                   "name":"[parameters('siteName')]",
