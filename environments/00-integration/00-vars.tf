@@ -149,7 +149,7 @@ variable "notification_service_tag" {
 }
 
 variable "data_transchiver_tag" {
-  default = "fix-schedule-1"
+  default = "master-7"
 }
 
 ### cosmos ###
