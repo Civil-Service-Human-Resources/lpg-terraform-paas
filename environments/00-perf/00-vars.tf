@@ -148,8 +148,9 @@ variable "notification_service_tag" {
 }
 
 variable "data_transchiver_tag" {
-  default = "master-5"
+  default = "master-7"
 }
+
 ### cosmos ###
 variable "cosmos_name" {
   default = "cosmos"
@@ -281,6 +282,7 @@ variable "mysql_name_ll" {
 variable "mysql_storage" {
   default = "4194304"
 }
+
 ### civil-servant-registry ###
 variable "civil_servant_registry_name" {
   default = "civil-servant-registry"
