@@ -23,5 +23,5 @@ echo $1
 for i in "${arr[@]}"
 do
   webapp=$(awk -F/ '{print $9}' <<<$i)
-  echo $webapp : $(az webapp config container show -g $1 --ids $i -o table --query "[?name=='DOCKER_CUSTOM_IMAGE_NAME'].[value]" | grep -i \: | sed 's/\DOCKER\|//g')
+  echo $webapp : $(az webapp config container show --ids $i -o table --query "[?name=='DOCKER_CUSTOM_IMAGE_NAME'].[value]" | awk  -F ':' '{gsub(/\"|\,/,"")}1 {print $2}')
 done
