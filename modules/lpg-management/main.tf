@@ -204,6 +204,7 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                           }
                       ]
                   },
+                  "clientAffinityEnabled":false,
                   "httpsOnly":true,
                   "reserved":true,
                   "name":"[parameters('siteName')]",

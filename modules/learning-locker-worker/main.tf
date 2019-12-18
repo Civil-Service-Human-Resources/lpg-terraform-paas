@@ -117,6 +117,7 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                           }
                       ]
                   },
+                  "clientAffinityEnabled":false,
                   "httpsOnly":true,
                   "reserved":true,
                   "name": "[parameters('siteName')]",

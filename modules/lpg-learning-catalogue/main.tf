@@ -197,6 +197,7 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
                           }
                       ]
                   },
+                  "clientAffinityEnabled":false,
                   "httpsOnly":true,
                   "reserved":true,
                   "name":"[parameters('siteName')]",

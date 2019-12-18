@@ -165,6 +165,7 @@ resource "azurerm_template_deployment" "learning-locker-xapi" {
                           }
                       ]
                   },
+                  "clientAffinityEnabled":false,
                   "httpsOnly":true,
                   "reserved":true,
                   "name":"[parameters('siteName')]",

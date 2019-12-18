@@ -97,6 +97,7 @@ resource "azurerm_template_deployment" "identity-management-app-service" {
                           }
                       ]
                   },
+                  "clientAffinityEnabled":false,
                   "httpsOnly":true,
                   "reserved":true,
                   "name": "[parameters('siteName')]",
