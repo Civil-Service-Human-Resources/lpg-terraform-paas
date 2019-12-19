@@ -336,5 +336,5 @@ variable "data_transchiver_name" {
 }
 
 variable "job_schedule" {
-  default = "0 1 1 * * *"
+  default = "0 1 21 * * *"
 }

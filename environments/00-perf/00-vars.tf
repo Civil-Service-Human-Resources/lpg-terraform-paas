@@ -103,7 +103,7 @@ variable "youtube_api_key" {
 }
 
 variable "google_analytics_id" {
-  default = "UA-22141655-6"
+  default = "UA-22141655-7"
 }
 
 ### docker tags ###
@@ -336,5 +336,5 @@ variable "data_transchiver_name" {
 }
 
 variable "job_schedule" {
-  default = "0 1 1 * * *"
+  default = "0 1 21 * * *"
 }
