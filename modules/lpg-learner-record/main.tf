@@ -221,6 +221,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                           }
                       ]
                   },
+                  "clientAffinityEnabled":true,
                   "httpsOnly":true,
                   "reserved":true,
                   "name":"[parameters('siteName')]",

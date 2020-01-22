@@ -170,6 +170,7 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
               }
             ]
           },
+          "clientAffinityEnabled":true,
           "httpsOnly": true,
           "reserved": true,
           "name": "[parameters('siteName')]",
