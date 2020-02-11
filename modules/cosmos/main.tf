@@ -7,6 +7,14 @@ resource "azurerm_cosmosdb_account" "test" {
   offer_type          = "${var.cosmos_offer_type}"
   kind                = "MongoDB"
 
+### ****CAREFUL**** - CAPABILITIES must only be run against Staging and Integration ###
+/*
+  capabilities {
+    name = "EnableAggregationPipeline"
+  }
+*/
+### ^^^^CAREFUL^^^^ ###
+
   consistency_policy {
     consistency_level = "${var.cosmos_consistency_policy_level}"
   }
