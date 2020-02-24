@@ -1,8 +1,8 @@
 ###### lpg-management ######
 
 resource "azurerm_template_deployment" "lpg-management-app-service" {
-  name                = "${var.lpg_management_name}"
-  resource_group_name = "${var.rg_name}"
+  name                = var.lpg_management_name
+  resource_group_name = var.rg_name
 
   template_body = <<DEPLOY
   {

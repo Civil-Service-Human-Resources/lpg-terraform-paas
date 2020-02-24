@@ -1,8 +1,8 @@
 ###### csrs ######
 
 resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
-  name                = "${var.civil_servant_registry_name}"
-  resource_group_name = "${var.rg_name}"
+  name                = var.civil_servant_registry_name
+  resource_group_name = var.rg_name
 
   template_body = <<DEPLOY
   {

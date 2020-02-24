@@ -9,12 +9,24 @@ variable "rg_name" {
   default = "holder"
 }
 
+variable "rg_name_lpg_ui" {
+  default = "holder"
+}
+
 variable "rg_prefix" {
   default = "rgpref"
 }
 
 variable "rg_location" {
   default = "location"
+}
+
+variable "serviceplan_suffix" {
+  default = "serviceplan"
+}
+
+variable "serviceplan_suffix_lpgui" {
+  default = "serviceplantemp2"
 }
 
 variable "webapp_sku_tier" {

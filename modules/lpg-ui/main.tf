@@ -1,7 +1,7 @@
 ###### lpg-ui ######
 
 resource "azurerm_template_deployment" "lpg-ui-app-service" {
-  name                = "${var.lpg_ui_name}"
+  name                = var.lpg_ui_name
   resource_group_name = "lpgprod2"
 
   template_body = <<DEPLOY

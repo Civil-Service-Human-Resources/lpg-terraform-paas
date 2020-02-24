@@ -1,8 +1,8 @@
 ###### learning-locker-xapi ######
 
 resource "azurerm_template_deployment" "learning-locker-xapi" {
-  name                = "${var.learning_locker_xapi_name}"
-  resource_group_name = "${var.rg_name}"
+  name                = var.learning_locker_xapi_name
+  resource_group_name = var.rg_name
 
   template_body = <<DEPLOY
   {

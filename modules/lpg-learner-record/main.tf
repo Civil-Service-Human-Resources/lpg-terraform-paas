@@ -1,8 +1,8 @@
 ###### lpg-learner-record ######
 
 resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
-  name                = "${var.lpg_learner_record_name}"
-  resource_group_name = "${var.rg_name}"
+  name                = var.lpg_learner_record_name
+  resource_group_name = var.rg_name
 
   template_body = <<DEPLOY
   {
