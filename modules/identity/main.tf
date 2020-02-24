@@ -2,7 +2,7 @@
 
 resource "azurerm_template_deployment" "identity-app-service" {
   name                = var.identity_name
-  resource_group_name = var.rg_name_lpg_ui
+  resource_group_name = var.rg_name
 
   template_body = <<DEPLOY
   {
@@ -61,7 +61,7 @@ resource "azurerm_template_deployment" "identity-app-service" {
           }
       },
       "variables":{
-          "hostingPlanName":"[concat(parameters('siteName'), 'patton')]"
+          "hostingPlanName":"[concat(parameters('siteName'), '${var.serviceplan_suffix}')]"
       },
       "resources":[
           {

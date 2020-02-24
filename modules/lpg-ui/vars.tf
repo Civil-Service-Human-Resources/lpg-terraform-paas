@@ -17,6 +17,14 @@ variable "rg_location" {
   default = "location"
 }
 
+variable "rg_name_lpg_ui" {
+  default = "perf_temp"
+}
+
+variable "serviceplan_suffix_lpgui" {
+  default = "serviceplantemp2"
+}
+
 variable "webapp_sku_tier" {
   default = "Basic"
 }
