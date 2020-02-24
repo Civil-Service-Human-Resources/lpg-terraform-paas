@@ -2,7 +2,7 @@
 
 resource "azurerm_template_deployment" "lpg-ui-app-service" {
   name                = var.lpg_ui_name
-  resource_group_name = "lpgprod2"
+  resource_group_name = var.rg_name_lpg_ui
 
   template_body = <<DEPLOY
   {
@@ -61,7 +61,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
           }
       },
       "variables":{
-          "hostingPlanName":"[concat(parameters('siteName'), 'serviceplan2')]"
+          "hostingPlanName":"[concat(parameters('siteName'), '${var.serviceplan_suffix_lpgui}')]"
       },
       "resources":[
           {
