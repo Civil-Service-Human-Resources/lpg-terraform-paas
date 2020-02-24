@@ -1,8 +1,8 @@
 ###### learning-locker-ui ######
 
 resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
-  name                = "${var.learning_locker_ui_name}"
-  resource_group_name = "${var.rg_name}"
+  name                = var.learning_locker_ui_name
+  resource_group_name = var.rg_name
 
   template_body = <<DEPLOY
   {

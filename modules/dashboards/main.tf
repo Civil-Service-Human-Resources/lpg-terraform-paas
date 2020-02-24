@@ -2,7 +2,7 @@
 
 resource "azurerm_template_deployment" "service-overview-dashboard" {
     name                = "${var.env_profile}-dashboard"
-    resource_group_name = "${var.rg_name}"
+    resource_group_name = var.rg_name
 
     template_body = <<DEPLOY
     {

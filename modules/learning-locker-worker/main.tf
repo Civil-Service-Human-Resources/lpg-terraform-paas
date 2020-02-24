@@ -1,8 +1,8 @@
 ###### learning-locker-worker ######
 
 resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
-  name                = "${var.learning_locker_worker_name}"
-  resource_group_name = "${var.rg_name}"
+  name                = var.learning_locker_worker_name
+  resource_group_name = var.rg_name
 
   template_body = <<DEPLOY
   {

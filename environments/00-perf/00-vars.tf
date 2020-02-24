@@ -1,21 +1,37 @@
 ### Gen vars ###
 variable "rg_name" {
-  type    = "string"
+  type    = string
   default = "lpgperf"
 }
+
+variable "rg_name_lpg_ui" {
+  type = string
+  default = "perf_temp"
+}
+
 variable "ai_instrument_key" {
-  type = "string"
+  type    = string
   default = "a455f407-a0ba-4ed5-a236-f9ac00960aa1"
 }
 
 variable "rg_prefix" {
-  type    = "string"
+  type    = string
   default = "lpg"
 }
 
 variable "rg_location" {
-  type    = "string"
+  type    = string
   default = "UK South"
+}
+
+variable "serviceplan_suffix" {
+  type = string
+  default = "serviceplan"
+}
+
+variable "serviceplan_suffix_lpgui" {
+  type = string
+  default = "serviceplantemp2"
 }
 
 variable "webapp_sku_tier" {
@@ -140,7 +156,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "master-18"
+  default = "master-23"
 }
 
 variable "notification_service_tag" {
@@ -338,3 +354,4 @@ variable "data_transchiver_name" {
 variable "job_schedule" {
   default = "0 1 21 * * *"
 }
+

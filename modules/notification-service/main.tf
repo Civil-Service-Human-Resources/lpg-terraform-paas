@@ -1,8 +1,8 @@
 ###### notification-service ######
 
 resource "azurerm_template_deployment" "notification-service-app-service" {
-  name                = "${var.notification_service_name}"
-  resource_group_name = "${var.rg_name}"
+  name                = var.notification_service_name
+  resource_group_name = var.rg_name
 
   template_body = <<DEPLOY
   {

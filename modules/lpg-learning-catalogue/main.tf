@@ -1,8 +1,8 @@
 ###### lpg-learning-catalogue ######
 
 resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
-  name                = "${var.lpg_learning_catalogue_name}"
-  resource_group_name = "${var.rg_name}"
+  name                = var.lpg_learning_catalogue_name
+  resource_group_name = var.rg_name
 
   template_body = <<DEPLOY
   {

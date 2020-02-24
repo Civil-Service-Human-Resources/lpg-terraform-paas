@@ -1,8 +1,8 @@
 ###### learning-locker-worker ######
 
 resource "azurerm_template_deployment" "data-transchiver-app-service" {
-  name                = "${var.data_transchiver_name}"
-  resource_group_name = "${var.rg_name}"
+  name                = var.data_transchiver_name
+  resource_group_name = var.rg_name
 
   template_body = <<DEPLOY
   {
