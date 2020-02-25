@@ -5,12 +5,13 @@ resource "azurerm_mysql_server" "lpg_gp" {
   location            = var.mysql_location
   resource_group_name = var.rg_name
 
-  sku {
+  sku_name = var.lpg_gp_skumname
+ /*  {
     name = var.lpg_gp_skumname
     capacity = var.lpg_gp_capacity
     tier = var.lpg_gp_tier
     family = var.lpg_gp_family
-  }
+  }*/
 
   storage_profile {
     storage_mb = var.mysql_storage

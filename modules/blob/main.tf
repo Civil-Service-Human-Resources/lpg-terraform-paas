@@ -6,6 +6,9 @@ resource "azurerm_storage_account" "blobsa" {
   location                 = var.storage_account_location
   account_tier             = var.storage_account_tier
   account_replication_type = var.storage_account_replication
+  account_kind             = "Storage"
+
+  enable_https_traffic_only = "false"
 
   tags = {
     environment = var.env_profile
