@@ -25,3 +25,45 @@ resource "azurerm_storage_container" "blobc" {
 output "storage_connection_string" {
   value = azurerm_storage_account.blobsa.primary_connection_string
 }
+
+resource "azurerm_storage_account" "blobassets" {
+  name                = "${var.storage_account_name}assets"
+  resource_group_name      = var.rg_name
+  location                 = "westeurope"
+  account_tier             = var.storage_account_tier
+  account_replication_type = var.storage_account_replication
+  account_kind             = "Storage"
+
+  enable_https_traffic_only = "false"
+
+  tags = {
+    environment = var.env_profile
+  }
+}
+
+resource "azurerm_storage_container" "assets" {
+  name                  = "assets"
+  storage_account_name  = "${var.storage_account_name}assets"
+  container_access_type = var.container_accesstype
+  depends_on            = [azurerm_storage_account.blobassets]
+}
+
+resource "azurerm_cdn_profile" "cdn_profile" {
+  name                = "assetsprofile${var.env_profile}"
+  location            = "westeurope"
+  resource_group_name = var.rg_name
+  sku                 = "Standard_Verizon"
+}
+
+resource "azurerm_cdn_endpoint" "cdn_endpoint" {
+  name                = "assetscdnendpoint${var.env_profile}"
+  profile_name        = "assetsprofile${var.env_profile}"
+  location            = "westeurope"
+  resource_group_name = var.rg_name
+
+  origin {
+    name      = var.storage_account_name
+    host_name = "${var.storage_account_name}assets.blob.core.windows.net"
+  }
+  depends_on = [azurerm_storage_account.blobassets, azurerm_cdn_profile.cdn_profile]
+}
