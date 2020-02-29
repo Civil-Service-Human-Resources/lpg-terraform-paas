@@ -5,7 +5,7 @@ In order to run the code in this repository, the following should be installed o
 
 #### Core binaries
 
-- Terraform v0.11.14 (as of writing)
+- Terraform v0.12.20(as of writing)
 - Azure CLI
 - Keybase
 
@@ -18,9 +18,9 @@ In order to run the code in this repository, the following should be installed o
 
 ### Azure Access
 
-For lower level environments there is a service principal that will allow deployments without having to authenticate to Azure
+For non-Production environments, a Service Principal is used which will grant access to Terraform in order to run State consistency checks and deployments.
 
-If deploying to higher level environments then the following is required
+If deploying to the Production environment then the following is required
 
 #### Azure Authentication
 
