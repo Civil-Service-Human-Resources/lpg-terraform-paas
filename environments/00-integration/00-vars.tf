@@ -1,22 +1,37 @@
 ### Gen vars ###
 variable "rg_name" {
-  type    = "string"
+  type    = string
+  default = "lpgintegration"
+}
+
+variable "rg_name_lpg_ui" {
+  type = string
   default = "lpgintegration"
 }
 
 variable "ai_instrument_key" {
-  type = "string"
+  type = string
   default = "c79ba178-0bb8-48cd-a7d2-20d73ba59b5d"
 }
 
 variable "rg_prefix" {
-  type    = "string"
+  type    = string
   default = "lpg"
 }
 
 variable "rg_location" {
-  type    = "string"
+  type    = string
   default = "UK South"
+}
+
+variable "serviceplan_suffix" {
+  type = string
+  default = "serviceplan"
+}
+
+variable "serviceplan_suffix_lpgui" {
+  type = string
+  default = "serviceplan"
 }
 
 variable "webapp_sku_tier" {
