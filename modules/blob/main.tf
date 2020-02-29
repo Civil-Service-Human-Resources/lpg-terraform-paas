@@ -26,8 +26,8 @@ output "storage_connection_string" {
   value = azurerm_storage_account.blobsa.primary_connection_string
 }
 
-resource "azurerm_storage_account" "blobassets" {
-  name                = "${var.storage_account_name}assets"
+resource "azurerm_storage_account" "assets" {
+  name                = "lpg${var.env_profile}blobassets"
   resource_group_name      = var.rg_name
   location                 = "westeurope"
   account_tier             = var.storage_account_tier
@@ -43,9 +43,9 @@ resource "azurerm_storage_account" "blobassets" {
 
 resource "azurerm_storage_container" "assets" {
   name                  = "assets"
-  storage_account_name  = "${var.storage_account_name}assets"
+  storage_account_name  = "lpg${var.env_profile}blobassets"
   container_access_type = var.container_accesstype
-  depends_on            = [azurerm_storage_account.blobassets]
+  depends_on            = [azurerm_storage_account.assets]
 }
 
 resource "azurerm_cdn_profile" "cdn_profile" {
@@ -62,8 +62,8 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
   resource_group_name = var.rg_name
 
   origin {
-    name      = var.storage_account_name
-    host_name = "${var.storage_account_name}assets.blob.core.windows.net"
+    name      = "lpg${var.env_profile}blobassets"
+    host_name = "lpg${var.env_profile}blobassets.blob.core.windows.net"
   }
-  depends_on = [azurerm_storage_account.blobassets, azurerm_cdn_profile.cdn_profile]
+  depends_on = [azurerm_storage_account.assets, azurerm_cdn_profile.cdn_profile]
 }
