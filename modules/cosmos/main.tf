@@ -1,12 +1,23 @@
 ###### cosmos ######
 
 resource "azurerm_cosmosdb_account" "test" {
+
   name                = var.cosmos_name
   location            = var.rg_location
   resource_group_name = var.rg_name
   offer_type          = var.cosmos_offer_type
   kind                = "MongoDB"
 
+### ****CAREFUL**** - CAPABILITIES must only be run against Staging and Integration ###
+/*
+  capabilities {
+    
+    name = "EnableAggregationPipeline"
+    
+  }
+*/
+### ^^^^CAREFUL^^^^ ###
+#
   consistency_policy {
     consistency_level = var.cosmos_consistency_policy_level
   }
