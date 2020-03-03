@@ -14,8 +14,7 @@ resource "azurerm_cosmosdb_account" "test" {
     
     name = "EnableAggregationPipeline"
     
-  }
-*/
+*/ 
 ### ^^^^CAREFUL^^^^ ###
 #
   consistency_policy {
