@@ -124,7 +124,7 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "master-8"
+  default = "perf-add-connection-pooling-2"
 }
 
 variable "identity_docker_tag" {
@@ -140,11 +140,11 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "master-5"
+  default = "perf-add-connection-pooling-1"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "master-7"
+  default = "perf-add-connection-pooling-3"
 }
 
 variable "lpg_management_tag" {
@@ -156,7 +156,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "master-23"
+  default = "disable-experienced-filtering-1"
 }
 
 variable "notification_service_tag" {
@@ -164,7 +164,7 @@ variable "notification_service_tag" {
 }
 
 variable "data_transchiver_tag" {
-  default = "master-7"
+  default = "data-identifier-connection-open-close-5"
 }
 
 ### cosmos ###
