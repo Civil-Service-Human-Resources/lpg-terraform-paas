@@ -156,7 +156,7 @@ module "lpg-learner-record" {
   scaling_enabled                 = var.scaling_enabled
   custom_emails                   = var.custom_emails
   webapp_sku_tier                 = var.webapp_sku_tier_p2
-  webapp_sku_name                 = var.webapp_sku_name_p1
+  webapp_sku_name                 = var.webapp_sku_name_p2
   learner_record_capacity         = var.learner_record_capacity
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
@@ -190,7 +190,7 @@ module "lpg-report-service" {
   certificatename                 = var.certificatename
   envurl                          = var.envurl
   webapp_sku_tier                 = var.webapp_sku_tier_p2
-  webapp_sku_name                 = var.webapp_sku_name_p1
+  webapp_sku_name                 = var.webapp_sku_name_p3
   ai_instrument_key               = var.ai_instrument_key
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
@@ -423,7 +423,8 @@ module "lpg-management" {
   docker_registry_server_username    = var.docker_registry_server_username
   docker_registry_server_password    = var.docker_registry_server_password
   webapp_sku_tier                    = var.webapp_sku_tier_p2
-  webapp_sku_name                    = var.webapp_sku_name_p1
+  webapp_sku_name                    = var.webapp_sku_name_p2
+  lpg_management_capacity            = var.lpg_management_capacity
   registry_service_url               = "https://${var.envurl}civil-servant-registry.${var.domain}"
   learner_record_url                 = "https://${var.envurl}learning-record.${var.domain}"
 }

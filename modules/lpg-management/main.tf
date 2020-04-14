@@ -93,7 +93,8 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
               },
               "sku":{
                   "Tier":"${var.webapp_sku_tier}",
-                  "Name":"${var.webapp_sku_name}"
+                  "Name":"${var.webapp_sku_name}",
+                  "capacity": "${var.lpg_management_capacity}"
               }
           },
           {
