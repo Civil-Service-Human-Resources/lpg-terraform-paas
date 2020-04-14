@@ -62,6 +62,10 @@ variable "webapp_sku_name_p2" {
   default = "P2v2"
 }
 
+variable "webapp_sku_name_p3" {
+  default = "P2v3"
+}
+
 variable "identity_capacity" {
   default = "10"
 }
@@ -87,6 +91,10 @@ variable "lpg_ui_capacity" {
 }
 
 variable "notification_capacity" {
+  default = "2"
+}
+
+variable "lpg_management_capacity" {
   default = "2"
 }
 
