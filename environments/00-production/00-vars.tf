@@ -63,7 +63,7 @@ variable "webapp_sku_name_p2" {
 }
 
 variable "webapp_sku_name_p3" {
-  default = "P2v3"
+  default = "P3v2"
 }
 
 variable "identity_capacity" {
