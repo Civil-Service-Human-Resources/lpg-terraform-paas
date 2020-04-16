@@ -202,7 +202,7 @@ resource "azurerm_template_deployment" "lpg-report-service-app-service" {
         "logsDirectorySizeLimit": 35,
         "detailedErrorLoggingEnabled": true,
         "alwaysOn": true,
-        "appCommandLine": "java -Xmx7g -Xms3g -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar",
+        "appCommandLine": "${var.report_service_command_line}",
         "linuxFxVersion": "DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
         "minTlsVersion": "1.2",
         "ftpsState": "Disabled"
