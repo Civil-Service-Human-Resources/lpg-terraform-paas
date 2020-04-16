@@ -320,6 +320,10 @@ variable "report_service_websites_port" {
   default = "9004"
 }
 
+variable "report_service_command_line" {
+  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
+}
+
 variable "spring_profiles_active" {
   default = "test,production"
 }

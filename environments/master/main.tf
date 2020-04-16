@@ -195,6 +195,7 @@ module "lpg-report-service" {
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
   docker_registry_server_password = var.docker_registry_server_password
+  report_service_command_line     = var.report_service_command_line
 }
 
 module "lpg-learning-locker-xapi" {
