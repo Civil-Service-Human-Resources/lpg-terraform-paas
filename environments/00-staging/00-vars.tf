@@ -151,7 +151,7 @@ variable "lpg_learner_record_docker_tag" {
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "PR-122-4"
+  default = "PR-122-5"
 }
 
 variable "lpg_management_tag" {
