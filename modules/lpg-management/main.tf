@@ -202,6 +202,10 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                           {
                               "name":"LEARNER_RECORD_URL",
                               "value":"${var.learner_record_url}"
+                          },
+                          {
+                              "name":"AGENCY_TOGGLE",
+                              "value":"${var.agency_toggle}"
                           }
                       ]
                   },

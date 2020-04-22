@@ -324,6 +324,14 @@ variable "civil_servant_registry_name" {
   default = "civil-servant-registry"
 }
 
+variable "agency_token_max_capacity" {
+  default = "1500"
+}
+
+variable "agency_token_min_capacity" {
+  default = "1"
+}
+
 variable "lpg_report_service_name" {
   default = "lpg-report-service"
 }
@@ -379,3 +387,7 @@ variable "job_schedule" {
   default = "0 1 21 * * *"
 }
 
+### agency toggle ###
+variable agency_toggle {
+  default = "true"
+}

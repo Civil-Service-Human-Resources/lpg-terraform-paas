@@ -127,6 +127,17 @@ variable "scaling_enabled" {
   default = ""
 }
 
+variable "identityWhiteListUrl" {
+  default = "serviceUrl/domain/isWhitelisted"
+}
+
+variable "agency_token_max_capacity" {
+  default = "1500"
+}
+
+variable "agency_token_min_capacity" {
+  default = "1"
+}
 variable "jwt_key" {
   default = ""
 }
