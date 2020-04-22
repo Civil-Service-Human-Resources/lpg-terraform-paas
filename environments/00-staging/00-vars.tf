@@ -131,15 +131,15 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "master-14"
+  default = "PR-89-15"
 }
 
 variable "identity_docker_tag" {
-  default = "master-12"
+  default = "PR-127-31"
 }
 
 variable "identity_management_docker_tag" {
-  default = "master-15"
+  default = "PR-28-7"
 }
 
 variable "ll_docker_tag" {
@@ -155,7 +155,7 @@ variable "learning_catalogue_docker_tag" {
 }
 
 variable "lpg_management_tag" {
-  default = "master-16"
+  default = "PR-241-13"
 }
 
 variable "lpg_report_service_docker_tag" {
@@ -163,7 +163,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "master-32"
+  default = "PR-617-30"
 }
 
 variable "notification_service_tag" {
@@ -321,6 +321,14 @@ variable "mysql_storage" {
 ### civil-servant-registry ###
 variable "civil_servant_registry_name" {
   default = "civil-servant-registry"
+}
+
+variable "agency_token_max_capacity" {
+  default = "1500"
+}
+
+variable "agency_token_min_capacity" {
+  default = "1"
 }
 
 variable "lpg_report_service_name" {
