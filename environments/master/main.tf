@@ -95,6 +95,7 @@ module "identity" {
   docker_registry_server_password         = var.docker_registry_server_password
   authentication_service_url              = "https://${var.envurl}identity.${var.domain}"
   ai_instrument_key                       = var.ai_instrument_key
+  registry_service_url                    = "https://${var.envurl}civil-servant-registry.${var.domain}"
   jwt_key                                 = var.jwt_key
 }
 
@@ -401,6 +402,8 @@ module "civil-servant-registry-service" {
   ai_instrument_key               = var.ai_instrument_key
   scaling_enabled                 = var.scaling_enabled
   custom_emails                   = var.custom_emails
+  agency_token_max_capacity       = var.agency_token_max_capacity
+  agency_token_min_capacity       = var.agency_token_min_capacity
   jwt_key                         = var.jwt_key
 }
 

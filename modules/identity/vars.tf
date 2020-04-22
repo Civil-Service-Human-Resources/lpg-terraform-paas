@@ -153,6 +153,10 @@ variable "authentication_service_url" {
   default = ""
 }
 
+variable "registry_service_url" {
+  default = ""
+}
+
 variable "jwt_key" {
   default = ""
 }
