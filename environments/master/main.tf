@@ -438,6 +438,7 @@ module "lpg-management" {
   lpg_management_capacity            = var.lpg_management_capacity
   registry_service_url               = "https://${var.envurl}civil-servant-registry.${var.domain}"
   learner_record_url                 = "https://${var.envurl}learning-record.${var.domain}"
+  agency_toggle                      = var.agency_toggle
 }
 
 module "notification-service" {
