@@ -204,6 +204,42 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "value":"${var.docker_registry_server_password}"
                           },
                           {
+                              "name":"SERVICE_URL",
+                              "value":"${var.service_url}"
+                          },
+                          {
+                              "name":"AGENCYTOKENSFORMAT",
+                              "value":"${var.agency_tokens_format}"
+                          },
+                          {
+                              "name":"AGENCYTOKENSBYDOMAINFORMAT",
+                              "value":"${var.agency_tokens_by_domain_format}"
+                          },
+                          {
+                              "name":"AGENCYTOKENSBYDOMAINANDORGANISATIONFORMAT",
+                              "value":"${var.agency_tokens_by_domain_and_organisation_format}"
+                          },
+                          {
+                              "name":"ORGANISATIONALUNITSFLATURL",
+                              "value":"${var.organisational_units_flat_url}"
+                          },
+                          {
+                              "name":"UPDATESPACESAVAILABLEURL",
+                              "value":"${var.update_spaces_available_url}"
+                          },
+                          {
+                              "name":"GETORGANISATIONURL",
+                              "value":"${var.get_organisation_url}"
+                          },
+                          {
+                              "name":"UPDATEORGANISATIONURL",
+                              "value":"${var.update_organisation_url}"
+                          },
+                          {
+                              "name":"INVALIDDOMAINURL",
+                              "value":"${var.invalid_domain_url}"
+                          },
+                          {
                               "name": "JWT_KEY",
                               "value": "${var.jwt_key}"
                           }

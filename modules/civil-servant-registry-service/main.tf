@@ -168,6 +168,18 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
                 "value": "${var.docker_registry_server_password}"
               },
               {
+                "name": "IDENTITYWHITELISTURL",
+                "value": "${var.identityWhiteListUrl}"
+              },
+              {
+                "name": "AGENCY_TOKEN_MAX_CAPACITY",
+                "value": "${var.agency_token_max_capacity}"
+              },
+              {
+                "name": "AGENCY_TOKEN_MIN_CAPACITY",
+                "value": "${var.agency_token_min_capacity}"
+              },
+              {
                 "name": "JWT_KEY",
                 "value": "${var.jwt_key}"
               }

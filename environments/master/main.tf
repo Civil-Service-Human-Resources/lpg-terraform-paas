@@ -95,6 +95,15 @@ module "identity" {
   docker_registry_server_password         = var.docker_registry_server_password
   authentication_service_url              = "https://${var.envurl}identity.${var.domain}"
   ai_instrument_key                       = var.ai_instrument_key
+  service_url                             = "https://${var.envurl}civil-servant-registry.${var.domain}"
+  agency_tokens_format                    = "https://${var.envurl}civil-servant-registry.${var.domain}/agencyTokens?domain=%s&token=%s&code=%s"
+  agency_tokens_by_domain_format          = "https://${var.envurl}civil-servant-registry.${var.domain}/agencyTokens?domain=%s"
+  agency_tokens_by_domain_and_organisation_format = "https://${var.envurl}civil-servant-registry.${var.domain}/agencyTokens?domain=%s&code=%s"
+  organisational_units_flat_url           = "https://${var.envurl}civil-servant-registry.${var.domain}/organisationalUnits/flat"
+  update_spaces_available_url             = "https://${var.envurl}civil-servant-registry.${var.domain}/agencyTokens"
+  get_organisation_url                    = "https://${var.envurl}civil-servant-registry.${var.domain}/civilServants/org/%s"
+  update_organisation_url                 = "https://${var.envurl}civil-servant-registry.${var.domain}/civilServants/org"
+  invalid_domain_url                      = "https://${var.envurl}identity.${var.domain}/invalid"
   jwt_key                                 = var.jwt_key
 }
 
@@ -401,6 +410,9 @@ module "civil-servant-registry-service" {
   ai_instrument_key               = var.ai_instrument_key
   scaling_enabled                 = var.scaling_enabled
   custom_emails                   = var.custom_emails
+  identityWhiteListUrl            = "https://${var.envurl}identity.${var.domain}/domain/isWhitelisted"
+  agency_token_max_capacity       = var.agency_token_max_capacity
+  agency_token_min_capacity       = var.agency_token_min_capacity
   jwt_key                         = var.jwt_key
 }
 

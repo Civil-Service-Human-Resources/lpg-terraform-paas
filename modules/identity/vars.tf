@@ -153,6 +153,41 @@ variable "authentication_service_url" {
   default = ""
 }
 
+variable "service_url" {
+  default = ""
+}
+
+variable "agency_tokens_format" {
+  default = ""
+}
+
+variable "agency_tokens_by_domain_format" {
+  default = ""
+}
+
+variable "agency_tokens_by_domain_and_organisation_format" {
+  default = ""
+}
+
+variable "organisational_units_flat_url" {
+  default = ""
+}
+
+variable "update_spaces_available_url" {
+  default = ""
+}
+
+variable "get_organisation_url" {
+  default = ""
+}
+
+variable "update_organisation_url" {
+  default = ""
+}
+
+variable "invalid_domain_url" {
+  default = ""
+}
 variable "jwt_key" {
   default = ""
 }
