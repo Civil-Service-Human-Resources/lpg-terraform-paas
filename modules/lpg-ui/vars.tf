@@ -203,3 +203,11 @@ variable "xapi_username" {
 variable "xapi_password" {
   default = "password"
 }
+
+variable "ui_static_asset_root" {
+  default = ""
+}
+
+variable "ui_static_asset_ttl" {
+  default = "86400000"
+}

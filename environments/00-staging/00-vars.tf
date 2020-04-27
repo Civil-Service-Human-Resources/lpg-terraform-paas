@@ -283,6 +283,10 @@ variable "ui_websites_port" {
   default = "3001"
 }
 
+variable "ui_static_asset_ttl" {
+  default = "86400"
+}
+
 ### lpg-learning-catalogue ###
 variable "lpg_learning_catalogue_name" {
   default = "lpg-learning-catalogue"
