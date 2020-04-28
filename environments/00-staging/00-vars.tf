@@ -147,7 +147,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "PR-113-4"
+  default = "PR-113-5"
 }
 
 variable "learning_catalogue_docker_tag" {
@@ -155,7 +155,7 @@ variable "learning_catalogue_docker_tag" {
 }
 
 variable "lpg_management_tag" {
-  default = "PR-239-5"
+  default = "PR-239-6"
 }
 
 variable "lpg_report_service_docker_tag" {
@@ -163,7 +163,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "PR-626-9"
+  default = "PR-626-10"
 }
 
 variable "notification_service_tag" {
