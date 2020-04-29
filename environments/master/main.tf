@@ -326,7 +326,7 @@ module "lpg-ui" {
   xapi_username                   = var.xapi_username
   xapi_password                   = var.xapi_password
   ui_static_asset_root            = "https://${var.ui_static_asset_root}.azureedge.net"
-  ui_static_asset_ttl              = var.ui_static_asset_ttl
+  ui_static_asset_ttl             = var.ui_static_asset_ttl
 }
 
 module "lpg-learning-catalogue" {
