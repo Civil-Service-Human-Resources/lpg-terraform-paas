@@ -284,7 +284,7 @@ variable "ui_websites_port" {
 }
 
 variable "ui_static_asset_ttl" {
-  default = "86400"
+  default = "86400000"
 }
 
 variable "ui_static_asset_root" {
