@@ -172,7 +172,7 @@ variable "notification_service_tag" {
 }
 
 variable "data_transchiver_tag" {
-  default = "master-11"
+  default = "master-12"
 }
 
 ### cosmos ###
