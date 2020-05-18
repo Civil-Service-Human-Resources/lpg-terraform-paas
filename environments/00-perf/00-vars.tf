@@ -132,7 +132,7 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "master-11"
+  default = "releases-performance-release-f-2"
 }
 
 variable "identity_docker_tag" {
