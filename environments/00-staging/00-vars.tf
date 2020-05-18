@@ -131,11 +131,11 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "master-11"
+  default = "master-12"
 }
 
 variable "identity_docker_tag" {
-  default = "master-8"
+  default = "master-9"
 }
 
 variable "identity_management_docker_tag" {
@@ -163,7 +163,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "master-27"
+  default = "master-28"
 }
 
 variable "notification_service_tag" {
@@ -231,7 +231,7 @@ variable "lpg_learner_record_websites_port" {
 }
 
 variable "learner_record_command_line" {
-  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
+  default = "/bin/hammer java -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
 }
 
 ### learning-locker-general ###
