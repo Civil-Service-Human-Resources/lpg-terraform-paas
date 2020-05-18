@@ -136,7 +136,7 @@ variable "civil_servant_registry_docker_tag" {
 }
 
 variable "identity_docker_tag" {
-  default = "master-8"
+  default = "release-performance-release-f-4"
 }
 
 variable "identity_management_docker_tag" {
@@ -164,7 +164,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "master-27"
+  default = "releases-performance-release-f-1"
 }
 
 variable "notification_service_tag" {
@@ -229,6 +229,10 @@ variable "lpg_learner_record_name" {
 
 variable "lpg_learner_record_websites_port" {
   default = "9000"
+}
+
+variable "learner_record_command_line" {
+  default = "java -Xmx7g -Xms3g -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
 }
 
 ### learning-locker-general ###

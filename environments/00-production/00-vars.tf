@@ -231,6 +231,10 @@ variable "lpg_learner_record_websites_port" {
   default = "9000"
 }
 
+variable "learner_record_command_line" {
+  default = "java -Xmx7g -Xms3g -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
+}
+
 ### learning-locker-general ###
 variable "lpg_testing" {
   default = "1"

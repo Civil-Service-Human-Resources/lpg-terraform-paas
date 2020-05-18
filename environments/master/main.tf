@@ -166,6 +166,7 @@ module "lpg-learner-record" {
   ai_instrument_key               = var.ai_instrument_key
   xapi_username                   = var.xapi_username
   xapi_password                   = var.xapi_password
+  learner_record_command_line     = var.learner_record_command_line
 }
 
 module "lpg-report-service" {

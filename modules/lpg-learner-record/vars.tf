@@ -172,3 +172,7 @@ variable "cosmos_connection_string" {
 variable "database" {
   default = ""
 }
+
+variable "lerner_record_command_line" {
+  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
+}
