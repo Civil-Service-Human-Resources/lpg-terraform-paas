@@ -47,7 +47,7 @@ variable "env_profile" {
 }
 
 variable "websites_port" {
-  default = "9005"
+  default = "9006"
 }
 
 variable "hammer_logstash_host" {
