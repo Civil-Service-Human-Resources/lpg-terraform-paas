@@ -139,7 +139,7 @@ variable "identity_docker_tag" {
 }
 
 variable "identity_management_docker_tag" {
-  default = "master-3"
+  default = "master-4"
 }
 
 variable "ll_docker_tag" {
