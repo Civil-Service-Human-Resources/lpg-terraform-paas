@@ -1,0 +1,1 @@
+azcopy --source https://lpglpgprodblob.blob.core.windows.net/packages --destination https://lpglpgprodblobreplica.blob.core.windows.net/packages --source-key "${lpgprodblobkey}" --dest-key "${lpgprodblobreplicakey}" --recursive --exclude-older --exclude-newer
