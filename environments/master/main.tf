@@ -197,6 +197,7 @@ module "lpg-report-service" {
   docker_registry_server_username = var.docker_registry_server_username
   docker_registry_server_password = var.docker_registry_server_password
   report_service_command_line     = var.report_service_command_line
+  datasource                      = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}.mysql.database.azure.com:3306/learner_record?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
 }
 
 module "lpg-learning-locker-xapi" {
@@ -505,4 +506,3 @@ module "data-transchiver" {
   docker_registry_server_password  = var.docker_registry_server_password
   docker_tag                       = var.data_transchiver_tag
 }
-
