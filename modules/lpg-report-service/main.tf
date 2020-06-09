@@ -167,12 +167,12 @@ resource "azurerm_template_deployment" "lpg-report-service-app-service" {
               "value": "${var.docker_registry_server_password}"
             },
             {
-              "name":"JWT_KEY",
-              "value":"${var.jwt_key}"
-            },
-            {
               "name":"DATASOURCE",
               "value":"${var.datasource}"
+            },
+            {
+              "name":"JWT_KEY",
+              "value":"${var.jwt_key}"
             }
           ]
         },
