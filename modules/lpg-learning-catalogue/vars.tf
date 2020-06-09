@@ -148,3 +148,7 @@ variable "custom_emails" {
 variable "scaling_enabled" {
   default = ""
 }
+
+variable "jwt_key" {
+  default = ""
+}

@@ -82,7 +82,11 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
                     {
                        "name":"CLIENT_SECRET",
                        "value":"${var.notification_service_client_secret}"
-                    }
+                    },
+                    {
+                       "name":"JWT_KEY",
+                        "value":"${var.jwt_key}"
+                     }
                  ]
               },
               "httpsOnly":true,

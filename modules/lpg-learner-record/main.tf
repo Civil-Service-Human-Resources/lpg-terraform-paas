@@ -218,6 +218,10 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                           {
                               "name":"DATABASE",
                               "value":"${var.database}"
+                          },
+                          {
+                              "name":"JWT_KEY",
+                              "value":"${var.jwt_key}"
                           }
                       ]
                   },

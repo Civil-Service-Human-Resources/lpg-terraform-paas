@@ -89,3 +89,7 @@ variable "docker_registry_server_username" {
 variable "docker_registry_server_password" {
   default = ""
 }
+
+variable "jwt_key" {
+  default = ""
+}

@@ -94,6 +94,10 @@ resource "azurerm_template_deployment" "identity-management-app-service" {
                           {
                             "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
                             "value": "${var.docker_registry_server_password}"
+                          },
+                          {
+                              "name":"JWT_KEY",
+                              "value":"${var.jwt_key}"
                           }
                       ]
                   },
