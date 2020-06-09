@@ -152,3 +152,7 @@ variable "scaling_enabled" {
 variable "authentication_service_url" {
   default = ""
 }
+
+variable "jwt_key" {
+  default = ""
+}
