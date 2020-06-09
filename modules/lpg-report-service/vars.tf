@@ -114,6 +114,12 @@ variable "report_service_command_line" {
   default = "java -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
 }
 
+
 variable "jwt_key" {
   default = ""
 }
+
+variable "datasource" {
+  default = "db_url"
+}
+

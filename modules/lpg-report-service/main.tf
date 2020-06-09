@@ -169,6 +169,10 @@ resource "azurerm_template_deployment" "lpg-report-service-app-service" {
             {
               "name":"JWT_KEY",
               "value":"${var.jwt_key}"
+            },
+            {
+              "name":"DATASOURCE",
+              "value":"${var.datasource}"
             }
           ]
         },
