@@ -117,3 +117,7 @@ variable "report_service_command_line" {
 variable "datasource" {
   default = "db_url"
 }
+
+variable "jwt_key" {
+  default = ""
+}

@@ -95,6 +95,7 @@ module "identity" {
   docker_registry_server_password         = var.docker_registry_server_password
   authentication_service_url              = "https://${var.envurl}identity.${var.domain}"
   ai_instrument_key                       = var.ai_instrument_key
+  jwt_key                                 = var.jwt_key
 }
 
 module "identity-management" {
@@ -123,6 +124,7 @@ module "identity-management" {
   docker_registry_server_url        = var.docker_registry_server_url
   docker_registry_server_username   = var.docker_registry_server_username
   docker_registry_server_password   = var.docker_registry_server_password
+  jwt_key                           = var.jwt_key
 }
 
 module "lpg-learner-record" {
@@ -167,6 +169,7 @@ module "lpg-learner-record" {
   xapi_username                   = var.xapi_username
   xapi_password                   = var.xapi_password
   learner_record_command_line     = var.learner_record_command_line
+  jwt_key                         = var.jwt_key
 }
 
 module "lpg-report-service" {
@@ -198,6 +201,7 @@ module "lpg-report-service" {
   docker_registry_server_password = var.docker_registry_server_password
   report_service_command_line     = var.report_service_command_line
   datasource                      = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}.mysql.database.azure.com:3306/learner_record?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
+  jwt_key                         = var.jwt_key
 }
 
 module "lpg-learning-locker-xapi" {
@@ -365,6 +369,7 @@ module "lpg-learning-catalogue" {
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
   docker_registry_server_password = var.docker_registry_server_password
+  jwt_key                         = var.jwt_key
 }
 
 module "civil-servant-registry-service" {
@@ -396,6 +401,7 @@ module "civil-servant-registry-service" {
   ai_instrument_key               = var.ai_instrument_key
   scaling_enabled                 = var.scaling_enabled
   custom_emails                   = var.custom_emails
+  jwt_key                         = var.jwt_key
 }
 
 module "lpg-management" {
@@ -453,6 +459,7 @@ module "notification-service" {
   webapp_sku_name                    = var.webapp_sku_name_p1
   ai_instrument_key                  = var.ai_instrument_key
   notification_capacity              = var.notification_capacity
+  jwt_key                            = var.jwt_key
 }
 
 module "overview-dashboard" {
