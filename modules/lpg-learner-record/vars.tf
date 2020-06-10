@@ -54,11 +54,11 @@ variable "xapi_url" {
 }
 
 variable "xapi_username" {
-  default = "66f2b4fc001e3da992d23b57d8a7457655bea078"
+  default = ""
 }
 
 variable "xapi_password" {
-  default = "1c0e1b6827606d7efed71e204939d048f94f842b"
+  default = ""
 }
 
 variable "hammer_logstash_host" {
