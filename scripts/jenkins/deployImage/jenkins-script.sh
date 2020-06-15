@@ -17,12 +17,9 @@ if [[ ${webappName} =~ ^(civil-servant-registry|identity|lpg-management|lpg-ui|l
   if [[ ${webappName} = "identity" ]]; then
     webappName="identity-service"
   elif [[ ${webappName} = "lpg-ui" ]]; then
-<<<<<<< HEAD
     if [[ ${resourceGroup} = "perf_temp" ]]; then
       name="lpg-lpgperf-${webappName}"
     fi
-=======
->>>>>>> c1d5211... Initial commit of misc Jenkins scripts
     webappName="lpg-services"
   elif [[ ${webappName} = "lpg-management" ]]; then
     webappName="lpg-management-ui"
