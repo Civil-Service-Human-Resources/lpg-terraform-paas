@@ -131,15 +131,15 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "master-13"
+  default = "master-14"
 }
 
 variable "identity_docker_tag" {
-  default = "master-10"
+  default = "master-12"
 }
 
 variable "identity_management_docker_tag" {
-  default = "master-4"
+  default = "master-5"
 }
 
 variable "ll_docker_tag" {
@@ -147,11 +147,11 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "master-10"
+  default = "master-12"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "master-10"
+  default = "master-11"
 }
 
 variable "lpg_management_tag" {
@@ -159,15 +159,15 @@ variable "lpg_management_tag" {
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "master-6"
+  default = "master-7"
 }
 
 variable "lpg_services_tag" {
-  default = "master-29"
+  default = "master-30"
 }
 
 variable "notification_service_tag" {
-  default = "master-6"
+  default = "master-7"
 }
 
 variable "data_transchiver_tag" {
