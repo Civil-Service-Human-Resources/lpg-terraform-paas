@@ -32,7 +32,9 @@ If the name returned is not **CSL-Production** then run the following:
 1. `az account set -s CSL-Production`
 2. `az account show`
 
-The environment will then be setup to deploy to production
+The environment will then be setup to deploy to **production**
+
+For deployments to environments set the subscription to **CSL-Staging**
 
 ------------
 
@@ -91,6 +93,8 @@ To do a targeted deployment of a single module:
 To do a targeted deployment of multiple modules:
 1. `terraform plan -target=module.lpg-ui -target=module.lpg-learner-record`
 2. `terraform apply -target=module.lpg-ui -target=module.lpg-learner-record`
+
+Note the section in the cosmos module that needs to be un-commented for **stage** only deploys.
 
 ------------
 
