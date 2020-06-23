@@ -160,7 +160,7 @@ variable "lpg_management_tag" {
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "master-7"
+  default = "master-9"
 }
 
 variable "lpg_services_tag" {
