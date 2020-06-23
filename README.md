@@ -34,7 +34,7 @@ If the name returned is not **CSL-Production** then run the following:
 
 The environment will then be setup to deploy to **production**
 
-For deployments to environments set the subscription to **CSL-Staging**
+For deployments to other environments, set the subscription to **CSL-Staging**
 
 ------------
 
