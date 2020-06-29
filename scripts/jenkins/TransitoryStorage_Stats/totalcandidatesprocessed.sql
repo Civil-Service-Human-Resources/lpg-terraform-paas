@@ -1,0 +1,2 @@
+use db_archiver;
+select count(distinct(user_id)) from statements_history where inserted_date  >= (select date_add(date_sub(curdate(), interval 1 day),interval '19:00' HOUR_MINUTE)) and inserted_date  <= (select date_add(curdate(),interval '09:00' HOUR_MINUTE));
