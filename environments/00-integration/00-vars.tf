@@ -136,7 +136,7 @@ variable "civil_servant_registry_docker_tag" {
 }
 
 variable "identity_docker_tag" {
-  default = "PR-127-23"
+  default = "PR-127-24"
 }
 
 variable "identity_management_docker_tag" {
