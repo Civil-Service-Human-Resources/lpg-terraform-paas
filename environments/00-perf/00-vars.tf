@@ -164,7 +164,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "master-30"
+  default = "master-27"
 }
 
 variable "notification_service_tag" {
