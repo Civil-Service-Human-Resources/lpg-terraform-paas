@@ -160,14 +160,6 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "value":"${var.gov_notify_reset_successful_template_id}"
                           },
                           {
-                              "name":"INVITE_SIGNUP_URL",
-                              "value":"${var.invite_signup_url}"
-                          },
-                          {
-                              "name":"RESET_URL",
-                              "value":"${var.reset_url}"
-                          },
-                          {
                               "name":"REDIS_HOST",
                               "value":"${var.redis_host}"
                           },

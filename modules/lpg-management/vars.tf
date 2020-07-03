@@ -153,7 +153,3 @@ variable "docker_registry_server_username" {
 variable "docker_registry_server_password" {
   default = ""
 }
-
-variable "agency_toggle" {
-  default = "false"
-}

@@ -101,14 +101,6 @@ variable "gov_notify_reset_successful_template_id" {
   default = ""
 }
 
-variable "invite_signup_url" {
-  default = ""
-}
-
-variable "reset_url" {
-  default = ""
-}
-
 variable "lpg_ui_url" {
   default = ""
 }

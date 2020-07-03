@@ -86,10 +86,6 @@ variable "identity_management_client_secret" {
   default = ""
 }
 
-variable "invite_signup_url" {
-  default = ""
-}
-
 variable "learner_record_url" {
   default = ""
 }

@@ -68,10 +68,6 @@ resource "azurerm_template_deployment" "identity-management-app-service" {
                             "value": "${var.identity_management_client_secret}"
                           },
                           {
-                            "name": "INVITE_SIGNUP_URL",
-                            "value": "${var.invite_signup_url}"
-                          },
-                          {
                             "name": "LEARNER_RECORD_URL",
                             "value": "${var.learner_record_url}"
                           },
