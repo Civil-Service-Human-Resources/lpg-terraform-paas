@@ -386,8 +386,3 @@ variable "data_transchiver_name" {
 variable "job_schedule" {
   default = "0 1 21 * * *"
 }
-
-### agency toggle ###
-variable agency_toggle {
-  default = "true"
-}

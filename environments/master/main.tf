@@ -79,8 +79,6 @@ module "identity" {
   gov_notify_api_key                      = var.gov_notify_api_key
   envurl                                  = var.envurl
   whitelisted_domains                     = var.whitelisted_domains
-  invite_signup_url                       = "https://${var.envurl}identity.${var.domain}/signup/%s"
-  reset_url                               = "https://${var.envurl}identity.${var.domain}/reset/%s"
   lpg_ui_url                              = "https://${var.envurl}${var.lpgurl}${var.domain}"
   redis_host                              = module.redis-session.redis_host
   redis_password                          = module.redis-session.redis_key
@@ -111,7 +109,6 @@ module "identity-management" {
   authentication_service_url        = "https://${var.envurl}identity.${var.domain}"
   identity_management_client_id     = var.identity_management_client_id
   identity_management_client_secret = var.identity_management_client_secret
-  invite_signup_url                 = "https://${var.envurl}identity.${var.domain}/signup/%s"
   learner_record_url                = "https://${var.envurl}learning-record.${var.domain}"
   registry_service_url              = "https://${var.envurl}civil-servant-registry.${var.domain}"
   notification_service_url          = "https://${var.rg_prefix}-${var.rg_name}-${var.notification_service_name}.azurewebsites.net"
@@ -402,7 +399,6 @@ module "civil-servant-registry-service" {
   ai_instrument_key               = var.ai_instrument_key
   scaling_enabled                 = var.scaling_enabled
   custom_emails                   = var.custom_emails
-  identityWhiteListUrl            = "https://${var.envurl}identity.${var.domain}/domain/isWhitelisted"
   agency_token_max_capacity       = var.agency_token_max_capacity
   agency_token_min_capacity       = var.agency_token_min_capacity
   jwt_key                         = var.jwt_key
@@ -442,7 +438,6 @@ module "lpg-management" {
   lpg_management_capacity            = var.lpg_management_capacity
   registry_service_url               = "https://${var.envurl}civil-servant-registry.${var.domain}"
   learner_record_url                 = "https://${var.envurl}learning-record.${var.domain}"
-  agency_toggle                      = var.agency_toggle
 }
 
 module "notification-service" {
