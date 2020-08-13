@@ -11,8 +11,7 @@ variable "rg_location" {
 }
 
 variable "test_rig_vm_size" {
-  default = "Standard_DS1_v2" 
-  #Standard_D8as_v4
+  default = "Standard_D8as_v4" 
 }
 
 variable "test_rig_net_name" {
