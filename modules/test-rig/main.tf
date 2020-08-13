@@ -87,7 +87,7 @@ resource "azurerm_linux_virtual_machine" "test-rig-vm" {
     size                  = var.test_rig_vm_size
 
     os_disk {
-        name              = "myOsDisk"
+        name              = "lpgperfOsDisk"
         caching           = "ReadWrite"
         storage_account_type = "Premium_LRS"
     }
@@ -102,6 +102,7 @@ resource "azurerm_linux_virtual_machine" "test-rig-vm" {
     computer_name  = var.test_rig_vm_comp_name
     admin_username = var.test_rig_vm_username
     disable_password_authentication = true
+    custom_data    = base64encode(file("azure-boot-data.sh"))
         
     admin_ssh_key {
         username       = var.test_rig_vm_username
