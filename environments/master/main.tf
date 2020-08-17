@@ -415,6 +415,9 @@ module "civil-servant-registry-service" {
   agency_token_max_capacity       = var.agency_token_max_capacity
   agency_token_min_capacity       = var.agency_token_min_capacity
   jwt_key                         = var.jwt_key
+  redis_host                      = module.redis-org.redis_host
+  redis_password                  = module.redis-org.redis_key
+  redis_port                      = "6379"
 }
 
 module "lpg-management" {
