@@ -18,6 +18,16 @@ module "redis-session" {
   redis_capacity = var.redis_session_capacity
 }
 
+module "redis-session" {
+  source         = "../../modules/redis"
+  rg_name        = var.rg_name
+  rg_prefix      = var.rg_prefix
+  rg_location    = var.rg_location
+  redis_name     = "${var.rg_prefix}-${var.rg_name}-redis-org"
+  env_profile    = var.env_profile
+  redis_capacity = var.redis_org_capacity
+}
+
 module "mysql_gp" {
   source            = "../../modules/mysql_generalpurpose"
   rg_name           = var.rg_name
