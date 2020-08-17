@@ -18,7 +18,7 @@ module "redis-session" {
   redis_capacity = var.redis_session_capacity
 }
 
-module "redis-session" {
+module "redis-org" {
   source         = "../../modules/redis"
   rg_name        = var.rg_name
   rg_prefix      = var.rg_prefix
