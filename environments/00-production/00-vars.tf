@@ -217,6 +217,10 @@ variable "redis_session_capacity" {
   default = "1"
 }
 
+variable "redis_org_capacity" {
+  default = "1"
+}
+
 ### identity ###
 variable "identity_name" {
   default = "identity"
