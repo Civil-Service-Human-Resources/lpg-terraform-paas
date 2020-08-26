@@ -6,8 +6,8 @@ In order to run the code in this repository, the following should be installed o
 
 #### Core binaries
 
-- Terraform v0.12.29 (as of writing)
-- Azure CLI v2.9.1 (as of writing)
+- Terraform v0.13.0 (as of writing)
+- Azure CLI v2.10.1 (as of writing)
 - Keybase
 
 #### Access / Permissions
@@ -115,8 +115,13 @@ e.g.
 #### Terraform fails due to out-of-date version of terraform
 
 If terraform fails with the following message:
+
 e.g.
 `The current version of Terraform to use is 0.12.24 and above. Attempting to use a lower version can throw errors.`
+
+or
+
+`Error: Error loading state: state snapshot was created by Terraform v0.13.0, which is newer than current v0.12.29; upgrade to Terraform v0.13.0 or greater to work with this state`
 
 Run the following command to update terraform version:
 

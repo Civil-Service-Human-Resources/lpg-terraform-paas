@@ -18,6 +18,16 @@ module "redis-session" {
   redis_capacity = var.redis_session_capacity
 }
 
+module "redis-org" {
+  source         = "../../modules/redis"
+  rg_name        = var.rg_name
+  rg_prefix      = var.rg_prefix
+  rg_location    = var.rg_location
+  redis_name     = "${var.rg_prefix}-${var.rg_name}-redis-org"
+  env_profile    = var.env_profile
+  redis_capacity = var.redis_org_capacity
+}
+
 module "mysql_gp" {
   source            = "../../modules/mysql_generalpurpose"
   rg_name           = var.rg_name
@@ -405,6 +415,9 @@ module "civil-servant-registry-service" {
   agency_token_max_capacity       = var.agency_token_max_capacity
   agency_token_min_capacity       = var.agency_token_min_capacity
   jwt_key                         = var.jwt_key
+  redis_host                      = module.redis-org.redis_host
+  redis_password                  = module.redis-org.redis_key
+  redis_port                      = "6379"
 }
 
 module "lpg-management" {

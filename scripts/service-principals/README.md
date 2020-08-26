@@ -15,7 +15,7 @@
 - Generate a new token for a subscription using the following command:
 `az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/SUBSCRPTION_ID"`
 - The raw output from the command should be stored in the service principals directory of Keybase under a new filename e.g. `StagingSPYYYY.txt`.
-- For staging, update the respective client id and secret in the symlinked state.tf file.
+- For the staging subscription, update the respective client id and secret in the symlinked state.tf files.
 
 ## Additional information
 

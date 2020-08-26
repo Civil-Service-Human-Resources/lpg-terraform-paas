@@ -132,7 +132,7 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "master-17"
+  default = "master-18"
 }
 
 variable "identity_docker_tag" {
@@ -214,6 +214,10 @@ variable "redis_capacity" {
 }
 
 variable "redis_session_capacity" {
+  default = "1"
+}
+
+variable "redis_org_capacity" {
   default = "1"
 }
 

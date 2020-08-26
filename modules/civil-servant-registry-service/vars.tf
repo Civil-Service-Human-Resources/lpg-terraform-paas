@@ -137,3 +137,15 @@ variable "agency_token_min_capacity" {
 variable "jwt_key" {
   default = ""
 }
+
+variable "redis_host" {
+  default = ""
+}
+
+variable "redis_password" {
+  default = ""
+}
+
+variable "redis_port" {
+  default = ""
+}
