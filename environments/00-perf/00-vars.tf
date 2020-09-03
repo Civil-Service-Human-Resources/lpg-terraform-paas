@@ -306,7 +306,7 @@ variable "lpg_learning_catalogue_name" {
 }
 
 variable "azure_account_name" {
-  default = "lpglpgprodblob"
+  default = "lpgdev"
 }
 
 ### mysql_gp ###
@@ -370,7 +370,7 @@ variable "lpg_management_websites_port" {
 }
 
 variable "content_container" {
-  default = "packages"
+  default = "lpgdevcontent"
 }
 
 ### notification-service ###
