@@ -132,7 +132,7 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "LCS-654-incompleted-courses-fetch-by-days-12"
+  default = "PR-129-11"
 }
 
 variable "identity_docker_tag" {
@@ -148,11 +148,11 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "LC-654-schedule-job-incompleted-courses-fetching-by-notification-period-30"
+  default = "PR-133-2"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "LCS-654-incompleted-courses-fetch-by-days-9"
+  default = "LCS-654-incompleted-courses-fetch-by-days-14"
 }
 
 variable "lpg_management_tag" {
