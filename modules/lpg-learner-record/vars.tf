@@ -26,7 +26,7 @@ variable "webapp_sku_name" {
 }
 
 variable "learner_record_capacity" {
-  default = "1" 
+  default = "1"
 }
 
 variable "docker_tag" {
@@ -179,4 +179,28 @@ variable "learner_record_command_line" {
 
 variable "jwt_key" {
   default = ""
+}
+
+variable "lr_refresh_job_cron" {
+  default = "0 0 0 * * *"
+}
+
+variable "completed_job_cron" {
+  default = "0 0 1 * * *"
+}
+
+variable "incomplete_job_cron" {
+  default = "0 0 2 * * *"
+}
+
+variable "lr_refresh_job_enabled" {
+  default = "true"
+}
+
+variable "completed_job_enabled" {
+  default = "true"
+}
+
+variable "incompleted_job_enabled" {
+  default = "true"
 }
