@@ -222,6 +222,30 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                           {
                               "name": "JWT_KEY",
                               "value": "${var.jwt_key}"
+                          },
+                          {
+                              "name":"LR_REFRESH_JOB_CRON",
+                              "value":"${var.lr_refresh_job_cron}"
+                          },
+                          {
+                              "name":"COMPLETED_JOB_CRON",
+                              "value":"${var.completed_job_cron}"
+                          },
+                          {
+                              "name":"INCOMPLETE_JOB_CRON",
+                              "value":"${var.incomplete_job_cron}"
+                          },
+                          {
+                              "name":"LR_REFRESH_JOB_ENABLED",
+                              "value":"${var.lr_refresh_job_enabled}"
+                          },
+                          {
+                              "name":"COMPLETED_JOB_ENABLED",
+                              "value":"${var.completed_job_enabled}"
+                          },
+                          {
+                              "name":"INCOMPLETED_JOB_ENABLED",
+                              "value":"${var.incompleted_job_enabled}"
                           }
                       ]
                   },
