@@ -182,15 +182,15 @@ variable "jwt_key" {
 }
 
 variable "lr_refresh_job_cron" {
-  default = "0 0 0 * * *"
+  default = "0 0 2 * * *"
 }
 
 variable "completed_job_cron" {
-  default = "0 0 1 * * *"
+  default = "0 0 4 * * *"
 }
 
 variable "incomplete_job_cron" {
-  default = "0 0 2 * * *"
+  default = "0 30 5 * * *"
 }
 
 variable "lr_refresh_job_enabled" {
