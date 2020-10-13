@@ -131,7 +131,7 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "master-19"
+  default = "master-23"
 }
 
 variable "identity_docker_tag" {
@@ -147,11 +147,11 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "master-14"
+  default = "master-17"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "master-13"
+  default = "master-16"
 }
 
 variable "lpg_management_tag" {
@@ -328,7 +328,7 @@ variable "civil_servant_registry_name" {
 }
 
 variable "agency_token_max_capacity" {
-  default = "1500"
+  default = "5000"
 }
 
 variable "agency_token_min_capacity" {
