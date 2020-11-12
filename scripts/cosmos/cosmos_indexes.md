@@ -17,3 +17,29 @@ You may need to reindex the collection if the above commands do not work:
 ```bash
  db.getCollection(‘statements’).reIndex();
  ```
+
+## Robo3T Mongo Client
+
+This can be found here https://robomongo.org/
+
+Download and install following the instructions.
+
+To connect to Cosmos you will need the following:
+ * CosmosDb address
+ * Port number
+ * Username
+ * Password
+
+These are all available from the Azure Portal.
+
+When creating the connection fill in these details on the Connection and Authentication tabs. 
+![Connection dialog box](images/connection.png?raw=true "Connection dialog")
+![Authentication dialog box](images/authentication.png?raw=true "Authentication dialog")
+You then need to click on the "TLS" tab and ensure that it is checked and the Authentication Method is set to Self-signed Certificate.
+![TLS dialog box](images/tls.png?raw=true "TLS dialog")
+
+Once connected, expand out the collections and right click statements and select "View Documents"
+![View Documents dialog box](images/preview.png?raw=true "Selecting view documents")
+
+This will open a window where you can now run mongo commands:
+![Editor dialog box](images/editor.png?raw=true "Query Editor")
