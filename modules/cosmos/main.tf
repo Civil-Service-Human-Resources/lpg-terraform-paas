@@ -30,6 +30,11 @@ resource "azurerm_cosmosdb_account" "test" {
     name = "DisableRateLimitingResponses"
   }
 
+# Not sure why this one is now present, but it is after the upgrade
+  capabilities {
+    name = "EnableMongo"
+  }
+  
 ### ^^^^CAREFUL^^^^ ###
 #
   consistency_policy {
