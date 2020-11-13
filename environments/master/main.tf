@@ -174,7 +174,7 @@ module "lpg-learner-record" {
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
   docker_registry_server_password = var.docker_registry_server_password
-  cosmos_connection_string        = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
+  cosmos_connection_string        = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false"
   database                        = "admin"
   ai_instrument_key               = var.ai_instrument_key
   xapi_username                   = var.xapi_username
@@ -222,7 +222,7 @@ module "lpg-learning-locker-xapi" {
   rg_location                     = var.rg_location
   learning_locker_xapi_name       = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}"
   domain                          = var.domain
-  mongo_url                       = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
+  mongo_url                       = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false"
   redis_url                       = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0?password=${module.redis.redis_key}"
   docker_tag                      = var.ll_docker_tag
   env_profile                     = var.env_profile
@@ -251,7 +251,7 @@ module "lpg-learning-locker-worker" {
   rg_prefix                       = var.rg_prefix
   rg_location                     = var.rg_location
   learning_locker_worker_name     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_worker_name}"
-  mongodb_path                    = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
+  mongodb_path                    = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false"
   redis_host                      = module.redis.redis_host
   docker_tag                      = var.ll_docker_tag
   redis_port                      = module.redis.redis_port
@@ -280,7 +280,7 @@ module "lpg-learning-locker-ui" {
   rg_name                         = var.rg_name
   rg_prefix                       = var.rg_prefix
   rg_location                     = var.rg_location
-  mongodb_path                    = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
+  mongodb_path                    = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false"
   docker_tag                      = var.ll_docker_tag
   learning_locker_ui_name         = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_ui_name}"
   api_host                        = "localhost"
@@ -522,7 +522,7 @@ module "data-transchiver" {
   tds_mysql_history_db_host        = "${var.rg_prefix}-${var.rg_name}-${var.mysql_name_ll}.mysql.database.azure.com"
   tds_mysql_history_db_user        = "${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_ll}"
   tds_mysql_history_db_pwd         = var.mysql_pass_ll
-  cosmos_src_connection_string     = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
+  cosmos_src_connection_string     = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false"
   data_xfr_job_schedule            = var.job_schedule
   docker_registry_server_url       = var.docker_registry_server_url
   docker_registry_server_username  = var.docker_registry_server_username
