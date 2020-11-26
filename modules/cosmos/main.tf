@@ -8,24 +8,13 @@ resource "azurerm_cosmosdb_account" "test" {
   offer_type          = var.cosmos_offer_type
   kind                = "MongoDB"
 
-### ****CAREFUL**** ###
-#
-# This is now a little more complex.
-# Please read carefully and comment/uncomment with care
-# Always run "plan" and check before running an "apply"
-#
-# EnableAggregationPipeline - Only needs to be uncommented for STAGE
-/*   capabilities {
-    
-    name = "EnableAggregationPipeline"
-  }   */
 
-# AllowSelfServeUpgradeToMongo36 - Comment out fot STAGE ONLY
+# AllowSelfServeUpgradeToMongo36 
   capabilities {
     name = "AllowSelfServeUpgradeToMongo36"
   }
 
-# DisableRateLimitingResponses - Comment out fot STAGE ONLY
+# DisableRateLimitingResponses 
   capabilities {
     name = "DisableRateLimitingResponses"
   }
