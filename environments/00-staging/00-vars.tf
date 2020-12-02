@@ -147,7 +147,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "master-18"
+  default = "master-19"
 }
 
 variable "learning_catalogue_docker_tag" {
