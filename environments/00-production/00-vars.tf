@@ -390,3 +390,9 @@ variable "data_transchiver_name" {
 variable "job_schedule" {
   default = "0 0 19 * * *"
 }
+variable "invite_validity" {
+  default = "259200"
+}
+variable "duration_after_rereg_allowed" {
+  default = "86400"
+}
