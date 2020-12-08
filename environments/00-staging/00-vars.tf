@@ -12,7 +12,7 @@ variable "rg_name_lpg_ui" {
 variable "rg_prefix" {
   type    = string
   default = "lpg"
-} 
+}
 variable "ai_instrument_key" {
   type = string
   default = "96e2f499-7c6e-4cb4-b455-850a5057aa22"
@@ -135,7 +135,7 @@ variable "civil_servant_registry_docker_tag" {
 }
 
 variable "identity_docker_tag" {
-  default = "idt-release-1.0-defect-fix-3"
+  default = "idt-release-1.0-2"
 }
 
 variable "identity_management_docker_tag" {
