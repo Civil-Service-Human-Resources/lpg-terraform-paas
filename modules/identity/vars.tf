@@ -160,3 +160,9 @@ variable "registry_service_url" {
 variable "jwt_key" {
   default = ""
 }
+variable "invite_validity" {
+  default = "259200"
+}
+variable "rereg_validity" {
+  default = "86400"
+}

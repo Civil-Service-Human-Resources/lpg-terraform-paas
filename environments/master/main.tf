@@ -107,6 +107,8 @@ module "identity" {
   ai_instrument_key                       = var.ai_instrument_key
   registry_service_url                    = "https://${var.envurl}civil-servant-registry.${var.domain}"
   jwt_key                                 = var.jwt_key
+  invite_validity                         = var.invite_validity
+  rereg_validity                          = var.rereg_validity
 }
 
 module "identity-management" {
