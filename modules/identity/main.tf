@@ -210,6 +210,14 @@ resource "azurerm_template_deployment" "identity-app-service" {
                           {
                               "name": "JWT_KEY",
                               "value": "${var.jwt_key}"
+                          },
+                          {
+                              "name":"INVITE_VALIDITY",
+                              "value":"${var.invite_validity}"
+                          },
+                          {
+                              "name":"REREG_VALIDITY",
+                              "value":"${var.rereg_validity}"
                           }
                       ]
                   },
