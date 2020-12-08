@@ -12,7 +12,7 @@ variable "rg_name_lpg_ui" {
 variable "rg_prefix" {
   type    = string
   default = "lpg"
-}
+} 
 variable "ai_instrument_key" {
   type = string
   default = "96e2f499-7c6e-4cb4-b455-850a5057aa22"
