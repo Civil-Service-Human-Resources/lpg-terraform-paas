@@ -135,7 +135,7 @@ variable "civil_servant_registry_docker_tag" {
 }
 
 variable "identity_docker_tag" {
-  default = "idt-release-1.0"
+  default = "idt-release-1.0-defect-fix-3"
 }
 
 variable "identity_management_docker_tag" {
@@ -163,7 +163,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "idt-release-1.0"
+  default = "idt-release-1.0-1"
 }
 
 variable "notification_service_tag" {
