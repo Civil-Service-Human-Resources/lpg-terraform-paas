@@ -136,7 +136,7 @@ variable "civil_servant_registry_docker_tag" {
 }
 
 variable "identity_docker_tag" {
-  default = "idt-release-1.0-2"
+  default = "idt-release-1.0-6"
 }
 
 variable "identity_management_docker_tag" {
@@ -393,6 +393,6 @@ variable "job_schedule" {
 variable "invite_validity" {
   default = "259200"
 }
-variable "duration_after_rereg_allowed" {
+variable "duration_after_rereg_allowed_seconds" {
   default = "86400"
 }

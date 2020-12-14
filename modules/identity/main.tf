@@ -216,8 +216,8 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "value":"${var.invite_validity}"
                           },
                           {
-                              "name":"DURATION_AFTER_REREG_ALLOWED",
-                              "value":"${var.duration_after_rereg_allowed}"
+                              "name":"DURATION_AFTER_REREG_ALLOWED_SECONDS",
+                              "value":"${var.duration_after_rereg_allowed_seconds}"
                           }
                       ]
                   },
