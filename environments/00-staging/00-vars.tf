@@ -12,7 +12,7 @@ variable "rg_name_lpg_ui" {
 variable "rg_prefix" {
   type    = string
   default = "lpg"
-}
+} 
 variable "ai_instrument_key" {
   type = string
   default = "96e2f499-7c6e-4cb4-b455-850a5057aa22"
@@ -163,7 +163,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "idt-release-1.0-1"
+  default = "idt-release-1.0-2"
 }
 
 variable "notification_service_tag" {
