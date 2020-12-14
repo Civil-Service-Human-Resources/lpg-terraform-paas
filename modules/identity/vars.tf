@@ -163,6 +163,6 @@ variable "jwt_key" {
 variable "invite_validity" {
   default = "259200"
 }
-variable "duration_after_rereg_allowed" {
+variable "duration_after_rereg_allowed_seconds" {
   default = "86400"
 }
