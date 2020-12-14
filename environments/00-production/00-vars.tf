@@ -164,7 +164,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "idt-release-1.0-1"
+  default = "idt-release-1.0-2"
 }
 
 variable "notification_service_tag" {
