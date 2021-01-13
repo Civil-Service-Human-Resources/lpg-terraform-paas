@@ -202,6 +202,18 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                           {
                               "name":"LEARNER_RECORD_URL",
                               "value":"${var.learner_record_url}"
+                          },
+                          {
+                              "name":"REDIS_HOST",
+                              "value":"${var.redis_host}"
+                          },
+                          {
+                              "name":"REDIS_PASSWORD",
+                              "value":"${var.redis_password}"
+                          },
+                          {
+                              "name":"REDIS_PORT",
+                              "value":"${var.redis_port}"
                           }
                       ]
                   },
