@@ -142,6 +142,18 @@ variable "learner_record_url" {
   default = ""
 }
 
+variable "redis_host" {
+  default = ""
+}
+
+variable "redis_password" {
+  default = ""
+}
+
+variable "redis_port" {
+  default = ""
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }
