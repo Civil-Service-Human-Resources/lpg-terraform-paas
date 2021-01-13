@@ -456,6 +456,9 @@ module "lpg-management" {
   lpg_management_capacity            = var.lpg_management_capacity
   registry_service_url               = "https://${var.envurl}civil-servant-registry.${var.domain}"
   learner_record_url                 = "https://${var.envurl}learning-record.${var.domain}"
+  redis_host                         = module.redis-session.redis_host
+  redis_password                     = module.redis-session.redis_key
+  redis_port                         = "6379"
 }
 
 module "notification-service" {
