@@ -136,7 +136,7 @@ variable "civil_servant_registry_docker_tag" {
 }
 
 variable "identity_docker_tag" {
-  default = "idt-release-1.0-6"
+  default = "idt-release-2.0-maintenance-page-2"
 }
 
 variable "identity_management_docker_tag" {
