@@ -218,6 +218,26 @@ resource "azurerm_template_deployment" "identity-app-service" {
                           {
                               "name":"DURATION_AFTER_REREG_ALLOWED_SECONDS",
                               "value":"${var.duration_after_rereg_allowed_seconds}"
+                          },
+                          {
+                              "name":"MAINTENANCE_PAGE_ENABLED",
+                              "value":"${var.maintenance_page_enabled}"
+                          },
+                          {
+                              "name":"MAINTENANCE_PAGE_CONTENT_LINE_1",
+                              "value":"${var.maintenance_page_content_line_1}"
+                          },
+                          {
+                              "name":"MAINTENANCE_PAGE_CONTENT_LINE_2",
+                              "value":"${var.maintenance_page_content_line_2}"
+                          },
+                          {
+                              "name":"MAINTENANCE_PAGE_CONTENT_LINE_3",
+                              "value":"${var.maintenance_page_content_line_3}"
+                          },
+                          {
+                              "name":"MAINTENANCE_PAGE_CONTENT_LINE_4",
+                              "value":"${var.maintenance_page_content_line_4}"
                           }
                       ]
                   },
