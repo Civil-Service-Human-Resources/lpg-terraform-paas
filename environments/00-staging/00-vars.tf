@@ -391,3 +391,23 @@ variable "invite_validity" {
 variable "duration_after_rereg_allowed_seconds" {
   default = "86400"
 }
+
+variable "maintenance_page_enabled" {
+  default = "false"
+}
+
+variable "maintenance_page_content_line_1" {
+  default = "The learning website is undergoing scheduled maintenance."
+}
+
+variable "maintenance_page_content_line_2" {
+  default = "It will be unavailable between the hours of 7pm to 9pm on Wednesday 24th February 2021."
+}
+
+variable "maintenance_page_content_line_3" {
+  default = "Apologies for the inconvenience."
+}
+
+variable "maintenance_page_content_line_4" {
+  default = "If the maintenance period is extended, further information will be provided here."
+}
