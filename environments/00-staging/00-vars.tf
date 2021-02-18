@@ -131,11 +131,11 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "master-23"
+  default = "idt-release-3.0-1-20210217-165528"
 }
 
 variable "identity_docker_tag" {
-  default = "idt-release-1.0-6"
+  default = "idt-release-3.0-1-20210217-165501"
 }
 
 variable "identity_management_docker_tag" {
@@ -147,7 +147,7 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "master-19"
+  default = "idt-release-3.0-1-20210217-165723"
 }
 
 variable "learning_catalogue_docker_tag" {
@@ -155,7 +155,7 @@ variable "learning_catalogue_docker_tag" {
 }
 
 variable "lpg_management_tag" {
-  default = "idt-release-2.0-1"
+  default = "idt-release-3.0-1-20210217-164636"
 }
 
 variable "lpg_report_service_docker_tag" {
@@ -163,7 +163,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "idt-release-2.0-1"
+  default = "idt-release-3.0-1-20210217-163811"
 }
 
 variable "notification_service_tag" {
