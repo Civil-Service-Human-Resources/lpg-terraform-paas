@@ -132,7 +132,7 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "idt-release-3.0-1-20210217-165528"
+  default = "idt-release-3.0-2-20210219-125511"
 }
 
 variable "identity_docker_tag" {
