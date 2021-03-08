@@ -114,6 +114,10 @@ variable "report_service_url" {
   default = ""
 }
 
+variable "report_service_timeout" {
+  default = "60000"
+}
+
 variable "course_catalogue_url" {
   default = "course_catalogue_url"
 }
