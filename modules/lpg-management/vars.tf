@@ -114,7 +114,7 @@ variable "report_service_url" {
   default = ""
 }
 
-variable "report_service_timeout" {
+variable "report_service_timeout_seconds" {
   default = "60000"
 }
 
