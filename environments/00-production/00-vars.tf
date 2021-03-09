@@ -373,7 +373,7 @@ variable "content_container" {
   default = "packages"
 }
 
-variable "lpg_management_report_service_timeout" {
+variable "lpg_management_report_service_timeout_seconds" {
   default = "60000"
 }
 
