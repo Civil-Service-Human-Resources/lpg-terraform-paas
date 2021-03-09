@@ -372,6 +372,10 @@ variable "content_container" {
   default = "lpgdevcontent"
 }
 
+variable "lpg_management_report_service_timeout" {
+  default = "60000"
+}
+
 ### notification-service ###
 variable "notification_service_name" {
   default = "notification-service"
