@@ -372,7 +372,7 @@ variable "content_container" {
   default = "lpgdevcontent"
 }
 
-variable "lpg_management_report_service_timeout_seconds" {
+variable "lpg_management_report_service_timeout_ms" {
   default = "60000"
 }
 

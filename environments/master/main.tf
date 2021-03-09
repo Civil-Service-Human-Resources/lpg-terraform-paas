@@ -450,7 +450,7 @@ module "lpg-management" {
   callback_url                       = "https://${var.envurl}management.${var.domain}"
   lpg_ui_url                         = "https://${var.envurl}${var.lpgurl}${var.domain}"
   report_service_url                 = "https://${var.envurl}report.${var.domain}"
-  report_service_timeout_seconds             = var.lpg_management_report_service_timeout_seconds
+  report_service_timeout_ms          = var.lpg_management_report_service_timeout_ms
   course_catalogue_url               = "https://${var.envurl}learning-resources.${var.domain}"
   content_url                        = "https://${var.envurl}cdn.${var.domain}/${var.content_container}"
   youtube_api_key                    = var.youtube_api_key
