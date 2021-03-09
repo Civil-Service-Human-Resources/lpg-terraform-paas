@@ -164,8 +164,8 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                               "value":"${var.report_service_url}"
                           },
                           {
-                              "name":"REPORT_SERVICE_TIMEOUT_SECONDS",
-                              "value":"${var.report_service_timeout_seconds}"
+                              "name":"REPORT_SERVICE_TIMEOUT_MS",
+                              "value":"${var.report_service_timeout_ms}"
                           },
                           {
                               "name":"COURSE_CATALOGUE_URL",
