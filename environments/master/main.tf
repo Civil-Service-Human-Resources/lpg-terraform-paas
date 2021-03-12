@@ -132,6 +132,7 @@ module "identity-management" {
   learner_record_url                = "https://${var.envurl}learning-record.${var.domain}"
   registry_service_url              = "https://${var.envurl}civil-servant-registry.${var.domain}"
   notification_service_url          = "https://${var.rg_prefix}-${var.rg_name}-${var.notification_service_name}.azurewebsites.net"
+  identity_management_url           = "https://${var.rg_prefix}-${var.rg_name}-identity-management.azurewebsites.net"
   vaultresourcegroup                = var.vaultresourcegroup
   vaultname                         = var.vaultname
   existingkeyvaultsecretname        = var.existingkeyvaultsecretname

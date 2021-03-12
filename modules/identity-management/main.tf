@@ -84,6 +84,10 @@ resource "azurerm_template_deployment" "identity-management-app-service" {
                             "value": "${var.notification_service_url}"
                           },
                           {
+                            "name": "IDM_URL",
+                            "value": "${var.identity_management_url}"
+                          },
+                          {
                             "name": "DOCKER_REGISTRY_SERVER_URL",
                             "value": "https://${var.docker_registry_server_url}"
                           },
