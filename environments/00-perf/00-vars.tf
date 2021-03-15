@@ -377,6 +377,30 @@ variable "lpg_management_report_service_timeout_ms" {
   default = "60000"
 }
 
+variable "lpg_management_request_timeout_ms" {
+  default = "60000"
+}
+
+variable "lpg_management_authentication_service_timeout_ms" {
+  default = "60000"
+}
+
+variable "lpg_management_youtube_timeout_ms" {
+  default = "60000"
+}
+
+variable "lpg_management_course_catalogue_timeout_ms" {
+  default = "60000"
+}
+
+variable "lpg_management_learner_record_timeout_ms" {
+  default = "60000"
+}
+
+variable "lpg_management_civil_servant_registry_service_timeout_ms" {
+  default = "60000"
+}
+
 ### notification-service ###
 variable "notification_service_name" {
   default = "notification-service"
