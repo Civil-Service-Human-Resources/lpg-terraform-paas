@@ -121,3 +121,7 @@ variable "datasource" {
 variable "jwt_key" {
   default = ""
 }
+
+variable "backend_api_call_batch_size" {
+  default = "50"
+}
