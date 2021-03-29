@@ -441,3 +441,6 @@ variable "maintenance_page_content_line_4" {
   default = "If the maintenance period is extended, further information will be provided here."
 }
 
+variable "backend_api_call_batch_size" {
+  default = "50"
+}
