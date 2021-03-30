@@ -159,7 +159,7 @@ variable "lpg_management_tag" {
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "idt-release-4.0-1-20210329-114540"
+  default = "idt-release-4.0-2-20210330-104840"
 }
 
 variable "lpg_services_tag" {
