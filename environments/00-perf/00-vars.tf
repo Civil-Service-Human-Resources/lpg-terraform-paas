@@ -236,7 +236,7 @@ variable "lpg_learner_record_websites_port" {
 }
 
 variable "learner_record_command_line" {
-  default = "/bin/hammer java -Xmx7g -Xms3g -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
+  default = "java -Xmx7g -Xms3g -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
 }
 
 ### learning-locker-general ###
