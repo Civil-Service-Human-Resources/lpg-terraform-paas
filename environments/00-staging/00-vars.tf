@@ -12,10 +12,6 @@ variable "rg_name_lpg_ui" {
 variable "rg_prefix" {
   type    = string
   default = "lpg"
-} 
-variable "ai_instrument_key" {
-  type = string
-  default = "96e2f499-7c6e-4cb4-b455-850a5057aa22"
 }
 
 variable "rg_location" {
@@ -231,7 +227,7 @@ variable "lpg_learner_record_websites_port" {
 }
 
 variable "learner_record_command_line" {
-  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
+  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
 
 ### learning-locker-general ###
@@ -332,7 +328,7 @@ variable "report_service_websites_port" {
 }
 
 variable "report_service_command_line" {
-  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
+  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
 
 variable "spring_profiles_active" {

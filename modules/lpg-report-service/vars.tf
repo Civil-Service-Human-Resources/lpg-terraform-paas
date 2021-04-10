@@ -2,10 +2,6 @@ variable "lpg_report_service_name" {
   default = "name"
 }
 
-variable "ai_instrument_key" {
-  default = "c79ba178-0bb8-48cd-a7d2-20d73ba59b5d"
-}
-
 variable "rg_name" {
   default = "holder"
 }
@@ -103,7 +99,7 @@ variable "course_catalogue_url" {
 }
 
 variable "report_service_command_line" {
-  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
+  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
 
 variable "datasource" {

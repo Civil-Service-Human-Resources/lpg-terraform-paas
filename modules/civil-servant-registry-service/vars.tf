@@ -107,10 +107,6 @@ variable "docker_registry_server_password" {
   default = ""
 }
 
-variable "ai_instrument_key" {
-  default = ""
-}
-
 variable "custom_emails" {
   default = ""
 }

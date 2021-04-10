@@ -32,10 +32,6 @@ resource "azurerm_template_deployment" "data-transchiver-app-service" {
                               "value": "false"
                           },
                           {
-                              "name":"APPINSIGHTS_INSTRUMENTATIONKEY",
-                              "value":"${var.ai_instrument_key}"
-                          },
-                          {
                               "name": "ENV_PROFILE",
                               "value": "${var.env_profile}"
                           },

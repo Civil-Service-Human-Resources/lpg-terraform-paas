@@ -32,10 +32,6 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
                               "value":"false"
                           },
                           {
-                              "name":"APPINSIGHTS_INSTRUMENTATIONKEY",
-                              "value":"${var.ai_instrument_key}"
-                          },
-                          {
                               "name":"MONGODB_PATH",
                               "value":"${var.mongodb_path}"
                           },

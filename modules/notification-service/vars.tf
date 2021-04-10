@@ -14,10 +14,6 @@ variable "rg_location" {
   default = "location"
 }
 
-variable "ai_instrument_key" {
-  default = "c79ba178-0bb8-48cd-a7d2-20d73ba59b5d"
-}
-
 variable "webapp_sku_tier" {
   default = "Basic"
 }

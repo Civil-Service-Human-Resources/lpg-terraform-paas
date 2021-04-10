@@ -108,10 +108,6 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                               "value":"false"
                           },
                           {
-                              "name":"instrumentation_key",
-                              "value":"${var.ai_instrument_key}"
-                          },
-                          {
                               "name":"AUTHENTICATION_SERVICE_URL",
                               "value":"${var.authentication_service_url}"
                           },

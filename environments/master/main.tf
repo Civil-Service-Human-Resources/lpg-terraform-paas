@@ -104,7 +104,6 @@ module "identity" {
   docker_registry_server_username         = var.docker_registry_server_username
   docker_registry_server_password         = var.docker_registry_server_password
   authentication_service_url              = "https://${var.envurl}identity.${var.domain}"
-  ai_instrument_key                       = var.ai_instrument_key
   registry_service_url                    = "https://${var.envurl}civil-servant-registry.${var.domain}"
   jwt_key                                 = var.jwt_key
   invite_validity                         = var.invite_validity
@@ -183,7 +182,6 @@ module "lpg-learner-record" {
   docker_registry_server_password = var.docker_registry_server_password
   cosmos_connection_string        = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false"
   database                        = "admin"
-  ai_instrument_key               = var.ai_instrument_key
   xapi_username                   = var.xapi_username
   xapi_password                   = var.xapi_password
   learner_record_command_line     = var.learner_record_command_line
@@ -213,7 +211,6 @@ module "lpg-report-service" {
   envurl                          = var.envurl
   webapp_sku_tier                 = var.webapp_sku_tier_p2
   webapp_sku_name                 = var.webapp_sku_name_p3
-  ai_instrument_key               = var.ai_instrument_key
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
   docker_registry_server_password = var.docker_registry_server_password
@@ -339,7 +336,6 @@ module "lpg-ui" {
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
   docker_registry_server_password = var.docker_registry_server_password
-  ai_instrument_key               = var.ai_instrument_key
   redis_host                      = module.redis-session.redis_host
   redis_password                  = module.redis-session.redis_key
   redis_port                      = "6379"
@@ -378,7 +374,6 @@ module "lpg-learning-catalogue" {
   custom_emails                   = var.custom_emails
   webapp_sku_tier                 = var.webapp_sku_tier_p2
   webapp_sku_name                 = var.webapp_sku_name_p1
-  ai_instrument_key               = var.ai_instrument_key
   learning_catalogue_capacity     = var.learning_catalogue_capacity
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
@@ -412,7 +407,6 @@ module "civil-servant-registry-service" {
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
   docker_registry_server_password = var.docker_registry_server_password
-  ai_instrument_key               = var.ai_instrument_key
   scaling_enabled                 = var.scaling_enabled
   custom_emails                   = var.custom_emails
   agency_token_max_capacity       = var.agency_token_max_capacity
@@ -478,7 +472,6 @@ module "notification-service" {
   docker_registry_server_password    = var.docker_registry_server_password
   webapp_sku_tier                    = var.webapp_sku_tier_p2
   webapp_sku_name                    = var.webapp_sku_name_p1
-  ai_instrument_key                  = var.ai_instrument_key
   notification_capacity              = var.notification_capacity
   jwt_key                            = var.jwt_key
 }
@@ -515,7 +508,6 @@ module "data-transchiver" {
   rg_location                      = var.rg_location
   data_transchiver_name            = "${var.rg_prefix}-${var.rg_name}-${var.data_transchiver_name}"
   env_profile                      = var.env_profile
-  ai_instrument_key                = var.ai_instrument_key
   webapp_sku_tier                  = var.webapp_sku_tier_p2
   webapp_sku_name                  = var.webapp_sku_name_p1
   tds_mysql_proc_registry_host     = "${var.rg_prefix}-${var.rg_name}-${var.mysql_name_ll}.mysql.database.azure.com"
