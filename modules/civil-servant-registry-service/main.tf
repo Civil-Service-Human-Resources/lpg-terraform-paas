@@ -112,14 +112,6 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
                 "value": "${var.websites_port}"
               },
               {
-                "name": "HAMMER_LOGSTASH_HOST",
-                "value": "${var.hammer_logstash_host}"
-              },
-              {
-                "name": "HAMMER_LOGSTASH_PORT",
-                "value": "${var.hammer_logstash_port}"
-              },
-              {
                 "name": "ENV_PROFILE",
                 "value": "${var.env_profile}"
               },

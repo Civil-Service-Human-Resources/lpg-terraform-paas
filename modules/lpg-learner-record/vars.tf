@@ -61,14 +61,6 @@ variable "xapi_password" {
   default = ""
 }
 
-variable "hammer_logstash_host" {
-  default = "54e2fb5d-be7a-47c2-b3cf-6f72f42b5dfb-ls.logit.io"
-}
-
-variable "hammer_logstash_port" {
-  default = "16690"
-}
-
 variable "env_profile" {
   default = "test"
 }

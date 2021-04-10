@@ -36,14 +36,6 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
                        "value":"true"
                     },
                     {
-                       "name":"HAMMER_LOGSTASH_HOST",
-                       "value":"${var.hammer_logstash_host}"
-                    },
-                    {
-                       "name":"HAMMER_LOGSTASH_PORT",
-                       "value":"${var.hammer_logstash_port}"
-                    },
-                    {
                        "name":"ENV_PROFILE",
                        "value":"${var.env_profile}"
                     },

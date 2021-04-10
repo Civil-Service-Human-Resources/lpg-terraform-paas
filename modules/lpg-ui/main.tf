@@ -148,24 +148,12 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value":"${var.youtube_api_key}"
                           },
                           {
-                              "name":"HAMMER_LOGSTASH_HOST",
-                              "value":"${var.hammer_logstash_host}"
-                          },
-                          {
-                              "name":"HAMMER_LOGSTASH_PORT",
-                              "value":"${var.hammer_logstash_port}"
-                          },
-                          {
                               "name":"ENV_PROFILE",
                               "value":"${var.env_profile}"
                           },
                           {
                               "name":"WEBSITES_PORT",
                               "value":"${var.websites_port}"
-                          },
-                          {
-                              "name":"HAMMER_WORKING_DIRECTORY",
-                              "value":"${var.hammer_working_directory}"
                           },
                           {
                               "name":"SESSION_SECRET",
@@ -284,7 +272,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                   "logsDirectorySizeLimit":35,
                   "detailedErrorLoggingEnabled":true,
                   "alwaysOn":true,
-                  "appCommandLine":"/bin/hammer node ../node_modules/ui/server.js",
+                  "appCommandLine":"node ../node_modules/ui/server.js",
                   "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
                   "minTlsVersion":"1.2",
                   "ftpsState":"Disabled"

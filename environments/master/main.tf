@@ -265,11 +265,8 @@ module "lpg-learning-locker-worker" {
   redis_password                  = module.redis.redis_key
   redis_db                        = "0"
   redis_prefix                    = var.redis_prefix
-  hammer_http_server_port         = var.hammer_api_worker_http_server_port
   env_profile                     = var.env_profile
   redis_use_tls                   = var.redis_use_tls
-  hammer_working_directory        = var.worker_api_hammer_directory
-  websites_port                   = var.hammer_api_worker_http_server_port
   queue_provider                  = var.redis_queue_provider
   queue_namespace                 = var.redis_queue_namespace
   testing                         = var.lpg_testing
@@ -321,7 +318,6 @@ module "lpg-ui" {
   env_profile                     = var.env_profile
   google_analytics_id             = var.google_analytics_id
   session_secret                  = var.session_secret
-  hammer_working_directory        = var.ui_hammer_working_directory
   websites_port                   = var.ui_websites_port
   content_url                     = "https://${var.envurl}cdn.${var.domain}/${var.content_container}"
   vaultresourcegroup              = var.vaultresourcegroup
@@ -438,7 +434,6 @@ module "lpg-management" {
   authentication_service_url         = "https://${var.envurl}identity.${var.domain}"
   env_profile                        = var.env_profile
   session_secret                     = var.session_secret
-  hammer_working_directory           = var.lpg_management_hammer_working_directory
   websites_port                      = var.lpg_management_websites_port
   vaultresourcegroup                 = var.vaultresourcegroup
   vaultname                          = var.vaultname

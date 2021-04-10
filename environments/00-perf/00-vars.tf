@@ -114,10 +114,6 @@ variable "scaling_enabled" {
   default = "false"
 }
 
-variable "hammer_api_worker_http_server_port" {
-  default = "8080"
-}
-
 variable "env_profile" {
   default = "perf"
 }
@@ -262,10 +258,6 @@ variable "worker_api_env_app" {
   default = "learning-locker-api-worker"
 }
 
-variable "worker_api_hammer_directory" {
-  default = "/opt/learning-locker"
-}
-
 ### learning-locker-ui ###
 variable "lpg_learning_locker_ui_name" {
   default = "learning-locker-ui"
@@ -282,10 +274,6 @@ variable "ll_ui_port" {
 ### lpg-ui ###
 variable "lpg_ui_name" {
   default = "lpg-ui"
-}
-
-variable "ui_hammer_working_directory" {
-  default = "/var/www/app/dist/ui"
 }
 
 variable "ui_websites_port" {
@@ -359,10 +347,6 @@ variable "identity_management_name" {
 ### lpg-management ###
 variable "lpg_management_name" {
   default = "lpg-management"
-}
-
-variable "lpg_management_hammer_working_directory" {
-  default = "/var/www/app/dist/management2"
 }
 
 variable "lpg_management_websites_port" {

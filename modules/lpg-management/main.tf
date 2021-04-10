@@ -116,24 +116,12 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                               "value":"${var.authentication_service_url}"
                           },
                           {
-                              "name":"HAMMER_LOGSTASH_HOST",
-                              "value":"${var.hammer_logstash_host}"
-                          },
-                          {
-                              "name":"HAMMER_LOGSTASH_PORT",
-                              "value":"${var.hammer_logstash_port}"
-                          },
-                          {
                               "name":"ENV_PROFILE",
                               "value":"${var.env_profile}"
                           },
                           {
                               "name":"WEBSITES_PORT",
                               "value":"${var.websites_port}"
-                          },
-                          {
-                              "name":"HAMMER_WORKING_DIRECTORY",
-                              "value":"${var.hammer_working_directory}"
                           },
                           {
                               "name":"SESSION_SECRET",
