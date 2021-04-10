@@ -217,6 +217,7 @@ module "lpg-report-service" {
   report_service_command_line     = var.report_service_command_line
   datasource                      = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}.mysql.database.azure.com:3306/learner_record?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
   jwt_key                         = var.jwt_key
+  backend_api_call_batch_size     = var.backend_api_call_batch_size
 }
 
 module "lpg-learning-locker-xapi" {
@@ -425,7 +426,9 @@ module "lpg-management" {
   docker_tag                         = var.lpg_management_tag
   lpg_management_name                = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management_name}"
   domain                             = var.domain
+  request_timeout_ms                 = var.lpg_management_request_timeout_ms
   authentication_service_url         = "https://${var.envurl}identity.${var.domain}"
+  authentication_service_timeout_ms  = var.lpg_management_authentication_service_timeout_ms
   env_profile                        = var.env_profile
   session_secret                     = var.session_secret
   websites_port                      = var.lpg_management_websites_port
@@ -439,9 +442,12 @@ module "lpg-management" {
   callback_url                       = "https://${var.envurl}management.${var.domain}"
   lpg_ui_url                         = "https://${var.envurl}${var.lpgurl}${var.domain}"
   report_service_url                 = "https://${var.envurl}report.${var.domain}"
+  report_service_timeout_ms          = var.lpg_management_report_service_timeout_ms
   course_catalogue_url               = "https://${var.envurl}learning-resources.${var.domain}"
   content_url                        = "https://${var.envurl}cdn.${var.domain}/${var.content_container}"
+  course_catalogue_timeout_ms        = var.lpg_management_course_catalogue_timeout_ms
   youtube_api_key                    = var.youtube_api_key
+  youtube_timeout_ms                 = var.lpg_management_youtube_timeout_ms
   docker_registry_server_url         = var.docker_registry_server_url
   docker_registry_server_username    = var.docker_registry_server_username
   docker_registry_server_password    = var.docker_registry_server_password
@@ -449,7 +455,9 @@ module "lpg-management" {
   webapp_sku_name                    = var.webapp_sku_name_p2
   lpg_management_capacity            = var.lpg_management_capacity
   registry_service_url               = "https://${var.envurl}civil-servant-registry.${var.domain}"
+  registry_service_timeout_ms        = var.lpg_management_civil_servant_registry_service_timeout_ms
   learner_record_url                 = "https://${var.envurl}learning-record.${var.domain}"
+  learner_record_timeout_ms          = var.lpg_management_learner_record_timeout_ms
   redis_host                         = module.redis-session.redis_host
   redis_password                     = module.redis-session.redis_key
   redis_port                         = "6379"

@@ -114,6 +114,14 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                           {
                               "name":"APPLICATIONINSIGHTS_INSTRUMENTATION_KEY",
                               "value":"${var.application_insights_instrumentation_key}"
+                        },
+                              "name":"AUTHENTICATION_SERVICE_URL",
+                              "value":"${var.authentication_service_url}"
+                          },
+                          {
+                              "name":"AUTHENTICATION_SERVICE_TIMEOUT_MS",
+                              "value": "${var.authentication_service_timeout_ms}"
+                          }
                           },
                           {
                               "name":"AUTHENTICATION_SERVICE_URL",
@@ -136,6 +144,10 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                               "value":"true"
                           },
                           {
+                              "name":"REQUEST_TIMEOUT_MS",
+                              "value":"${var.request_timeout_ms}"
+                          },
+                          {
                               "name":"OAUTH_CLIENT_ID",
                               "value":"${var.lpg_management_oauth_client_id}"
                           },
@@ -156,8 +168,16 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                               "value":"${var.report_service_url}"
                           },
                           {
+                              "name":"REPORT_SERVICE_TIMEOUT_MS",
+                              "value":"${var.report_service_timeout_ms}"
+                          },
+                          {
                               "name":"COURSE_CATALOGUE_URL",
                               "value":"${var.course_catalogue_url}"
+                          },
+                          {
+                              "name":"COURSE_CATALOGUE_TIMEOUT_MS",
+                              "value":"${var.course_catalogue_timeout_ms}"
                           },
                           {
                               "name":"COURSE_CATALOGUE_USER",
@@ -188,12 +208,24 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                               "value":"${var.youtube_api_key}"
                           },
                           {
+                              "name":"YOUTUBE_TIMEOUT_MS",
+                              "value":"${var.youtube_timeout_ms}"
+                          },
+                          {
                               "name":"REGISTRY_SERVICE_URL",
                               "value":"${var.registry_service_url}"
                           },
                           {
+                              "name":"REGISTRY_SERVICE_TIMEOUT_MS",
+                              "value":"${var.registry_service_timeout_ms}"
+                          },
+                          {
                               "name":"LEARNER_RECORD_URL",
                               "value":"${var.learner_record_url}"
+                          },
+                          {
+                              "name":"LEARNER_RECORD_TIMEOUT_MS",
+                              "value":"${var.learner_record_timeout_ms}"
                           },
                           {
                               "name":"REDIS_HOST",

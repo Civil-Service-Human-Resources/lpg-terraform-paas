@@ -38,8 +38,16 @@ variable "domain" {
   default = ""
 }
 
+variable "request_timeout_ms" {
+  default = "60000"
+}
+
 variable "authentication_service_url" {
   default = ""
+}
+
+variable "authentication_service_timeout_ms" {
+  default = "60000"
 }
 
 variable "env_profile" {
@@ -102,8 +110,16 @@ variable "report_service_url" {
   default = ""
 }
 
+variable "report_service_timeout_ms" {
+  default = "120000"
+}
+
 variable "course_catalogue_url" {
   default = "course_catalogue_url"
+}
+
+variable "course_catalogue_timeout_ms" {
+  default = "60000"
 }
 
 variable "course_catalogue_user" {
@@ -122,12 +138,24 @@ variable "youtube_api_key" {
   default = ""
 }
 
+variable "youtube_timeout_ms" {
+  default = "60000"
+}
+
 variable "registry_service_url" {
   default = ""
 }
 
+variable "registry_service_timeout_ms" {
+  default = "60000"
+}
+
 variable "learner_record_url" {
   default = ""
+}
+
+variable "learner_record_timeout_ms" {
+  default = "60000"
 }
 
 variable "redis_host" {
