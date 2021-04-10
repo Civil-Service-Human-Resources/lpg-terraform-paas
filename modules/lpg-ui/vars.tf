@@ -122,6 +122,10 @@ variable "envurl" {
   default = "local"
 }
 
+variable "application_insights_instrumentation_key" {
+  default = ""
+}
+
 variable "registry_service_url" {
   default = ""
 }

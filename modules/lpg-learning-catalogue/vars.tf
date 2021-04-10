@@ -86,6 +86,10 @@ variable "envurl" {
   default = ""
 }
 
+variable "application_insights_connection_string" {
+  default = ""
+}
+
 variable "azure_account_key" {
   default = ""
 }

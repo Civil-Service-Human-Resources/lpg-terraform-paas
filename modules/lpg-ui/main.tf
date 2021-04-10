@@ -108,6 +108,14 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value":"false"
                           },
                           {
+                              "name":"APPLICATIONINSIGHTS_ROLE_NAME",
+                              "value":"${var.lpg_ui_name}"
+                          },
+                          {
+                              "name":"APPLICATIONINSIGHTS_INSTRUMENTATION_KEY",
+                              "value":"${var.application_insights_instrumentation_key}"
+                          },
+                          {
                               "name":"AUTHENTICATION_SERVICE_URL",
                               "value":"${var.authentication_service_url}"
                           },

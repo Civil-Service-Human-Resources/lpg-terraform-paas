@@ -108,6 +108,14 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
                               "value":"false"
                           },
                           {
+                              "name":"APPLICATIONINSIGHTS_ROLE_NAME",
+                              "value":"${var.lpg_learning_catalogue_name}"
+                          },
+                          {
+                              "name":"APPLICATIONINSIGHTS_CONNECTION_STRING",
+                              "value":"${var.application_insights_connection_string}"
+                          },
+                          {
                               "name":"AUTH_USER",
                               "value":"${var.auth_user}"
                           },

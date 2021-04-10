@@ -108,6 +108,14 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
                 "value": "false"
               },
               {
+                "name":"APPLICATIONINSIGHTS_ROLE_NAME",
+                "value":"${var.civil_servant_registry_name}"
+              },
+              {
+                "name":"APPLICATIONINSIGHTS_CONNECTION_STRING",
+                "value":"${var.application_insights_connection_string}"
+              },
+              {
                 "name": "WEBSITES_PORT",
                 "value": "${var.websites_port}"
               },

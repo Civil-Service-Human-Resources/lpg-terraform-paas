@@ -107,6 +107,14 @@ resource "azurerm_template_deployment" "lpg-report-service-app-service" {
                 "value": "false"
             },
             {
+                "name":"APPLICATIONINSIGHTS_ROLE_NAME",
+                "value":"${var.lpg_report_service_name}"
+            },
+            {
+                "name":"APPLICATIONINSIGHTS_CONNECTION_STRING",
+                "value":"${var.application_insights_connection_string}"
+            },
+            {
                 "name": "LEARNER_RECORD_URL",
                 "value": "${var.learner_record_url}"
             },

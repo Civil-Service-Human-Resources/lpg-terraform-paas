@@ -38,6 +38,10 @@ variable "envurl" {
   default = "local"
 }
 
+variable "application_insights_connection_string" {
+  default = ""
+}
+
 variable "env_profile" {
   default = "test"
 }

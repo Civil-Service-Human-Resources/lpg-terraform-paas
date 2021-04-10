@@ -74,6 +74,10 @@ variable "envurl" {
   default = ""
 }
 
+variable "application_insights_connection_string" {
+  default = ""
+}
+
 variable "gov_notify_api_key" {
   default = ""
 }

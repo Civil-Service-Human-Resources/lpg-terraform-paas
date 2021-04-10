@@ -122,6 +122,10 @@ variable "envurl" {
   default = ""
 }
 
+variable "application_insights_connection_string" {
+  default = ""
+}
+
 variable "spring_profiles_active" {
   default = "default"
 }

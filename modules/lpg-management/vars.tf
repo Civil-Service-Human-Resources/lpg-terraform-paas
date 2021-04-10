@@ -58,6 +58,10 @@ variable "envurl" {
   default = "local"
 }
 
+variable "application_insights_instrumentation_key" {
+  default = ""
+}
+
 variable "vaultresourcegroup" {
   default = ""
 }

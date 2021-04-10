@@ -32,6 +32,14 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
                        "value":"false"
                     },
                     {
+                        "name":"APPLICATIONINSIGHTS_ROLE_NAME",
+                        "value":"${var.notification_service_name}"
+                     },
+                     {
+                        "name":"APPLICATIONINSIGHTS_CONNECTION_STRING",
+                        "value":"${var.application_insights_connection_string}"
+                     },
+                    {
                        "name":"DOCKER_ENABLE_CI",
                        "value":"true"
                     },

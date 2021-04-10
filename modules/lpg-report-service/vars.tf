@@ -78,6 +78,10 @@ variable "envurl" {
   default = ""
 }
 
+variable "application_insights_connection_string" {
+  default = ""
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }
