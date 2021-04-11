@@ -37,8 +37,8 @@ unlink *-vars.tf
 
 echo "Creating symlink for $ENV files"
 ln -s ../00-$ENV/00-vars.tf
-ln -s K:/team/lpg/ops/azure/cabinet-azure/00-$ENV/state.tf
-ln -s K:/team/lpg/ops/azure/cabinet-azure/00-$ENV/$ENV-vars.tf
+ln -s /volumes/keybase/team/lpg/ops/azure/cabinet-azure/00-$ENV/state.tf
+ln -s /volumes/keybase/team/lpg/ops/azure/cabinet-azure/00-$ENV/$ENV-vars.tf
 
 echo "Initialising Terraform"
 terraform init
