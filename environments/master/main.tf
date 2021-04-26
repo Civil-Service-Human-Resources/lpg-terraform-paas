@@ -91,7 +91,7 @@ module "identity" {
   whitelisted_domains                     = var.whitelisted_domains
   invite_signup_url                       = "https://${var.envurl}identity.${var.domain}/signup/%s"
   reset_url                               = "https://${var.envurl}identity.${var.domain}/reset/%s"
-  lpg_ui_url                              = "https://${var.envurl}${var.lpgurl}${var.domain}"
+  lpg_ui_url                              = "https://${var.envurl}${var.domain}"
   redis_host                              = module.redis-session.redis_host
   redis_password                          = module.redis-session.redis_key
   redis_port                              = "6379"
@@ -171,7 +171,7 @@ module "lpg-learner-record" {
   envurl                          = var.envurl
   spring_profiles_active          = var.spring_profiles_active
   datasource                      = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}.mysql.database.azure.com:3306/learner_record?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
-  lpg_ui_url                      = "https://${var.envurl}${var.lpgurl}${var.domain}"
+  lpg_ui_url                      = "https://${var.envurl}${var.domain}"
   notification_service_url        = "https://${var.rg_prefix}-${var.rg_name}-${var.notification_service_name}.azurewebsites.net"
   scaling_enabled                 = var.scaling_enabled
   custom_emails                   = var.custom_emails
@@ -311,7 +311,6 @@ module "lpg-ui" {
   serviceplan_suffix_lpgui        = var.serviceplan_suffix_lpgui
   lpg_ui_name                     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
   domain                          = var.domain
-  lpgurl                          = var.lpgurl
   xapi_url                        = "https://${var.envurl}xapi.${var.domain}/data/xAPI"
   authentication_service_url      = "https://${var.envurl}identity.${var.domain}"
   docker_tag                      = var.lpg_services_tag
@@ -331,7 +330,7 @@ module "lpg-ui" {
   certificatename                 = var.certificatename
   envurl                          = var.envurl
   registry_service_url            = "https://${var.envurl}civil-servant-registry.${var.domain}"
-  lpg_ui_server                   = "https://${var.envurl}${var.lpgurl}${var.domain}"
+  lpg_ui_server                   = "https://${var.envurl}${var.domain}"
   lpg_ui_oauth_client_id          = var.lpg_ui_oauth_client_id
   lpg_ui_oauth_client_secret      = var.lpg_ui_oauth_client_secret
   lpg_management_server           = "https://${var.envurl}management.${var.domain}"
@@ -451,7 +450,7 @@ module "lpg-management" {
   lpg_management_oauth_client_id     = var.lpg_management_oauth_client_id
   lpg_management_oauth_client_secret = var.lpg_management_oauth_client_secret
   callback_url                       = "https://${var.envurl}management.${var.domain}"
-  lpg_ui_url                         = "https://${var.envurl}${var.lpgurl}${var.domain}"
+  lpg_ui_url                         = "https://${var.envurl}${var.domain}"
   report_service_url                 = "https://${var.envurl}report.${var.domain}"
   report_service_timeout_ms          = var.lpg_management_report_service_timeout_ms
   course_catalogue_url               = "https://${var.envurl}learning-resources.${var.domain}"
