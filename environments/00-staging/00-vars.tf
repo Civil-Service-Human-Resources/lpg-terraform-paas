@@ -98,7 +98,7 @@ variable "lpg_management_capacity" {
 }
 
 variable "envurl" {
-  default = "staging-"
+  default = ""
 }
 
 variable "domain" {
