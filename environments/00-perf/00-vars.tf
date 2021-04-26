@@ -99,7 +99,7 @@ variable "lpg_management_capacity" {
 }
 
 variable "envurl" {
-  default = ""
+  default = "perf-"
 }
 
 variable "domain" {
