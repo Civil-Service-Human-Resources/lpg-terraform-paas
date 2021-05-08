@@ -350,6 +350,7 @@ module "lpg-ui" {
   redis_port                      = "6379"
   xapi_username                   = var.xapi_username
   xapi_password                   = var.xapi_password
+  ui_server_timeout_ms            = var.ui_server_timeout_ms
   ui_static_asset_root            = "https://${var.ui_static_asset_root}.azureedge.net"
   ui_static_asset_ttl             = var.ui_static_asset_ttl
 }
@@ -437,6 +438,7 @@ module "lpg-management" {
   lpg_management_name                = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management_name}"
   domain                             = var.domain
   request_timeout_ms                 = var.lpg_management_request_timeout_ms
+  server_timeout_ms                  = var.lpg_management_server_timeout_ms
   authentication_service_url         = "https://${var.envurl}identity.${var.domain}"
   authentication_service_timeout_ms  = var.lpg_management_authentication_service_timeout_ms
   env_profile                        = var.env_profile
