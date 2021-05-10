@@ -99,15 +99,11 @@ variable "lpg_management_capacity" {
 }
 
 variable "envurl" {
-  default = "integration-"
+  default = ""
 }
 
 variable "domain" {
-  default = "cshr.digital"
-}
-
-variable "lpgurl" {
-  default = "lpg."
+  default = "integration.learn.civilservice.gov.uk"
 }
 
 variable "scaling_enabled" {

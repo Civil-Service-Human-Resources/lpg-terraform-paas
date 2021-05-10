@@ -98,15 +98,11 @@ variable "lpg_management_capacity" {
 }
 
 variable "envurl" {
-  default = "staging-"
+  default = ""
 }
 
 variable "domain" {
-  default = "cshr.digital"
-}
-
-variable "lpgurl" {
-  default = "lpg."
+  default = "staging.learn.civilservice.gov.uk"
 }
 
 variable "scaling_enabled" {

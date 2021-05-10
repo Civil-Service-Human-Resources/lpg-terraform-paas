@@ -49,10 +49,6 @@ variable "domain" {
   default = ""
 }
 
-variable "lpgurl" {
-  default = ""
-}
-
 variable "authentication_service_url" {
   default = ""
 }

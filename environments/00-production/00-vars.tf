@@ -106,10 +106,6 @@ variable "domain" {
   default = "learn.civilservice.gov.uk"
 }
 
-variable "lpgurl" {
-  default = ""
-}
-
 variable "scaling_enabled" {
   default = "false"
 }
