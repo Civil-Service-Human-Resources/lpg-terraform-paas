@@ -98,15 +98,11 @@ variable "lpg_management_capacity" {
 }
 
 variable "envurl" {
-  default = "staging-"
+  default = ""
 }
 
 variable "domain" {
-  default = "cshr.digital"
-}
-
-variable "lpgurl" {
-  default = "lpg."
+  default = "staging.learn.civilservice.gov.uk"
 }
 
 variable "scaling_enabled" {
@@ -131,11 +127,11 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "idt-release-3.0-2-20210219-125511"
+  default = "idt-release-4.0-1-20210329-091016"
 }
 
 variable "identity_docker_tag" {
-  default = "idt-release-3.0-1-20210217-165501"
+  default = "idt-release-4.0-1-20210329-090558"
 }
 
 variable "identity_management_docker_tag" {
@@ -147,19 +143,19 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "idt-release-3.0-1-20210217-165723"
+  default = "idt-release-4.0-1-20210329-114134"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "idt-release-2.0-1"
+  default = "idt-release-4.0-1-20210329-091154"
 }
 
 variable "lpg_management_tag" {
-  default = "idt-release-3.0-1-20210217-164636"
+  default = "idt-release-4.0-1-20210329-114752"
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "master-10"
+  default = "idt-release-4.0-2-20210330-104840"
 }
 
 variable "lpg_services_tag" {
@@ -372,6 +368,34 @@ variable "content_container" {
   default = "lpgdevcontent"
 }
 
+variable "lpg_management_report_service_timeout_ms" {
+  default = "120000"
+}
+
+variable "lpg_management_request_timeout_ms" {
+  default = "60000"
+}
+
+variable "lpg_management_authentication_service_timeout_ms" {
+  default = "60000"
+}
+
+variable "lpg_management_youtube_timeout_ms" {
+  default = "60000"
+}
+
+variable "lpg_management_course_catalogue_timeout_ms" {
+  default = "60000"
+}
+
+variable "lpg_management_learner_record_timeout_ms" {
+  default = "60000"
+}
+
+variable "lpg_management_civil_servant_registry_service_timeout_ms" {
+  default = "60000"
+}
+
 ### notification-service ###
 variable "notification_service_name" {
   default = "notification-service"
@@ -410,4 +434,8 @@ variable "maintenance_page_content_line_3" {
 
 variable "maintenance_page_content_line_4" {
   default = "If the maintenance period is extended, further information will be provided here."
+}
+
+variable "backend_api_call_batch_size" {
+  default = "50"
 }
