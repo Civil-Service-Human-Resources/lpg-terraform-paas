@@ -159,7 +159,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "idt-release-3.0-2-20210222-161908"
+  default = "idt-develop-7-20210511-114837"
 }
 
 variable "notification_service_tag" {
@@ -292,7 +292,7 @@ variable "ui_static_asset_ttl" {
 }
 
 variable "ui_static_asset_root" {
-  default = "lpgstaticstage"
+  default = "https://asset-cdn.staging.learn.civilservice.gov.uk"
 }
 
 ### lpg-learning-catalogue ###
