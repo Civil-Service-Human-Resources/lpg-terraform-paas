@@ -46,6 +46,10 @@ variable "request_timeout_ms" {
   default = "60000"
 }
 
+variable "server_timeout_ms" {
+  default = "600000"
+}
+
 variable "authentication_service_url" {
   default = ""
 }

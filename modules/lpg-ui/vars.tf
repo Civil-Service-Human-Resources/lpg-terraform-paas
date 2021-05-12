@@ -200,6 +200,10 @@ variable "xapi_password" {
   default = "password"
 }
 
+variable "ui_server_timeout_ms" {
+  default = "300000"
+}
+
 variable "ui_static_asset_root" {
   default = ""
 }
