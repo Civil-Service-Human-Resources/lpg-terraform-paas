@@ -292,7 +292,7 @@ variable "ui_static_asset_ttl" {
 }
 
 variable "ui_static_asset_root" {
-  default = "lpgstaticstage"
+  default = "https://asset-cdn.staging.learn.civilservice.gov.uk"
 }
 
 ### lpg-learning-catalogue ###
