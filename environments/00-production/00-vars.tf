@@ -297,7 +297,7 @@ variable "ui_static_asset_ttl" {
 }
 
 variable "ui_static_asset_root" {
-  default = "lpgprodstaticcontent"
+  default = "https://lpgprodstaticcontent.azureedge.net"
 }
 
 ### lpg-learning-catalogue ###

@@ -297,7 +297,7 @@ variable "ui_static_asset_ttl" {
 }
 
 variable "ui_static_asset_root" {
-  default = "lpgstaticcontent"
+  default = "https://asset-cdn.integration.learn.civilservice.gov.uk"
 }
 
 ### lpg-learning-catalogue ###
