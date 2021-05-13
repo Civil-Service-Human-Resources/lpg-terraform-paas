@@ -135,7 +135,7 @@ variable "identity_docker_tag" {
 }
 
 variable "identity_management_docker_tag" {
-  default = "master-17"
+  default = "idt-release-5.0-1"
 }
 
 variable "ll_docker_tag" {
@@ -151,15 +151,15 @@ variable "learning_catalogue_docker_tag" {
 }
 
 variable "lpg_management_tag" {
-  default = "idt-release-4.0-1-20210329-114752"
+  default = "idt-release-5.0-1-20210513-153957"
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "idt-release-4.0-2-20210330-104840"
+  default = "idt-release-5.0-1-20210513-154434"
 }
 
 variable "lpg_services_tag" {
-  default = "idt-release-3.0-2-20210222-161908"
+  default = "idt-release-5.0-1-20210513-154757"
 }
 
 variable "notification_service_tag" {
