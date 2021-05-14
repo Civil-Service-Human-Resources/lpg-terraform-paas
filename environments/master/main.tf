@@ -128,10 +128,10 @@ module "identity-management" {
   authentication_service_url        = "https://identity.${var.domain}"
   identity_management_client_id     = var.identity_management_client_id
   identity_management_client_secret = var.identity_management_client_secret
-  invite_signup_url                 = "https://identity.${var.domain}/signup/%s"
   learner_record_url                = "https://learning-record.${var.domain}"
   registry_service_url              = "https://civil-servant-registry.${var.domain}"
   notification_service_url          = "https://${var.rg_prefix}-${var.rg_name}-${var.notification_service_name}.azurewebsites.net"
+  identity_management_url           = "https://${var.rg_prefix}-${var.rg_name}-identity-management.azurewebsites.net"
   vaultresourcegroup                = var.vaultresourcegroup
   vaultname                         = var.vaultname
   existingkeyvaultsecretname        = var.existingkeyvaultsecretname
