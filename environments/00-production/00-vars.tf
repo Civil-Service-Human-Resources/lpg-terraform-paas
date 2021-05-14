@@ -152,15 +152,15 @@ variable "learning_catalogue_docker_tag" {
 }
 
 variable "lpg_management_tag" {
-  default = "idt-release-5.0-1-20210513-153957"
+  default = "idt-release-5.0-2-20210514-082044"
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "idt-release-5.0-1-20210513-154434"
+  default = "idt-release-5.0-2-20210514-083933"
 }
 
 variable "lpg_services_tag" {
-  default = "idt-release-5.0-1-20210513-154757"
+  default = "idt-release-5.0-2-20210514-081829"
 }
 
 variable "notification_service_tag" {
