@@ -127,7 +127,7 @@ variable "report_service_url" {
 }
 
 variable "report_service_timeout_ms" {
-  default = "120000"
+  default = "600000"
 }
 
 variable "course_catalogue_url" {
