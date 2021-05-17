@@ -47,7 +47,7 @@ variable "request_timeout_ms" {
 }
 
 variable "server_timeout_ms" {
-  default = "240000"
+  default = "235000"
 }
 
 variable "authentication_service_url" {
@@ -127,7 +127,7 @@ variable "report_service_url" {
 }
 
 variable "report_service_timeout_ms" {
-  default = "240000"
+  default = "235000"
 }
 
 variable "course_catalogue_url" {
