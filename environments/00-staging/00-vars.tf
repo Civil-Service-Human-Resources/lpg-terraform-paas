@@ -288,7 +288,7 @@ variable "ui_websites_port" {
 }
 
 variable "ui_server_timeout_ms" {
-  default = "300000"
+  default = "240000"
 }
 
 variable "ui_static_asset_ttl" {
