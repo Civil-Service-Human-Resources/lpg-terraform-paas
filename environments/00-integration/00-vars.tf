@@ -374,7 +374,7 @@ variable "content_container" {
 }
 
 variable "lpg_management_report_service_timeout_ms" {
-  default = "120000"
+  default = "600000"
 }
 
 variable "lpg_management_request_timeout_ms" {
