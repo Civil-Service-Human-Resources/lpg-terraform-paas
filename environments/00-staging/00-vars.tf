@@ -288,7 +288,7 @@ variable "ui_websites_port" {
 }
 
 variable "ui_server_timeout_ms" {
-  default = "240000"
+  default = "235000"
 }
 
 variable "ui_static_asset_ttl" {
@@ -373,7 +373,7 @@ variable "content_container" {
 }
 
 variable "lpg_management_report_service_timeout_ms" {
-  default = "240000"
+  default = "235000"
 }
 
 variable "lpg_management_request_timeout_ms" {
@@ -381,7 +381,7 @@ variable "lpg_management_request_timeout_ms" {
 }
 
 variable "lpg_management_server_timeout_ms" {
-  default = "240000"
+  default = "235000"
 }
 
 variable "lpg_management_authentication_service_timeout_ms" {
