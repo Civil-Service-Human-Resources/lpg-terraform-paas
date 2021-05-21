@@ -240,6 +240,10 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value":"${var.docker_registry_server_password}"
                           },
                           {
+                              "name":"SERVER_TIMEOUT_MS",
+                              "value":"${var.ui_server_timeout_ms}"
+                          },
+                          {
                               "name":"STATIC_ASSET_ROOT",
                               "value":"${var.ui_static_asset_root}"
                           },
