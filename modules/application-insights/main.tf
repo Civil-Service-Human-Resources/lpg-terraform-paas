@@ -23,7 +23,7 @@ resource "azurerm_template_deployment" "app-insights" {
         },
         "pingUrl-lpgUI": {
             "type": "string",
-            "defaultValue": "https://${var.envurl}lpg.cshr.digital"
+            "defaultValue": "https://${var.envurl}lpg.learn.civilservice.gov.uk"
         },
         "pingText-lpgUI": {
             "type": "string",
@@ -31,7 +31,7 @@ resource "azurerm_template_deployment" "app-insights" {
         },
             "pingUrl-identity": {
             "type": "string",
-            "defaultValue": "https://${var.envurl}identity.cshr.digital"
+            "defaultValue": "https://${var.envurl}identity.learn.civilservice.gov.uk"
         },
         "pingText-identity": {
             "type": "string",
@@ -39,7 +39,7 @@ resource "azurerm_template_deployment" "app-insights" {
         },
             "pingUrl-csrs": {
             "type": "string",
-            "defaultValue": "https://${var.envurl}civil-servant-registry.cshr.digital"
+            "defaultValue": "https://${var.envurl}civil-servant-registry.learn.civilservice.gov.uk"
         },
         "pingText-csrs": {
             "type": "string",
@@ -47,7 +47,7 @@ resource "azurerm_template_deployment" "app-insights" {
         },
             "pingUrl-xapi": {
             "type": "string",
-            "defaultValue": "https://${var.envurl}xapi.cshr.digital"
+            "defaultValue": "https://${var.envurl}xapi.learn.civilservice.gov.uk"
         },
         "pingText-xapi": {
             "type": "string",
