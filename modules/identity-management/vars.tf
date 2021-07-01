@@ -74,10 +74,6 @@ variable "identity_management_client_secret" {
   default = ""
 }
 
-variable "invite_signup_url" {
-  default = ""
-}
-
 variable "learner_record_url" {
   default = ""
 }
@@ -89,6 +85,11 @@ variable "registry_service_url" {
 variable "notification_service_url" {
   default = ""
 }
+
+variable "identity_management_url" {
+  default = ""
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }

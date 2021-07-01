@@ -54,7 +54,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
           },
           "websiteCustomName":{
               "type":"string",
-              "defaultvalue":"${var.envurl}${var.lpgurl}",
+              "defaultvalue":"${var.envurl}",
               "metadata":{
                   "description":"Custom hostname for creating SSL binding."
               }
@@ -230,6 +230,10 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                           {
                               "name":"DOCKER_REGISTRY_SERVER_PASSWORD",
                               "value":"${var.docker_registry_server_password}"
+                          },
+                          {
+                              "name":"SERVER_TIMEOUT_MS",
+                              "value":"${var.ui_server_timeout_ms}"
                           },
                           {
                               "name":"STATIC_ASSET_ROOT",

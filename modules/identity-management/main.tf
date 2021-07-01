@@ -64,10 +64,6 @@ resource "azurerm_template_deployment" "identity-management-app-service" {
                             "value": "${var.identity_management_client_secret}"
                           },
                           {
-                            "name": "INVITE_SIGNUP_URL",
-                            "value": "${var.invite_signup_url}"
-                          },
-                          {
                             "name": "LEARNER_RECORD_URL",
                             "value": "${var.learner_record_url}"
                           },
@@ -78,6 +74,10 @@ resource "azurerm_template_deployment" "identity-management-app-service" {
                           {
                             "name": "NOTIFICATION_SERVICE_URL",
                             "value": "${var.notification_service_url}"
+                          },
+                          {
+                            "name": "IDM_URL",
+                            "value": "${var.identity_management_url}"
                           },
                           {
                             "name": "DOCKER_REGISTRY_SERVER_URL",

@@ -46,10 +46,6 @@ variable "domain" {
   default = ""
 }
 
-variable "lpgurl" {
-  default = ""
-}
-
 variable "authentication_service_url" {
   default = ""
 }
@@ -191,6 +187,10 @@ variable "xapi_username" {
 }
 variable "xapi_password" {
   default = "password"
+}
+
+variable "ui_server_timeout_ms" {
+  default = "235000"
 }
 
 variable "ui_static_asset_root" {

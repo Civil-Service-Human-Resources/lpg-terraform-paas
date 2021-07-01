@@ -94,15 +94,11 @@ variable "lpg_management_capacity" {
 }
 
 variable "envurl" {
-  default = "integration-"
+  default = ""
 }
 
 variable "domain" {
-  default = "cshr.digital"
-}
-
-variable "lpgurl" {
-  default = "lpg."
+  default = "integration.learn.civilservice.gov.uk"
 }
 
 variable "scaling_enabled" {
@@ -131,7 +127,7 @@ variable "identity_docker_tag" {
 }
 
 variable "identity_management_docker_tag" {
-  default = "master-17"
+  default = "idt-release-5.0-1"
 }
 
 variable "ll_docker_tag" {
@@ -275,12 +271,16 @@ variable "ui_websites_port" {
   default = "3001"
 }
 
+variable "ui_server_timeout_ms" {
+  default = "235000"
+}
+
 variable "ui_static_asset_ttl" {
   default = "86400000"
 }
 
 variable "ui_static_asset_root" {
-  default = "lpgstaticcontent"
+  default = "https://asset-cdn.integration.learn.civilservice.gov.uk"
 }
 
 ### lpg-learning-catalogue ###
@@ -353,11 +353,15 @@ variable "content_container" {
 }
 
 variable "lpg_management_report_service_timeout_ms" {
-  default = "120000"
+  default = "235000"
 }
 
 variable "lpg_management_request_timeout_ms" {
   default = "60000"
+}
+
+variable "lpg_management_server_timeout_ms" {
+  default = "235000"
 }
 
 variable "lpg_management_authentication_service_timeout_ms" {

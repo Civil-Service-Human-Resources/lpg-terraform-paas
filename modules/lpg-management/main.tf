@@ -148,6 +148,10 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                               "value":"${var.request_timeout_ms}"
                           },
                           {
+                              "name":"SERVER_TIMEOUT_MS",
+                              "value":"${var.server_timeout_ms}"
+                          },
+                          {
                               "name":"OAUTH_CLIENT_ID",
                               "value":"${var.lpg_management_oauth_client_id}"
                           },
