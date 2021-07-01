@@ -123,11 +123,11 @@ variable "google_analytics_id" {
 
 ### docker tags ###
 variable "civil_servant_registry_docker_tag" {
-  default = "idt-release-4.0-1-20210329-091016"
+  default = "idt-feature-LC-902-remove-hammer-upgrade-logging-1-20210412-082555"
 }
 
 variable "identity_docker_tag" {
-  default = "idt-release-4.0-1-20210329-090558"
+  default = "idt-feature-LC-902-remove-hammer-upgrade-logging-2-20210629-132757"
 }
 
 variable "identity_management_docker_tag" {
@@ -139,27 +139,27 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "idt-release-4.0-1-20210329-114134"
+  default = "idt-feature-LC-902-remove-hammer-upgrade-logging-3-20210629-132317"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "idt-release-4.0-1-20210329-091154"
+  default = "idt-feature-LC-902-remove-hammer-upgrade-logging-2-20210629-132915"
 }
 
 variable "lpg_management_tag" {
-  default = "idt-release-4.0-1-20210329-114752"
+  default = "idt-feature-LC-902-remove-hammer-upgrade-logging-9-20210701-102229"
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "idt-release-4.0-2-20210330-104840"
+  default = "idt-feature-LC-902-remove-hammer-upgrade-logging-2-20210629-132819"
 }
 
 variable "lpg_services_tag" {
-  default = "idt-release-3.0-2-20210222-161908"
+  default = "idt-feature-LC-902-remove-hammer-upgrade-logging-9-20210630-154253"
 }
 
 variable "notification_service_tag" {
-  default = "master-7"
+  default = "idt-feature-LC-902-remove-hammer-upgrade-logging-1-20210412-083638"
 }
 
 variable "data_transchiver_tag" {
