@@ -118,7 +118,7 @@ variable "envurl" {
   default = "local"
 }
 
-variable "application_insights_instrumentation_key" {
+variable "application_insights_connection_string" {
   default = ""
 }
 

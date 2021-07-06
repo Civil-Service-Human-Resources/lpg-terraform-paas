@@ -112,8 +112,8 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value":"${var.lpg_ui_name}"
                           },
                           {
-                              "name":"APPLICATIONINSIGHTS_INSTRUMENTATION_KEY",
-                              "value":"${var.application_insights_instrumentation_key}"
+                              "name":"APPLICATIONINSIGHTS_CONNECTION_STRING",
+                              "value":"${var.application_insights_connection_string}"
                           },
                           {
                               "name":"AUTHENTICATION_SERVICE_URL",
@@ -280,7 +280,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                   "logsDirectorySizeLimit":35,
                   "detailedErrorLoggingEnabled":true,
                   "alwaysOn":true,
-                  "appCommandLine":"node ../node_modules/ui/server.js",
+                  "appCommandLine":"npm run start:ui",
                   "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
                   "minTlsVersion":"1.2",
                   "ftpsState":"Disabled"

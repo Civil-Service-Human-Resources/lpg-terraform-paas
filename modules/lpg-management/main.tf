@@ -112,20 +112,16 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                               "value":"${var.lpg_management_name}"
                           },
                           {
-                              "name":"APPLICATIONINSIGHTS_INSTRUMENTATION_KEY",
-                              "value":"${var.application_insights_instrumentation_key}"
+                              "name":"APPLICATIONINSIGHTS_CONNECTION_STRING",
+                              "value":"${var.application_insights_connection_string}"
                         },
+                        {
                               "name":"AUTHENTICATION_SERVICE_URL",
                               "value":"${var.authentication_service_url}"
                           },
                           {
                               "name":"AUTHENTICATION_SERVICE_TIMEOUT_MS",
                               "value": "${var.authentication_service_timeout_ms}"
-                          }
-                          },
-                          {
-                              "name":"AUTHENTICATION_SERVICE_URL",
-                              "value":"${var.authentication_service_url}"
                           },
                           {
                               "name":"ENV_PROFILE",
@@ -279,7 +275,7 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                   "logsDirectorySizeLimit":35,
                   "detailedErrorLoggingEnabled":true,
                   "alwaysOn":true,
-                  "appCommandLine":"",
+                  "appCommandLine":"npm start",
                   "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
                   "minTlsVersion":"1.2",
                   "ftpsState":"Disabled"

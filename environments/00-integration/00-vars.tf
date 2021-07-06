@@ -143,7 +143,7 @@ variable "learning_catalogue_docker_tag" {
 }
 
 variable "lpg_management_tag" {
-  default = "idt-feature-LC-902-remove-hammer-upgrade-logging-9-20210701-102229"
+  default = "idt-feature-LC-902-remove-hammer-upgrade-logging-11-20210701-154629"
 }
 
 variable "lpg_report_service_docker_tag" {
@@ -151,7 +151,7 @@ variable "lpg_report_service_docker_tag" {
 }
 
 variable "lpg_services_tag" {
-  default = "idt-feature-LC-902-remove-hammer-upgrade-logging-9-20210630-154253"
+  default = "idt-feature-LC-902-remove-hammer-upgrade-logging-10-20210701-154446"
 }
 
 variable "notification_service_tag" {

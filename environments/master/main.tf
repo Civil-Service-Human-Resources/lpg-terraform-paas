@@ -113,6 +113,7 @@ module "identity" {
   maintenance_page_content_line_2         = var.maintenance_page_content_line_2
   maintenance_page_content_line_3         = var.maintenance_page_content_line_3
   maintenance_page_content_line_4         = var.maintenance_page_content_line_4
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "identity-management" {
@@ -186,6 +187,7 @@ module "lpg-learner-record" {
   xapi_password                   = var.xapi_password
   learner_record_command_line     = var.learner_record_command_line
   jwt_key                         = var.jwt_key
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "lpg-report-service" {
@@ -218,6 +220,7 @@ module "lpg-report-service" {
   datasource                      = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}.mysql.database.azure.com:3306/learner_record?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
   jwt_key                         = var.jwt_key
   backend_api_call_batch_size     = var.backend_api_call_batch_size
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "lpg-learning-locker-xapi" {
@@ -344,6 +347,7 @@ module "lpg-ui" {
   ui_server_timeout_ms            = var.ui_server_timeout_ms
   ui_static_asset_root            = var.ui_static_asset_root
   ui_static_asset_ttl             = var.ui_static_asset_ttl
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "lpg-learning-catalogue" {
@@ -380,6 +384,7 @@ module "lpg-learning-catalogue" {
   docker_registry_server_username = var.docker_registry_server_username
   docker_registry_server_password = var.docker_registry_server_password
   jwt_key                         = var.jwt_key
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "civil-servant-registry-service" {
@@ -416,6 +421,7 @@ module "civil-servant-registry-service" {
   redis_host                      = module.redis-org.redis_host
   redis_password                  = module.redis-org.redis_key
   redis_port                      = "6379"
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "lpg-management" {
@@ -462,6 +468,7 @@ module "lpg-management" {
   redis_host                         = module.redis-session.redis_host
   redis_password                     = module.redis-session.redis_key
   redis_port                         = "6379"
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "notification-service" {
@@ -483,6 +490,7 @@ module "notification-service" {
   webapp_sku_name                    = var.webapp_sku_name_p1
   notification_capacity              = var.notification_capacity
   jwt_key                            = var.jwt_key
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "overview-dashboard" {
