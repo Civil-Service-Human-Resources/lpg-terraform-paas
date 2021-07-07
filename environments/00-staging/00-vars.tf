@@ -117,10 +117,6 @@ variable "env_profile" {
   default = "staging"
 }
 
-variable "youtube_api_key" {
-  default = "AIzaSyDkapeVQajSishsrZTDmqi4rLRRq3HABrY"
-}
-
 variable "google_analytics_id" {
   default = "UA-22141655-3"
 }
