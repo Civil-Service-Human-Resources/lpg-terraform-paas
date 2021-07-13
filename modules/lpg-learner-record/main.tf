@@ -112,6 +112,10 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                               "value":"${var.lpg_learner_record_name}"
                           },
                           {
+                              "name":"APPLICATIONINSIGHTS_CONNECTION_STRING",
+                              "value":"${var.application_insights_connection_string}"
+                          },
+                          {
                               "name":"SPRING_PROFILES_ACTIVE",
                               "value":"${var.spring_profiles_active}"
                           },
