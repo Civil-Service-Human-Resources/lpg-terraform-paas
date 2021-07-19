@@ -108,8 +108,12 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "value":"false"
                           },
                           {
-                              "name":"APPINSIGHTS_INSTRUMENTATIONKEY",
-                              "value":"${var.ai_instrument_key}"
+                              "name":"APPLICATIONINSIGHTS_ROLE_NAME",
+                              "value":"${var.identity_name}"
+                          },
+                          {
+                              "name":"APPLICATIONINSIGHTS_CONNECTION_STRING",
+                              "value":"${var.application_insights_connection_string}"
                           },
                           {
                               "name":"DATASOURCE",
@@ -126,14 +130,6 @@ resource "azurerm_template_deployment" "identity-app-service" {
                           {
                               "name":"WEBSITES_CONTAINER_START_TIME_LIMIT",
                               "value":"600"
-                          },
-                          {
-                              "name":"HAMMER_LOGSTASH_HOST",
-                              "value":"${var.hammer_logstash_host}"
-                          },
-                          {
-                              "name":"HAMMER_LOGSTASH_PORT",
-                              "value":"${var.hammer_logstash_port}"
                           },
                           {
                               "name":"ENV_PROFILE",
@@ -276,7 +272,7 @@ resource "azurerm_template_deployment" "identity-app-service" {
                   "logsDirectorySizeLimit":35,
                   "detailedErrorLoggingEnabled":true,
                   "alwaysOn":true,
-                  "appCommandLine": "java -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar",
+                  "appCommandLine": "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar",
                   "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
                   "minTlsVersion":"1.2",
                   "ftpsState":"Disabled"

@@ -2,10 +2,6 @@ variable "lpg_management_name" {
   default = "name"
 }
 
-variable "ai_instrument_key" {
-  default = "c79ba178-0bb8-48cd-a7d2-20d73ba59b5d"
-}
-
 variable "rg_name" {
   default = "holder"
 }
@@ -46,32 +42,20 @@ variable "request_timeout_ms" {
   default = "60000"
 }
 
-variable "server_timeout_ms" {
-  default = "235000"
-}
-
 variable "authentication_service_url" {
   default = ""
+}
+
+variable "server_timeout_ms" {
+  default = "235000"
 }
 
 variable "authentication_service_timeout_ms" {
   default = "60000"
 }
 
-variable "hammer_logstash_host" {
-  default = "54e2fb5d-be7a-47c2-b3cf-6f72f42b5dfb-ls.logit.io"
-}
-
-variable "hammer_logstash_port" {
-  default = "16690"
-}
-
 variable "env_profile" {
   default = "test"
-}
-
-variable "hammer_working_directory" {
-  default = ""
 }
 
 variable "websites_port" {
@@ -84,6 +68,10 @@ variable "session_secret" {
 
 variable "envurl" {
   default = "local"
+}
+
+variable "application_insights_connection_string" {
+  default = ""
 }
 
 variable "vaultresourcegroup" {

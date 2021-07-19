@@ -32,10 +32,6 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
                               "value":"false"
                           },
                           {
-                              "name":"APPINSIGHTS_INSTRUMENTATIONKEY",
-                              "value":"${var.ai_instrument_key}"
-                          },
-                          {
                               "name":"MONGODB_PATH",
                               "value":"${var.mongodb_path}"
                           },
@@ -50,14 +46,6 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
                           {
                               "name":"WEBSITES_PORT",
                               "value":"${var.websites_port}"
-                          },
-                          {
-                              "name":"HAMMER_LOGSTASH_HOST",
-                              "value":"${var.hammer_logstash_host}"
-                          },
-                          {
-                              "name":"HAMMER_LOGSTASH_PORT",
-                              "value":"${var.hammer_logstash_port}"
                           },
                           {
                               "name":"ENV_PROFILE",
@@ -135,7 +123,7 @@ resource "azurerm_template_deployment" "learning-locker-ui-app-service" {
                   "logsDirectorySizeLimit":35,
                   "detailedErrorLoggingEnabled":true,
                   "alwaysOn":true,
-                  "appCommandLine":"/bin/hammer /opt/learning-locker/run-ui.sh",
+                  "appCommandLine":"/opt/learning-locker/run-ui.sh",
                   "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
                   "minTlsVersion":"1.2",
                   "ftpsState":"Disabled"

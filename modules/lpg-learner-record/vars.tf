@@ -1,9 +1,6 @@
 variable "lpg_learner_record_name" {
   default = "name"
 }
-variable "ai_instrument_key" {
-  default = "c79ba178-0bb8-48cd-a7d2-20d73ba59b5d"
-}
 
 variable "rg_name" {
   default = "holder"
@@ -59,14 +56,6 @@ variable "xapi_username" {
 
 variable "xapi_password" {
   default = ""
-}
-
-variable "hammer_logstash_host" {
-  default = "54e2fb5d-be7a-47c2-b3cf-6f72f42b5dfb-ls.logit.io"
-}
-
-variable "hammer_logstash_port" {
-  default = "16690"
 }
 
 variable "env_profile" {
@@ -133,6 +122,10 @@ variable "envurl" {
   default = ""
 }
 
+variable "application_insights_connection_string" {
+  default = ""
+}
+
 variable "spring_profiles_active" {
   default = "default"
 }
@@ -174,7 +167,7 @@ variable "database" {
 }
 
 variable "learner_record_command_line" {
-  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
+  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
 
 variable "jwt_key" {

@@ -108,16 +108,16 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
                 "value": "false"
               },
               {
+                "name":"APPLICATIONINSIGHTS_ROLE_NAME",
+                "value":"${var.civil_servant_registry_name}"
+              },
+              {
+                "name":"APPLICATIONINSIGHTS_CONNECTION_STRING",
+                "value":"${var.application_insights_connection_string}"
+              },
+              {
                 "name": "WEBSITES_PORT",
                 "value": "${var.websites_port}"
-              },
-              {
-                "name": "HAMMER_LOGSTASH_HOST",
-                "value": "${var.hammer_logstash_host}"
-              },
-              {
-                "name": "HAMMER_LOGSTASH_PORT",
-                "value": "${var.hammer_logstash_port}"
               },
               {
                 "name": "ENV_PROFILE",
@@ -150,10 +150,6 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
               {
                 "name": "GOV_NOTIFY_LINEMANAGER_TEMPLATE_ID",
                 "value": "${var.gov_notify_linemanager_template_id}"
-              },
-              {
-                "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                "value": "${var.ai_instrument_key}"
               },
               {
                 "name": "DOCKER_REGISTRY_SERVER_URL",
@@ -227,7 +223,7 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
           "logsDirectorySizeLimit": 35,
           "detailedErrorLoggingEnabled": true,
           "alwaysOn": true,
-          "appCommandLine": "/bin/hammer java -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar",
+          "appCommandLine": "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar",
           "linuxFxVersion": "DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
           "minTlsVersion": "1.2",
           "ftpsState": "Disabled"

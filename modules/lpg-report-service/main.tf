@@ -107,8 +107,12 @@ resource "azurerm_template_deployment" "lpg-report-service-app-service" {
                 "value": "false"
             },
             {
-                "name":"APPINSIGHTS_INSTRUMENTATIONKEY",
-                "value":"${var.ai_instrument_key}"
+                "name":"APPLICATIONINSIGHTS_ROLE_NAME",
+                "value":"${var.lpg_report_service_name}"
+            },
+            {
+                "name":"APPLICATIONINSIGHTS_CONNECTION_STRING",
+                "value":"${var.application_insights_connection_string}"
             },
             {
                 "name": "LEARNER_RECORD_URL",
@@ -137,14 +141,6 @@ resource "azurerm_template_deployment" "lpg-report-service-app-service" {
             {
                 "name": "WEBSITES_PORT",
                 "value": "${var.websites_port}"
-            },
-            {
-                "name": "HAMMER_LOGSTASH_HOST",
-                "value": "${var.hammer_logstash_host}"
-            },
-            {
-                "name": "HAMMER_LOGSTASH_PORT",
-                "value": "${var.hammer_logstash_port}"
             },
             {
                 "name": "ENV_PROFILE",

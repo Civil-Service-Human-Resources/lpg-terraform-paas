@@ -104,7 +104,6 @@ module "identity" {
   docker_registry_server_username         = var.docker_registry_server_username
   docker_registry_server_password         = var.docker_registry_server_password
   authentication_service_url              = "https://identity.${var.domain}"
-  ai_instrument_key                       = var.ai_instrument_key
   registry_service_url                    = "https://civil-servant-registry.${var.domain}"
   jwt_key                                 = var.jwt_key
   invite_validity                         = var.invite_validity
@@ -114,6 +113,7 @@ module "identity" {
   maintenance_page_content_line_2         = var.maintenance_page_content_line_2
   maintenance_page_content_line_3         = var.maintenance_page_content_line_3
   maintenance_page_content_line_4         = var.maintenance_page_content_line_4
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "identity-management" {
@@ -183,11 +183,11 @@ module "lpg-learner-record" {
   docker_registry_server_password = var.docker_registry_server_password
   cosmos_connection_string        = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false"
   database                        = "admin"
-  ai_instrument_key               = var.ai_instrument_key
   xapi_username                   = var.xapi_username
   xapi_password                   = var.xapi_password
   learner_record_command_line     = var.learner_record_command_line
   jwt_key                         = var.jwt_key
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "lpg-report-service" {
@@ -213,7 +213,6 @@ module "lpg-report-service" {
   envurl                          = var.envurl
   webapp_sku_tier                 = var.webapp_sku_tier_p2
   webapp_sku_name                 = var.webapp_sku_name_p3
-  ai_instrument_key               = var.ai_instrument_key
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
   docker_registry_server_password = var.docker_registry_server_password
@@ -221,6 +220,7 @@ module "lpg-report-service" {
   datasource                      = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}.mysql.database.azure.com:3306/learner_record?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
   jwt_key                         = var.jwt_key
   backend_api_call_batch_size     = var.backend_api_call_batch_size
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "lpg-learning-locker-xapi" {
@@ -266,11 +266,8 @@ module "lpg-learning-locker-worker" {
   redis_password                  = module.redis.redis_key
   redis_db                        = "0"
   redis_prefix                    = var.redis_prefix
-  hammer_http_server_port         = var.hammer_api_worker_http_server_port
   env_profile                     = var.env_profile
   redis_use_tls                   = var.redis_use_tls
-  hammer_working_directory        = var.worker_api_hammer_directory
-  websites_port                   = var.hammer_api_worker_http_server_port
   queue_provider                  = var.redis_queue_provider
   queue_namespace                 = var.redis_queue_namespace
   testing                         = var.lpg_testing
@@ -321,7 +318,6 @@ module "lpg-ui" {
   env_profile                     = var.env_profile
   google_analytics_id             = var.google_analytics_id
   session_secret                  = var.session_secret
-  hammer_working_directory        = var.ui_hammer_working_directory
   websites_port                   = var.ui_websites_port
   content_url                     = "https://cdn.${var.domain}/${var.content_container}"
   vaultresourcegroup              = var.vaultresourcegroup
@@ -343,7 +339,6 @@ module "lpg-ui" {
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
   docker_registry_server_password = var.docker_registry_server_password
-  ai_instrument_key               = var.ai_instrument_key
   redis_host                      = module.redis-session.redis_host
   redis_password                  = module.redis-session.redis_key
   redis_port                      = "6379"
@@ -352,6 +347,7 @@ module "lpg-ui" {
   ui_server_timeout_ms            = var.ui_server_timeout_ms
   ui_static_asset_root            = var.ui_static_asset_root
   ui_static_asset_ttl             = var.ui_static_asset_ttl
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "lpg-learning-catalogue" {
@@ -383,12 +379,12 @@ module "lpg-learning-catalogue" {
   custom_emails                   = var.custom_emails
   webapp_sku_tier                 = var.webapp_sku_tier_p2
   webapp_sku_name                 = var.webapp_sku_name_p1
-  ai_instrument_key               = var.ai_instrument_key
   learning_catalogue_capacity     = var.learning_catalogue_capacity
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
   docker_registry_server_password = var.docker_registry_server_password
   jwt_key                         = var.jwt_key
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "civil-servant-registry-service" {
@@ -417,7 +413,6 @@ module "civil-servant-registry-service" {
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
   docker_registry_server_password = var.docker_registry_server_password
-  ai_instrument_key               = var.ai_instrument_key
   scaling_enabled                 = var.scaling_enabled
   custom_emails                   = var.custom_emails
   agency_token_max_capacity       = var.agency_token_max_capacity
@@ -426,6 +421,7 @@ module "civil-servant-registry-service" {
   redis_host                      = module.redis-org.redis_host
   redis_password                  = module.redis-org.redis_key
   redis_port                      = "6379"
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "lpg-management" {
@@ -442,7 +438,6 @@ module "lpg-management" {
   authentication_service_timeout_ms  = var.lpg_management_authentication_service_timeout_ms
   env_profile                        = var.env_profile
   session_secret                     = var.session_secret
-  hammer_working_directory           = var.lpg_management_hammer_working_directory
   websites_port                      = var.lpg_management_websites_port
   vaultresourcegroup                 = var.vaultresourcegroup
   vaultname                          = var.vaultname
@@ -473,6 +468,7 @@ module "lpg-management" {
   redis_host                         = module.redis-session.redis_host
   redis_password                     = module.redis-session.redis_key
   redis_port                         = "6379"
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "notification-service" {
@@ -492,9 +488,9 @@ module "notification-service" {
   docker_registry_server_password    = var.docker_registry_server_password
   webapp_sku_tier                    = var.webapp_sku_tier_p2
   webapp_sku_name                    = var.webapp_sku_name_p1
-  ai_instrument_key                  = var.ai_instrument_key
   notification_capacity              = var.notification_capacity
   jwt_key                            = var.jwt_key
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "overview-dashboard" {
@@ -529,7 +525,6 @@ module "data-transchiver" {
   rg_location                      = var.rg_location
   data_transchiver_name            = "${var.rg_prefix}-${var.rg_name}-${var.data_transchiver_name}"
   env_profile                      = var.env_profile
-  ai_instrument_key                = var.ai_instrument_key
   webapp_sku_tier                  = var.webapp_sku_tier_p2
   webapp_sku_name                  = var.webapp_sku_name_p1
   tds_mysql_proc_registry_host     = "${var.rg_prefix}-${var.rg_name}-${var.mysql_name_ll}.mysql.database.azure.com"

@@ -47,14 +47,6 @@ variable "websites_port" {
   default = "9002"
 }
 
-variable "hammer_logstash_host" {
-  default = "54e2fb5d-be7a-47c2-b3cf-6f72f42b5dfb-ls.logit.io"
-}
-
-variable "hammer_logstash_port" {
-  default = "16690"
-}
-
 variable "env_profile" {
   default = "test"
 }
@@ -76,6 +68,10 @@ variable "certificatename" {
 }
 
 variable "envurl" {
+  default = ""
+}
+
+variable "application_insights_connection_string" {
   default = ""
 }
 
@@ -112,10 +108,6 @@ variable "docker_registry_server_username" {
 }
 
 variable "docker_registry_server_password" {
-  default = ""
-}
-
-variable "ai_instrument_key" {
   default = ""
 }
 

@@ -9,11 +9,6 @@ variable "rg_name_lpg_ui" {
   default = "lpgprod2"
 }
 
-variable "ai_instrument_key" {
-  type = string
-  default = "c2b75b49-1abf-42dc-a4ef-1c17fd1936d9"
-}
-
 variable "rg_prefix" {
   type    = string
   default = "lpg"
@@ -108,10 +103,6 @@ variable "domain" {
 
 variable "scaling_enabled" {
   default = "false"
-}
-
-variable "hammer_api_worker_http_server_port" {
-  default = "8080"
 }
 
 variable "env_profile" {
@@ -228,7 +219,7 @@ variable "lpg_learner_record_websites_port" {
 }
 
 variable "learner_record_command_line" {
-  default = "/bin/hammer java -Xmx7g -Xms3g -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
+  default = "java -Xmx7g -Xms3g -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
 
 ### learning-locker-general ###
@@ -254,10 +245,6 @@ variable "worker_api_env_app" {
   default = "learning-locker-api-worker"
 }
 
-variable "worker_api_hammer_directory" {
-  default = "/opt/learning-locker"
-}
-
 ### learning-locker-ui ###
 variable "lpg_learning_locker_ui_name" {
   default = "learning-locker-ui"
@@ -274,10 +261,6 @@ variable "ll_ui_port" {
 ### lpg-ui ###
 variable "lpg_ui_name" {
   default = "lpg-ui"
-}
-
-variable "ui_hammer_working_directory" {
-  default = "/var/www/app/dist/ui"
 }
 
 variable "ui_websites_port" {
@@ -341,7 +324,7 @@ variable "report_service_websites_port" {
 }
 
 variable "report_service_command_line" {
-  default = "java -Xmx7g -Xms3g -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar"
+  default = "java -Xmx7g -Xms3g -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
 
 variable "spring_profiles_active" {
@@ -355,10 +338,6 @@ variable "identity_management_name" {
 ### lpg-management ###
 variable "lpg_management_name" {
   default = "lpg-management"
-}
-
-variable "lpg_management_hammer_working_directory" {
-  default = "/var/www/app/dist/management2"
 }
 
 variable "lpg_management_websites_port" {

@@ -32,16 +32,16 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
                        "value":"false"
                     },
                     {
+                        "name":"APPLICATIONINSIGHTS_ROLE_NAME",
+                        "value":"${var.notification_service_name}"
+                     },
+                     {
+                        "name":"APPLICATIONINSIGHTS_CONNECTION_STRING",
+                        "value":"${var.application_insights_connection_string}"
+                     },
+                    {
                        "name":"DOCKER_ENABLE_CI",
                        "value":"true"
-                    },
-                    {
-                       "name":"HAMMER_LOGSTASH_HOST",
-                       "value":"${var.hammer_logstash_host}"
-                    },
-                    {
-                       "name":"HAMMER_LOGSTASH_PORT",
-                       "value":"${var.hammer_logstash_port}"
                     },
                     {
                        "name":"ENV_PROFILE",
@@ -54,10 +54,6 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
                     {
                        "name":"GOV_NOTIFY_API_KEY",
                        "value":"${var.gov_notify_api_key}"
-                    },
-                    {
-                       "name":"APPINSIGHTS_INSTRUMENTATIONKEY",
-                       "value":"${var.ai_instrument_key}"
                     },
                     {
                        "name":"DOCKER_REGISTRY_SERVER_URL",
@@ -132,7 +128,7 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
               "logsDirectorySizeLimit":35,
               "detailedErrorLoggingEnabled":true,
               "alwaysOn":true,
-              "appCommandLine":"java -javaagent:/opt/appinsights/applicationinsights-agent-2.5.0.jar -jar /data/app.jar",
+              "appCommandLine":"java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar",
               "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
               "minTlsVersion":"1.2",
               "ftpsState":"Disabled"

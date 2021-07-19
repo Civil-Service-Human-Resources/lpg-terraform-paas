@@ -108,10 +108,14 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                               "value":"false"
                           },
                           {
-                              "name":"instrumentation_key",
-                              "value":"${var.ai_instrument_key}"
+                              "name":"APPLICATIONINSIGHTS_ROLE_NAME",
+                              "value":"${var.lpg_management_name}"
                           },
                           {
+                              "name":"APPLICATIONINSIGHTS_CONNECTION_STRING",
+                              "value":"${var.application_insights_connection_string}"
+                        },
+                        {
                               "name":"AUTHENTICATION_SERVICE_URL",
                               "value":"${var.authentication_service_url}"
                           },
@@ -120,24 +124,12 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                               "value": "${var.authentication_service_timeout_ms}"
                           },
                           {
-                              "name":"HAMMER_LOGSTASH_HOST",
-                              "value":"${var.hammer_logstash_host}"
-                          },
-                          {
-                              "name":"HAMMER_LOGSTASH_PORT",
-                              "value":"${var.hammer_logstash_port}"
-                          },
-                          {
                               "name":"ENV_PROFILE",
                               "value":"${var.env_profile}"
                           },
                           {
                               "name":"WEBSITES_PORT",
                               "value":"${var.websites_port}"
-                          },
-                          {
-                              "name":"HAMMER_WORKING_DIRECTORY",
-                              "value":"${var.hammer_working_directory}"
                           },
                           {
                               "name":"SESSION_SECRET",
@@ -283,7 +275,7 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                   "logsDirectorySizeLimit":35,
                   "detailedErrorLoggingEnabled":true,
                   "alwaysOn":true,
-                  "appCommandLine":"",
+                  "appCommandLine":"npm start",
                   "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
                   "minTlsVersion":"1.2",
                   "ftpsState":"Disabled"

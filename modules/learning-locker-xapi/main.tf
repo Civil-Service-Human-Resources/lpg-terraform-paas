@@ -108,10 +108,6 @@ resource "azurerm_template_deployment" "learning-locker-xapi" {
                               "value":"false"
                           },
                           {
-                              "name":"APPINSIGHTS_INSTRUMENTATIONKEY",
-                              "value":"${var.ai_instrument_key}"
-                          },
-                          {
                               "name":"MONGO_URL",
                               "value":"${var.mongo_url}"
                           },
@@ -122,14 +118,6 @@ resource "azurerm_template_deployment" "learning-locker-xapi" {
                           {
                               "name":"WEBSITES_PORT",
                               "value":"${var.websites_port}"
-                          },
-                          {
-                              "name":"HAMMER_LOGSTASH_HOST",
-                              "value":"${var.hammer_logstash_host}"
-                          },
-                          {
-                              "name":"HAMMER_LOGSTASH_PORT",
-                              "value":"${var.hammer_logstash_port}"
                           },
                           {
                               "name":"ENV_PROFILE",
@@ -199,7 +187,7 @@ resource "azurerm_template_deployment" "learning-locker-xapi" {
                   "logsDirectorySizeLimit":35,
                   "detailedErrorLoggingEnabled":true,
                   "alwaysOn":true,
-                  "appCommandLine":"/bin/hammer node /opt/xapi-service/dist/server",
+                  "appCommandLine":"node /opt/xapi-service/dist/server",
                   "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
                   "minTlsVersion":"1.2",
                   "ftpsState":"Disabled"

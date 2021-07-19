@@ -32,10 +32,6 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                               "value": "false"
                           },
                           {
-                              "name":"APPINSIGHTS_INSTRUMENTATIONKEY",
-                              "value":"${var.ai_instrument_key}"
-                          },
-                          {
                               "name": "MONGODB_PATH",
                               "value": "${var.mongodb_path}"
                           },
@@ -68,28 +64,12 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                               "value": "${var.queue_namespace}"
                           },
                           {
-                              "name": "HAMMER_HTTP_SERVER_PORT",
-                              "value": "${var.hammer_http_server_port}"
-                          },
-                          {
-                              "name": "HAMMER_LOGSTASH_HOST",
-                              "value": "${var.hammer_logstash_host}"
-                          },
-                          {
-                              "name": "HAMMER_LOGSTASH_PORT",
-                              "value": "${var.hammer_logstash_port}"
-                          },
-                          {
                               "name": "ENV_PROFILE",
                               "value": "${var.env_profile}"
                           },
                           {
                               "name": "REDIS_USE_TLS",
                               "value": "${var.redis_use_tls}"
-                          },
-                          {
-                              "name": "HAMMER_WORKING_DIRECTORY",
-                              "value": "${var.hammer_working_directory}"
                           },
                           {
                               "name": "WEBSITES_PORT",
