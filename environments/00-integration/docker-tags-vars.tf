@@ -1,9 +1,9 @@
 variable "civil_servant_registry_docker_tag" {
-  default = "idt-release-7.0-1-20210722-145923"
+  default = "master"
 }
 
 variable "identity_docker_tag" {
-  default = "idt-release-7.0-1-20210722-145741"
+  default = "master"
 }
 
 variable "identity_management_docker_tag" {
@@ -15,27 +15,27 @@ variable "ll_docker_tag" {
 }
 
 variable "lpg_learner_record_docker_tag" {
-  default = "idt-release-7.0-1-20210722-145741"
+  default = "master"
 }
 
 variable "learning_catalogue_docker_tag" {
-  default = "idt-release-7.0-2-20210722-150339"
+  default = "master"
 }
 
 variable "lpg_management_tag" {
-  default = "idt-release-7.0-1-20210722-144948"
+  default = "master"
 }
 
 variable "lpg_report_service_docker_tag" {
-  default = "idt-release-7.0-1-20210722-150049"
+  default = "master"
 }
 
 variable "lpg_services_tag" {
-  default = "idt-feature-LC-000-debug-logging-release-8-8-20210917-124247"
+  default = "master"
 }
 
 variable "notification_service_tag" {
-  default = "idt-release-7.0-1-20210722-145922"
+  default = "master"
 }
 
 variable "data_transchiver_tag" {
