@@ -196,6 +196,10 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value":"${var.feedback_recipient}"
                           },
                           {
+                              "name": "CONTACT_EMAIL",
+                              "value": "${var.contact_us_email}"
+                          },
+                          {
                               "name":"UV_THREADPOOL_SIZE",
                               "value":"${var.uv_threadpool_size}"
                           },
@@ -281,7 +285,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                   "detailedErrorLoggingEnabled":true,
                   "alwaysOn":true,
                   "appCommandLine":"npm run start:ui",
-                  "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
+                  "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_repository}/${var.docker_repository_region}:${var.docker_tag}",
                   "minTlsVersion":"1.2",
                   "ftpsState":"Disabled"
               },

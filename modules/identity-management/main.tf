@@ -139,7 +139,7 @@ resource "azurerm_template_deployment" "identity-management-app-service" {
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": true,
                 "alwaysOn": true,
-                "linuxFxVersion": "DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
+                "linuxFxVersion": "DOCKER|${var.docker_registry_server_url}/${var.docker_repository}/${var.docker_repository_region}:${var.docker_tag}",
                 "minTlsVersion": "1.2",
                 "ftpsState": "Disabled"
             },
