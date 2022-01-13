@@ -112,3 +112,11 @@ variable "docker_registry_server_password" {
 variable "jwt_key" {
   default = ""
 }
+
+variable "data_retention_cron_schedule" {
+  default = ""
+}
+
+variable "data_retention_enabled" {
+  default = ""
+}

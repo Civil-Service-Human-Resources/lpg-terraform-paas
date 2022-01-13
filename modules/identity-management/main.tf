@@ -102,6 +102,14 @@ resource "azurerm_template_deployment" "identity-management-app-service" {
                           {
                               "name": "JWT_KEY",
                               "value": "${var.jwt_key}"
+                          },
+                          {
+                            "name": "DATA_RETENTION_JOB_CRON_SCHEDULE",
+                            "value": "${var.data_retention_cron_schedule}"
+                          },
+                          {
+                              "name": "DATA_RETENTION_JOB_ENABLED",
+                              "value": "${var.data_retention_enabled}"
                           }
                       ]
                   },

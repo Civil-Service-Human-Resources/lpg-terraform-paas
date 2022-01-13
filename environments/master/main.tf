@@ -145,6 +145,8 @@ module "identity-management" {
   docker_registry_server_username   = var.docker_registry_server_username
   docker_registry_server_password   = var.docker_registry_server_password
   jwt_key                           = var.jwt_key
+  data_retention_cron_schedule      = var.identity_management_data_retention_cron_schedule
+  data_retention_enabled            = var.identity_management_data_retention_enabled
   application_insights_connection_string = var.application_insights_connection_string
 }
 
