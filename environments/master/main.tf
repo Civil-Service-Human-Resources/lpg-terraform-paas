@@ -145,6 +145,7 @@ module "identity-management" {
   docker_registry_server_username   = var.docker_registry_server_username
   docker_registry_server_password   = var.docker_registry_server_password
   jwt_key                           = var.jwt_key
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "lpg-learner-record" {

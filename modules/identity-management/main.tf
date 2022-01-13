@@ -32,6 +32,14 @@ resource "azurerm_template_deployment" "identity-management-app-service" {
                             "value": "false"
                           },
                           {
+                            "name":"APPLICATIONINSIGHTS_ROLE_NAME",
+                            "value":"${var.identity_management_name}"
+                          },
+                          {
+                            "name":"APPLICATIONINSIGHTS_CONNECTION_STRING",
+                            "value":"${var.application_insights_connection_string}"
+                          },
+                          {
                             "name": "DATASOURCE",
                             "value": "${var.datasource}"
                           },

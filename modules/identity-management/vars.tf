@@ -66,6 +66,9 @@ variable "envurl" {
   default = ""
 }
 
+variable "application_insights_connection_string" {
+  default =""
+}
 
 variable "authentication_service_url" {
   default = ""
