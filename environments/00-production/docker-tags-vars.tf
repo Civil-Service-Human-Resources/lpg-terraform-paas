@@ -30,8 +30,14 @@ variable "lpg_report_service_docker_tag" {
   default = "idt-release-7.0-1-20210722-150049"
 }
 
+## lpg-services ##
+
+variable "lpg_services_docker_repository_region" {
+  default = "prod"
+}
+
 variable "lpg_services_tag" {
-  default = "idt-release-7.0-1-20210722-144744"
+  default = "v1.1.0"
 }
 
 variable "notification_service_tag" {
