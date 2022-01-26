@@ -18,6 +18,7 @@ elif [[ "$ENV" == "unlink" ]]; then
     echo "Un-linking any symlink files"
     unlink state.tf
     unlink 00-vars.tf
+    unlink docker-tags-vars.tf
     unlink *-vars.tf
     
     echo "Environment unlinked - exiting"
@@ -33,10 +34,12 @@ rm -rf .terraform
 echo "Un-linking any symlink files"
 unlink state.tf
 unlink 00-vars.tf
+unlink docker-tags-vars.tf
 unlink *-vars.tf
 
 echo "Creating symlink for $ENV files"
 ln -s ../00-$ENV/00-vars.tf
+ln -s ../00-$ENV/docker-tags-vars.tf
 ln -s /volumes/keybase/team/lpg/ops/azure/cabinet-azure/00-$ENV/state.tf
 ln -s /volumes/keybase/team/lpg/ops/azure/cabinet-azure/00-$ENV/$ENV-vars.tf
 

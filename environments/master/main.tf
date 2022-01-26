@@ -78,6 +78,7 @@ module "identity" {
   domain                                  = var.domain
   datasource                              = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}.mysql.database.azure.com:3306/identity?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
   docker_tag                              = var.identity_docker_tag
+  docker_repository_region                = var.identity_docker_repository_region
   env_profile                             = var.env_profile
   gov_notify_invite_template_id           = var.gov_notify_invite_template_id
   gov_notify_reset_template_id            = var.gov_notify_reset_template_id
@@ -123,6 +124,7 @@ module "identity-management" {
   rg_location                       = var.rg_location
   identity_management_name          = "${var.rg_prefix}-${var.rg_name}-${var.identity_management_name}"
   docker_tag                        = var.identity_management_docker_tag
+  docker_repository_region          = var.identity_management_docker_repository_region
   env_profile                       = var.env_profile
   datasource                        = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}.mysql.database.azure.com:3306/identity?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
   authentication_service_url        = "https://identity.${var.domain}"
@@ -153,6 +155,7 @@ module "lpg-learner-record" {
   lpg_learner_record_name         = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learner_record_name}"
   domain                          = var.domain
   docker_tag                      = var.lpg_learner_record_docker_tag
+  docker_repository_region        = var.lpg_learner_record_docker_repository_region
   xapi_url                        = "https://xapi.${var.domain}/data/xAPI"
   env_profile                     = var.env_profile
   websites_port                   = var.lpg_learner_record_websites_port
@@ -198,6 +201,7 @@ module "lpg-report-service" {
   lpg_report_service_name         = "${var.rg_prefix}-${var.rg_name}-${var.lpg_report_service_name}"
   domain                          = var.domain
   docker_tag                      = var.lpg_report_service_docker_tag
+  docker_repository_region        = var.lpg_report_service_docker_repository_region
   env_profile                     = var.env_profile
   websites_port                   = var.report_service_websites_port
   learner_record_url              = "https://learning-record.${var.domain}"
@@ -310,6 +314,7 @@ module "lpg-ui" {
   domain                          = var.domain
   xapi_url                        = "https://xapi.${var.domain}/data/xAPI"
   authentication_service_url      = "https://identity.${var.domain}"
+  docker_repository_region        = var.lpg_services_docker_repository_region
   docker_tag                      = var.lpg_services_tag
   course_catalogue_url            = "https://learning-resources.${var.domain}"
   learner_record_url              = "https://learning-record.${var.domain}"
@@ -331,6 +336,7 @@ module "lpg-ui" {
   lpg_ui_oauth_client_secret      = var.lpg_ui_oauth_client_secret
   lpg_management_server           = "https://management.${var.domain}"
   feedback_recipient              = var.feedback_recipient
+  contact_us_email                = var.lpg_ui_contact_us_email
   scaling_enabled                 = var.scaling_enabled
   custom_emails                   = var.custom_emails
   webapp_sku_tier                 = var.webapp_sku_tier_p2
@@ -358,6 +364,7 @@ module "lpg-learning-catalogue" {
   lpg_learning_catalogue_name     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_catalogue_name}"
   domain                          = var.domain
   docker_tag                      = var.learning_catalogue_docker_tag
+  docker_repository_region        = var.learning_catalogue_docker_repository_region
   env_profile                     = var.env_profile
   elasticsearch_uri               = "https://elastic.${var.domain}:9200"
   elasticsearch_user              = var.elasticsearch_user
@@ -396,6 +403,7 @@ module "civil-servant-registry-service" {
   domain                          = var.domain
   env_profile                     = var.env_profile
   docker_tag                      = var.civil_servant_registry_docker_tag
+  docker_repository_region        = var.civil_servant_registry_docker_repository_region
   csrs_client_id                  = var.csrs_client_id
   csrs_client_secret              = var.csrs_client_secret
   check_token_url                 = "https://identity.${var.domain}/oauth/check_token"
@@ -430,6 +438,7 @@ module "lpg-management" {
   rg_prefix                          = var.rg_prefix
   rg_location                        = var.rg_location
   docker_tag                         = var.lpg_management_tag
+  docker_repository_region           = var.lpg_management_docker_repository_region
   lpg_management_name                = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management_name}"
   domain                             = var.domain
   request_timeout_ms                 = var.lpg_management_request_timeout_ms
@@ -478,6 +487,7 @@ module "notification-service" {
   rg_location                        = "${var.rg_location}}"
   notification_service_name          = "${var.rg_prefix}-${var.rg_name}-${var.notification_service_name}"
   docker_tag                         = var.notification_service_tag
+  docker_repository_region           = var.notification_service_docker_repository_region
   env_profile                        = var.env_profile
   gov_notify_api_key                 = var.gov_notify_api_key
   authentication_service_url         = "https://identity.${var.domain}"

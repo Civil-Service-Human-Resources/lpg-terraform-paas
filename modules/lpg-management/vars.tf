@@ -30,8 +30,12 @@ variable "docker_tag" {
   default = ""
 }
 
-variable "docker_image" {
-  default = "lpg-management-ui"
+variable "docker_repository" {
+  default = "lpg-management"
+}
+
+variable "docker_repository_region" {
+  default = "test"
 }
 
 variable "domain" {
