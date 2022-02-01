@@ -34,8 +34,12 @@ variable "docker_tag" {
   default = "latest"
 }
 
-variable "docker_image" {
+variable "docker_repository" {
   default = "identity-service"
+}
+
+variable "docker_repository_region" {
+  default = "test"
 }
 
 variable "domain" {

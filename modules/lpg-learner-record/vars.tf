@@ -26,16 +26,20 @@ variable "learner_record_capacity" {
   default = "1"
 }
 
-variable "docker_tag" {
-  default = "latest"
-}
-
 variable "datasource" {
   default = "db_url"
 }
 
-variable "docker_image" {
+variable "docker_tag" {
+  default = "latest"
+}
+
+variable "docker_repository" {
   default = "lpg-learner-record"
+}
+
+variable "docker_repository_region" {
+  default = "test"
 }
 
 variable "domain" {

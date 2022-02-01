@@ -38,8 +38,12 @@ variable "docker_tag" {
   default = "latest"
 }
 
-variable "docker_image" {
+variable "docker_repository" {
   default = "lpg-services"
+}
+
+variable "docker_repository_region" {
+  default = "test"
 }
 
 variable "domain" {
@@ -143,6 +147,10 @@ variable "lpg_management_server" {
 }
 
 variable "feedback_recipient" {
+  default = ""
+}
+
+variable "contact_us_email" {
   default = ""
 }
 
