@@ -83,7 +83,8 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
                        "name": "JWT_KEY",
                        "value": "${var.jwt_key}"
                     }
-                 ]
+                 ],
+                 "healthCheckPath": "/health"
               },
               "httpsOnly":true,
               "reserved":true,
