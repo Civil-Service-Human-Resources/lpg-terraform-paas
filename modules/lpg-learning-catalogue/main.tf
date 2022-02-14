@@ -195,7 +195,8 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
                               "name": "JWT_KEY",
                               "value": "${var.jwt_key}"
                           }
-                      ]
+                      ],
+                      "healthCheckPath": "/health"
                   },
                   "httpsOnly":true,
                   "reserved":true,

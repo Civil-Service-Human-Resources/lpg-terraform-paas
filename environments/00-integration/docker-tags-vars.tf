@@ -1,7 +1,7 @@
 ## csrs ##
 
 variable "civil_servant_registry_docker_tag" {
-  default = "master"
+  default = "idt-develop"
 }
 
 variable "civil_servant_registry_docker_repository_region" {
@@ -11,7 +11,7 @@ variable "civil_servant_registry_docker_repository_region" {
 ## identity ##
 
 variable "identity_docker_tag" {
-  default = "idt-feature-LC-1091-asset-cdn"
+  default = "idt-develop"
 }
 
 variable "identity_docker_repository_region" {
@@ -67,7 +67,7 @@ variable "lpg_management_docker_repository_region" {
 ## report-service ## 
 
 variable "lpg_report_service_docker_tag" {
-  default = "master"
+  default = "idt-develop"
 }
 
 variable "lpg_report_service_docker_repository_region" {
@@ -87,7 +87,7 @@ variable "lpg_services_tag" {
 ## notification-service ##
 
 variable "notification_service_tag" {
-  default = "master"
+  default = "idt-develop"
 }
 
 variable "notification_service_docker_repository_region" {
