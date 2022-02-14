@@ -286,9 +286,20 @@ variable "spring_profiles_active" {
   default = "test,production"
 }
 
+### identity-management ###
+
 variable "identity_management_name" {
   default = "identity-management"
 }
+
+variable "identity_management_data_retention_cron_schedule" {
+  default = "0 0 5 * * *"
+}
+
+variable "identity_management_data_retention_enabled" {
+  default = "true"
+}
+
 
 ### lpg-management ###
 variable "lpg_management_name" {
