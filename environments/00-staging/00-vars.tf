@@ -164,6 +164,10 @@ variable "identity_name" {
   default = "identity"
 }
 
+variable "identity_asset_cdn" {
+  default = "https://staging-identity-assets.azureedge.net"
+}
+
 ### lpg-learner-record ###
 variable "lpg_learner_record_name" {
   default = "lpg-learner-record"
@@ -284,6 +288,16 @@ variable "report_service_command_line" {
 
 variable "spring_profiles_active" {
   default = "test,production"
+}
+
+### identity-management ###
+
+variable "identity_management_data_retention_cron_schedule" {
+  default = "0 0 5 * * *"
+}
+
+variable "identity_management_data_retention_enabled" {
+  default = "true"
 }
 
 variable "identity_management_name" {
