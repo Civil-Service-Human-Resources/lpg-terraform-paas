@@ -50,6 +50,10 @@ variable "datasource" {
   default = "db_url"
 }
 
+variable "asset_cdn" {
+  default = ""
+}
+
 variable "websites_port" {
   default = "8080"
 }
