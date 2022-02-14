@@ -235,7 +235,8 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "name":"MAINTENANCE_PAGE_CONTENT_LINE_4",
                               "value":"${var.maintenance_page_content_line_4}"
                           }
-                      ]
+                      ],
+                      "healthCheckPath": "/health"
                   },
                   "clientAffinityEnabled":false,
                   "httpsOnly":true,

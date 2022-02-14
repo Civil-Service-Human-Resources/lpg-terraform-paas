@@ -243,7 +243,8 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                               "name":"INCOMPLETED_JOB_ENABLED",
                               "value":"${var.incompleted_job_enabled}"
                           }
-                      ]
+                      ],
+                      "healthCheckPath": "/health"
                   },
                   "httpsOnly":true,
                   "reserved":true,

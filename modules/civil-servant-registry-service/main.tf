@@ -187,7 +187,8 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
                   "name":"REDIS_PORT",
                   "value":"${var.redis_port}"
               }
-            ]
+            ],
+            "healthCheckPath": "/health"
           },
           "httpsOnly": true,
           "reserved": true,

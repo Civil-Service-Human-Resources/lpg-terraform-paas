@@ -174,7 +174,8 @@ resource "azurerm_template_deployment" "lpg-report-service-app-service" {
                 "name": "BACKEND_API_CALL_BATCH_SIZE",
                 "value": "${var.backend_api_call_batch_size}"
             }
-          ]
+          ],
+          "healthCheckPath": "/health"
         },
         "httpsOnly": true,
         "reserved": true,
