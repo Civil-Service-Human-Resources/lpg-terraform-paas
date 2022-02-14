@@ -11,7 +11,7 @@ variable "civil_servant_registry_docker_repository_region" {
 ## identity ##
 
 variable "identity_docker_tag" {
-  default = "master"
+  default = "idt-feature-LC-1091-asset-cdn"
 }
 
 variable "identity_docker_repository_region" {
@@ -37,7 +37,7 @@ variable "ll_docker_tag" {
 ## learner-record ##
 
 variable "lpg_learner_record_docker_tag" {
-  default = "master"
+  default = "idt-develop"
 }
 
 variable "lpg_learner_record_docker_repository_region" {
@@ -47,7 +47,7 @@ variable "lpg_learner_record_docker_repository_region" {
 ## learning-catalogue ##
 
 variable "learning_catalogue_docker_tag" {
-  default = "master"
+  default = "idt-develop"
 }
 
 variable "learning_catalogue_docker_repository_region" {

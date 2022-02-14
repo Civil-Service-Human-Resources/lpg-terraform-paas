@@ -120,6 +120,10 @@ resource "azurerm_template_deployment" "identity-app-service" {
                               "value":"${var.datasource}"
                           },
                           {
+                              "name":"ASSET_CDN",
+                              "value":"${var.asset_cdn}"
+                          },
+                          {
                               "name":"OAUTH_SERVICE_URL",
                               "value":"${var.authentication_service_url}"
                           },

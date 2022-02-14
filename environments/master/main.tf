@@ -77,6 +77,7 @@ module "identity" {
   identity_name                           = "${var.rg_prefix}-${var.rg_name}-${var.identity_name}"
   domain                                  = var.domain
   datasource                              = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}.mysql.database.azure.com:3306/identity?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
+  asset_cdn                               = var.identity_asset_cdn
   docker_tag                              = var.identity_docker_tag
   docker_repository_region                = var.identity_docker_repository_region
   env_profile                             = var.env_profile
