@@ -1,7 +1,7 @@
 ## csrs ##
 
 variable "civil_servant_registry_docker_tag" {
-  default = "master"
+  default = "idt-release-v1.1.0"
 }
 
 variable "civil_servant_registry_docker_repository_region" {
@@ -11,7 +11,7 @@ variable "civil_servant_registry_docker_repository_region" {
 ## identity ##
 
 variable "identity_docker_tag" {
-  default = "master"
+  default = "idt-release-v1.1.0"
 }
 
 variable "identity_docker_repository_region" {
@@ -21,7 +21,7 @@ variable "identity_docker_repository_region" {
 ## identity-management ##
 
 variable "identity_management_docker_tag" {
-  default = "master"
+  default = "idt-release-v1.0.0"
 }
 
 variable "identity_management_docker_repository_region" {
@@ -37,7 +37,7 @@ variable "ll_docker_tag" {
 ## learner-record ##
 
 variable "lpg_learner_record_docker_tag" {
-  default = "master"
+  default = "idt-release-v1.1.0"
 }
 
 variable "lpg_learner_record_docker_repository_region" {
@@ -47,7 +47,7 @@ variable "lpg_learner_record_docker_repository_region" {
 ## learning-catalogue ##
 
 variable "learning_catalogue_docker_tag" {
-  default = "master"
+  default = "idt-release-v1.1.0"
 }
 
 variable "learning_catalogue_docker_repository_region" {
@@ -67,7 +67,7 @@ variable "lpg_management_docker_repository_region" {
 ## report-service ## 
 
 variable "lpg_report_service_docker_tag" {
-  default = "master"
+  default = "idt-release-v1.1.0"
 }
 
 variable "lpg_report_service_docker_repository_region" {
@@ -87,7 +87,7 @@ variable "lpg_services_tag" {
 ## notification-service ##
 
 variable "notification_service_tag" {
-  default = "master"
+  default = "idt-release-v1.1.0"
 }
 
 variable "notification_service_docker_repository_region" {
