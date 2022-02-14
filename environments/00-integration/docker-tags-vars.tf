@@ -21,7 +21,7 @@ variable "identity_docker_repository_region" {
 ## identity-management ##
 
 variable "identity_management_docker_tag" {
-  default = "master"
+  default = "idt-feature-LC-1100-refactor-data-retention"
 }
 
 variable "identity_management_docker_repository_region" {

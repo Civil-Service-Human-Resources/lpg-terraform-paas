@@ -77,6 +77,7 @@ module "identity" {
   identity_name                           = "${var.rg_prefix}-${var.rg_name}-${var.identity_name}"
   domain                                  = var.domain
   datasource                              = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}.mysql.database.azure.com:3306/identity?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
+  asset_cdn                               = var.identity_asset_cdn
   docker_tag                              = var.identity_docker_tag
   docker_repository_region                = var.identity_docker_repository_region
   env_profile                             = var.env_profile
@@ -145,6 +146,9 @@ module "identity-management" {
   docker_registry_server_username   = var.docker_registry_server_username
   docker_registry_server_password   = var.docker_registry_server_password
   jwt_key                           = var.jwt_key
+  data_retention_cron_schedule      = var.identity_management_data_retention_cron_schedule
+  data_retention_enabled            = var.identity_management_data_retention_enabled
+  application_insights_connection_string = var.application_insights_connection_string
 }
 
 module "lpg-learner-record" {
