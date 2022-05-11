@@ -164,10 +164,6 @@ variable "identity_name" {
   default = "identity"
 }
 
-variable "identity_asset_cdn" {
-  default = "https://staging-identity-assets.azureedge.net"
-}
-
 ### lpg-learner-record ###
 variable "lpg_learner_record_name" {
   default = "lpg-learner-record"
