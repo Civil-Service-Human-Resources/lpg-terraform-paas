@@ -57,7 +57,11 @@ variable "learning_catalogue_docker_repository_region" {
 ## lpg-management ##
 
 variable "lpg_management_tag" {
-  default = "idt-release-7.0-1-20210722-144948"
+  default = "v1.1.0"
+}
+
+variable "lpg_management_docker_repository_region" {
+  default = "prod"
 }
 
 ## report-service ## 
@@ -77,7 +81,7 @@ variable "lpg_services_docker_repository_region" {
 }
 
 variable "lpg_services_tag" {
-  default = "v1.1.0"
+  default = "v1.2.1"
 }
 
 ## notification-service ##
