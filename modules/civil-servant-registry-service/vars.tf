@@ -26,19 +26,6 @@ variable "csrs_capacity" {
   default = "1"
 }
 
-
-variable "docker_tag" {
-  default = "latest"
-}
-
-variable "docker_repository" {
-  default = "civil-servant-registry-service"
-}
-
-variable "docker_repository_region" {
-  default = "test"
-}
-
 variable "domain" {
   default = ""
 }

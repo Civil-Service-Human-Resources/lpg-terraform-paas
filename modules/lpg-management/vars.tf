@@ -26,18 +26,6 @@ variable "lpg_management_capacity" {
   default = "1"
 }
 
-variable "docker_tag" {
-  default = ""
-}
-
-variable "docker_repository" {
-  default = "lpg-management"
-}
-
-variable "docker_repository_region" {
-  default = "test"
-}
-
 variable "domain" {
   default = ""
 }

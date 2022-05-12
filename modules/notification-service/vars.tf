@@ -26,18 +26,6 @@ variable "notification_capacity" {
   default = "1" 
 }
 
-variable "docker_tag" {
-  default = ""
-}
-
-variable "docker_repository" {
-  default = "notification-service"
-}
-
-variable "docker_repository_region" {
-  default = "test"
-}
-
 variable "envurl" {
   default = "local"
 }
