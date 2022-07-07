@@ -81,7 +81,7 @@ variable "lpg_services_docker_repository_region" {
 }
 
 variable "lpg_services_tag" {
-  default = "v1.3.0"
+  default = "v1.3.1"
 }
 
 ## notification-service ##
