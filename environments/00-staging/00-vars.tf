@@ -388,3 +388,7 @@ variable "maintenance_page_content_line_4" {
 variable "backend_api_call_batch_size" {
   default = "50"
 }
+
+variable "identity_base_url" {
+  default = "https://identity.staging.learn.civilservice.gov.uk"
+}

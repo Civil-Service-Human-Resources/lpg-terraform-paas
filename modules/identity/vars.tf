@@ -187,3 +187,15 @@ variable "maintenance_page_content_line_3" {
 variable "maintenance_page_content_line_4" {
   default = "If the maintenance period is extended, further information will be provided here."
 }
+
+variable "identity_base_url" {
+  default = ""
+}
+
+variable "email_template_url" {
+  default = ""
+}
+
+variable "encryption_key" {
+  default = ""
+}
