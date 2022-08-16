@@ -389,3 +389,15 @@ variable "maintenance_page_content_line_4" {
 variable "backend_api_call_batch_size" {
   default = "50"
 }
+
+variable "identity_base_url" {
+  default = "https://identity.integration.learn.civilservice.gov.uk"
+}
+
+variable "email_template_url" {
+  default = "abfb2e5f-3905-4817-b041-c53afd1eb3e5"
+}
+
+variable "encryption_key" {
+  default = "hE9gDFA4XmSyFK64XjFr4yuMMfUW8E47"
+}
