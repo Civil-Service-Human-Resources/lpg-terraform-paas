@@ -238,6 +238,18 @@ resource "azurerm_template_deployment" "identity-app-service" {
                           {
                               "name":"MAINTENANCE_PAGE_CONTENT_LINE_4",
                               "value":"${var.maintenance_page_content_line_4}"
+                          },
+                          {
+                              "name":"IDENTITY_BASE_URL",
+                              "value":"${var.identity_base_url}"
+                          },
+                          {
+                              "name":"EMAIL_TEMPLATE_ID",
+                              "value":"${var.email_template_url}"
+                          },
+                          {
+                              "name":"ENCRYPTION_KEY",
+                              "value":"${var.encryption_key}"
                           }
                       ],
                       "healthCheckPath": "/health"
