@@ -11,7 +11,7 @@ variable "civil_servant_registry_docker_repository_region" {
 ## identity ##
 
 variable "identity_docker_tag" {
-  default = "v1.2.0"
+  default = "v1.3.0"
 }
 
 variable "identity_docker_repository_region" {
@@ -81,7 +81,7 @@ variable "lpg_services_docker_repository_region" {
 }
 
 variable "lpg_services_tag" {
-  default = "v1.3.1"
+  default = "v1.4.1"
 }
 
 ## notification-service ##
