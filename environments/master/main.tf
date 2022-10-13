@@ -116,6 +116,9 @@ module "identity" {
   maintenance_page_content_line_3         = var.maintenance_page_content_line_3
   maintenance_page_content_line_4         = var.maintenance_page_content_line_4
   application_insights_connection_string = var.application_insights_connection_string
+  identity_base_url = var.identity_base_url
+  email_template_url = var.email_template_url
+  encryption_key = var.encryption_key
 }
 
 module "identity-management" {
