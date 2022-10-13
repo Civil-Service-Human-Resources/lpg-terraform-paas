@@ -124,8 +124,16 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
                               "value":"${var.auth_password}"
                           },
                           {
-                              "name":"ELASTICSEARCH_URI",
-                              "value":"${var.elasticsearch_uri}"
+                              "name":"ES_PROTOCOL",
+                              "value":"${var.elasticsearch_protocol}"
+                          },
+                        {
+                              "name":"ES_HOST",
+                              "value":"${var.elasticsearch_host}"
+                          },
+                            {
+                            "name":"ES_PORT",
+                            "value":"${var.elasticsearch_port}"
                           },
                           {
                               "name":"ELASTICSEARCH_USERNAME",
