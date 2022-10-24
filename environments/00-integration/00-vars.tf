@@ -248,6 +248,12 @@ variable "mysql_name_gp" {
   default = "gp"
 }
 
+### mysql8_gp ###
+
+variable "mysql8_name_gp" {
+  default = "gp8"
+}
+
 ### mysql_ll ###
 variable "mysql_name_ll" {
   default = "ll"

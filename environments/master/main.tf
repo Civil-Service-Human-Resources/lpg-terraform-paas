@@ -39,6 +39,17 @@ module "mysql_gp" {
   env_profile       = var.env_profile
 }
 
+module "mysql8_gp" {
+  source = "../../modules/mysql8_generalpurpose"
+  rg_name           = var.rg_name
+  rg_prefix         = var.rg_name
+  rg_location       = var.rg_location
+  mysql_name        = "${var.rg_prefix}-${var.rg_name}-${var.mysql8_name_gp}"
+  mysql_admin_login = var.mysql_user
+  mysql_admin_pass  = var.mysql8_pass
+  env_profile       = var.env_profile
+}
+
 module "mysql_ll" {
   source            = "../../modules/mysql_generalpurpose"
   rg_name           = var.rg_name
