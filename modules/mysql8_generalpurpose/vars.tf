@@ -23,8 +23,8 @@ variable "mysql_admin_pass" {
   default = ""
 }
 
-variable "lpg_gp_skumname"{
-    default = "GP_Gen5_8"
+variable "lpg_gp_skuname"{
+    default = "GP_Standard_D2ds_v4"
 }
 
 variable "lpg_gp_capacity"{
@@ -40,5 +40,5 @@ variable "lpg_gp_family"{
 }
 
 variable "mysql_storage" {
-     default = "51200"
+     default = "52"
 }
