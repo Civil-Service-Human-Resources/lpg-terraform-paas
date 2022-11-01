@@ -11,7 +11,7 @@ variable "civil_servant_registry_docker_repository_region" {
 ## identity ##
 
 variable "identity_docker_tag" {
-  default = "idt-release-v1.3.0"
+  default = "master"
 }
 
 variable "identity_docker_repository_region" {
@@ -37,7 +37,7 @@ variable "ll_docker_tag" {
 ## learner-record ##
 
 variable "lpg_learner_record_docker_tag" {
-  default = "master"
+  default = "idt-release-v1.2.0"
 }
 
 variable "lpg_learner_record_docker_repository_region" {
@@ -57,7 +57,7 @@ variable "learning_catalogue_docker_repository_region" {
 ## lpg-management ##
 
 variable "lpg_management_tag" {
-  default = "idt-release-v1.3.0"
+  default = "idt-release-v1.4.0"
 }
 
 variable "lpg_management_docker_repository_region" {
@@ -81,7 +81,7 @@ variable "lpg_services_docker_repository_region" {
 }
 
 variable "lpg_services_tag" {
-  default = "idt-release-v1.4.1"
+  default = "idt-release-v1.5.0"
 }
 
 ## notification-service ##
