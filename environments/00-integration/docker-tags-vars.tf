@@ -46,7 +46,7 @@ variable "lpg_learner_record_docker_repository_region" {
 ## learning-catalogue ##
 
 variable "learning_catalogue_docker_tag" {
-  default = "idt-develop"
+  default = "idt-feature-LC-1430-es-cloud-poc"
 }
 
 variable "learning_catalogue_docker_repository_region" {
