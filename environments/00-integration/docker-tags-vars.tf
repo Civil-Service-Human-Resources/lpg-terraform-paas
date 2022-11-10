@@ -1,7 +1,7 @@
 ## csrs ##
 
 variable "civil_servant_registry_docker_tag" {
-  default = "idt-develop"
+  default = "idt-feature-LC-1090-optimise-org-cache"
 }
 
 variable "civil_servant_registry_docker_repository_region" {
@@ -80,7 +80,7 @@ variable "lpg_services_docker_repository_region" {
 }
 
 variable "lpg_services_tag" {
-  default = "idt-feature-LC-1094-update-servicedesk-email"
+  default = "idt-feature-LC-1090-optimise-org-cache"
 }
 
 ## notification-service ##
