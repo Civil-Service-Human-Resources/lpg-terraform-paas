@@ -163,7 +163,6 @@ module "lpg-learner-record" {
   domain                          = var.domain
   docker_tag                      = var.lpg_learner_record_docker_tag
   docker_repository_region        = var.lpg_learner_record_docker_repository_region
-  xapi_url                        = "https://xapi.${var.domain}/data/xAPI"
   env_profile                     = var.env_profile
   websites_port                   = var.lpg_learner_record_websites_port
   gov_notify_api_key              = var.gov_notify_api_key
@@ -191,10 +190,6 @@ module "lpg-learner-record" {
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
   docker_registry_server_password = var.docker_registry_server_password
-  cosmos_connection_string        = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false"
-  database                        = "admin"
-  xapi_username                   = var.xapi_username
-  xapi_password                   = var.xapi_password
   learner_record_command_line     = var.learner_record_command_line
   jwt_key                         = var.jwt_key
   application_insights_connection_string = var.application_insights_connection_string
