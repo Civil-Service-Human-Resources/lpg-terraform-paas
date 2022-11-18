@@ -60,14 +60,14 @@ module "cosmos" {
   env_profile = var.env_profile
 }
 
-module "blob" {
-  source               = "../../modules/blob"
-  rg_name              = var.rg_name
-  rg_prefix            = var.rg_prefix
-  rg_location          = var.rg_location
-  storage_account_name = "${var.rg_prefix}${var.rg_name}blob"
-  env_profile          = var.env_profile
-}
+#module "blob" {
+#  source               = "../../modules/blob"
+#  rg_name              = var.rg_name
+#  rg_prefix            = var.rg_prefix
+#  rg_location          = var.rg_location
+#  storage_account_name = "${var.rg_prefix}${var.rg_name}blob"
+#  env_profile          = var.env_profile
+#}
 
 module "identity" {
   source                                  = "../../modules/identity"
@@ -163,7 +163,6 @@ module "lpg-learner-record" {
   domain                          = var.domain
   docker_tag                      = var.lpg_learner_record_docker_tag
   docker_repository_region        = var.lpg_learner_record_docker_repository_region
-  xapi_url                        = "https://xapi.${var.domain}/data/xAPI"
   env_profile                     = var.env_profile
   websites_port                   = var.lpg_learner_record_websites_port
   gov_notify_api_key              = var.gov_notify_api_key
@@ -191,10 +190,6 @@ module "lpg-learner-record" {
   docker_registry_server_url      = var.docker_registry_server_url
   docker_registry_server_username = var.docker_registry_server_username
   docker_registry_server_password = var.docker_registry_server_password
-  cosmos_connection_string        = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false"
-  database                        = "admin"
-  xapi_username                   = var.xapi_username
-  xapi_password                   = var.xapi_password
   learner_record_command_line     = var.learner_record_command_line
   jwt_key                         = var.jwt_key
   application_insights_connection_string = var.application_insights_connection_string
@@ -241,7 +236,7 @@ module "lpg-learning-locker-xapi" {
   rg_location                     = var.rg_location
   learning_locker_xapi_name       = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}"
   domain                          = var.domain
-  mongo_url                       = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false"
+  mongo_url                       = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&appName=@${module.cosmos.cosmos_name}@"
   redis_url                       = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0?password=${module.redis.redis_key}"
   docker_tag                      = var.ll_docker_tag
   env_profile                     = var.env_profile

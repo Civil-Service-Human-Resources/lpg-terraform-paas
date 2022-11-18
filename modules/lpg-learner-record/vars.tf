@@ -50,18 +50,6 @@ variable "websites_port" {
   default = "9000"
 }
 
-variable "xapi_url" {
-  default = "xapi_url"
-}
-
-variable "xapi_username" {
-  default = ""
-}
-
-variable "xapi_password" {
-  default = ""
-}
-
 variable "env_profile" {
   default = "test"
 }
@@ -83,14 +71,6 @@ variable "registry_service_url" {
 }
 
 variable "course_catalogue_url" {
-  default = ""
-}
-
-variable "course_catalogue_user" {
-  default = ""
-}
-
-variable "course_catalogue_pass" {
   default = ""
 }
 
@@ -166,10 +146,6 @@ variable "cosmos_connection_string" {
   default = ""
 }
 
-variable "database" {
-  default = ""
-}
-
 variable "learner_record_command_line" {
   default = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
@@ -178,20 +154,12 @@ variable "jwt_key" {
   default = ""
 }
 
-variable "lr_refresh_job_cron" {
-  default = "0 0 2 * * *"
-}
-
 variable "completed_job_cron" {
   default = "0 0 4 * * *"
 }
 
 variable "incomplete_job_cron" {
   default = "0 30 5 * * *"
-}
-
-variable "lr_refresh_job_enabled" {
-  default = "true"
 }
 
 variable "completed_job_enabled" {

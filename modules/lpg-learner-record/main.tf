@@ -144,14 +144,6 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                               "value":"${var.course_catalogue_url}"
                           },
                           {
-                              "name":"LEARNING_CATALOGUE_USERNAME",
-                              "value":"${var.course_catalogue_user}"
-                          },
-                          {
-                              "name":"LEARNING_CATALOGUE_PASSWORD",
-                              "value":"${var.course_catalogue_pass}"
-                          },
-                          {
                               "name":"GOV_NOTIFY_API_KEY",
                               "value":"${var.gov_notify_api_key}"
                           },
@@ -162,18 +154,6 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                           {
                               "name":"GOV_NOTIFY_LEARNING_COMPLETED_TEMPLATE_ID",
                               "value":"${var.complete_learning_template_id}"
-                          },
-                          {
-                              "name":"XAPI_URL",
-                              "value":"${var.xapi_url}"
-                          },
-                          {
-                              "name":"XAPI_USERNAME",
-                              "value":"${var.xapi_username}"
-                          },
-                          {
-                              "name":"XAPI_PASSWORD",
-                              "value":"${var.xapi_password}"
                           },
                           {
                               "name":"WEBSITES_PORT",
@@ -208,20 +188,8 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                               "value":"${var.docker_registry_server_password}"
                           },
                           {
-                              "name":"COSMOS_CONNECTION_STRING",
-                              "value":"${var.cosmos_connection_string}"
-                          },
-                          {
-                              "name":"DATABASE",
-                              "value":"${var.database}"
-                          },
-                          {
                               "name": "JWT_KEY",
                               "value": "${var.jwt_key}"
-                          },
-                          {
-                              "name":"LR_REFRESH_JOB_CRON",
-                              "value":"${var.lr_refresh_job_cron}"
                           },
                           {
                               "name":"COMPLETED_JOB_CRON",
@@ -230,10 +198,6 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                           {
                               "name":"INCOMPLETE_JOB_CRON",
                               "value":"${var.incomplete_job_cron}"
-                          },
-                          {
-                              "name":"LR_REFRESH_JOB_ENABLED",
-                              "value":"${var.lr_refresh_job_enabled}"
                           },
                           {
                               "name":"COMPLETED_JOB_ENABLED",
