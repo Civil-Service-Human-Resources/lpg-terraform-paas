@@ -43,7 +43,7 @@ resource "azurerm_cosmosdb_account" "test" {
 }
 
 output "cosmos_password" {
-  value = azurerm_cosmosdb_account.test.primary_master_key
+  value = azurerm_cosmosdb_account.test.primary_key
 }
 output "cosmos_name" {
   value = azurerm_cosmosdb_account.test.name
