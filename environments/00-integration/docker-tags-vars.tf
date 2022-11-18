@@ -20,7 +20,7 @@ variable "identity_docker_repository_region" {
 ## identity-management ##
 
 variable "identity_management_docker_tag" {
-  default = "idt-feature-LC-1100-refactor-data-retention"
+  default = "idt-develop"
 }
 
 variable "identity_management_docker_repository_region" {
@@ -46,7 +46,7 @@ variable "lpg_learner_record_docker_repository_region" {
 ## learning-catalogue ##
 
 variable "learning_catalogue_docker_tag" {
-  default = "idt-develop"
+  default = "idt-feature-LC-1430-es-cloud-poc"
 }
 
 variable "learning_catalogue_docker_repository_region" {
@@ -56,7 +56,7 @@ variable "learning_catalogue_docker_repository_region" {
 ## lpg-management ##
 
 variable "lpg_management_tag" {
-  default = "master"
+  default = "idt-develop"
 }
 
 variable "lpg_management_docker_repository_region" {
@@ -80,7 +80,7 @@ variable "lpg_services_docker_repository_region" {
 }
 
 variable "lpg_services_tag" {
-  default = "idt-feature-LC-1094-update-servicedesk-email"
+  default = "idt-develop"
 }
 
 ## notification-service ##

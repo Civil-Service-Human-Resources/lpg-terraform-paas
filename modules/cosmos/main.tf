@@ -8,6 +8,8 @@ resource "azurerm_cosmosdb_account" "test" {
   offer_type          = var.cosmos_offer_type
   kind                = "MongoDB"
 
+  default_identity_type = "FirstPartyIdentity"
+
 
 # AllowSelfServeUpgradeToMongo36 
   capabilities {
