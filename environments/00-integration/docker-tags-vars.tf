@@ -56,7 +56,7 @@ variable "learning_catalogue_docker_repository_region" {
 ## lpg-management ##
 
 variable "lpg_management_tag" {
-  default = "master"
+  default = "idt-feature-LC-1090-optimise-org-cache"
 }
 
 variable "lpg_management_docker_repository_region" {
