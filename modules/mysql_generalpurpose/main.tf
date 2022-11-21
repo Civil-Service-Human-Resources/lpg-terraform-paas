@@ -13,6 +13,7 @@ resource "azurerm_mysql_server" "lpg_gp" {
   backup_retention_days = 30
   geo_redundant_backup_enabled = false
   auto_grow_enabled = false
+  ssl_minimal_tls_version_enforced = "TLSEnforcementDisabled"
 
   threat_detection_policy {
     disabled_alerts = []
