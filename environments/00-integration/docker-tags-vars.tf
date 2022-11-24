@@ -76,7 +76,7 @@ variable "lpg_report_service_docker_repository_region" {
 ## lpg-services ##
 
 variable "lpg_services_docker_repository_region" {
-  default = "test"
+  default = "idt-feature-LC-1090-optimise-org-cache"
 }
 
 variable "lpg_services_tag" {

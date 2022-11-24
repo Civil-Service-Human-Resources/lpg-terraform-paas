@@ -11,7 +11,7 @@ variable "civil_servant_registry_docker_repository_region" {
 ## identity ##
 
 variable "identity_docker_tag" {
-  default = "idt-release-v1.3.0"
+  default = "idt-develop"
 }
 
 variable "identity_docker_repository_region" {
