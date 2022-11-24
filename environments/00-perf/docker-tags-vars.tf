@@ -81,7 +81,7 @@ variable "lpg_services_docker_repository_region" {
 }
 
 variable "lpg_services_tag" {
-  default = "idt-release-v1.5.0"
+  default = "idt-hotfix-v1.5.1"
 }
 
 ## notification-service ##
