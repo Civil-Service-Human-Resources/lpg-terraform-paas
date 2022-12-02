@@ -1,7 +1,7 @@
 ## csrs ##
 
 variable "civil_servant_registry_docker_tag" {
-  default = "idt-feature-LC-1090-optimise-org-cache"
+  default = "idt-develop"
 }
 
 variable "civil_servant_registry_docker_repository_region" {
@@ -56,7 +56,7 @@ variable "learning_catalogue_docker_repository_region" {
 ## lpg-management ##
 
 variable "lpg_management_tag" {
-  default = "idt-feature-LC-1090-optimise-org-cache"
+  default = "idt-develop"
 }
 
 variable "lpg_management_docker_repository_region" {
@@ -76,11 +76,11 @@ variable "lpg_report_service_docker_repository_region" {
 ## lpg-services ##
 
 variable "lpg_services_docker_repository_region" {
-  default = "idt-feature-LC-1090-optimise-org-cache"
+  default = "test"
 }
 
 variable "lpg_services_tag" {
-  default = "idt-feature-LC-1090-optimise-org-cache"
+  default = "idt-develop"
 }
 
 ## notification-service ##
