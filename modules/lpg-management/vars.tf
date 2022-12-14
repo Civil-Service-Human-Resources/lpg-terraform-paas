@@ -178,6 +178,22 @@ variable "redis_port" {
   default = ""
 }
 
+variable "org_redis_host" {
+  default = ""
+}
+
+variable "org_redis_password" {
+  default = ""
+}
+
+variable "org_redis_port" {
+  default = ""
+}
+
+variable "org_redis_ttl" {
+  default = "604800"
+}
+
 variable "docker_registry_server_url" {
   default = ""
 }

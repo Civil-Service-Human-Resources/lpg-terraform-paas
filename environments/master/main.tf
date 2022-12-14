@@ -350,6 +350,10 @@ module "lpg-ui" {
   redis_host                      = module.redis-session.redis_host
   redis_password                  = module.redis-session.redis_key
   redis_port                      = "6379"
+  org_redis_host                  = module.redis-org.redis_host
+  org_redis_password              = module.redis-org.redis_key
+  org_redis_port                  = "6379"
+  org_redis_ttl                   = "604800"
   xapi_username                   = var.xapi_username
   xapi_password                   = var.xapi_password
   ui_server_timeout_ms            = var.ui_server_timeout_ms
@@ -428,9 +432,6 @@ module "civil-servant-registry-service" {
   agency_token_max_capacity       = var.agency_token_max_capacity
   agency_token_min_capacity       = var.agency_token_min_capacity
   jwt_key                         = var.jwt_key
-  redis_host                      = module.redis-org.redis_host
-  redis_password                  = module.redis-org.redis_key
-  redis_port                      = "6379"
   application_insights_connection_string = var.application_insights_connection_string
 }
 
@@ -479,6 +480,10 @@ module "lpg-management" {
   redis_host                         = module.redis-session.redis_host
   redis_password                     = module.redis-session.redis_key
   redis_port                         = "6379"
+  org_redis_host                     = module.redis-org.redis_host
+  org_redis_password                 = module.redis-org.redis_key
+  org_redis_port                     = "6379"
+  org_redis_ttl                      = "604800"
   application_insights_connection_string = var.application_insights_connection_string
 }
 

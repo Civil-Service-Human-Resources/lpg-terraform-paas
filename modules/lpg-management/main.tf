@@ -238,6 +238,22 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                           {
                               "name":"REDIS_PORT",
                               "value":"${var.redis_port}"
+                          },
+                          {
+                              "name":"ORG_REDIS_HOST",
+                              "value":"${var.org_redis_host}"
+                          },
+                          {
+                              "name":"ORG_REDIS_PASSWORD",
+                              "value":"${var.org_redis_password}"
+                          },
+                          {
+                              "name":"ORG_REDIS_PORT",
+                              "value":"${var.org_redis_port}"
+                          },
+                          {
+                              "name":"ORG_REDIS_TTL",
+                              "value":"${var.org_redis_ttl}"
                           }
                       ]
                   },
