@@ -7,6 +7,7 @@ resource "azurerm_cosmosdb_account" "test" {
   resource_group_name = var.rg_name
   offer_type          = var.cosmos_offer_type
   kind                = "MongoDB"
+  mongo_server_version  = "4.2"
 
   default_identity_type = "FirstPartyIdentity"
 
