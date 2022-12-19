@@ -57,7 +57,7 @@ variable "learning_catalogue_docker_repository_region" {
 ## lpg-management ##
 
 variable "lpg_management_tag" {
-  default = "v1.4.0"
+  default = "v1.5.0"
 }
 
 variable "lpg_management_docker_repository_region" {
