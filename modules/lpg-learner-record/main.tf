@@ -255,7 +255,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
 						"tag": "ServiceTag",
 						"priority": 1,
 						"name": "appService"
-				},
+				}]
               },
               "dependsOn":[
                   "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

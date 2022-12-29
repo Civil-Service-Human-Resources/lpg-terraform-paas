@@ -140,7 +140,7 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
 						"tag": "ServiceTag",
 						"priority": 1,
 						"name": "appService"
-				},
+				}]
            },
            "dependsOn":[
               "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

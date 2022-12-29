@@ -243,7 +243,7 @@ resource "azurerm_template_deployment" "lpg-learning-catalogue-app-service" {
 							"tag": "ServiceTag",
 							"priority": 1,
 							"name": "appService"
-						},
+						}]
               },
               "dependsOn":[
                   "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
