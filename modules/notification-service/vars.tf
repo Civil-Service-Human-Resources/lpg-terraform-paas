@@ -85,3 +85,13 @@ variable "docker_registry_server_password" {
 variable "jwt_key" {
   default = ""
 }
+
+variable "allowed_ip_addresses" {
+	type = list(object({
+		ipAddress = string
+		action = string
+		tag = string
+		priority = number
+		name = string
+	}))
+}

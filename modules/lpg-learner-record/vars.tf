@@ -169,3 +169,13 @@ variable "completed_job_enabled" {
 variable "incompleted_job_enabled" {
   default = "true"
 }
+
+variable "allowed_ip_addresses" {
+	type = list(object({
+		ipAddress = string
+		action = string
+		tag = string
+		priority = number
+		name = string
+	}))
+}

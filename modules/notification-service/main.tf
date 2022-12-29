@@ -132,7 +132,8 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
               "appCommandLine":"java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar",
               "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_repository}/${var.docker_repository_region}:${var.docker_tag}",
               "minTlsVersion":"1.2",
-              "ftpsState":"Disabled"
+              "ftpsState":"Disabled",
+			  "ipSecurityRestrictions": ${jsonencode(var.allowed_ip_addresses)}
            },
            "dependsOn":[
               "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

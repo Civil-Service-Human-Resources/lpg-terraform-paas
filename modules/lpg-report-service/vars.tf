@@ -121,3 +121,13 @@ variable "jwt_key" {
 variable "backend_api_call_batch_size" {
   default = "50"
 }
+
+variable "allowed_ip_addresses" {
+	type = list(object({
+		ipAddress = string
+		action = string
+		tag = string
+		priority = number
+		name = string
+	}))
+}

@@ -247,7 +247,8 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                   "appCommandLine":"${var.learner_record_command_line}",
                   "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_repository}/${var.docker_repository_region}:${var.docker_tag}",
                   "minTlsVersion":"1.2",
-                  "ftpsState":"Disabled"
+                  "ftpsState":"Disabled",
+				  "ipSecurityRestrictions": ${jsonencode(var.allowed_ip_addresses)}
               },
               "dependsOn":[
                   "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
