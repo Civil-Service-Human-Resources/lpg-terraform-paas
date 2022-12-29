@@ -214,7 +214,15 @@ resource "azurerm_template_deployment" "lpg-report-service-app-service" {
         "appCommandLine": "${var.report_service_command_line}",
         "linuxFxVersion": "DOCKER|${var.docker_registry_server_url}/${var.docker_repository}/${var.docker_repository_region}:${var.docker_tag}",
         "minTlsVersion": "1.2",
-        "ftpsState": "Disabled"
+        "ftpsState": "Disabled",
+		"ipSecurityRestrictions": [
+			{
+				"ipAddress": "AppService",
+				"action": "Allow",
+				"tag": "ServiceTag",
+				"priority": 1,
+				"name": "appService"
+			},
       },
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
