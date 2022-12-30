@@ -39,97 +39,42 @@ data "azurerm_app_service" "identity_management_data" {
 }
 
 locals {
-  lpg_ui_ip_blocks = [for idx, ip in data.azurerm_app_service.lpg_ui_data.possible_outbound_ip_address_list : {
-	ipAddress = "${ip}/32"
-	action = "Allow"
-	tag = "Default"
-	priority = 1
-	name = "lpg_ui_${idx}"
-  }]
-
-	lpg_management_ip_blocks = [for idx, ip in data.azurerm_app_service.lpg_management_data.possible_outbound_ip_address_list : {
-	ipAddress = "${ip}/32"
-	action = "Allow"
-	tag = "Default"
-	priority = 1
-	name = "lpg_management_${idx}"
-  }]
-
-    lpg_report_service_ip_blocks = [for idx, ip in data.azurerm_app_service.report_service_data.possible_outbound_ip_address_list : {
-	ipAddress = "${ip}/32"
-	action = "Allow"
-	tag = "Default"
-	priority = 1
-	name = "lpg_report_service_${idx}"
-  }]
-
-    identity_ip_blocks = [for idx, ip in data.azurerm_app_service.identity_data.possible_outbound_ip_address_list : {
-	ipAddress = "${ip}/32"
-	action = "Allow"
-	tag = "Default"
-	priority = 1
-	name = "identity_${idx}"
-  }]
-
-    civil_servant_registry_ip_blocks = [for idx, ip in data.azurerm_app_service.civil_servant_registry_data.possible_outbound_ip_address_list : {
-	ipAddress = "${ip}/32"
-	action = "Allow"
-	tag = "Default"
-	priority = 1
-	name = "civil_servant_registry_${idx}"
-  }]
-
-    learning_catalogue_ip_blocks = [for idx, ip in data.azurerm_app_service.learning_catalogue_data.possible_outbound_ip_address_list : {
-	ipAddress = "${ip}/32"
-	action = "Allow"
-	tag = "Default"
-	priority = 1
-	name = "learning_catalogue_${idx}"
-  }]
-
-    learner_record_ip_blocks = [for idx, ip in data.azurerm_app_service.learner_record_data.possible_outbound_ip_address_list : {
-	ipAddress = "${ip}/32"
-	action = "Allow"
-	tag = "Default"
-	priority = 1
-	name = "learner_record_${idx}"
-  }]
-
-    identity_management_ip_blocks = [for idx, ip in data.azurerm_app_service.identity_management_data.possible_outbound_ip_address_list : {
-	ipAddress = "${ip}/32"
-	action = "Allow"
-	tag = "Default"
-	priority = 1
-	name = "identity_management_${idx}"
-  }]
+  	lpg_ui_ips = data.azurerm_app_service.lpg_ui_data.possible_outbound_ip_address_list
+	lpg_management_ips = data.azurerm_app_service.lpg_management_data.possible_outbound_ip_address_list
+    lpg_report_service_ips = data.azurerm_app_service.report_service_data.possible_outbound_ip_address_list
+    identity_ips = data.azurerm_app_service.identity_data.possible_outbound_ip_address_list
+    civil_servant_registry_ips = data.azurerm_app_service.civil_servant_registry_data.possible_outbound_ip_address_list
+    learning_catalogue_ips = data.azurerm_app_service.learning_catalogue_data.possible_outbound_ip_address_list
+    learner_record_ips = data.azurerm_app_service.learner_record_data.possible_outbound_ip_address_list
+    identity_management_ips = data.azurerm_app_service.identity_management_data.possible_outbound_ip_address_list
 
 }
 
 locals {
 
-  csrs_allowed_ip_addresses = concat(local.lpg_ui_ip_blocks,
-	local.identity_ip_blocks,
-	local.lpg_management_ip_blocks,
-	local.learner_record_ip_blocks,
-	local.learning_catalogue_ip_blocks,
-	local.lpg_report_service_ip_blocks,
-	local.identity_management_ip_blocks)
+  csrs_allowed_ip_addresses = toset(concat(local.lpg_ui_ips,
+	local.identity_ips,
+	local.lpg_management_ips,
+	local.learner_record_ips,
+	local.learning_catalogue_ips,
+	local.lpg_report_service_ips,
+	local.identity_management_ips))
 
-  learner_record_allowed_ip_addresses = concat(local.lpg_ui_ip_blocks,
-	local.lpg_management_ip_blocks,
-	local.learning_catalogue_ip_blocks,
-	local.lpg_report_service_ip_blocks,
-	local.identity_management_ip_blocks)
+  learner_record_allowed_ip_addresses = toset(concat(local.lpg_ui_ips,
+	local.lpg_management_ips,
+	local.learning_catalogue_ips,
+	local.lpg_report_service_ips,
+	local.identity_management_ips))
 
-  learning_catalogue_allowed_ip_addresses = concat(local.lpg_ui_ip_blocks,
-	local.lpg_management_ip_blocks,
-	local.lpg_report_service_ip_blocks,
-	local.learner_record_ip_blocks)
+  learning_catalogue_allowed_ip_addresses = toset(concat(local.lpg_ui_ips,
+	local.lpg_management_ips,
+	local.lpg_report_service_ips,
+	local.learner_record_ips))
 
-  report_service_allowed_ip_addresses = concat(local.lpg_ui_ip_blocks,
-	local.lpg_management_ip_blocks,
-	local.identity_management_ip_blocks)
+  report_service_allowed_ip_addresses = toset(concat(local.lpg_ui_ips,
+	local.lpg_management_ips,
+	local.identity_management_ips))
 
-  notification_service_allowed_ip_addresses = concat(local.learner_record_ip_blocks)
+  notification_service_allowed_ip_addresses = toset(concat(local.learner_record_ips))
   
 }

@@ -1,5 +1,15 @@
 ###### notification-service ######
 
+locals {
+  allowed_ip_address_blocks = [for idx, ip in var.allowed_ip_addresses : {
+	ipAddress = "${ip}/32"
+	action = "Allow"
+	tag = "Default"
+	priority = 1
+	name = "app service"
+  }]
+}
+
 resource "azurerm_template_deployment" "notification-service-app-service" {
   name                = var.notification_service_name
   resource_group_name = var.rg_name
@@ -133,7 +143,7 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
               "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_repository}/${var.docker_repository_region}:${var.docker_tag}",
               "minTlsVersion":"1.2",
               "ftpsState":"Disabled",
-			  "ipSecurityRestrictions": ${jsonencode(var.allowed_ip_addresses)}
+			  "ipSecurityRestrictions": ${jsonencode(local.allowed_ip_address_blocks)}
            },
            "dependsOn":[
               "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

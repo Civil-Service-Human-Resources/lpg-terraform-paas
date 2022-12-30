@@ -133,3 +133,7 @@ variable "agency_token_min_capacity" {
 variable "jwt_key" {
   default = ""
 }
+
+variable "allowed_ip_addresses" {
+	type = set(string)
+}

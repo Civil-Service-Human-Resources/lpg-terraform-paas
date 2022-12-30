@@ -437,6 +437,7 @@ module "civil-servant-registry-service" {
   agency_token_min_capacity       = var.agency_token_min_capacity
   jwt_key                         = var.jwt_key
   application_insights_connection_string = var.application_insights_connection_string
+  allowed_ip_addresses = local.csrs_allowed_ip_addresses
 }
 
 module "lpg-management" {
