@@ -8,6 +8,8 @@ resource "azurerm_cosmosdb_account" "test" {
   offer_type          = var.cosmos_offer_type
   kind                = "MongoDB"
 
+  default_identity_type = "FirstPartyIdentity"
+
 
 # AllowSelfServeUpgradeToMongo36 
   capabilities {
@@ -41,7 +43,7 @@ resource "azurerm_cosmosdb_account" "test" {
 }
 
 output "cosmos_password" {
-  value = azurerm_cosmosdb_account.test.primary_master_key
+  value = azurerm_cosmosdb_account.test.primary_key
 }
 output "cosmos_name" {
   value = azurerm_cosmosdb_account.test.name

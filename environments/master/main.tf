@@ -60,14 +60,14 @@ module "cosmos" {
   env_profile = var.env_profile
 }
 
-module "blob" {
-  source               = "../../modules/blob"
-  rg_name              = var.rg_name
-  rg_prefix            = var.rg_prefix
-  rg_location          = var.rg_location
-  storage_account_name = "${var.rg_prefix}${var.rg_name}blob"
-  env_profile          = var.env_profile
-}
+#module "blob" {
+#  source               = "../../modules/blob"
+#  rg_name              = var.rg_name
+#  rg_prefix            = var.rg_prefix
+#  rg_location          = var.rg_location
+#  storage_account_name = "${var.rg_prefix}${var.rg_name}blob"
+#  env_profile          = var.env_profile
+#}
 
 module "identity" {
   source                                  = "../../modules/identity"
@@ -236,7 +236,7 @@ module "lpg-learning-locker-xapi" {
   rg_location                     = var.rg_location
   learning_locker_xapi_name       = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_locker_xapi_name}"
   domain                          = var.domain
-  mongo_url                       = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false"
+  mongo_url                       = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&appName=@${module.cosmos.cosmos_name}@"
   redis_url                       = "redis://${module.redis.redis_host}:${module.redis.redis_port}/0?password=${module.redis.redis_key}"
   docker_tag                      = var.ll_docker_tag
   env_profile                     = var.env_profile
@@ -350,6 +350,10 @@ module "lpg-ui" {
   redis_host                      = module.redis-session.redis_host
   redis_password                  = module.redis-session.redis_key
   redis_port                      = "6379"
+  org_redis_host                  = module.redis-org.redis_host
+  org_redis_password              = module.redis-org.redis_key
+  org_redis_port                  = "6379"
+  org_redis_ttl                   = "604800"
   xapi_username                   = var.xapi_username
   xapi_password                   = var.xapi_password
   ui_server_timeout_ms            = var.ui_server_timeout_ms
@@ -428,9 +432,6 @@ module "civil-servant-registry-service" {
   agency_token_max_capacity       = var.agency_token_max_capacity
   agency_token_min_capacity       = var.agency_token_min_capacity
   jwt_key                         = var.jwt_key
-  redis_host                      = module.redis-org.redis_host
-  redis_password                  = module.redis-org.redis_key
-  redis_port                      = "6379"
   application_insights_connection_string = var.application_insights_connection_string
 }
 
@@ -479,6 +480,10 @@ module "lpg-management" {
   redis_host                         = module.redis-session.redis_host
   redis_password                     = module.redis-session.redis_key
   redis_port                         = "6379"
+  org_redis_host                     = module.redis-org.redis_host
+  org_redis_password                 = module.redis-org.redis_key
+  org_redis_port                     = "6379"
+  org_redis_ttl                      = "604800"
   application_insights_connection_string = var.application_insights_connection_string
 }
 

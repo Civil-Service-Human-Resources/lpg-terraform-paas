@@ -174,18 +174,6 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
               {
                 "name": "JWT_KEY",
                 "value": "${var.jwt_key}"
-              },
-              {
-                  "name":"REDIS_HOST",
-                  "value":"${var.redis_host}"
-              },
-              {
-                  "name":"REDIS_PASSWORD",
-                  "value":"${var.redis_password}"
-              },
-              {
-                  "name":"REDIS_PORT",
-                  "value":"${var.redis_port}"
               }
             ],
             "healthCheckPath": "/health"
