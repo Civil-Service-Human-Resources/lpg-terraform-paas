@@ -194,7 +194,7 @@ module "lpg-learner-record" {
   jwt_key                         = var.jwt_key
   application_insights_connection_string = var.application_insights_connection_string
   # LPG-UI, management, catalogue, report
-  allowed_ip_addresses = local.learner_record_allowed_ip_addresses
+  allowed_ip_addresses = local.allowed_ips
 }
 
 module "lpg-report-service" {
@@ -229,7 +229,7 @@ module "lpg-report-service" {
   jwt_key                         = var.jwt_key
   backend_api_call_batch_size     = var.backend_api_call_batch_size
   application_insights_connection_string = var.application_insights_connection_string
-  allowed_ip_addresses = local.report_service_allowed_ip_addresses
+  allowed_ip_addresses = local.allowed_ips
 }
 
 module "lpg-learning-locker-xapi" {
@@ -401,7 +401,7 @@ module "lpg-learning-catalogue" {
   docker_registry_server_password = var.docker_registry_server_password
   jwt_key                         = var.jwt_key
   application_insights_connection_string = var.application_insights_connection_string
-	allowed_ip_addresses 				= local.learning_catalogue_allowed_ip_addresses
+	allowed_ip_addresses 				= local.allowed_ips
 }
 
 module "civil-servant-registry-service" {
@@ -437,7 +437,7 @@ module "civil-servant-registry-service" {
   agency_token_min_capacity       = var.agency_token_min_capacity
   jwt_key                         = var.jwt_key
   application_insights_connection_string = var.application_insights_connection_string
-  allowed_ip_addresses = local.csrs_allowed_ip_addresses
+  allowed_ip_addresses = local.allowed_ips
 }
 
 module "lpg-management" {
@@ -513,7 +513,7 @@ module "notification-service" {
   notification_capacity              = var.notification_capacity
   jwt_key                            = var.jwt_key
   application_insights_connection_string = var.application_insights_connection_string
-  allowed_ip_addresses 				= local.notification_service_allowed_ip_addresses
+  allowed_ip_addresses 				= local.allowed_ips
 }
 
 module "overview-dashboard" {

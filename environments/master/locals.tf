@@ -47,34 +47,14 @@ locals {
     learning_catalogue_ips = data.azurerm_app_service.learning_catalogue_data.possible_outbound_ip_address_list
     learner_record_ips = data.azurerm_app_service.learner_record_data.possible_outbound_ip_address_list
     identity_management_ips = data.azurerm_app_service.identity_management_data.possible_outbound_ip_address_list
-
-}
-
-locals {
-
-  csrs_allowed_ip_addresses = toset(concat(local.lpg_ui_ips,
-	local.identity_ips,
-	local.lpg_management_ips,
-	local.learner_record_ips,
-	local.learning_catalogue_ips,
-	local.lpg_report_service_ips,
-	local.identity_management_ips))
-
-  learner_record_allowed_ip_addresses = toset(concat(local.lpg_ui_ips,
-	local.lpg_management_ips,
-	local.learning_catalogue_ips,
-	local.lpg_report_service_ips,
-	local.identity_management_ips))
-
-  learning_catalogue_allowed_ip_addresses = toset(concat(local.lpg_ui_ips,
-	local.lpg_management_ips,
-	local.lpg_report_service_ips,
-	local.learner_record_ips))
-
-  report_service_allowed_ip_addresses = toset(concat(local.lpg_ui_ips,
-	local.lpg_management_ips,
-	local.identity_management_ips))
-
-  notification_service_allowed_ip_addresses = toset(concat(local.learner_record_ips))
-  
+	allowed_ips = toset(concat(
+		local.lpg_ui_ips,
+		local.lpg_management_ips,
+		local.lpg_report_service_ips,
+		local.identity_ips,
+		local.civil_servant_registry_ips,
+		local.learning_catalogue_ips,
+		local.learner_record_ips,
+		local.identity_management_ips
+	))
 }
