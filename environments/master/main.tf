@@ -332,8 +332,8 @@ module "lpg-ui" {
   content_url                     = "https://cdn.${var.domain}/${var.content_container}"
   vaultresourcegroup              = var.vaultresourcegroup
   vaultname                       = var.vaultname
-  existingkeyvaultsecretname      = var.existingkeyvaultsecretname
-  certificatename                 = var.certificatename
+  existingkeyvaultsecretname      = var.ui_existingkeyvaultsecretname
+  certificatename                 = var.ui_certificatename
   envurl                          = var.envurl
   registry_service_url            = "https://civil-servant-registry.${var.domain}"
   lpg_ui_server                   = "https://${var.domain}"
