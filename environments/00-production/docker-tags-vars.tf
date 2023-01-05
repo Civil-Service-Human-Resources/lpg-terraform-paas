@@ -1,7 +1,7 @@
 ## csrs ##
 
 variable "civil_servant_registry_docker_tag" {
-  default = "v1.2.0"
+  default = "v1.3.0"
 }
 
 variable "civil_servant_registry_docker_repository_region" {
@@ -57,7 +57,7 @@ variable "learning_catalogue_docker_repository_region" {
 ## lpg-management ##
 
 variable "lpg_management_tag" {
-  default = "v1.5.0"
+  default = "v1.6.0"
 }
 
 variable "lpg_management_docker_repository_region" {
