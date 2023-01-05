@@ -7,7 +7,9 @@ environments/demo/.terraform
 environments/dev/.terraform
 environments/prod/.terraform
 environments/test/.terraform
-environments/master/*
+environments/master/.terraform
+environments/master/*-vars.tf
+environments/master/state.tf
 environments/demo/demo-vars.tf
 environments/demo/state.tf
 environments/dev/dev-vars.tf

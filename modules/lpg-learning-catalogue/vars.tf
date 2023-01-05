@@ -149,3 +149,7 @@ variable "scaling_enabled" {
 variable "jwt_key" {
   default = ""
 }
+
+variable "allowed_ip_addresses" {
+	type = set(string)
+}

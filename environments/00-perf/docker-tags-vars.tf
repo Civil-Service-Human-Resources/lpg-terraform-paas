@@ -37,7 +37,7 @@ variable "ll_docker_tag" {
 ## learner-record ##
 
 variable "lpg_learner_record_docker_tag" {
-  default = "master"
+  default = "idt-release-v1.2.0"
 }
 
 variable "lpg_learner_record_docker_repository_region" {
