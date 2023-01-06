@@ -393,3 +393,15 @@ variable "backend_api_call_batch_size" {
 variable "identity_base_url" {
   default = "https://identity.integration.learn.civilservice.gov.uk"
 }
+
+## csl-service ##
+
+variable "csl_service_vertical_scale" {
+	type = string
+	default = "P1v2"
+}
+
+variable "csl_service_horizontal_scale" {
+	type = number
+	default = 1
+}

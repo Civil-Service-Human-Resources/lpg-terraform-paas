@@ -98,3 +98,13 @@ variable "notification_service_docker_repository_region" {
 variable "data_transchiver_tag" {
   default = "master-12"
 }
+
+## csl-service
+
+variable "csl_service_docker_respository_region" {
+  default = "test"
+}
+
+variable "csl_service_tag" {
+  default = "idt-develop"
+}

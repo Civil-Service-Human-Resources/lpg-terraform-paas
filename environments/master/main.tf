@@ -566,3 +566,19 @@ module "data-transchiver" {
   docker_registry_server_password  = var.docker_registry_server_password
   docker_tag                       = var.data_transchiver_tag
 }
+
+module "csl-service" {
+	source							= "../../modules/app_service"
+	rg_name							= var.rg_name
+	app_name						= "csl-service"
+	sku_name						= var.csl_service_vertical_scale
+	horizontal_scale				= var.csl_service_horizontal_scale
+	app_command_line				= "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /target/app.jar"
+	allowed_ip_addresses			= local.allowed_ips
+	docker_image					= "${var.docker_registry_server_url}/csl-service/${var.csl_service_docker_respository_region}"
+	docker_tag						= var.csl_service_tag
+	domain							= "csl-service.${var.domain}"
+	certificate_keyvault_name		= var.vaultname
+	certificate_keyvault_name_rg	= var.vaultresourcegroup
+	certificate_name				= var.certificatename
+}
