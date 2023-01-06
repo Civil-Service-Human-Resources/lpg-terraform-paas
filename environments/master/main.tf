@@ -382,7 +382,9 @@ module "lpg-learning-catalogue" {
   docker_tag                      = var.learning_catalogue_docker_tag
   docker_repository_region        = var.learning_catalogue_docker_repository_region
   env_profile                     = var.env_profile
-  elasticsearch_uri               = "https://elastic.${var.domain}:9200"
+  elasticsearch_protocol          = "https"
+  elasticsearch_host              = var.elasticsearch_host
+  elasticsearch_port              = 443
   elasticsearch_user              = var.elasticsearch_user
   elasticsearch_password          = var.elasticsearch_password
   vaultresourcegroup              = var.vaultresourcegroup

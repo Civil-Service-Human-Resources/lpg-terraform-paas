@@ -54,8 +54,16 @@ variable "auth_password" {
   default = "password"
 }
 
-variable "elasticsearch_uri" {
-  default = "elasticsearch_uri"
+variable "elasticsearch_protocol" {
+  default = "elasticsearch_protocol"
+}
+
+variable "elasticsearch_host" {
+  default = "elasticsearch_host"
+}
+
+variable "elasticsearch_port" {
+  default = "elasticsearch_port"
 }
 
 variable "elasticsearch_user" {
