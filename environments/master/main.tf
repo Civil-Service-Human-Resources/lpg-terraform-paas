@@ -11,8 +11,8 @@ module "redis" {
 module "keyvault" {
   source = "../../modules/keyvault"
   rg_name = var.rg_name
-  name = var.kv_name
-  location = var.kv_location
+  name = "kv-${var.rg_name}-vars"
+  location = var.rg_location
 }
 
 module "redis-session" {
@@ -588,4 +588,5 @@ module "csl-service" {
 	certificate_keyvault_name		= var.vaultname
 	certificate_keyvault_name_rg	= var.vaultresourcegroup
 	certificate_name				= var.certificatename
+	secret_keyvault_name 			= "kv-${var.rg_name}-vars"
 }

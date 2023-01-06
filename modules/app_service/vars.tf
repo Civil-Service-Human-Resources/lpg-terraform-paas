@@ -58,12 +58,7 @@ variable "certificate_name" {
 	description = "(optional) describe your variable"
 }
 
-# variable "secret_keyvault_name_rg" {
-# 	type = string
-# 	description = "(optional) describe your variable"
-# }
-
-# variable "secret_keyvault_name" {
-# 	type = string
-# 	description = "(optional) describe your variable"
-# }
+variable "secret_keyvault_name" {
+	type = string
+	description = "(optional) describe your variable"
+}

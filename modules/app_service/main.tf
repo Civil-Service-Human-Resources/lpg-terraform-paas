@@ -101,18 +101,18 @@ resource "azurerm_key_vault_access_policy" "certificate_kv_access" {
 
 # Secret Keyvault
 
-# data "azurerm_key_vault" "secret_kv" {
-# 	resource_group_name = var.secret_keyvault_name_rg
-#   	name = var.secret_keyvault_name
-# }
+data "azurerm_key_vault" "secret_kv" {
+	resource_group_name = var.rg_name
+  	name = var.secret_keyvault_name
+}
 
-# resource "azurerm_key_vault_access_policy" "secret_kv_access" {
-#   key_vault_id = data.azurerm_key_vault.secret_kv.id
-#   tenant_id = azurerm_linux_web_app.app_service.identity.0.tenant_id
-#   object_id = azurerm_linux_web_app.app_service.identity.0.principal_id
+resource "azurerm_key_vault_access_policy" "secret_kv_access" {
+  key_vault_id = data.azurerm_key_vault.secret_kv.id
+  tenant_id = azurerm_linux_web_app.app_service.identity.0.tenant_id
+  object_id = azurerm_linux_web_app.app_service.identity.0.principal_id
 
-#   secret_permissions = [ "Get" ]
-# }
+  secret_permissions = [ "Get" ]
+}
 
 # Certificate
 
@@ -125,15 +125,15 @@ data "azurerm_key_vault_certificate" "app_keyvault_cert" {
   ]
 }
 
-resource "azurerm_app_service_certificate" "identity_service_certificate" {
+resource "azurerm_app_service_certificate" "app_service_certificate" {
   name                = var.certificate_name
   resource_group_name = azurerm_linux_web_app.app_service.resource_group_name
   location            = azurerm_linux_web_app.app_service.location
   key_vault_secret_id = data.azurerm_key_vault_certificate.app_keyvault_cert.secret_id
 }
 
-resource "azurerm_app_service_certificate_binding" "identity_service_cert_binding" {
+resource "azurerm_app_service_certificate_binding" "app_service_cert_binding" {
   hostname_binding_id = azurerm_linux_web_app.app_service.custom_domain_verification_id
-  certificate_id      = azurerm_app_service_certificate.identity_service_certificate.id
+  certificate_id      = azurerm_app_service_certificate.app_service_certificate.id
   ssl_state           = "SniEnabled"
 }
