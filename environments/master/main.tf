@@ -8,6 +8,13 @@ module "redis" {
   redis_capacity = var.redis_capacity
 }
 
+module "keyvault" {
+  source = "../../modules/keyvault"
+  rg_name = var.rg_name
+  name = var.kv_name
+  location = var.kv_location
+}
+
 module "redis-session" {
   source         = "../../modules/redis"
   rg_name        = var.rg_name
