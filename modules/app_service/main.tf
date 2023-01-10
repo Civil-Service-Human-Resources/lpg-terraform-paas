@@ -47,10 +47,6 @@ resource "azurerm_linux_web_app" "app_service" {
     }
   }
 
-#   identity {
-#     type = "SystemAssigned"
-#   }
-
   logs {
     application_logs {
       file_system_level = "Information"
