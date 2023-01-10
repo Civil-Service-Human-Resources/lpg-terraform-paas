@@ -420,7 +420,6 @@ module "lpg-learning-catalogue" {
   docker_registry_server_password = var.docker_registry_server_password
   jwt_key                         = var.jwt_key
   application_insights_connection_string = var.application_insights_connection_string
-	allowed_ip_addresses 				= local.allowed_ips
 }
 
 module "civil-servant-registry-service" {
