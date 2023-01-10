@@ -28,37 +28,24 @@ variable "allowed_ip_addresses" {
 	description = "(optional) describe your variable"
 }
 
-variable "docker_image" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "docker_tag" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
 variable "domain" {
 	type = string
 	description = "(optional) describe your variable"
 }
 
-variable "certificate_keyvault_name" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "certificate_keyvault_name_rg" {
-	type = string
-	description = "(optional) describe your variable"
-}
 
 variable "certificate_name" {
 	type = string
 	description = "(optional) describe your variable"
 }
 
-variable "secret_keyvault_name" {
+variable "certificate_kv_id" {
 	type = string
 	description = "(optional) describe your variable"
 }
+
+variable "secret_kv_id" {
+	type = string
+	description = "(optional) describe your variable"
+}
+
