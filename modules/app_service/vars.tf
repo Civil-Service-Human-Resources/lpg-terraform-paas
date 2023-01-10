@@ -1,51 +1,39 @@
 variable "rg_name" {
 	type = string
-	description = "(optional) describe your variable"
+	description = "Resource group for the app service"
 }
 
 variable "app_name" {
 	type = string
-	description = "(optional) describe your variable"
+	description = "App service name"
 }
 
 variable "sku_name" {
 	type = string
-	description = "(optional) describe your variable"
+	description = "SKU name"
+	validation {
+	  condition = contains([
+		"P1v2", "P2v2", "P3v2", "P1v3", "P2v3", "P3v3"
+	  ], var.sku_name)
+	  error_message = "SKU name is invalid"
+	}
 }
 
 variable "horizontal_scale" {
 	type = number
-	description = "(optional) describe your variable"
+	description = "Number of instances"
+	validation {
+		condition = var.horizontal_scale <= 10
+	}
+	error_message = "Maximum number of instances is 10"
 }
 
 variable "app_command_line" {
 	type = string
-	description = "(optional) describe your variable"
+	description = "The startup command for this application"
 }
 
 variable "allowed_ip_addresses" {
 	type = set(string)
-	description = "(optional) describe your variable"
+	description = "A set of IP addresses that are allowed to connect to this application"
 }
-
-variable "domain" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-
-variable "certificate_name" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "certificate_kv_id" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "secret_kv_id" {
-	type = string
-	description = "(optional) describe your variable"
-}
-

@@ -1,7 +1,3 @@
-locals {
-  app_domain = "${var.app_name}.${var.domain}"
-}
-
 data "azurerm_resource_group" "app_service_rg" {
   name = var.rg_name
 }
@@ -28,12 +24,7 @@ resource "azurerm_linux_web_app" "app_service" {
       action     = "Allow"
       priority   = 1
       name       = "app service"
-      headers = [{
-        x_azure_fdid      = null
-        x_fd_health_probe = null
-        x_forwarded_for   = null
-        x_forwarded_host  = null
-      }]
+      headers = []
       service_tag               = null
       virtual_network_subnet_id = null
     }]
@@ -56,9 +47,9 @@ resource "azurerm_linux_web_app" "app_service" {
     }
   }
 
-  identity {
-    type = "SystemAssigned"
-  }
+#   identity {
+#     type = "SystemAssigned"
+#   }
 
   logs {
     application_logs {
@@ -68,75 +59,10 @@ resource "azurerm_linux_web_app" "app_service" {
 
 }
 
-# DNS
-
-data "azurerm_dns_zone" "dns_zone" {
-  name = var.domain
-  resource_group_name = "lpgdomain"
+output "verification_id" {
+  value = azurerm_linux_web_app.app_service.custom_domain_verification_id
 }
 
-resource "azurerm_dns_cname_record" "cname" {
-  zone_name = data.azurerm_dns_zone.dns_zone.name
-  resource_group_name = data.azurerm_dns_zone.dns_zone.resource_group_name
-  name = var.app_name
-  record = azurerm_linux_web_app.app_service.default_hostname
-  ttl = 3600
-#   target_resource_id = azurerm_linux_web_app.app_service.id
+output "default_hostname" {
+	value = azurerm_linux_web_app.app_service.default_hostname
 }
-
-# Host
-
-resource "azurerm_app_service_custom_hostname_binding" "custom_hostname" {
-  hostname            = local.app_domain
-  app_service_name    = azurerm_linux_web_app.app_service.name
-  resource_group_name = azurerm_linux_web_app.app_service.resource_group_name
-
-  # Ignore ssl_state and thumbprint as they are managed using
-  # azurerm_app_service_certificate_binding.example
-  lifecycle {
-    ignore_changes = [ssl_state, thumbprint]
-  }
-  
-  depends_on = [
-	azurerm_dns_cname_record.cname
-  ]
-}
-
-# Container registrty permissions
-
-resource "azurerm_role_assignment" "app_service_acr_role" {
-  principal_id                     = azurerm_linux_web_app.app_service.identity.0.principal_id
-  role_definition_name             = "AcrPull"
-  scope                            = var.acr_id
-  skip_service_principal_aad_check = true
-}
-
-# Secret Keyvault
-
-# resource "azurerm_key_vault_access_policy" "secret_kv_access" {
-#   key_vault_id = var.secret_kv_id
-#   tenant_id = azurerm_linux_web_app.app_service.identity.0.tenant_id
-#   object_id = azurerm_linux_web_app.app_service.identity.0.principal_id
-
-#   secret_permissions = [ "Get" ]
-# }
-
-# Certificate
-
-# data "azurerm_key_vault_certificate" "app_keyvault_cert" {
-#   name         = var.certificate_name
-#   key_vault_id = var.certificate_kv_id
-# }
-
-# resource "azurerm_app_service_certificate" "app_service_certificate" {
-#   name                = var.certificate_name
-#   resource_group_name = azurerm_linux_web_app.app_service.resource_group_name
-#   location            = azurerm_linux_web_app.app_service.location
-#   key_vault_secret_id = data.azurerm_key_vault_certificate.app_keyvault_cert.secret_id
-# }
-
-# resource "azurerm_app_service_certificate_binding" "app_service_cert_binding" {
-#   hostname_binding_id = azurerm_linux_web_app.app_service.custom_domain_verification_id
-#   certificate_id      = azurerm_app_service_certificate.app_service_certificate.id
-#   ssl_state           = "SniEnabled"
-# }
