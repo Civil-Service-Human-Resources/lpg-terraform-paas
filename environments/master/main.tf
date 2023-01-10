@@ -20,11 +20,6 @@ data "azurerm_key_vault" "certificate_keyvault" {
   resource_group_name = var.vaultresourcegroup
 }
 
-# data "azurerm_key_vault" "secrets_keyvault" {
-#   name = var.vaultname
-#   resource_group_name = var.vaultresourcegroup
-# }
-
 module "redis-session" {
   source         = "../../modules/redis"
   rg_name        = var.rg_name
