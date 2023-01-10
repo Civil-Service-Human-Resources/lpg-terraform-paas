@@ -15,11 +15,6 @@ module "keyvault" {
   location = var.rg_location
 }
 
-data "azurerm_key_vault" "certificate_keyvault" {
-  name = var.vaultname
-  resource_group_name = var.vaultresourcegroup
-}
-
 module "redis-session" {
   source         = "../../modules/redis"
   rg_name        = var.rg_name
@@ -581,11 +576,11 @@ module "data-transchiver" {
 }
 
 module "csl_service" {
-	source							= "../../modules/app_service"
-	rg_name							= var.rg_name
-	app_name						= "csl-service"
-	sku_name						= var.csl_service_vertical_scale
-	horizontal_scale				= var.csl_service_horizontal_scale
-	app_command_line				= "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /target/app.jar"
-	allowed_ip_addresses			= local.allowed_ips
+    source                          = "../../modules/app_service"
+    rg_name                         = var.rg_name
+    app_name                        = "csl-service"
+    sku_name                        = var.csl_service_vertical_scale
+    horizontal_scale                = var.csl_service_horizontal_scale
+    app_command_line                = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /target/app.jar"
+    allowed_ip_addresses            = local.allowed_ips
 }
