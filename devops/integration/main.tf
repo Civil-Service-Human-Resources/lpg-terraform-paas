@@ -4,7 +4,8 @@ locals {
 	cert_name = "star-integration-learn-civil-service-gov-uk-2022"
 	environment = "integration"
   apps = toset([
-	"csl-service"
+	"csl-service",
+	"rustici-engine"
   ])
 }
 

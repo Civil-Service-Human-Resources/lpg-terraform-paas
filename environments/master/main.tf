@@ -584,3 +584,27 @@ module "csl_service" {
     app_command_line                = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.4.4.jar -jar /target/app.jar"
     allowed_ip_addresses            = local.allowed_ips
 }
+
+module "course_content" {
+    
+}
+
+# RUSTICI
+
+module "rustici_engine" {
+    source                          = "../../modules/app_service"
+    rg_name                         = var.rg_name
+    app_name                        = "rustici-engine"
+    sku_name                        = var.rustici_engine_vertical_scale
+    horizontal_scale                = var.rustici_engine_horizontal_scale
+    app_command_line                = "./installScript.sh"
+    allowed_ip_addresses            = []
+}
+
+module "rustici_mysql" {
+
+}
+
+module "rustici_" {
+
+}

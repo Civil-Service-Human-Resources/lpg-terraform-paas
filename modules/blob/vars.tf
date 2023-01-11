@@ -1,30 +1,39 @@
-variable "rg_name" {
-  default = "holder"
-}
-variable "rg_prefix" {
-  default = "rgpref"
-}
-variable "rg_location" {
-  default = "location"
-}
 variable "storage_account_name" {
-  default = "lpgpackages"
+	type = string
+	description = "(optional) describe your variable"
 }
+
+variable "rg_name" {
+	type = string
+	description = "(optional) describe your variable"
+}
+
 variable "storage_account_location" {
-  default = "UK South"
+	type = string
+	description = "(optional) describe your variable"
 }
+
 variable "storage_account_tier" {
-  default = "Standard"
+	type = string
+	description = "(optional) describe your variable"
 }
+
 variable "storage_account_replication" {
-  default = "ZRS"
+	type = string
+	description = "(optional) describe your variable"
 }
-variable "container_name" {
-  default = "packages"
-}
-variable "container_accesstype" {
-  default = "container"
-}
+
 variable "env_profile" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "container_name" {
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "container_accesstype" {
+	type = string
+	description = "(optional) describe your variable"
 }
