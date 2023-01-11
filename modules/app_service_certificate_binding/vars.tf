@@ -17,3 +17,7 @@ variable "app_rg_name" {
 	type = string
 	description = "(optional) describe your variable"
 } 
+
+variable "environment" {
+	type = string
+}

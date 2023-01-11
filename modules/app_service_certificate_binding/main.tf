@@ -11,7 +11,9 @@ data "azurerm_linux_web_app" "app_service" {
 # DNS record
 
 resource "azurerm_dns_cname_record" "cname" {
-  zone_name = var.domain
+  for_each = toset(var.environment != "production" ? [var.domain] : [])
+  
+  zone_name = each.value
   resource_group_name = "lpgdomain"
   name = var.app_name
   record = data.azurerm_linux_web_app.app_service.default_hostname

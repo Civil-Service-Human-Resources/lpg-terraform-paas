@@ -1,8 +1,8 @@
 locals {
-	rg_name = "lpgintegration"
-	domain = "integration.learn.civilservice.gov.uk"
-	cert_name = "star-integration-learn-civil-service-gov-uk-2022"
-	environment = "integration"
+	rg_name = "lpgprod"
+	domain = "learn.civilservice.gov.uk"
+	cert_name = "star-learn-civil-service-gov-uk-2022"
+	environment = "production"
   apps = toset([
 	"csl-service"
   ])
