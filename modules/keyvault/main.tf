@@ -27,4 +27,21 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
       "Get"
     ]
   }
+
+    access_policy {
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = data.azuread_service_principal.MicrosoftWebApp.id
+
+    key_permissions = [
+      "Get"
+    ]
+
+    secret_permissions = [
+      "Get"
+    ]
+
+    storage_permissions = [
+      "Get"
+    ]
+  }
 }
