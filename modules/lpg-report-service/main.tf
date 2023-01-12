@@ -1,5 +1,15 @@
 ###### lpg-report-service ######
 
+locals {
+  allowed_ip_address_blocks = [for idx, ip in var.allowed_ip_addresses : {
+	ipAddress = "${ip}/32"
+	action = "Allow"
+	tag = "Default"
+	priority = 1
+	name = "app service"
+  }]
+}
+
 resource "azurerm_template_deployment" "lpg-report-service-app-service" {
   name                = var.lpg_report_service_name
   resource_group_name = var.rg_name
@@ -214,7 +224,8 @@ resource "azurerm_template_deployment" "lpg-report-service-app-service" {
         "appCommandLine": "${var.report_service_command_line}",
         "linuxFxVersion": "DOCKER|${var.docker_registry_server_url}/${var.docker_repository}/${var.docker_repository_region}:${var.docker_tag}",
         "minTlsVersion": "1.2",
-        "ftpsState": "Disabled"
+        "ftpsState": "Disabled",
+		"ipSecurityRestrictions": ${jsonencode(local.allowed_ip_address_blocks)}
       },
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
