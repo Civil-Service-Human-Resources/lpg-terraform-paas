@@ -11,7 +11,7 @@ module "redis" {
 module "keyvault" {
   source = "../../modules/keyvault"
   rg_name = var.rg_name
-  name = var.kv_name
+  name = "kv-${var.rg_name}-vars"
   location = var.kv_location
 }
 
