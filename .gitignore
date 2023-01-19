@@ -2,7 +2,6 @@
 *.iml
 
 **/.terraform
-**/state.tf
 environments/demo/.terraform
 environments/dev/.terraform
 environments/prod/.terraform
