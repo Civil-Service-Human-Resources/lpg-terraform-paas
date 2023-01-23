@@ -8,12 +8,10 @@ In order to run the code in this repository, the following should be installed o
 
 - Terraform v0.13.0 (as of writing)
 - Azure CLI v2.10.1 (as of writing)
-- Keybase
 
 #### Access / Permissions
 
 - Azure Account for LPG
-- Keybase Account linked to team
 
 ------------
 
@@ -41,24 +39,10 @@ For deployments to other environments, set the subscription to **CSL-Staging**
 
 ------------
 
-### Keybase Setup
-
-Ensure that keybase is enabled for local file browsing
-
-------------
-
-### How to configure the environment for deployment
+### How to configure each environment for deployment
 
 1. Clone this repository
-2. Change into the `environments/master` folder in a terminal
-3. Run the symlink script
-    1. Script can be found here: `scripts/management/symlink.sh`
-    2. The script is run as: `./../../scripts/management/symlink.sh ${env}`
-        1. Replace `${env}` with the environment name you wish to configure for
-    3. This will symlink the following required files:
-        1. `state.tf`
-        2. `00-vars.tf` (unsecure vars)
-        3. `${env}-vars.tf` (secure vars)
+2. Change into the `environments/<environmentName>` folder in a terminal
 4. Run `terraform init`
 
 ------------
@@ -67,9 +51,13 @@ Ensure that keybase is enabled for local file browsing
 
 #### Unsecure variables
 
+> :warning: **Deprecated**: Variables are no longer stored in Terraform. To store variables in your App Services, please use the [Vault CLI](https://github.com/Civil-Service-Human-Resources/csl-vault) instead.
+
 Unsecure variables can be updated in the `00-vars.tf` file. This file contains items such as docker tags, SKUs and various other settings
 
 #### Secure variables
+
+> :warning: **Deprecated**: Variables are no longer stored in Terraform. Secure (secret) variables are now stored in a Key Vault. To store variables in your App Services, please use the [Vault CLI](https://github.com/Civil-Service-Human-Resources/csl-vault) instead.
 
 Secure variables can be updated in the `${env}-vars.tf` file. This file contains items such as passwords and tokens
 
@@ -88,7 +76,7 @@ To deploy the entire suite of modules:
 
 #### Targeted Deployment
 
-Module names can be found in the `environments/main.tf` file
+Module names can be found in the `modules` directory.
 
 To do a targeted deployment of a single module:
 
