@@ -51,13 +51,15 @@ For deployments to other environments, set the subscription to **CSL-Staging**
 
 #### Unsecure variables
 
-> :warning: **Deprecated**: Variables are no longer stored in Terraform. To store variables in your App Services, please use the [Vault CLI](https://github.com/Civil-Service-Human-Resources/csl-vault) instead.
+> **warning**
+> **Deprecated**: Variables are no longer stored in Terraform. To store variables in your App Services, please use the [Vault CLI](https://github.com/Civil-Service-Human-Resources/csl-vault) instead.
 
 Unsecure variables can be updated in the `00-vars.tf` file. This file contains items such as docker tags, SKUs and various other settings
 
 #### Secure variables
 
-> :warning: **Deprecated**: Variables are no longer stored in Terraform. Secure (secret) variables are now stored in a Key Vault. To store variables in your App Services, please use the [Vault CLI](https://github.com/Civil-Service-Human-Resources/csl-vault) instead.
+> **warning**
+> **Deprecated**: Variables are no longer stored in Terraform. Secure (secret) variables are now stored in a Key Vault. To store variables in your App Services, please use the [Vault CLI](https://github.com/Civil-Service-Human-Resources/csl-vault) instead.
 
 Secure variables can be updated in the `${env}-vars.tf` file. This file contains items such as passwords and tokens
 
