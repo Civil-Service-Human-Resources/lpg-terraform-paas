@@ -58,7 +58,7 @@ Unsecure variables can be updated in the `00-vars.tf` file. This file contains i
 
 #### Secure variables
 
-> **warning**
+> **Warning**
 > **Deprecated**: Variables are no longer stored in Terraform. Secure (secret) variables are now stored in a Key Vault. To store variables in your App Services, please use the [Vault CLI](https://github.com/Civil-Service-Human-Resources/csl-vault) instead.
 
 Secure variables can be updated in the `${env}-vars.tf` file. This file contains items such as passwords and tokens
