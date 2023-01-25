@@ -54,14 +54,6 @@ variable "authentication_service_url" {
   default = ""
 }
 
-variable "report_service_client_id" {
-  default = ""
-}
-
-variable "report_service_client_secret" {
-  default = ""
-}
-
 variable "vaultresourcegroup" {
   default = ""
 }
@@ -82,21 +74,15 @@ variable "envurl" {
   default = ""
 }
 
-variable "application_insights_connection_string" {
-  default = ""
-}
+
 
 variable "docker_registry_server_url" {
   default = ""
 }
 
-variable "docker_registry_server_username" {
-  default = ""
-}
 
-variable "docker_registry_server_password" {
-  default = ""
-}
+
+
 
 variable "registry_service_url" {
   default = ""
@@ -114,9 +100,7 @@ variable "datasource" {
   default = "db_url"
 }
 
-variable "jwt_key" {
-  default = ""
-}
+
 
 variable "backend_api_call_batch_size" {
   default = "50"

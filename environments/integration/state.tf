@@ -4,12 +4,13 @@ terraform {
     storage_account_name = "lpgterraformsecure"
     container_name       = "tfstatesecure"
     key                  = "00-integration.terraform.tfstate"
+    access_key           = var.access_key
   }
 }
 
 provider "azurerm" {
-  version = "3.0"
+  version = ">=3.0.0"
 
   features {} 
-  subscription_id = vars.integration_subscription_id
+  subscription_id = var.integration_subscription_id
 }

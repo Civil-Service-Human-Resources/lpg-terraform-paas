@@ -58,20 +58,8 @@ variable "elasticsearch_protocol" {
   default = "elasticsearch_protocol"
 }
 
-variable "elasticsearch_host" {
-  default = "elasticsearch_host"
-}
-
 variable "elasticsearch_port" {
   default = "elasticsearch_port"
-}
-
-variable "elasticsearch_user" {
-  default = "user"
-}
-
-variable "elasticsearch_password" {
-  default = "password"
 }
 
 variable "env_profile" {
@@ -95,14 +83,6 @@ variable "certificatename" {
 }
 
 variable "envurl" {
-  default = ""
-}
-
-variable "application_insights_connection_string" {
-  default = ""
-}
-
-variable "azure_account_key" {
   default = ""
 }
 
@@ -138,13 +118,9 @@ variable "docker_registry_server_url" {
   default = ""
 }
 
-variable "docker_registry_server_username" {
-  default = ""
-}
 
-variable "docker_registry_server_password" {
-  default = ""
-}
+
+
 
 variable "custom_emails" {
   default = ""
@@ -154,6 +130,3 @@ variable "scaling_enabled" {
   default = ""
 }
 
-variable "jwt_key" {
-  default = ""
-}

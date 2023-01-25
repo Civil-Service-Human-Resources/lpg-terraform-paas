@@ -1,3 +1,20 @@
 variable "integration_subscription_id" {
-    type = "string"
+  type = string
 }
+
+variable "access_key" {
+  type = string
+}
+
+variable "mysql_user" {
+  type = string
+}
+
+variable "mysql_pass" {
+  type = string
+}
+
+variable "mysql_pass_ll" {
+  type = string
+}
+

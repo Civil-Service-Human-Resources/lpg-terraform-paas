@@ -66,18 +66,10 @@ variable "envurl" {
   default = ""
 }
 
-variable "application_insights_connection_string" {
-  default =""
-}
-
 variable "authentication_service_url" {
   default = ""
 }
 variable "identity_management_client_id" {
-  default = ""
-}
-
-variable "identity_management_client_secret" {
   default = ""
 }
 
@@ -101,17 +93,11 @@ variable "docker_registry_server_url" {
   default = ""
 }
 
-variable "docker_registry_server_username" {
-  default = ""
-}
 
-variable "docker_registry_server_password" {
-  default = ""
-}
 
-variable "jwt_key" {
-  default = ""
-}
+
+
+
 
 variable "data_retention_cron_schedule" {
   default = ""

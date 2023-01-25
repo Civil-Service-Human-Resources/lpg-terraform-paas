@@ -77,20 +77,14 @@ module "identity" {
   identity_name                           = "${var.rg_prefix}-${var.rg_name}-${var.identity_name}"
   domain                                  = var.domain
   datasource                              = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}.mysql.database.azure.com:3306/identity?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
-  asset_cdn                               = var.identity_asset_cdn
   docker_tag                              = var.identity_docker_tag
   docker_repository_region                = var.identity_docker_repository_region
   env_profile                             = var.env_profile
-  gov_notify_invite_template_id           = var.gov_notify_invite_template_id
-  gov_notify_reset_template_id            = var.gov_notify_reset_template_id
-  gov_notify_reset_successful_template_id = var.gov_notify_reset_successful_template_id
   vaultresourcegroup                      = var.vaultresourcegroup
   vaultname                               = var.vaultname
   existingkeyvaultsecretname              = var.existingkeyvaultsecretname
   certificatename                         = var.certificatename
-  gov_notify_api_key                      = var.gov_notify_api_key
   envurl                                  = var.envurl
-  whitelisted_domains                     = var.whitelisted_domains
   invite_signup_url                       = "https://identity.${var.domain}/signup/%s"
   reset_url                               = "https://identity.${var.domain}/reset/%s"
   lpg_ui_url                              = "https://${var.domain}"
@@ -103,11 +97,11 @@ module "identity" {
   webapp_sku_name                         = var.webapp_sku_name_p2
   identity_capacity                       = var.identity_capacity
   docker_registry_server_url              = var.docker_registry_server_url
-  docker_registry_server_username         = var.docker_registry_server_username
-  docker_registry_server_password         = var.docker_registry_server_password
+
+
   authentication_service_url              = "https://identity.${var.domain}"
   registry_service_url                    = "https://civil-servant-registry.${var.domain}"
-  jwt_key                                 = var.jwt_key
+
   invite_validity                         = var.invite_validity
   duration_after_rereg_allowed_seconds    = var.duration_after_rereg_allowed_seconds
   maintenance_page_enabled                = var.maintenance_page_enabled
@@ -115,10 +109,8 @@ module "identity" {
   maintenance_page_content_line_2         = var.maintenance_page_content_line_2
   maintenance_page_content_line_3         = var.maintenance_page_content_line_3
   maintenance_page_content_line_4         = var.maintenance_page_content_line_4
-  application_insights_connection_string = var.application_insights_connection_string
+
   identity_base_url = var.identity_base_url
-  email_template_url = var.email_template_url
-  encryption_key = var.encryption_key
 }
 
 module "identity-management" {
@@ -132,8 +124,6 @@ module "identity-management" {
   env_profile                       = var.env_profile
   datasource                        = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}.mysql.database.azure.com:3306/identity?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
   authentication_service_url        = "https://identity.${var.domain}"
-  identity_management_client_id     = var.identity_management_client_id
-  identity_management_client_secret = var.identity_management_client_secret
   learner_record_url                = "https://learning-record.${var.domain}"
   registry_service_url              = "https://civil-servant-registry.${var.domain}"
   notification_service_url          = "https://${var.rg_prefix}-${var.rg_name}-${var.notification_service_name}.azurewebsites.net"
@@ -146,12 +136,12 @@ module "identity-management" {
   webapp_sku_tier                   = var.webapp_sku_tier_p2
   webapp_sku_name                   = var.webapp_sku_name_p1
   docker_registry_server_url        = var.docker_registry_server_url
-  docker_registry_server_username   = var.docker_registry_server_username
-  docker_registry_server_password   = var.docker_registry_server_password
-  jwt_key                           = var.jwt_key
+
+
+
   data_retention_cron_schedule      = var.identity_management_data_retention_cron_schedule
   data_retention_enabled            = var.identity_management_data_retention_enabled
-  application_insights_connection_string = var.application_insights_connection_string
+
 }
 
 module "lpg-learner-record" {
@@ -165,14 +155,9 @@ module "lpg-learner-record" {
   docker_repository_region        = var.lpg_learner_record_docker_repository_region
   env_profile                     = var.env_profile
   websites_port                   = var.lpg_learner_record_websites_port
-  gov_notify_api_key              = var.gov_notify_api_key
   course_catalogue_url            = "https://learning-resources.${var.domain}"
   registry_service_url            = "https://civil-servant-registry.${var.domain}"
-  required_learning_template_id   = var.required_learning_template_id
-  complete_learning_template_id   = var.complete_learning_template_id
   authentication_service_url      = "https://identity.${var.domain}"
-  learner_record_client_id        = var.learner_record_client_id
-  learner_record_client_secret    = var.learner_record_client_secret
   vaultresourcegroup              = var.vaultresourcegroup
   vaultname                       = var.vaultname
   existingkeyvaultsecretname      = var.existingkeyvaultsecretname
@@ -188,11 +173,11 @@ module "lpg-learner-record" {
   webapp_sku_name                 = var.webapp_sku_name_p2
   learner_record_capacity         = var.learner_record_capacity
   docker_registry_server_url      = var.docker_registry_server_url
-  docker_registry_server_username = var.docker_registry_server_username
-  docker_registry_server_password = var.docker_registry_server_password
+
+
   learner_record_command_line     = var.learner_record_command_line
-  jwt_key                         = var.jwt_key
-  application_insights_connection_string = var.application_insights_connection_string
+
+
   # LPG-UI, management, catalogue, report
   allowed_ip_addresses = local.allowed_ips
 }
@@ -212,8 +197,6 @@ module "lpg-report-service" {
   authentication_service_url      = "https://identity.${var.domain}"
   course_catalogue_url            = "https://learning-resources.${var.domain}"
   registry_service_url            = "https://civil-servant-registry.${var.domain}"
-  report_service_client_id        = var.report_service_client_id
-  report_service_client_secret    = var.report_service_client_secret
   vaultresourcegroup              = var.vaultresourcegroup
   vaultname                       = var.vaultname
   existingkeyvaultsecretname      = var.existingkeyvaultsecretname
@@ -222,13 +205,13 @@ module "lpg-report-service" {
   webapp_sku_tier                 = var.webapp_sku_tier_p2
   webapp_sku_name                 = var.webapp_sku_name_p3
   docker_registry_server_url      = var.docker_registry_server_url
-  docker_registry_server_username = var.docker_registry_server_username
-  docker_registry_server_password = var.docker_registry_server_password
+
+
   report_service_command_line     = var.report_service_command_line
   datasource                      = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}.mysql.database.azure.com:3306/learner_record?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
-  jwt_key                         = var.jwt_key
+
   backend_api_call_batch_size     = var.backend_api_call_batch_size
-  application_insights_connection_string = var.application_insights_connection_string
+
   allowed_ip_addresses = local.allowed_ips
 }
 
@@ -258,8 +241,8 @@ module "lpg-learning-locker-xapi" {
   webapp_sku_name                 = var.webapp_sku_name_p1
   xapi_capacity                   = var.xapi_capacity
   docker_registry_server_url      = var.docker_registry_server_url
-  docker_registry_server_username = var.docker_registry_server_username
-  docker_registry_server_password = var.docker_registry_server_password
+
+
 }
 
 module "lpg-learning-locker-worker" {
@@ -285,8 +268,8 @@ module "lpg-learning-locker-worker" {
   webapp_sku_tier                 = var.webapp_sku_tier_p2
   webapp_sku_name                 = var.webapp_sku_name_p1
   docker_registry_server_url      = var.docker_registry_server_url
-  docker_registry_server_username = var.docker_registry_server_username
-  docker_registry_server_password = var.docker_registry_server_password
+
+
 }
 
 module "lpg-learning-locker-ui" {
@@ -305,8 +288,8 @@ module "lpg-learning-locker-ui" {
   webapp_sku_tier                 = var.webapp_sku_tier_p2
   webapp_sku_name                 = var.webapp_sku_name_p1
   docker_registry_server_url      = var.docker_registry_server_url
-  docker_registry_server_username = var.docker_registry_server_username
-  docker_registry_server_password = var.docker_registry_server_password
+
+
 }
 
 module "lpg-ui" {
@@ -323,33 +306,25 @@ module "lpg-ui" {
   docker_tag                      = var.lpg_services_tag
   course_catalogue_url            = "https://learning-resources.${var.domain}"
   learner_record_url              = "https://learning-record.${var.domain}"
-  youtube_api_key                 = var.youtube_api_key
-  gov_notify_api_key              = var.gov_notify_api_key
   env_profile                     = var.env_profile
   google_analytics_id             = var.google_analytics_id
-  session_secret                  = var.session_secret
   websites_port                   = var.ui_websites_port
   content_url                     = "https://cdn.${var.domain}/${var.content_container}"
   vaultresourcegroup              = var.vaultresourcegroup
   vaultname                       = var.vaultname
   existingkeyvaultsecretname      = var.ui_existingkeyvaultsecretname
-  certificatename                 = var.ui_certificatename
   envurl                          = var.envurl
   registry_service_url            = "https://civil-servant-registry.${var.domain}"
   lpg_ui_server                   = "https://${var.domain}"
-  lpg_ui_oauth_client_id          = var.lpg_ui_oauth_client_id
-  lpg_ui_oauth_client_secret      = var.lpg_ui_oauth_client_secret
   lpg_management_server           = "https://management.${var.domain}"
-  feedback_recipient              = var.feedback_recipient
-  contact_us_email                = var.lpg_ui_contact_us_email
   scaling_enabled                 = var.scaling_enabled
   custom_emails                   = var.custom_emails
   webapp_sku_tier                 = var.webapp_sku_tier_p2
   webapp_sku_name                 = var.webapp_sku_name_p2
   lpg_ui_capacity                 = var.lpg_ui_capacity
   docker_registry_server_url      = var.docker_registry_server_url
-  docker_registry_server_username = var.docker_registry_server_username
-  docker_registry_server_password = var.docker_registry_server_password
+
+
   redis_host                      = module.redis-session.redis_host
   redis_password                  = module.redis-session.redis_key
   redis_port                      = "6379"
@@ -357,12 +332,10 @@ module "lpg-ui" {
   org_redis_password              = module.redis-org.redis_key
   org_redis_port                  = "6379"
   org_redis_ttl                   = "604800"
-  xapi_username                   = var.xapi_username
-  xapi_password                   = var.xapi_password
   ui_server_timeout_ms            = var.ui_server_timeout_ms
   ui_static_asset_root            = var.ui_static_asset_root
   ui_static_asset_ttl             = var.ui_static_asset_ttl
-  application_insights_connection_string = var.application_insights_connection_string
+
 }
 
 module "lpg-learning-catalogue" {
@@ -376,21 +349,15 @@ module "lpg-learning-catalogue" {
   docker_repository_region        = var.learning_catalogue_docker_repository_region
   env_profile                     = var.env_profile
   elasticsearch_protocol          = "https"
-  elasticsearch_host              = var.elasticsearch_host
   elasticsearch_port              = 443
-  elasticsearch_user              = var.elasticsearch_user
-  elasticsearch_password          = var.elasticsearch_password
   vaultresourcegroup              = var.vaultresourcegroup
   vaultname                       = var.vaultname
   existingkeyvaultsecretname      = var.existingkeyvaultsecretname
   certificatename                 = var.certificatename
   envurl                          = var.envurl
-  azure_account_key               = var.azure_account_key
   azure_account_name              = var.azure_account_name
   azure_storage_container         = var.content_container
   oauth_service_url               = "https://identity.${var.domain}"
-  client_id                       = var.lpg_learning_catalogue_oauth_client_id
-  client_secret                   = var.lpg_learning_catalogue_oauth_client_secret
   learner_record_url              = "https://learning-record.${var.domain}"
   registry_service_url            = "https://civil-servant-registry.${var.domain}"
   scaling_enabled                 = var.scaling_enabled
@@ -399,10 +366,10 @@ module "lpg-learning-catalogue" {
   webapp_sku_name                 = var.webapp_sku_name_p1
   learning_catalogue_capacity     = var.learning_catalogue_capacity
   docker_registry_server_url      = var.docker_registry_server_url
-  docker_registry_server_username = var.docker_registry_server_username
-  docker_registry_server_password = var.docker_registry_server_password
-  jwt_key                         = var.jwt_key
-  application_insights_connection_string = var.application_insights_connection_string
+
+
+
+
 }
 
 module "civil-servant-registry-service" {
@@ -415,29 +382,26 @@ module "civil-servant-registry-service" {
   env_profile                     = var.env_profile
   docker_tag                      = var.civil_servant_registry_docker_tag
   docker_repository_region        = var.civil_servant_registry_docker_repository_region
-  csrs_client_id                  = var.csrs_client_id
-  csrs_client_secret              = var.csrs_client_secret
   check_token_url                 = "https://identity.${var.domain}/oauth/check_token"
   datasource                      = "jdbc:mysql://${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}.mysql.database.azure.com:3306/csrs?user=${var.mysql_user}@${var.rg_prefix}-${var.rg_name}-${var.mysql_name_gp}&password=${var.mysql_pass}&useSSL=true&requireSSL=false"
   vaultresourcegroup              = var.vaultresourcegroup
   vaultname                       = var.vaultname
   existingkeyvaultsecretname      = var.existingkeyvaultsecretname
   certificatename                 = var.certificatename
-  gov_notify_api_key              = var.gov_notify_api_key
   envurl                          = var.envurl
   authentication_service_url      = "https://identity.${var.domain}"
   webapp_sku_tier                 = var.webapp_sku_tier_p2
   webapp_sku_name                 = var.webapp_sku_name_p1
   csrs_capacity                   = var.csrs_capacity
   docker_registry_server_url      = var.docker_registry_server_url
-  docker_registry_server_username = var.docker_registry_server_username
-  docker_registry_server_password = var.docker_registry_server_password
+
+
   scaling_enabled                 = var.scaling_enabled
   custom_emails                   = var.custom_emails
   agency_token_max_capacity       = var.agency_token_max_capacity
   agency_token_min_capacity       = var.agency_token_min_capacity
-  jwt_key                         = var.jwt_key
-  application_insights_connection_string = var.application_insights_connection_string
+
+
   allowed_ip_addresses = local.allowed_ips
 }
 
@@ -455,15 +419,12 @@ module "lpg-management" {
   authentication_service_url         = "https://identity.${var.domain}"
   authentication_service_timeout_ms  = var.lpg_management_authentication_service_timeout_ms
   env_profile                        = var.env_profile
-  session_secret                     = var.session_secret
   websites_port                      = var.lpg_management_websites_port
   vaultresourcegroup                 = var.vaultresourcegroup
   vaultname                          = var.vaultname
   existingkeyvaultsecretname         = var.existingkeyvaultsecretname
   certificatename                    = var.certificatename
   envurl                             = var.envurl
-  lpg_management_oauth_client_id     = var.lpg_management_oauth_client_id
-  lpg_management_oauth_client_secret = var.lpg_management_oauth_client_secret
   callback_url                       = "https://management.${var.domain}"
   lpg_ui_url                         = "https://${var.domain}"
   report_service_url                 = "https://report.${var.domain}"
@@ -471,11 +432,10 @@ module "lpg-management" {
   course_catalogue_url               = "https://learning-resources.${var.domain}"
   content_url                        = "https://cdn.${var.domain}/${var.content_container}"
   course_catalogue_timeout_ms        = var.lpg_management_course_catalogue_timeout_ms
-  youtube_api_key                    = var.youtube_api_key
   youtube_timeout_ms                 = var.lpg_management_youtube_timeout_ms
   docker_registry_server_url         = var.docker_registry_server_url
-  docker_registry_server_username    = var.docker_registry_server_username
-  docker_registry_server_password    = var.docker_registry_server_password
+
+
   webapp_sku_tier                    = var.webapp_sku_tier_p2
   webapp_sku_name                    = var.webapp_sku_name_p2
   lpg_management_capacity            = var.lpg_management_capacity
@@ -490,7 +450,7 @@ module "lpg-management" {
   org_redis_password                 = module.redis-org.redis_key
   org_redis_port                     = "6379"
   org_redis_ttl                      = "604800"
-  application_insights_connection_string = var.application_insights_connection_string
+
 }
 
 module "notification-service" {
@@ -502,18 +462,15 @@ module "notification-service" {
   docker_tag                         = var.notification_service_tag
   docker_repository_region           = var.notification_service_docker_repository_region
   env_profile                        = var.env_profile
-  gov_notify_api_key                 = var.gov_notify_api_key
   authentication_service_url         = "https://identity.${var.domain}"
-  notification_service_client_id     = var.notification_service_client_id
-  notification_service_client_secret = var.notification_service_client_secret
   docker_registry_server_url         = var.docker_registry_server_url
-  docker_registry_server_username    = var.docker_registry_server_username
-  docker_registry_server_password    = var.docker_registry_server_password
+
+
   webapp_sku_tier                    = var.webapp_sku_tier_p2
   webapp_sku_name                    = var.webapp_sku_name_p1
   notification_capacity              = var.notification_capacity
-  jwt_key                            = var.jwt_key
-  application_insights_connection_string = var.application_insights_connection_string
+
+
   allowed_ip_addresses 				= local.allowed_ips
 }
 
@@ -563,7 +520,7 @@ module "data-transchiver" {
   cosmos_src_connection_string     = "mongodb://${module.cosmos.cosmos_name}:${module.cosmos.cosmos_password}@${module.cosmos.cosmos_name}.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false"
   data_xfr_job_schedule            = var.job_schedule
   docker_registry_server_url       = var.docker_registry_server_url
-  docker_registry_server_username  = var.docker_registry_server_username
-  docker_registry_server_password  = var.docker_registry_server_password
+
+
   docker_tag                       = var.data_transchiver_tag
 }
