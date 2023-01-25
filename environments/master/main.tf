@@ -326,6 +326,7 @@ module "lpg-ui" {
   youtube_api_key                 = var.youtube_api_key
   gov_notify_api_key              = var.gov_notify_api_key
   env_profile                     = var.env_profile
+  logging_level 				  = var.lpg_ui_logging_level
   google_analytics_id             = var.google_analytics_id
   session_secret                  = var.session_secret
   websites_port                   = var.ui_websites_port
