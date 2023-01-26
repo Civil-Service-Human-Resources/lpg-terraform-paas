@@ -101,11 +101,6 @@ module "integration-environment" {
     job_schedule =  "0 1 21 * * *"
     invite_validity =  "259200"
     duration_after_rereg_allowed_seconds =  "86400"
-    maintenance_page_enabled =  "false"
-    maintenance_page_content_line_1 =  "The learning website is undergoing scheduled maintenance."
-    maintenance_page_content_line_2 =  "It will be unavailable between the hours of 7pm to 9pm on Wednesday 24th February 2021."
-    maintenance_page_content_line_3 =  "Apologies for the inconvenience."
-    maintenance_page_content_line_4 =  "If the maintenance period is extended, further information will be provided here."
     backend_api_call_batch_size =  "50"
     identity_base_url =  "https://identity.integration.learn.civilservice.gov.uk"
 

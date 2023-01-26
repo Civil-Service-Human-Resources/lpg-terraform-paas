@@ -104,11 +104,6 @@ module "identity" {
 
   invite_validity                         = var.invite_validity
   duration_after_rereg_allowed_seconds    = var.duration_after_rereg_allowed_seconds
-  maintenance_page_enabled                = var.maintenance_page_enabled
-  maintenance_page_content_line_1         = var.maintenance_page_content_line_1
-  maintenance_page_content_line_2         = var.maintenance_page_content_line_2
-  maintenance_page_content_line_3         = var.maintenance_page_content_line_3
-  maintenance_page_content_line_4         = var.maintenance_page_content_line_4
 
   identity_base_url = var.identity_base_url
 }

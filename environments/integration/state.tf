@@ -4,7 +4,7 @@ terraform {
     storage_account_name = "lpgterraformsecure"
     container_name       = "tfstatesecure"
     key                  = "00-integration.terraform.tfstate"
-    access_key           = var.access_key
+    access_key           = var.integration_access_key
   }
 }
 

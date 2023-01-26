@@ -1,6 +1,29 @@
-environment=$1
+ENV=$1
 
-echo "Running 'plan' for environment '$1'"
+rm -rf plan
+mkdir plan
+cd plan
+mkdir $ENV
+cd $ENV
 
-cd environments/$1
-ls
+cp -r ../../environments/master/ .
+rm vars.tf
+
+cp -r ../../environments/$ENV/docker-tags-vars.tf .
+cp -r ../../environments/$ENV/integration-vars.tf .
+cp -r ../../environments/$ENV/state.tf .
+cp -r ../../env-vars/$ENV.tf ./integration-vars-sensitive.tf
+
+if [[ $ENV =~ ^(integration|staging|perf)$ ]]; then
+    SUBSCRIPTION_NAME="CSL-Staging"
+else
+    SUBSCRIPTION_NAME="CSL-Production"
+fi
+
+az account set --subscription $SUBSCRIPTION_NAME
+
+echo """access_key=\"$TF_VAR_$ENV_access_key\"""" > backend.conf
+
+terraform init -backend-config=backend.conf
+
+terraform plan -out tfplan-$ENV

@@ -378,26 +378,6 @@ variable "duration_after_rereg_allowed_seconds" {
   default = ""
 }
 
-variable "maintenance_page_enabled" {
-  default = ""
-}
-
-variable "maintenance_page_content_line_1" {
-  default = ""
-}
-
-variable "maintenance_page_content_line_2" {
-  default = ""
-}
-
-variable "maintenance_page_content_line_3" {
-  default = ""
-}
-
-variable "maintenance_page_content_line_4" {
-  default = ""
-}
-
 variable "backend_api_call_batch_size" {
   default = ""
 }
