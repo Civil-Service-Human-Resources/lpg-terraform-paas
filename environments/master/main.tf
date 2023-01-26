@@ -519,3 +519,11 @@ module "data-transchiver" {
 
   docker_tag                       = var.data_transchiver_tag
 }
+
+module "keyvault" {
+  source = "../../modules/keyvault"
+  rg_name = var.rg_name
+  rg_name_lpg_ui = var.rg_name_lpg_ui
+  name = "kv-${var.rg_name}-vars"
+  location = var.rg_location
+}

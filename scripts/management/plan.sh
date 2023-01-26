@@ -10,9 +10,9 @@ cp -r ../../environments/master/ .
 rm vars.tf
 
 cp -r ../../environments/$ENV/docker-tags-vars.tf .
-cp -r ../../environments/$ENV/integration-vars.tf .
+cp -r ../../environments/$ENV/integration-vars.tf integration-sensitive-vars.tf
 cp -r ../../environments/$ENV/state.tf .
-cp -r ../../env-vars/$ENV.tf ./integration-vars-sensitive.tf
+cp -r ../../env-vars/$ENV.tf .
 
 if [[ $ENV =~ ^(integration|staging|perf)$ ]]; then
     SUBSCRIPTION_NAME="CSL-Staging"

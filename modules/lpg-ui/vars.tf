@@ -104,7 +104,7 @@ variable "existingkeyvaultsecretname" {
 }
 
 variable "certificatename" {
-  default = ""
+    default = "star-integration-learn-civil-service-gov-uk-2022"
 }
 
 variable "envurl" {
@@ -164,10 +164,6 @@ variable "org_redis_ttl" {
 variable "docker_registry_server_url" {
   default = ""
 }
-
-
-
-
 
 variable "custom_emails" {
   default = ""
