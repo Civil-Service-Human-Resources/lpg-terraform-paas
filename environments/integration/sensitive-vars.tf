@@ -1,5 +1,5 @@
-variable "perf_subscription_id" {
-    type = "string"
+variable "integration_subscription_id" {
+  type = string
 }
 
 variable "mysql_user" {
@@ -13,3 +13,4 @@ variable "mysql_pass" {
 variable "mysql_pass_ll" {
   type = string
 }
+

@@ -76,9 +76,27 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 
   sku_name = "standard"
 
+  # access_policy {
+  #   tenant_id = data.azurerm_client_config.current.tenant_id
+  #   object_id = data.azurerm_client_config.current.object_id
+
+  #   key_permissions = [
+  #     "Get"
+  #   ]
+
+  #   secret_permissions = [
+  #     "Get"
+  #   ]
+
+  #   storage_permissions = [
+  #     "Get"
+  #   ]
+  # }
+
   access_policy {
+
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_client_config.current.object_id
+    object_id = data.azurerm_linux_web_app.IdentityAppData.identity.0.principal_id
 
     key_permissions = [
       "Get"
@@ -95,7 +113,7 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.IdentityAppData.identity[0].principal_id
+    object_id = data.azurerm_linux_web_app.CSRSAppData.identity.0.principal_id
 
     key_permissions = [
       "Get"
@@ -112,24 +130,7 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.CSRSAppData.identity[0].principal_id
-
-    key_permissions = [
-      "Get"
-    ]
-
-    secret_permissions = [
-      "Get"
-    ]
-
-    storage_permissions = [
-      "Get"
-    ]
-  }
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.IdentityManagementAppData.identity[0].principal_id
+    object_id = data.azurerm_linux_web_app.IdentityManagementAppData.identity.0.principal_id
 
 
     key_permissions = [
@@ -146,7 +147,7 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
   }
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.LearningLockerWorkerAppData.identity[0].principal_id
+    object_id = data.azurerm_linux_web_app.LearningLockerWorkerAppData.identity.0.principal_id
 
     key_permissions = [
       "Get"
@@ -163,7 +164,7 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.LearningLockerUIAppData.identity[0].principal_id
+    object_id = data.azurerm_linux_web_app.LearningLockerUIAppData.identity.0.principal_id
 
     key_permissions = [
       "Get"
@@ -180,7 +181,7 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.LearningLockerXapiAppData.identity[0].principal_id
+    object_id = data.azurerm_linux_web_app.LearningLockerXapiAppData.identity.0.principal_id
 
     key_permissions = [
       "Get"
@@ -197,7 +198,7 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.LearnerRecordAppData.identity[0].principal_id
+    object_id = data.azurerm_linux_web_app.LearnerRecordAppData.identity.0.principal_id
 
     key_permissions = [
       "Get"
@@ -214,7 +215,7 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.LearningCatalogueAppData.identity[0].principal_id
+    object_id = data.azurerm_linux_web_app.LearningCatalogueAppData.identity.0.principal_id
 
     key_permissions = [
       "Get"
@@ -231,7 +232,7 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.LPGManagementAppData.identity[0].principal_id
+    object_id = data.azurerm_linux_web_app.LPGManagementAppData.identity.0.principal_id
 
     key_permissions = [
       "Get"
@@ -248,7 +249,7 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.ReportServiceAppData.identity[0].principal_id
+    object_id = data.azurerm_linux_web_app.ReportServiceAppData.identity.0.principal_id
 
     key_permissions = [
       "Get"
@@ -265,7 +266,7 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.LPGUIAppData.identity[0].principal_id
+    object_id = data.azurerm_linux_web_app.LPGUIAppData.identity.0.principal_id
 
     key_permissions = [
       "Get"
@@ -282,7 +283,7 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.NotificationServiceAppData.identity[0].principal_id
+    object_id = data.azurerm_linux_web_app.NotificationServiceAppData.identity.0.principal_id
 
     key_permissions = [
       "Get"

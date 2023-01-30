@@ -106,6 +106,7 @@ module "identity" {
   duration_after_rereg_allowed_seconds    = var.duration_after_rereg_allowed_seconds
 
   identity_base_url = var.identity_base_url
+
 }
 
 module "identity-management" {

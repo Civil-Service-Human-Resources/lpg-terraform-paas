@@ -10,9 +10,9 @@ cp -r ../../environments/master/ .
 rm vars.tf
 
 cp -r ../../environments/$ENV/docker-tags-vars.tf .
-cp -r ../../environments/$ENV/integration-vars.tf integration-sensitive-vars.tf
+cp -r ../../environments/$ENV/sensitive-vars.tf .
 cp -r ../../environments/$ENV/state.tf .
-cp -r ../../env-vars/$ENV.tf .
+cp -r ../../environments/$ENV/vars.tf $ENV-vars.tf
 
 if [[ $ENV =~ ^(integration|staging|perf)$ ]]; then
     SUBSCRIPTION_NAME="CSL-Staging"
@@ -22,7 +22,7 @@ fi
 
 az account set --subscription $SUBSCRIPTION_NAME
 
-echo """access_key=\"$TF_VAR_$ENV_access_key\"""" > backend.conf
+echo """access_key=\"$access_key\"""" > backend.conf
 
 terraform init -backend-config=backend.conf
 

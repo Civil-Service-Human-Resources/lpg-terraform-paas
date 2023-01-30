@@ -1,8 +1,4 @@
-variable "integration_subscription_id" {
-  type = string
-}
-
-variable "access_key" {
+variable "staging_subscription_id" {
   type = string
 }
 

@@ -54,14 +54,14 @@ For deployments to other environments, set the subscription to **CSL-Staging**
 > **Warning**
 > This section is deprecated: Variables are no longer stored in Terraform. To store variables in your App Services, please use the [Vault CLI](https://github.com/Civil-Service-Human-Resources/csl-vault) instead.
 
-Unsecure variables can be updated in the `00-vars.tf` file. This file contains items such as docker tags, SKUs and various other settings
+~~Unsecure variables can be updated in the `00-vars.tf` file. This file contains items such as docker tags, SKUs and various other settings~~
 
 #### Secure variables
 
 > **Warning**
 > **Deprecated**: Variables are no longer stored in Terraform. Secure (secret) variables are now stored in a Key Vault. To store variables in your App Services, please use the [Vault CLI](https://github.com/Civil-Service-Human-Resources/csl-vault) instead.
 
-Secure variables can be updated in the `${env}-vars.tf` file. This file contains items such as passwords and tokens
+~~Secure variables can be updated in the `${env}-vars.tf` file. This file contains items such as passwords and tokens~~
 
 ------------
 
@@ -71,10 +71,20 @@ Once the environment has been configured and updated as required for the deploym
 
 #### Full deployment
 
-To deploy the entire suite of modules:
+To deploy for a specific environment, use the `plan.sh` script:
 
-1. `terraform plan`
-2. `terraform apply`
+```sh
+./scripts/management/plan.sh <environment>
+```
+
+This will create a `plan/<environment>` directory. Once you're happy with the plan, point your terminal to that directory and run `terraform apply`:
+
+For example, for integration:
+
+```sh
+cd plan/integration
+terraform apply
+```
 
 #### Targeted Deployment
 

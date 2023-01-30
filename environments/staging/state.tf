@@ -11,6 +11,6 @@ provider "azurerm" {
   version = "3.0"
 
   features {} 
-  subscription_id = vars.staging_subscription_id
+  subscription_id = var.staging_subscription_id
 }
 
