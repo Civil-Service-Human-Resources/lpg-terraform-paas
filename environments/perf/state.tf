@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "azurerm" {
-  version = "3.0"
+  version = ">=3.0.0"
 
   features {} 
   subscription_id = var.perf_subscription_id

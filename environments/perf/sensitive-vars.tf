@@ -1,4 +1,4 @@
-variable "production_subscription_id" {
+variable "perf_subscription_id" {
   type = string
 }
 
@@ -13,3 +13,4 @@ variable "mysql_pass" {
 variable "mysql_pass_ll" {
   type = string
 }
+

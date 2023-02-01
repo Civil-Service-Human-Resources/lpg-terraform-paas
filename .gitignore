@@ -21,3 +21,4 @@ scripts/elastic-deploy/*.json
 modules/test-rig/testrig-vars.tf
 
 plan
+plan-files

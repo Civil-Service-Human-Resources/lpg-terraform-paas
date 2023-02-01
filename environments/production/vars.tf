@@ -396,3 +396,35 @@ variable "backend_api_call_batch_size" {
 variable "identity_base_url" {
   default = "https://identity.learn.civilservice.gov.uk"
 }
+
+variable "docker_registry_server_url" {
+    default = "lpgregistry.azurecr.io"
+}
+
+variable "vaultresourcegroup" {
+  default = "lpg-production-keyvault"
+}
+
+variable "vaultname" {
+  default = "lpg-prod-ssl-keyvault"
+}
+
+variable "certificatename" {
+  default = "star-learn-civilservice-gov-uk-2023"
+}
+
+variable "ui_certificatename" {
+  default = "learn-civilservice-gov-uk-2023"
+}
+
+variable "custom_emails" {
+  default = "matthewmu@kainos.com"
+}
+
+variable "existingkeyvaultsecretname" {
+  default = "star-learn-civilservice-gov-uk-pfxsecret-2023"
+}
+
+variable "ui_existingkeyvaultsecretname" {
+  default = "learn-civilservice-gov-uk-pfxsecret-2023"
+}

@@ -1,5 +1,5 @@
 variable "perf_subscription_id" {
-    type = "string"
+    type = string
 }
 
 variable "mysql_user" {

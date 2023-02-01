@@ -51,7 +51,7 @@ data "azurerm_linux_web_app" "ReportServiceAppData" {
 }
 
 data "azurerm_linux_web_app" "LPGUIAppData" {
-  name                = "lpg-${var.rg_name_lpg_ui}-lpg-ui"
+  name                = "lpg-${var.rg_name}-lpg-ui"
   resource_group_name = var.rg_name_lpg_ui
 }
 
