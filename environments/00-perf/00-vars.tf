@@ -235,6 +235,10 @@ variable "ui_static_asset_root" {
   default = "https://asset-cdn.performance.learn.civilservice.gov.uk"
 }
 
+variable "lpg_ui_logging_level" {
+  default = "INFO"
+}
+
 ### lpg-learning-catalogue ###
 variable "lpg_learning_catalogue_name" {
   default = "lpg-learning-catalogue"
