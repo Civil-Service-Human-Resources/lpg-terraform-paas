@@ -90,6 +90,10 @@ variable "env_profile" {
   default = "test"
 }
 
+variable "logging_level" {
+  default = "INFO"
+}
+
 variable "websites_port" {
   default = "3001"
 }

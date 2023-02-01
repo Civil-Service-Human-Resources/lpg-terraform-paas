@@ -155,6 +155,10 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "name":"ENV_PROFILE",
                               "value":"${var.env_profile}"
                           },
+						  {
+							  "name": "LOGGING_LEVEL",
+							  "value": "${var.logging_level}"
+						  },
                           {
                               "name":"WEBSITES_PORT",
                               "value":"${var.websites_port}"
