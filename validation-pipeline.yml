@@ -8,7 +8,7 @@ steps:
   - task: TerraformInstaller@0
     displayName: Install Terraform
     inputs:
-      terraformVersion: latest
+      terraformVersion: 0.13.0
       
   - task: CmdLine@2
     displayName: Validate environments
