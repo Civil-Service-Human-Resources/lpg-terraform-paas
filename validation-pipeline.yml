@@ -9,7 +9,7 @@ steps:
   - task: CmdLine@2
     displayName: Validate environments
     inputs:
-      script: 'az login && az account list'
+      script: 'az account list'
 
   # - task: TerraformInstaller@0
   #   displayName: Install Terraform
