@@ -3,12 +3,6 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-
-
-variables:
-  - name: integration_ACCESS_KEY
-    value: 123
-    readonly: true
   
 steps:
   - task: TerraformInstaller@0
