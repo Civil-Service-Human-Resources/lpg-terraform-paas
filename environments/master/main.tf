@@ -327,6 +327,7 @@ module "lpg-ui" {
   gov_notify_api_key              = var.gov_notify_api_key
   env_profile                     = var.env_profile
   logging_level 				  = var.lpg_ui_logging_level
+  ignore_states_feature_flag	  = var.lpg_ui_ignore_states_feature_flag
   google_analytics_id             = var.google_analytics_id
   session_secret                  = var.session_secret
   websites_port                   = var.ui_websites_port
