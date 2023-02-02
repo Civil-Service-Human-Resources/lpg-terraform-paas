@@ -14,12 +14,12 @@ steps:
         az --version
         az account show
 
-  # - task: TerraformInstaller@0
-  #   displayName: Install Terraform
-  #   inputs:
-  #     terraformVersion: 0.13.0
+  - task: TerraformInstaller@0
+    displayName: Install Terraform
+    inputs:
+      terraformVersion: 0.13.0
       
-  # - task: CmdLine@2
-  #   displayName: Validate environments
-  #   inputs:
-  #     script: './scripts/ci/validate_envs.sh'
+  - task: CmdLine@2
+    displayName: Validate environments
+    inputs:
+      script: './scripts/ci/validate_envs.sh'
