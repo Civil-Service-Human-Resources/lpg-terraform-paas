@@ -5,13 +5,13 @@ mkdir plan
 
 for ENVIRONMENT in integration staging perf production
 do
-    var_name=${ENVIRONMENT}_MYSQL_USER
+    var_name=${ENVIRONMENT^^}_MYSQL_USER
     export TF_VAR_mysql_user=${!var_name}
 
-    var_name=${ENVIRONMENT}_MYSQL_PASS
+    var_name=${ENVIRONMENT^^}_MYSQL_PASS
     export TF_VAR_mysql_pass=${!var_name}
 
-    var_name=${ENVIRONMENT}_MYSQL_PASS_LL
+    var_name=${ENVIRONMENT^^}_MYSQL_PASS_LL
     export TF_VAR_mysql_pass_ll=${!var_name}
     
     if [[ $ENVIRONMENT =~ ^(integration|staging|perf)$ ]]; then
@@ -36,7 +36,7 @@ do
 
     az account set --subscription $SUBSCRIPTION_NAME
 
-    var_name=${ENVIRONMENT}_ACCESS_KEY
+    var_name=${ENVIRONMENT^^}_ACCESS_KEY
     echo "access_key=\"${!var_name}\"" > backend.conf
 
     terraform init -backend-config=backend.conf
