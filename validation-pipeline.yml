@@ -11,5 +11,6 @@ steps:
       terraformVersion: latest
       
   - task: CmdLine@2
+    displayName: Validate environments
     inputs:
-      script: 'ls'
+      script: './scripts/ci/validate_envs.sh'
