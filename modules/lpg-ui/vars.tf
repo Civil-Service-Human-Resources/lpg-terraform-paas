@@ -58,9 +58,6 @@ variable "google_analytics_id" {
   default = "google_analytics_id"
 }
 
-variable "gov_notify_api_key" {
-  default = "gov_notify_api_key"
-}
 
 variable "learner_record_url" {
   default = "learner_record_url"
@@ -82,20 +79,12 @@ variable "xapi_url" {
   default = "xapi-url"
 }
 
-variable "youtube_api_key" {
-  default = "youtube_api_key"
-}
-
 variable "env_profile" {
   default = "test"
 }
 
 variable "websites_port" {
   default = "3001"
-}
-
-variable "session_secret" {
-  default = ""
 }
 
 variable "content_url" {
@@ -115,16 +104,14 @@ variable "existingkeyvaultsecretname" {
 }
 
 variable "certificatename" {
-  default = ""
+    default = "star-integration-learn-civil-service-gov-uk-2022"
 }
 
 variable "envurl" {
   default = "local"
 }
 
-variable "application_insights_connection_string" {
-  default = ""
-}
+
 
 variable "registry_service_url" {
   default = ""
@@ -134,19 +121,7 @@ variable "lpg_ui_server" {
   default = ""
 }
 
-variable "lpg_ui_oauth_client_id" {
-  default = ""
-}
-
-variable "lpg_ui_oauth_client_secret" {
-  default = ""
-}
-
 variable "lpg_management_server" {
-  default = ""
-}
-
-variable "feedback_recipient" {
   default = ""
 }
 
@@ -190,27 +165,12 @@ variable "docker_registry_server_url" {
   default = ""
 }
 
-variable "docker_registry_server_username" {
-  default = ""
-}
-
-variable "docker_registry_server_password" {
-  default = ""
-}
-
 variable "custom_emails" {
   default = ""
 }
 
 variable "scaling_enabled" {
   default = ""
-}
-
-variable "xapi_username" {
-  default = "username"
-}
-variable "xapi_password" {
-  default = "password"
 }
 
 variable "ui_server_timeout_ms" {

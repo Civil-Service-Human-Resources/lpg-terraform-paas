@@ -1,96 +1,96 @@
 ### Gen vars ###
 variable "rg_name" {
   type    = string
-  default = "lpgintegration"
+  default = ""
 }
 
 variable "rg_name_lpg_ui" {
   type = string
-  default = "lpgintegration"
+  default = ""
 }
 
 variable "rg_prefix" {
   type    = string
-  default = "lpg"
+  default = ""
 }
 
 variable "rg_location" {
   type    = string
-  default = "UK South"
+  default = ""
 }
 
 variable "serviceplan_suffix" {
   type = string
-  default = "serviceplan"
+  default = ""
 }
 
 variable "serviceplan_suffix_lpgui" {
   type = string
-  default = "serviceplan"
+  default = ""
 }
 
 variable "webapp_sku_tier" {
-  default = "Basic"
+  default = ""
 }
 
 variable "webapp_sku_tier_p2" {
-  default = "PremiumV2"
+  default = ""
 }
 
 variable "webapp_sku_name_1" {
-  default = "B1"
+  default = ""
 }
 
 variable "webapp_sku_name_2" {
-  default = "B2"
+  default = ""
 }
 
 variable "webapp_sku_name_3" {
-  default = "B3"
+  default = ""
 }
 
 variable "webapp_sku_name_p1" {
-  default = "P1v2"
+  default = ""
 }
 
 variable "webapp_sku_name_p2" {
-  default = "P1v2"
+  default = ""
 }
 
 variable "webapp_sku_name_p3" {
-  default = "P1v2"
+  default = ""
 }
 
 variable "identity_capacity" {
-  default = "2"
+  default = ""
 }
 
 variable "csrs_capacity" {
-  default = "1"
+  default = ""
 }
 
 variable "xapi_capacity" {
-  default = "1"
+  default = ""
 }
 
 variable "learner_record_capacity" {
-  default = "1"
+  default = ""
 }
 
 variable "learning_catalogue_capacity" {
-  default = "1"
+  default = ""
 }
 
 variable "lpg_ui_capacity" {
-  default = "2"
+  default = ""
 }
 
 variable "notification_capacity" {
-  default = "1"
+  default = ""
 }
 
 variable "lpg_management_capacity" {
-  default = "1"
+  default = ""
 }
 
 variable "envurl" {
@@ -98,298 +98,398 @@ variable "envurl" {
 }
 
 variable "domain" {
-  default = "integration.learn.civilservice.gov.uk"
+  default = ""
 }
 
 variable "scaling_enabled" {
-  default = "false"
+  default = ""
 }
 
 variable "env_profile" {
-  default = "integration"
+  default = ""
 }
 
 variable "google_analytics_id" {
-  default = "UA-22141655-3"
+  default = ""
 }
 
 ### cosmos ###
 variable "cosmos_name" {
-  default = "cosmos"
+  default = ""
 }
 
 variable "cosmos_offer_type" {
-  default = "Standard"
+  default = ""
 }
 
 variable "cosmos_consistency_policy_level" {
-  default = "Strong"
+  default = ""
 }
 
 variable "cosmos_failover_policy_location" {
-  default = "West Europe"
+  default = ""
 }
 
 ### redis ###
 variable "redis_queue_provider" {
-  default = "REDIS"
+  default = ""
 }
 
 variable "redis_queue_namespace" {
-  default = "learninglocker"
+  default = ""
 }
 
 variable "redis_prefix" {
-  default = "learninglocker"
+  default = ""
 }
 
 variable "redis_use_tls" {
-  default = "1"
+  default = ""
 }
 
 variable "redis_capacity" {
-  default = "0"
+  default = ""
 }
 
 variable "redis_session_capacity" {
-  default = "0"
+  default = ""
 }
 
 variable "redis_org_capacity" {
-  default = "0"
+  default = ""
 }
 
 ### identity ###
 variable "identity_name" {
-  default = "identity"
+  default = ""
 }
 
 ### lpg-learner-record ###
 variable "lpg_learner_record_name" {
-  default = "lpg-learner-record"
+  default = ""
 }
 
 variable "lpg_learner_record_websites_port" {
-  default = "9000"
+  default = ""
 }
 
 variable "learner_record_command_line" {
-  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+  default = ""
 }
 
 ### learning-locker-general ###
 variable "lpg_testing" {
-  default = "1"
+  default = ""
 }
 
 ### learning-locker-xapi ###
 variable "lpg_learning_locker_xapi_name" {
-  default = "learning-locker-xapi"
+  default = ""
 }
 
 variable "ll_xapi_express_port" {
-  default = "8083"
+  default = ""
 }
 
 ### learning-locker-worker ###
 variable "lpg_learning_locker_worker_name" {
-  default = "learning-locker-api-worker"
+  default = ""
 }
 
 variable "worker_api_env_app" {
-  default = "learning-locker-api-worker"
+  default = ""
 }
 
 ### learning-locker-ui ###
 variable "lpg_learning_locker_ui_name" {
-  default = "learning-locker-ui"
+  default = ""
 }
 
 variable "lpg_learning_locker_api_port" {
-  default = "8082"
+  default = ""
 }
 
 variable "ll_ui_port" {
-  default = "80"
+  default = ""
 }
 
 ### lpg-ui ###
 variable "lpg_ui_name" {
-  default = "lpg-ui"
+  default = ""
 }
 
 variable "ui_websites_port" {
-  default = "3001"
+  default = ""
 }
 
 variable "ui_server_timeout_ms" {
-  default = "235000"
+  default = ""
 }
 
 variable "ui_static_asset_ttl" {
-  default = "86400000"
+  default = ""
 }
 
 variable "ui_static_asset_root" {
-  default = "https://asset-cdn.integration.learn.civilservice.gov.uk"
+  default = ""
 }
 
 ### lpg-learning-catalogue ###
 variable "lpg_learning_catalogue_name" {
-  default = "lpg-learning-catalogue"
+  default = ""
 }
 
 variable "azure_account_name" {
-  default = "lpgdev"
+  default = ""
 }
 
 ### mysql_gp ###
 variable "mysql_name_gp" {
-  default = "gp"
+  default = ""
+}
+
+variable "mysql_user" {
+  default = ""
+}
+
+variable "mysql_pass" {
+  default = ""
+}
+
+variable "mysql_pass_ll" {
+  default = ""
 }
 
 ### mysql_ll ###
 variable "mysql_name_ll" {
-  default = "ll"
+  default = ""
 }
 
 variable "mysql_storage" {
-  default = "4194304"
+  default = ""
 }
 
 ### civil-servant-registry ###
 variable "civil_servant_registry_name" {
-  default = "civil-servant-registry"
+  default = ""
 }
 
 variable "agency_token_max_capacity" {
-  default = "5000"
+  default = ""
 }
 
 variable "agency_token_min_capacity" {
-  default = "1"
+  default = ""
 }
 
 variable "lpg_report_service_name" {
-  default = "lpg-report-service"
+  default = ""
 }
 
 variable "report_service_websites_port" {
-  default = "9004"
+  default = ""
 }
 
 variable "report_service_command_line" {
-  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+  default = ""
 }
 
 variable "spring_profiles_active" {
-  default = "test,production"
+  default = ""
 }
 
 ### identity-management ###
 
 variable "identity_management_name" {
-  default = "identity-management"
+  default = ""
 }
 
 variable "identity_management_data_retention_cron_schedule" {
-  default = "0 0 5 * * *"
+  default = ""
 }
 
 variable "identity_management_data_retention_enabled" {
-  default = "true"
+  default = ""
 }
 
 
 ### lpg-management ###
 variable "lpg_management_name" {
-  default = "lpg-management"
+  default = ""
 }
 
 variable "lpg_management_websites_port" {
-  default = "3005"
+  default = ""
 }
 
 variable "content_container" {
-  default = "lpgdevcontent"
+  default = ""
 }
 
 variable "lpg_management_report_service_timeout_ms" {
-  default = "235000"
+  default = ""
 }
 
 variable "lpg_management_request_timeout_ms" {
-  default = "60000"
+  default = ""
 }
 
 variable "lpg_management_server_timeout_ms" {
-  default = "235000"
+  default = ""
 }
 
 variable "lpg_management_authentication_service_timeout_ms" {
-  default = "60000"
+  default = ""
 }
 
 variable "lpg_management_youtube_timeout_ms" {
-  default = "60000"
+  default = ""
 }
 
 variable "lpg_management_course_catalogue_timeout_ms" {
-  default = "60000"
+  default = ""
 }
 
 variable "lpg_management_learner_record_timeout_ms" {
-  default = "60000"
+  default = ""
 }
 
 variable "lpg_management_civil_servant_registry_service_timeout_ms" {
-  default = "60000"
+  default = ""
 }
 
 ### notification-service ###
 variable "notification_service_name" {
-  default = "notification-service"
+  default = ""
 }
 
 ### data-transchriver ###ß
 variable "data_transchiver_name" {
-  default = "lpg-data-transchriver"
+  default = ""
 }
 
 variable "job_schedule" {
-  default = "0 1 21 * * *"
+  default = ""
 }
 variable "invite_validity" {
-  default = "259200"
+  default = ""
 }
 variable "duration_after_rereg_allowed_seconds" {
-  default = "86400"
-}
-
-variable "maintenance_page_enabled" {
-  default = "false"
-}
-
-variable "maintenance_page_content_line_1" {
-  default = "The learning website is undergoing scheduled maintenance."
-}
-
-variable "maintenance_page_content_line_2" {
-  default = "It will be unavailable between the hours of 7pm to 9pm on Wednesday 24th February 2021."
-}
-
-variable "maintenance_page_content_line_3" {
-  default = "Apologies for the inconvenience."
-}
-
-variable "maintenance_page_content_line_4" {
-  default = "If the maintenance period is extended, further information will be provided here."
+  default = ""
 }
 
 variable "backend_api_call_batch_size" {
-  default = "50"
+  default = ""
 }
 
 variable "identity_base_url" {
-  default = "https://identity.integration.learn.civilservice.gov.uk"
+  default = ""
+}
+
+variable "identity_docker_tag" {
+  default = ""
+}
+
+variable "identity_docker_repository_region"{
+  default = ""
+}
+
+variable "vaultresourcegroup" {
+  default = ""
+}
+
+variable "vaultname" {
+  default = ""
+}
+
+variable "custom_emails" {
+  default = ""
+}
+
+variable "docker_registry_server_url" {
+  default = ""
+}
+
+variable "identity_management_docker_tag" {
+  default = ""
+}
+
+variable "identity_management_docker_repository_region" {
+  default = ""
+}
+
+variable "lpg_learner_record_docker_tag" {
+  default = ""
+}
+
+variable "lpg_learner_record_docker_repository_region" {
+  default = ""
+}
+
+variable "lpg_report_service_docker_tag" {
+  default = ""
+}
+
+variable "lpg_report_service_docker_repository_region" {
+  default = ""
+}
+
+variable "ll_docker_tag" {
+  default = ""
+}
+
+variable "lpg_services_docker_repository_region" {
+  default = ""
+}
+
+variable "lpg_services_tag" {
+  default = ""
+}
+
+variable "learning_catalogue_docker_tag" {
+  default = ""
+}
+
+variable "learning_catalogue_docker_repository_region" {
+  default = ""
+}
+
+variable "civil_servant_registry_docker_tag" {
+  default = ""
+}
+
+variable "civil_servant_registry_docker_repository_region" {
+  default = ""
+}
+
+variable "lpg_management_tag" {
+  default = ""
+}
+
+variable "lpg_management_docker_repository_region" {
+  default = ""
+}
+
+variable "notification_service_tag" {
+  default = ""
+}
+
+variable "notification_service_docker_repository_region" {
+  default = ""
+}
+
+variable "data_transchiver_tag" {
+  default = ""
+}
+
+variable "existingkeyvaultsecretname" {
+  default = ""
+}
+
+variable "certificatename" {
+  default = ""
+}
+
+variable "ui_existingkeyvaultsecretname" {
+  default = ""
 }

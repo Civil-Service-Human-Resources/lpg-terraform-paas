@@ -66,17 +66,11 @@ variable "websites_port" {
   default = "3001"
 }
 
-variable "session_secret" {
-  default = ""
-}
-
 variable "envurl" {
   default = "local"
 }
 
-variable "application_insights_connection_string" {
-  default = ""
-}
+
 
 variable "vaultresourcegroup" {
   default = ""
@@ -95,14 +89,6 @@ variable "certificatename" {
 }
 
 variable "lpg_management2_server" {
-  default = ""
-}
-
-variable "lpg_management_oauth_client_id" {
-  default = ""
-}
-
-variable "lpg_management_oauth_client_secret" {
   default = ""
 }
 
@@ -139,10 +125,6 @@ variable "course_catalogue_pass" {
 }
 
 variable "content_url" {
-  default = ""
-}
-
-variable "youtube_api_key" {
   default = ""
 }
 
@@ -198,10 +180,5 @@ variable "docker_registry_server_url" {
   default = ""
 }
 
-variable "docker_registry_server_username" {
-  default = ""
-}
 
-variable "docker_registry_server_password" {
-  default = ""
-}
+

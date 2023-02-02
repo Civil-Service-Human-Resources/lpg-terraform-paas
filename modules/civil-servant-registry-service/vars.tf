@@ -75,23 +75,8 @@ variable "envurl" {
   default = ""
 }
 
-variable "application_insights_connection_string" {
-  default = ""
-}
 
 variable "check_token_url" {
-  default = ""
-}
-
-variable "csrs_client_id" {
-  default = ""
-}
-
-variable "csrs_client_secret" {
-  default = ""
-}
-
-variable "gov_notify_api_key" {
   default = ""
 }
 
@@ -107,13 +92,9 @@ variable "docker_registry_server_url" {
   default = ""
 }
 
-variable "docker_registry_server_username" {
-  default = ""
-}
 
-variable "docker_registry_server_password" {
-  default = ""
-}
+
+
 
 variable "custom_emails" {
   default = ""
@@ -130,9 +111,7 @@ variable "agency_token_max_capacity" {
 variable "agency_token_min_capacity" {
   default = "1"
 }
-variable "jwt_key" {
-  default = ""
-}
+
 
 variable "allowed_ip_addresses" {
 	type = set(string)

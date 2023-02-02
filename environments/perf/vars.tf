@@ -1,12 +1,12 @@
 ### Gen vars ###
 variable "rg_name" {
   type    = string
-  default = "lpgstaging"
+  default = "lpgperf"
 }
 
 variable "rg_name_lpg_ui" {
   type = string
-  default = "lpgstaging"
+  default = "perf_temp"
 }
 
 variable "rg_prefix" {
@@ -26,11 +26,11 @@ variable "serviceplan_suffix" {
 
 variable "serviceplan_suffix_lpgui" {
   type = string
-  default = "serviceplan"
+  default = "serviceplantemp2"
 }
 
 variable "webapp_sku_tier" {
-  default = "Basic"
+  default = "Standard"
 }
 
 variable "webapp_sku_tier_p2" {
@@ -38,15 +38,15 @@ variable "webapp_sku_tier_p2" {
 }
 
 variable "webapp_sku_name_1" {
-  default = "B1"
+  default = "S1"
 }
 
 variable "webapp_sku_name_2" {
-  default = "B2"
+  default = "S2"
 }
 
 variable "webapp_sku_name_3" {
-  default = "B3"
+  default = "S3"
 }
 
 variable "webapp_sku_name_p1" {
@@ -54,43 +54,43 @@ variable "webapp_sku_name_p1" {
 }
 
 variable "webapp_sku_name_p2" {
-  default = "P1v2"
+  default = "P2v2"
 }
 
 variable "webapp_sku_name_p3" {
-  default = "P1v2"
+  default = "P3v2"
 }
 
 variable "identity_capacity" {
-  default = "2"
+  default = "10"
 }
 
 variable "csrs_capacity" {
-  default = "1"
+  default = "10"
 }
 
 variable "xapi_capacity" {
-  default = "1"
+  default = "5"
 }
 
 variable "learner_record_capacity" {
-  default = "1"
+  default = "10"
 }
 
 variable "learning_catalogue_capacity" {
-  default = "1"
+  default = "10"
 }
 
 variable "lpg_ui_capacity" {
-  default = "2"
+  default = "10"
 }
 
 variable "notification_capacity" {
-  default = "1"
+  default = "2"
 }
 
 variable "lpg_management_capacity" {
-  default = "1"
+  default = "2"
 }
 
 variable "envurl" {
@@ -98,7 +98,7 @@ variable "envurl" {
 }
 
 variable "domain" {
-  default = "staging.learn.civilservice.gov.uk"
+  default = "performance.learn.civilservice.gov.uk"
 }
 
 variable "scaling_enabled" {
@@ -106,11 +106,11 @@ variable "scaling_enabled" {
 }
 
 variable "env_profile" {
-  default = "staging"
+  default = "perf"
 }
 
 variable "google_analytics_id" {
-  default = "UA-22141655-3"
+  default = "UA-22141655-7"
 }
 
 ### cosmos ###
@@ -148,21 +148,22 @@ variable "redis_use_tls" {
 }
 
 variable "redis_capacity" {
-  default = "0"
+  default = "2"
 }
 
 variable "redis_session_capacity" {
-  default = "0"
+  default = "1"
 }
 
 variable "redis_org_capacity" {
-  default = "0"
+  default = "1"
 }
 
 ### identity ###
 variable "identity_name" {
   default = "identity"
 }
+
 
 ### lpg-learner-record ###
 variable "lpg_learner_record_name" {
@@ -174,7 +175,7 @@ variable "lpg_learner_record_websites_port" {
 }
 
 variable "learner_record_command_line" {
-  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+  default = "java -Xmx7g -Xms3g -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
 
 ### learning-locker-general ###
@@ -231,7 +232,7 @@ variable "ui_static_asset_ttl" {
 }
 
 variable "ui_static_asset_root" {
-  default = "https://asset-cdn.staging.learn.civilservice.gov.uk"
+  default = "https://asset-cdn.performance.learn.civilservice.gov.uk"
 }
 
 ### lpg-learning-catalogue ###
@@ -279,7 +280,7 @@ variable "report_service_websites_port" {
 }
 
 variable "report_service_command_line" {
-  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+  default = "java -Xmx7g -Xms3g -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
 
 variable "spring_profiles_active" {
@@ -350,6 +351,10 @@ variable "notification_service_name" {
   default = "notification-service"
 }
 
+variable "feedback_recipient" {
+  default = "feedback@cslearning.gov.uk"
+}
+
 ### data-transchriver ###ß
 variable "data_transchiver_name" {
   default = "lpg-data-transchriver"
@@ -390,5 +395,37 @@ variable "backend_api_call_batch_size" {
 }
 
 variable "identity_base_url" {
-  default = "https://identity.staging.learn.civilservice.gov.uk"
+  default = "https://identity.performance.learn.civilservice.gov.uk"
+}
+
+variable "docker_registry_server_url" {
+    default = "lpgregistry.azurecr.io"
+}
+
+variable "vaultresourcegroup" {
+  default = "lpg-prod-keyvault"
+}
+
+variable "vaultname" {
+  default = "lpg-prod-kv"
+}
+
+variable "existingkeyvaultsecretname" {
+  default = "star-performance-learn-civil-service-gov-uk-pfxsecret-2022"
+}
+
+variable "certificatename" {
+  default = "star-performance-learn-civil-service-gov-uk-2022"
+}
+
+variable "ui_certificatename" {
+  default = "star-performance-learn-civil-service-gov-uk-2022"
+}
+
+variable "ui_existingkeyvaultsecretname" {
+  default = "star-performance-learn-civil-service-gov-uk-pfxsecret-2022"
+}
+
+variable "custom_emails" {
+  default = "pritpalp@kainos.com"
 }

@@ -36,64 +36,6 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
            "name":"[parameters('siteName')]",
            "properties":{
               "siteConfig":{
-                 "appSettings":[
-                    {
-                       "name":"WEBSITES_ENABLE_APP_SERVICE_STORAGE",
-                       "value":"false"
-                    },
-                    {
-                        "name":"APPLICATIONINSIGHTS_ROLE_NAME",
-                        "value":"${var.notification_service_name}"
-                     },
-                     {
-                        "name":"APPLICATIONINSIGHTS_CONNECTION_STRING",
-                        "value":"${var.application_insights_connection_string}"
-                     },
-                    {
-                       "name":"DOCKER_ENABLE_CI",
-                       "value":"true"
-                    },
-                    {
-                       "name":"ENV_PROFILE",
-                       "value":"${var.env_profile}"
-                    },
-                    {
-                       "name":"WEBSITES_PORT",
-                       "value":"${var.websites_port}"
-                    },
-                    {
-                       "name":"GOV_NOTIFY_API_KEY",
-                       "value":"${var.gov_notify_api_key}"
-                    },
-                    {
-                       "name":"DOCKER_REGISTRY_SERVER_URL",
-                       "value":"https://${var.docker_registry_server_url}"
-                    },
-                    {
-                       "name":"DOCKER_REGISTRY_SERVER_USERNAME",
-                       "value":"${var.docker_registry_server_username}"
-                    },
-                    {
-                       "name":"DOCKER_REGISTRY_SERVER_PASSWORD",
-                       "value":"${var.docker_registry_server_password}"
-                    },
-                    {
-                       "name":"OAUTH_SERVICE_URL",
-                       "value":"${var.authentication_service_url}"
-                    },
-                    {
-                       "name":"CLIENT_ID",
-                       "value":"${var.notification_service_client_id}"
-                    },
-                    {
-                       "name":"CLIENT_SECRET",
-                       "value":"${var.notification_service_client_secret}"
-                    },
-                    {
-                       "name": "JWT_KEY",
-                       "value": "${var.jwt_key}"
-                    }
-                 ],
                  "healthCheckPath": "/health"
               },
               "httpsOnly":true,

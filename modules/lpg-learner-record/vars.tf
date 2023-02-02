@@ -58,31 +58,11 @@ variable "authentication_service_url" {
   default = ""
 }
 
-variable "learner_record_client_id" {
-  default = ""
-}
-
-variable "learner_record_client_secret" {
-  default = ""
-}
-
 variable "registry_service_url" {
   default = ""
 }
 
 variable "course_catalogue_url" {
-  default = ""
-}
-
-variable "gov_notify_api_key" {
-  default = ""
-}
-
-variable "required_learning_template_id" {
-  default = ""
-}
-
-variable "complete_learning_template_id" {
   default = ""
 }
 
@@ -106,9 +86,7 @@ variable "envurl" {
   default = ""
 }
 
-variable "application_insights_connection_string" {
-  default = ""
-}
+
 
 variable "spring_profiles_active" {
   default = "default"
@@ -126,13 +104,9 @@ variable "docker_registry_server_url" {
   default = ""
 }
 
-variable "docker_registry_server_username" {
-  default = ""
-}
 
-variable "docker_registry_server_password" {
-  default = ""
-}
+
+
 
 variable "custom_emails" {
   default = ""
@@ -150,9 +124,7 @@ variable "learner_record_command_line" {
   default = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
 
-variable "jwt_key" {
-  default = ""
-}
+
 
 variable "completed_job_cron" {
   default = "0 0 4 * * *"
