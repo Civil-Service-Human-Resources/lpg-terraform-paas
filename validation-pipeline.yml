@@ -4,7 +4,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-- task: TerraformInstaller
-  displayName: Install Terraform
-  inputs:
-    terraformVersion: latest
+steps:
+  - task: TerraformInstaller@0
+    displayName: Install Terraform
+    inputs:
+      terraformVersion: latest
+
