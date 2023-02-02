@@ -5,11 +5,14 @@ pool:
   vmImage: ubuntu-latest
   
 steps:
-
-  - task: CmdLine@2
-    displayName: Validate environments
+  - task: AzureCLI@2
     inputs:
-      script: 'az account list'
+      azureSubscription: 'CSL Staging'
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az --version
+        az account show
 
   # - task: TerraformInstaller@0
   #   displayName: Install Terraform
