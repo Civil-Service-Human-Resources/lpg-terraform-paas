@@ -7,6 +7,8 @@ pool:
 
 variables:
   - name: integration_ACCESS_KEY
+    value: 123
+    readonly: true
   
 steps:
   - task: TerraformInstaller@0
