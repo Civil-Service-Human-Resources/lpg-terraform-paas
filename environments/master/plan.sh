@@ -25,7 +25,6 @@ elif [[ "$ENV" == "unlink" ]]; then
     rm state.tf
     rm vars.tf
     rm docker-tags-vars.tf
-    rm sensitive-vars.tf
     
     echo "Environment unlinked - exiting"
     exit 1
@@ -35,7 +34,6 @@ else
 fi
 
 cp -r ../$ENV/docker-tags-vars.tf .
-cp -r ../$ENV/sensitive-vars.tf .
 cp -r ../$ENV/state.tf .
 cp -r ../$ENV/vars.tf vars.tf
 
