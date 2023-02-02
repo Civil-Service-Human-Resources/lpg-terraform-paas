@@ -33,18 +33,18 @@ resource "azurerm_linux_web_app" "app_service" {
 
     health_check_path = "/health"
     auto_heal_enabled = true
-    auto_heal_setting {
-      action {
-        action_type = "Recycle"
-      }
-      trigger {
-		status_code {
-		  status_code_range = "502"
-		  count = 10
-		  interval = "00:00:60"
-		}
-      }
-    }
+    # auto_heal_setting {
+    #   action {
+    #     action_type = "Recycle"
+    #   }
+    #   trigger {
+	# 	status_code {
+	# 	  status_code_range = "502"
+	# 	  count = 10
+	# 	  interval = "00:00:60"
+	# 	}
+    #   }
+    # }
   }
 
   logs {

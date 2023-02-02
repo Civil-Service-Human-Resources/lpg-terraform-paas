@@ -1,127 +1,84 @@
+variable "allowed_ip_addresses" {
+	type = set(string)
+	description = "A set of IP addresses that are allowed to connect to this application."
+}
+
 variable "lpg_report_service_name" {
-  default = "name"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "rg_name" {
-  default = "holder"
-}
-
-variable "rg_prefix" {
-  default = "rgpref"
-}
-
-variable "rg_location" {
-  default = "location"
-}
-
-variable "webapp_sku_tier" {
-  default = "Basic"
-}
-
-variable "webapp_sku_name" {
-  default = "B1"
-}
-
-variable "docker_tag" {
-  default = "latest"
-}
-
-variable "docker_repository" {
-  default = "lpg-report-service"
-}
-
-variable "docker_repository_region" {
-  default = "test"
-}
-
-variable "domain" {
-  default = ""
-}
-
-variable "websites_port" {
-  default = "9004"
-}
-
-variable "env_profile" {
-  default = "test"
-}
-
-variable "learner_record_url" {
-  default = ""
-}
-
-variable "authentication_service_url" {
-  default = ""
-}
-
-variable "report_service_client_id" {
-  default = ""
-}
-
-variable "report_service_client_secret" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "vaultresourcegroup" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "vaultname" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "existingkeyvaultsecretname" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "certificatename" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "domain" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "envurl" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "application_insights_connection_string" {
-  default = ""
+variable "webapp_sku_tier" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "docker_registry_server_url" {
-  default = ""
+variable "webapp_sku_name" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "docker_registry_server_username" {
-  default = ""
-}
-
-variable "docker_registry_server_password" {
-  default = ""
-}
-
-variable "registry_service_url" {
-  default = ""
-}
-
-variable "course_catalogue_url" {
-  default = ""
+variable "env_profile" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "report_service_command_line" {
-  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "datasource" {
-  default = "db_url"
+variable "docker_registry_server_url" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "jwt_key" {
-  default = ""
+variable "docker_repository" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "backend_api_call_batch_size" {
-  default = "50"
+variable "docker_repository_region" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "allowed_ip_addresses" {
-	type = set(string)
+variable "docker_tag" {
+	type = string
+	description = "(optional) describe your variable"
 }

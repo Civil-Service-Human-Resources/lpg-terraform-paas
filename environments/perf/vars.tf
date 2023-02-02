@@ -1,12 +1,19 @@
 ### Gen vars ###
+
+variable "subscription_name" {
+	type = string
+	description = "Subscription to apply the update to"
+	default = "CSL-Staging"
+}
+
 variable "rg_name" {
   type    = string
-  default = "lpgprod"
+  default = "lpgperf"
 }
 
 variable "rg_name_lpg_ui" {
   type = string
-  default = "lpgprod2"
+  default = "perf_temp"
 }
 
 variable "rg_prefix" {
@@ -26,7 +33,7 @@ variable "serviceplan_suffix" {
 
 variable "serviceplan_suffix_lpgui" {
   type = string
-  default = "serviceplan2"
+  default = "serviceplantemp2"
 }
 
 variable "webapp_sku_tier" {
@@ -98,7 +105,7 @@ variable "envurl" {
 }
 
 variable "domain" {
-  default = "learn.civilservice.gov.uk"
+  default = "performance.learn.civilservice.gov.uk"
 }
 
 variable "scaling_enabled" {
@@ -106,11 +113,11 @@ variable "scaling_enabled" {
 }
 
 variable "env_profile" {
-  default = "prod"
+  default = "perf"
 }
 
 variable "google_analytics_id" {
-  default = "UA-22141655-6"
+  default = "UA-22141655-7"
 }
 
 ### cosmos ###
@@ -163,6 +170,7 @@ variable "redis_org_capacity" {
 variable "identity_name" {
   default = "identity"
 }
+
 
 ### lpg-learner-record ###
 variable "lpg_learner_record_name" {
@@ -231,7 +239,7 @@ variable "ui_static_asset_ttl" {
 }
 
 variable "ui_static_asset_root" {
-  default = "https://lpgprodstaticcontent.azureedge.net"
+  default = "https://asset-cdn.performance.learn.civilservice.gov.uk"
 }
 
 ### lpg-learning-catalogue ###
@@ -240,7 +248,7 @@ variable "lpg_learning_catalogue_name" {
 }
 
 variable "azure_account_name" {
-  default = "lpglpgprodblob"
+  default = "lpgdev"
 }
 
 ### mysql_gp ###
@@ -310,7 +318,7 @@ variable "lpg_management_websites_port" {
 }
 
 variable "content_container" {
-  default = "packages"
+  default = "lpgdevcontent"
 }
 
 variable "lpg_management_report_service_timeout_ms" {
@@ -360,7 +368,7 @@ variable "data_transchiver_name" {
 }
 
 variable "job_schedule" {
-  default = "0 0 19 * * *"
+  default = "0 1 21 * * *"
 }
 variable "invite_validity" {
   default = "259200"
@@ -394,5 +402,49 @@ variable "backend_api_call_batch_size" {
 }
 
 variable "identity_base_url" {
-  default = "https://identity.learn.civilservice.gov.uk"
+  default = "https://identity.performance.learn.civilservice.gov.uk"
+}
+
+variable "docker_registry_server_url" {
+    default = "lpgregistry.azurecr.io"
+}
+
+variable "vaultresourcegroup" {
+  default = "lpg-prod-keyvault"
+}
+
+variable "vaultname" {
+  default = "lpg-prod-kv"
+}
+
+variable "existingkeyvaultsecretname" {
+  default = "star-performance-learn-civil-service-gov-uk-pfxsecret-2022"
+}
+
+variable "certificatename" {
+  default = "star-performance-learn-civil-service-gov-uk-2022"
+}
+
+variable "ui_certificatename" {
+  default = "star-performance-learn-civil-service-gov-uk-2022"
+}
+
+variable "ui_existingkeyvaultsecretname" {
+  default = "star-performance-learn-civil-service-gov-uk-pfxsecret-2022"
+}
+
+variable "custom_emails" {
+  default = "pritpalp@kainos.com"
+}
+
+## CSL-Service ##
+
+variable "csl_service_vertical_scale" {
+	type = string
+	default = "P1v2"
+}
+
+variable "csl_service_horizontal_scale" {
+	type = number
+	default = 1
 }
