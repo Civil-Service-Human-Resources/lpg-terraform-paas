@@ -32,7 +32,6 @@ resource "azurerm_linux_web_app" "app_service" {
     http2_enabled       = false
 
     health_check_path = "/health"
-    auto_heal_enabled = true
   }
 
   logs {
