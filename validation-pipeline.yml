@@ -18,8 +18,11 @@ steps:
     displayName: Install Terraform
     inputs:
       terraformVersion: 0.13.0
-      
-  - task: CmdLine@2
-    displayName: Validate environments
+  
+  - task: AzureCLI@2
     inputs:
-      script: './scripts/ci/validate_envs.sh'
+      azureSubscription: 'CSL Staging'
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        ./scripts/ci/validate_envs.sh
