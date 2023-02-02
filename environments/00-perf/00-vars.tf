@@ -239,6 +239,10 @@ variable "lpg_ui_logging_level" {
   default = "INFO"
 }
 
+variable "lpg_ui_ignore_states_feature_flag" {
+  default = "TRUE"
+}
+
 ### lpg-learning-catalogue ###
 variable "lpg_learning_catalogue_name" {
   default = "lpg-learning-catalogue"

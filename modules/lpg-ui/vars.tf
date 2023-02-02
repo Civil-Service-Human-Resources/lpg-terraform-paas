@@ -94,6 +94,10 @@ variable "logging_level" {
   default = "INFO"
 }
 
+variable "ignore_states_feature_flag" {
+  default = "TRUE"
+}
+
 variable "websites_port" {
   default = "3001"
 }

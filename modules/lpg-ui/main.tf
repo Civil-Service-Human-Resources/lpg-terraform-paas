@@ -159,6 +159,10 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
 							  "name": "LOGGING_LEVEL",
 							  "value": "${var.logging_level}"
 						  },
+						  {
+							  "name": "IGNORE_STATES_FEATURE_FLAG",
+							  "value": "${var.ignore_states_feature_flag}"
+						  },
                           {
                               "name":"WEBSITES_PORT",
                               "value":"${var.websites_port}"
