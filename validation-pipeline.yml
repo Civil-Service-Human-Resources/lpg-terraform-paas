@@ -4,6 +4,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+
+variables:
+  - name: integration_ACCESS_KEY
+  
 steps:
   - task: TerraformInstaller@0
     displayName: Install Terraform
