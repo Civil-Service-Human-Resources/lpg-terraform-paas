@@ -13,12 +13,12 @@ steps:
   - task: AzureCLI@2
     displayName: "Terraform"
     inputs:
-      connectedServiceNameARM: $(SUBSCRIPTION_ID)
+      azureSubscription: $(SUBSCRIPTION_ID)
       scriptType: bash
       addSpnToEnvironment: true
       scriptLocation: inlineScript
       inlineScript: |
-        export ARM_CLIENT_ID=$(SERVICEPRINCIPAL_CLIENT_ID)
-        export ARM_CLIENT_SECRET=$(SERVICEPRINCIPAL_CLIENT_SECRET)
-        export ARM_TENANT_ID=$(SERVICEPRINCIPAL_TENANT_ID)
+        export ARM_CLIENT_ID=$SERVICEPRINCIPAL_CLIENT_ID
+        export ARM_CLIENT_SECRET=$SERVICEPRINCIPAL_CLIENT_SECRET
+        export ARM_TENANT_ID=$SERVICEPRINCIPAL_TENANT_ID
   
