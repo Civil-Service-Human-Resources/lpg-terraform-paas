@@ -16,12 +16,12 @@ variable "mysql_name" {
 variable "env_profile" {
   default = ""
 }
-variable "mysql_admin_login" {
-  default = ""
-}
-variable "mysql_admin_pass" {
-  default = ""
-}
+# variable "mysql_admin_login" {
+#   default = ""
+# }
+# variable "mysql_admin_pass" {
+#   default = ""
+# }
 
 variable "lpg_gp_skumname"{
     default = "GP_Gen5_8"

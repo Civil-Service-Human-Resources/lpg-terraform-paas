@@ -1,91 +1,54 @@
+variable "allowed_ip_addresses" {
+	type = set(string)
+	description = "A set of IP addresses that are allowed to connect to this application."
+}
+
 variable "notification_service_name" {
-  default = "name"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "rg_name" {
-  default = "holder"
-}
-
-variable "rg_prefix" {
-  default = "rgpref"
-}
-
-variable "rg_location" {
-  default = "location"
-}
-
-variable "webapp_sku_tier" {
-  default = "Basic"
-}
-
-variable "webapp_sku_name" {
-  default = "B1"
-}
-
-variable "notification_capacity" {
-  default = "1" 
-}
-
-variable "docker_tag" {
-  default = ""
-}
-
-variable "docker_repository" {
-  default = "notification-service"
-}
-
-variable "docker_repository_region" {
-  default = "test"
-}
-
-variable "envurl" {
-  default = "local"
-}
-
-variable "application_insights_connection_string" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "env_profile" {
-  default = "test"
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "websites_port" {
-  default = "9006"
+variable "webapp_sku_tier" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "gov_notify_api_key" {
-  default = ""
+variable "webapp_sku_name" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "authentication_service_url" {
-  default = ""
-}
-
-variable "notification_service_client_id" {
-  default = ""
-}
-
-variable "notification_service_client_secret" {
-  default = ""
+variable "notification_capacity" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "docker_registry_server_url" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "docker_registry_server_username" {
-  default = ""
+variable "docker_repository" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "docker_registry_server_password" {
-  default = ""
+variable "docker_repository_region" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "jwt_key" {
-  default = ""
-}
-
-variable "allowed_ip_addresses" {
-	type = set(string)
+variable "docker_tag" {
+	type = string
+	description = "(optional) describe your variable"
 }

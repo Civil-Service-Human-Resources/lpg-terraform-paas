@@ -101,58 +101,6 @@ resource "azurerm_template_deployment" "learning-locker-xapi" {
               "type":"Microsoft.Web/sites",
               "name":"[parameters('siteName')]",
               "properties":{
-                  "siteConfig":{
-                      "appSettings":[
-                          {
-                              "name":"WEBSITES_ENABLE_APP_SERVICE_STORAGE",
-                              "value":"false"
-                          },
-                          {
-                              "name":"MONGO_URL",
-                              "value":"${var.mongo_url}"
-                          },
-                          {
-                              "name":"REDIS_URL",
-                              "value":"${var.redis_url}"
-                          },
-                          {
-                              "name":"WEBSITES_PORT",
-                              "value":"${var.websites_port}"
-                          },
-                          {
-                              "name":"ENV_PROFILE",
-                              "value":"${var.env_profile}"
-                          },
-                          {
-                              "name":"REDIS_USE_TLS",
-                              "value":"${var.redis_use_tls}"
-                          },
-                          {
-                              "name":"REDIS_PREFIX",
-                              "value":"${var.redis_prefix}"
-                          },
-                          {
-                              "name":"EXPRESS_PORT",
-                              "value":"${var.express_port}"
-                          },
-                          {
-                              "name":"DOCKER_ENABLE_CI",
-                              "value":"true"
-                          },
-                          {
-                              "name":"DOCKER_REGISTRY_SERVER_URL",
-                              "value":"https://${var.docker_registry_server_url}"
-                          },
-                          {
-                              "name":"DOCKER_REGISTRY_SERVER_USERNAME",
-                              "value":"${var.docker_registry_server_username}"
-                          },
-                          {
-                              "name":"DOCKER_REGISTRY_SERVER_PASSWORD",
-                              "value":"${var.docker_registry_server_password}"
-                          }
-                      ]
-                  },
                   "httpsOnly":true,
                   "reserved":true,
                   "name":"[parameters('siteName')]",

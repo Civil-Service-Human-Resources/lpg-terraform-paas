@@ -1,7 +1,7 @@
 ## csrs ##
 
 variable "civil_servant_registry_docker_tag" {
-  default = "idt-release-v1.1.0"
+  default = "idt-release-v1.3.0"
 }
 
 variable "civil_servant_registry_docker_repository_region" {

@@ -8,12 +8,14 @@ In order to run the code in this repository, the following should be installed o
 
 - Terraform v0.13.0 (as of writing)
 - Azure CLI v2.10.1 (as of writing)
-- Keybase
 
 #### Access / Permissions
 
 - Azure Account for LPG
-- Keybase Account linked to team
+
+#### access key for state file
+
+- The access key for the state's relevant blob storage account must be set in an environment variable named `access_key`. This can be found in the Azure portal.
 
 ------------
 
@@ -41,24 +43,10 @@ For deployments to other environments, set the subscription to **CSL-Staging**
 
 ------------
 
-### Keybase Setup
-
-Ensure that keybase is enabled for local file browsing
-
-------------
-
-### How to configure the environment for deployment
+### How to configure each environment for deployment
 
 1. Clone this repository
-2. Change into the `environments/master` folder in a terminal
-3. Run the symlink script
-    1. Script can be found here: `scripts/management/symlink.sh`
-    2. The script is run as: `./../../scripts/management/symlink.sh ${env}`
-        1. Replace `${env}` with the environment name you wish to configure for
-    3. This will symlink the following required files:
-        1. `state.tf`
-        2. `00-vars.tf` (unsecure vars)
-        3. `${env}-vars.tf` (secure vars)
+2. Change into the `environments/<environmentName>` folder in a terminal
 4. Run `terraform init`
 
 ------------
@@ -67,11 +55,13 @@ Ensure that keybase is enabled for local file browsing
 
 #### Unsecure variables
 
-Unsecure variables can be updated in the `00-vars.tf` file. This file contains items such as docker tags, SKUs and various other settings
+> **Warning**
+> This section is deprecated: Variables are no longer stored in Terraform. To store variables in your App Services, please use the [Vault CLI](https://github.com/Civil-Service-Human-Resources/csl-vault) instead.
 
 #### Secure variables
 
-Secure variables can be updated in the `${env}-vars.tf` file. This file contains items such as passwords and tokens
+> **Warning**
+> **Deprecated**: Variables are no longer stored in Terraform. Secure (secret) variables are now stored in a Key Vault. To store variables in your App Services, please use the [Vault CLI](https://github.com/Civil-Service-Human-Resources/csl-vault) instead.
 
 ------------
 
@@ -81,26 +71,21 @@ Once the environment has been configured and updated as required for the deploym
 
 #### Full deployment
 
-To deploy the entire suite of modules:
+To deploy for a specific environment, use the `plan.sh` script:
 
-1. `terraform plan`
-2. `terraform apply`
+```sh
+./plan.sh <environment>
+```
 
-#### Targeted Deployment
+This will sync files from the environment into the `master` directory. Once you're happy with the plan, run `terraform apply`:
 
-Module names can be found in the `environments/main.tf` file
+For example, for integration:
 
-To do a targeted deployment of a single module:
-
-1. `terraform plan -target=module.lpg-ui`
-2. `terraform apply -target=module.lpg-ui`
-
-To do a targeted deployment of multiple modules:
-
-1. `terraform plan -target=module.lpg-ui -target=module.lpg-learner-record`
-2. `terraform apply -target=module.lpg-ui -target=module.lpg-learner-record`
-
-Note the section in the cosmos module that needs to be un-commented for **stage** only deploys.
+```sh
+cd environments/master
+./plan.sh integration
+terraform apply "tfplan-integration"
+```
 
 ------------
 

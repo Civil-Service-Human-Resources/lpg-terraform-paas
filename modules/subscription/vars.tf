@@ -1,4 +1,4 @@
 variable "subscription_name" {
 	type = string
-	description = "(optional) describe your variable"
+	description = "Subscription to apply the update to"
 }
