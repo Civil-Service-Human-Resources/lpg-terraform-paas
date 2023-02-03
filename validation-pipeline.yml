@@ -8,8 +8,8 @@ variables:
     value: $SERVICEPRINCIPAL_CLIENT_SECRET
   - name: sp_tenant_id
     value: $SERVICEPRINCIPAL_TENANT_ID
-  - name: subscription_name
-    value: CSL-Staging
+  - name: subscription_id
+    value: ${{parameters.AzureSubscription}}
 
 
 pool:
@@ -24,7 +24,7 @@ steps:
   - task: AzureCLI@2
     displayName: "Log in to Azure CLI"
     inputs:
-      azureSubscription: $(subscription_name)
+      azureSubscription: $(subscription_id)
       scriptType: bash
       addSpnToEnvironment: true
       scriptLocation: inlineScript
