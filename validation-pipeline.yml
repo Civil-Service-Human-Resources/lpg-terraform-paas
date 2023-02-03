@@ -15,6 +15,5 @@ steps:
       targetType: 'inline'
       script: |
         cd environments/master
-        ../../scripts/ci/validate_envs.sh'
-
+        ../../scripts/ci/validate_envs.sh
   
