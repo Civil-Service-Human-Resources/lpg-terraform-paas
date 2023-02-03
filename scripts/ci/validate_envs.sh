@@ -1,23 +1,20 @@
-ROOT=$PWD
-
-rm -rf plan
-mkdir plan
-
-for ENVIRONMENT in integration staging perf production
+for ENV in integration staging perf production
 do
-    cd $ROOT/plan
-    mkdir $ENVIRONMENT
-    cd $ENVIRONMENT
+    echo "Validating $ENV environment..."
 
-    cp -r ../../environments/master/ .
+    rm -rf .terraform
+
+    rm state.tf
     rm vars.tf
+    rm docker-tags-vars.tf
 
-    cp -r ../../environments/$ENVIRONMENT/docker-tags-vars.tf .
-    cp -r ../../environments/$ENVIRONMENT/sensitive-vars.tf .
-    cp -r ../../environments/$ENVIRONMENT/state.tf .
-    cp -r ../../environments/$ENVIRONMENT/vars.tf $ENVIRONMENT-vars.tf
+    cp -r ../$ENV/docker-tags-vars.tf .
+    cp -r ../$ENV/state.tf .
+    cp -r ../$ENV/vars.tf vars.tf
 
-    if [[ $ENVIRONMENT =~ ^(integration|staging|perf)$ ]]; then
+    echo "Copied TF files."
+
+    if [[ $ENV =~ ^(integration|staging|perf)$ ]]; then
         SUBSCRIPTION_NAME="CSL-Staging"
     else
         SUBSCRIPTION_NAME="CSL-Production"
@@ -25,8 +22,13 @@ do
 
     az account set --subscription $SUBSCRIPTION_NAME
 
+    echo "Set subscription."
+
     echo """access_key=\"$access_key\"""" > backend.conf
 
     terraform init -backend-config=backend.conf
+
+    echo "Initialised Terraform. Validating..."
+
     terraform validate
 done
