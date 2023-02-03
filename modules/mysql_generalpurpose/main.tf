@@ -1,15 +1,7 @@
 ###### mysql: General Purpose tier ######
 
-resource "random_string" "username" {
-  length           = 16
-  special          = true
-  override_special = "-"
-}
-
-resource "random_password" "password" {
-  length           = 16
-  special          = true
-  override_special = "!#$%*()-_=+[]{}<>:?"
+module "credentials" {
+  source = "../credentials"
 }
 
 resource "azurerm_mysql_server" "lpg_gp" {
@@ -35,8 +27,8 @@ resource "azurerm_mysql_server" "lpg_gp" {
     retention_days = 0
   }
 
-  administrator_login          = random_string.username.result
-  administrator_login_password = random_password.password.result
+  administrator_login          = module.credentials.username
+  administrator_login_password = module.credentials.password
 
   # This block ensures that once a random US/PW is used to create the mysql instance,
   # TF won't edit it again afterwards.
