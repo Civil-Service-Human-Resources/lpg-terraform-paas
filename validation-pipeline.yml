@@ -1,6 +1,17 @@
 trigger:
 - idt-feature-*
 
+variables:
+  - name: servicePrincipal_client_id
+    value: $(SERVICEPRINCIPAL_CLIENT_ID)
+  - name: servicePrincipal_client_secret
+    value: $(SERVICEPRINCIPAL_CLIENT_SECRET)
+  - name: servicePrincipal_tenant_id
+    value: $(SERVICEPRINCIPAL_TENANT_ID)
+  - name: subscription_id
+    value: $(SUBSCRIPTION_ID)
+
+
 pool:
   vmImage: ubuntu-latest
   
@@ -13,12 +24,12 @@ steps:
   - task: AzureCLI@2
     displayName: "Log in to Azure CLI"
     inputs:
-      azureSubscription: $(SUBSCRIPTION_ID)
+      azureSubscription: $(subscription_id)
       scriptType: bash
       addSpnToEnvironment: true
       scriptLocation: inlineScript
       inlineScript: |
-        export ARM_CLIENT_ID=$SERVICEPRINCIPAL_CLIENT_ID
-        export ARM_CLIENT_SECRET=$SERVICEPRINCIPAL_CLIENT_SECRET
-        export ARM_TENANT_ID=$SERVICEPRINCIPAL_TENANT_ID
+        export ARM_CLIENT_ID=$servicePrincipal_client_id
+        export ARM_CLIENT_SECRET=$servicePrincipal_client_secret
+        export ARM_TENANT_ID=$servicePrincipal_tenant_id
   
