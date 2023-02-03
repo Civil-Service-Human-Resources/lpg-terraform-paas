@@ -11,7 +11,7 @@ steps:
       terraformVersion: 0.13.0
   
   - task: AzureCLI@2
-    displayName: "Terraform"
+    displayName: "Log in to Azure CLI"
     inputs:
       azureSubscription: $(SUBSCRIPTION_ID)
       scriptType: bash
