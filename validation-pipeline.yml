@@ -15,6 +15,7 @@ steps:
     inputs:
       azureSubscription: $(SUBSCRIPTION_ID)
       scriptType: bash
+      addSpnToEnvironment: true
       scriptLocation: inlineScript
       inlineScript: |
         export ARM_CLIENT_ID=$(SERVICEPRINCIPAL_CLIENT_ID)
