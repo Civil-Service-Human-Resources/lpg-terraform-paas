@@ -21,4 +21,4 @@ environments/test/test-vars.tf
 scripts/elastic-deploy/*.json
 modules/test-rig/testrig-vars.tf
 tfplan-*
-backend-conf
+backend.conf
