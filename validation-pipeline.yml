@@ -17,13 +17,6 @@ steps:
       addSpnToEnvironment: true
       scriptLocation: 'inlineScript'
       inlineScript: |
-        az --version
-        az account show
-  
-  - task: Bash@3
-    inputs:
-      targetType: 'inline'
-      script: |
         cd environments/master
         ../../scripts/ci/validate_envs.sh
   
