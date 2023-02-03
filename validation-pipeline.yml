@@ -10,6 +10,15 @@ steps:
     inputs:
       terraformVersion: 0.13.0
   
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: 'CSL Staging'
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az --version
+        az account show
+  
   - task: Bash@3
     inputs:
       targetType: 'inline'
