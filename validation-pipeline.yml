@@ -11,12 +11,14 @@ steps:
       terraformVersion: 0.13.0
   
   - task: AzureCLI@2
+    displayName: "Terraform"
     inputs:
-      azureSubscription: 'CSL Staging'
-      scriptType: 'bash'
+      azureSubscription:  shared-${{ parameters.environment }}-001
+      scriptType: bash
       addSpnToEnvironment: true
-      scriptLocation: 'inlineScript'
+      scriptLocation: inlineScript
       inlineScript: |
-        cd environments/master
-        ../../scripts/ci/validate_envs.sh
+        export ARM_CLIENT_ID=$(SERVICEPRINCIPAL_CLIENT_ID)
+        export ARM_CLIENT_SECRET=$(SERVICEPRINCIPAL_CLIENT_SECRET)
+        export ARM_TENANT_ID=$(SERVICEPRINCIPAL_TENANT_ID)
   
