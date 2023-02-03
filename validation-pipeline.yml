@@ -1,0 +1,16 @@
+trigger:
+- idt-feature-*
+
+pool:
+  vmImage: ubuntu-latest
+  
+steps:
+  - task: TerraformInstaller@0
+    displayName: Install Terraform
+    inputs:
+      terraformVersion: 0.13.0
+  
+  - task: Bash@3
+    displayName: Run validation of all environments
+    inputs:
+      filePath: './scripts/ci/validate_envs.sh'
