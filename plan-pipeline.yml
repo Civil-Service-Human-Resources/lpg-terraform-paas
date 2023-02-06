@@ -27,7 +27,7 @@ steps:
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
       inlineScript: |
-        az --version
+        az account list
       addSpnToEnvironment: true
       useGlobalConfig: true
 
