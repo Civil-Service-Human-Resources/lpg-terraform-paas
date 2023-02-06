@@ -61,8 +61,7 @@ data "azurerm_linux_web_app" "NotificationServiceAppData" {
 }
 
 data "azuread_group" "KeyVaultUsersGroup" {
-  display_name     = var.keyvault_users_group
-  security_enabled = true
+  object_id = "9d784474-ac56-4685-9920-4ce7ecebef68"
 }
 
 resource "azurerm_key_vault" "csl-vars-key-vault" {
