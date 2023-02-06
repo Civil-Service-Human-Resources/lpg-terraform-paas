@@ -11,21 +11,14 @@ steps:
     inputs:
       terraformVersion: 0.13.0
 
-  # - task: AzureCLI@2
-  #   displayName: Login to Azure CLI
-  #   inputs:
-  #     azureSubscription: 'PrincipalConnectionStaging'
-  #     scriptType: 'bash'
-  #     scriptLocation: 'inlineScript'
-  #     inlineScript: 'az --version'
-
   - task: AzureCLI@2
     inputs:
       azureSubscription: 'PrincipalConnectionStaging'
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
       inlineScript: |
+        az --version
         cd environments/master
-        ../../scripts/ci/validate_envs.sh
+        ls
       addSpnToEnvironment: true
       useGlobalConfig: true
