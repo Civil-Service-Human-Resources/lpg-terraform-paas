@@ -60,9 +60,10 @@ data "azurerm_linux_web_app" "NotificationServiceAppData" {
   resource_group_name = var.rg_name
 }
 
-# data "azuread_group" "KeyVaultUsersGroup" {
-#   object_id = "9d784474-ac56-4685-9920-4ce7ecebef68"
-# }
+data "azuread_group" "KeyVaultUsersGroup" {
+  display_name     = var.keyvault_users_group
+  security_enabled = true
+}
 
 resource "azurerm_key_vault" "csl-vars-key-vault" {
   name                        = var.name
@@ -75,22 +76,22 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 
   sku_name = "standard"
 
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_client_config.current.object_id
+  # access_policy {
+  #   tenant_id = data.azurerm_client_config.current.tenant_id
+  #   object_id = data.azurerm_client_config.current.object_id
 
-    key_permissions = [
-      "Get"
-    ]
+  #   key_permissions = [
+  #     "Get"
+  #   ]
 
-    secret_permissions = [
-      "Get"
-    ]
+  #   secret_permissions = [
+  #     "Get"
+  #   ]
 
-    storage_permissions = [
-      "Get"
-    ]
-  }
+  #   storage_permissions = [
+  #     "Get"
+  #   ]
+  # }
 
   access_policy {
 
@@ -299,7 +300,7 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = "9d784474-ac56-4685-9920-4ce7ecebef68"
+    object_id = data.azuread_group.KeyVaultUsersGroup.object_id
 
     key_permissions = [
       "Get"
