@@ -1,16 +1,6 @@
 trigger:
 - idt-feature-*
 
-# variables:
-#   - name: sp_client_id
-#     value: $SERVICEPRINCIPAL_CLIENT_ID
-#   - name: sp_client_secret
-#     value: $SERVICEPRINCIPAL_CLIENT_SECRET
-#   - name: sp_tenant_id
-#     value: $SERVICEPRINCIPAL_TENANT_ID
-#   - name: subscription_id
-#     value: $SUBSCRIPTION_ID
-
 
 pool:
   vmImage: ubuntu-latest
@@ -20,24 +10,21 @@ steps:
     displayName: Install Terraform
     inputs:
       terraformVersion: 0.13.0
-  
-  # - task: AzureCLI@2
-  #   displayName: "Log in to Azure CLI"
-  #   inputs:
-  #     connectedServiceNameARM: $(subscription_id)
-  #     scriptType: bash
-  #     addSpnToEnvironment: true
-  #     scriptLocation: inlineScript
-  #     inlineScript: |
-  #       export ARM_CLIENT_ID=$sp_client_id
-  #       export ARM_CLIENT_SECRET=$sp_client_secret
-  #       export ARM_TENANT_ID=$sp_tenant_id
 
+  # - task: AzureCLI@2
+  #   displayName: Login to Azure CLI
+  #   inputs:
+  #     azureSubscription: 'PrincipalConnectionStaging'
+  #     scriptType: 'bash'
+  #     scriptLocation: 'inlineScript'
+  #     inlineScript: 'az --version'
+  
   - task: AzureCLI@2
-    displayName: Login to Azure CLI
+    displayName: Validate environments
     inputs:
       azureSubscription: 'PrincipalConnectionStaging'
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
-      inlineScript: 'az --version'
+      inlineScript: '../../scripts/ci/validate_envs.sh'
+      workingDirectory: 'environments/master'
   
