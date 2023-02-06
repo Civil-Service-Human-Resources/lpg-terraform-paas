@@ -24,7 +24,7 @@ steps:
   - task: AzureCLI@2
     displayName: "Log in to Azure CLI"
     inputs:
-      azureSubscription: $(subscription_id)
+      connectedServiceNameARM: $(subscription_id)
       scriptType: bash
       addSpnToEnvironment: true
       scriptLocation: inlineScript
