@@ -19,6 +19,6 @@ steps:
       inlineScript: |
         az --version
         cd environments/master
-        ls
+        ../../scripts/ci/validate_envs.sh
       addSpnToEnvironment: true
       useGlobalConfig: true
