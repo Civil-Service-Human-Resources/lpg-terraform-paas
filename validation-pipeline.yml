@@ -18,13 +18,14 @@ steps:
   #     scriptType: 'bash'
   #     scriptLocation: 'inlineScript'
   #     inlineScript: 'az --version'
-  
+
   - task: AzureCLI@2
-    displayName: Validate environments
     inputs:
       azureSubscription: 'PrincipalConnectionStaging'
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
-      inlineScript: '../../scripts/ci/validate_envs.sh'
-      workingDirectory: 'environments/master'
-  
+      inlineScript: |
+        cd environments/master
+        ../../scripts/ci/validate_envs.sh
+      addSpnToEnvironment: true
+      useGlobalConfig: true
