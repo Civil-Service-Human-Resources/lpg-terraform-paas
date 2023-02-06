@@ -86,4 +86,4 @@ steps:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
         commandOptions: '-out=tfplan-${{ ENV }}'
-        environmentServiceNameAzureRM: 'PrincipalConnectionStaging'
+        environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
