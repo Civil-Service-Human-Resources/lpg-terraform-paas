@@ -13,53 +13,53 @@ pool:
   vmImage: ubuntu-latest
   
 - ${{ each ENV in parameters.environments }}:
-steps:
-  - task: TerraformInstaller@0
-    displayName: Install Terraform
-    inputs:
-      terraformVersion: 0.13.5
+  steps:
+    - task: TerraformInstaller@0
+      displayName: Install Terraform
+      inputs:
+        terraformVersion: 0.13.5
 
-  - task: AzureCLI@2
-    inputs:
-      azureSubscription: 'PrincipalConnectionProduction'
-      scriptType: 'bash'
-      scriptLocation: 'inlineScript'
-      inlineScript: |
-        az --version
-      addSpnToEnvironment: true
-      useGlobalConfig: true
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: 'PrincipalConnectionProduction'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          az --version
+        addSpnToEnvironment: true
+        useGlobalConfig: true
 
-  - task: Bash@3
-    displayName: Copy necessary files from environment
-    inputs:
-      targetType: 'inline'
-      script: |
-        cd environments/master
-        echo "Validating $ENV environment..."
-        cp -r ../$ENV/docker-tags-vars.tf .
-        cp -r ../$ENV/state.tf .
-        cp -r ../$ENV/vars.tf vars.tf
-  
-  - task: TerraformTaskV3@3
-    displayName: Run Terraform init
-    inputs:
-      provider: 'azurerm'
-      command: 'init'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-      backendServiceArm: 'PrincipalConnectionProduction'
-      backendAzureRmResourceGroupName: 'lpgterraform'
-      backendAzureRmStorageAccountName: 'lpgterraformsecure'
-      backendAzureRmContainerName: 'tfstatesecure'
-      backendAzureRmKey: '00-integration.terraform.tfstate'
+    - task: Bash@3
+      displayName: Copy necessary files from environment
+      inputs:
+        targetType: 'inline'
+        script: |
+          cd environments/master
+          echo "Validating $ENV environment..."
+          cp -r ../$ENV/docker-tags-vars.tf .
+          cp -r ../$ENV/state.tf .
+          cp -r ../$ENV/vars.tf vars.tf
+    
+    - task: TerraformTaskV3@3
+      displayName: Run Terraform init
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
+        backendServiceArm: 'PrincipalConnectionProduction'
+        backendAzureRmResourceGroupName: 'lpgterraform'
+        backendAzureRmStorageAccountName: 'lpgterraformsecure'
+        backendAzureRmContainerName: 'tfstatesecure'
+        backendAzureRmKey: '00-integration.terraform.tfstate'
 
-  - task: TerraformTaskV3@3
-    displayName: Validate environment
-    inputs:
-      provider: 'azurerm'
-      command: 'validate'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-      backendServiceArm: 'PrincipalConnectionProduction'
-      backendAzureRmResourceGroupName: 'lpgterraform'
-      backendAzureRmStorageAccountName: 'lpgterraformsecure'
-      backendAzureRmContainerName: 'tfstatesecure'
-      backendAzureRmKey: '00-integration.terraform.tfstate'
+    - task: TerraformTaskV3@3
+      displayName: Validate environment
+      inputs:
+        provider: 'azurerm'
+        command: 'validate'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
+        backendServiceArm: 'PrincipalConnectionProduction'
+        backendAzureRmResourceGroupName: 'lpgterraform'
+        backendAzureRmStorageAccountName: 'lpgterraformsecure'
+        backendAzureRmContainerName: 'tfstatesecure'
+        backendAzureRmKey: '00-integration.terraform.tfstate'
