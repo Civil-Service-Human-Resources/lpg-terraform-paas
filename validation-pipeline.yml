@@ -12,23 +12,24 @@ parameters:
 pool:
   vmImage: ubuntu-latest
   
-- ${{ each ENV in parameters.environments }}:
-  steps:
-    - task: TerraformInstaller@0
-      displayName: Install Terraform
-      inputs:
-        terraformVersion: 0.13.5
 
-    - task: AzureCLI@2
-      inputs:
-        azureSubscription: 'PrincipalConnectionProduction'
-        scriptType: 'bash'
-        scriptLocation: 'inlineScript'
-        inlineScript: |
-          az --version
-        addSpnToEnvironment: true
-        useGlobalConfig: true
+steps:
+  - task: TerraformInstaller@0
+    displayName: Install Terraform
+    inputs:
+      terraformVersion: 0.13.5
 
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: 'PrincipalConnectionProduction'
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az --version
+      addSpnToEnvironment: true
+      useGlobalConfig: true
+
+  - ${{ each ENV in parameters.environments }}:
     - task: Bash@3
       displayName: Copy necessary files from environment
       inputs:
