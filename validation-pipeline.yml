@@ -9,7 +9,7 @@ variables:
   - name: sp_tenant_id
     value: $SERVICEPRINCIPAL_TENANT_ID
   - name: subscription_id
-    value: ${{parameters.AzureSubscription}}
+    value: $SUBSCRIPTION_ID
 
 
 pool:
