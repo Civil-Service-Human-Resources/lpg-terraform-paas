@@ -10,15 +10,27 @@ steps:
     displayName: Install Terraform
     inputs:
       terraformVersion: 0.13.0
+  
 
-  - task: AzureCLI@2
+  - task: TerraformTaskV3@3
     inputs:
-      azureSubscription: 'PrincipalConnectionStaging'
-      scriptType: 'bash'
-      scriptLocation: 'inlineScript'
-      inlineScript: |
-        az --version
-        cd environments/master
-        ../../scripts/ci/validate_envs.sh
-      addSpnToEnvironment: true
-      useGlobalConfig: true
+      provider: 'azurerm'
+      # command: 'init'
+      backendServiceArm: 'PrincipalConnectionStaging'
+      backendAzureRmResourceGroupName: 'lpgintegration'
+      backendAzureRmStorageAccountName: 'lpgterraformsecure'
+      backendAzureRmContainerName: 'tfstatesecure'
+      backendAzureRmKey: '00-integration.terraform.tfstate'
+    
+
+  # - task: AzureCLI@2
+  #   inputs:
+  #     azureSubscription: 'PrincipalConnectionStaging'
+  #     scriptType: 'bash'
+  #     scriptLocation: 'inlineScript'
+  #     inlineScript: |
+  #       az --version
+  #       cd environments/master
+  #       ../../scripts/ci/validate_envs.sh
+  #     addSpnToEnvironment: true
+  #     useGlobalConfig: true
