@@ -48,7 +48,7 @@ steps:
       backendAzureRmKey: '00-integration.terraform.tfstate'
 
   - task: TerraformTaskV3@3
-    displayName: Run Terraform init
+    displayName: Validate $ENV environment
     inputs:
       provider: 'azurerm'
       command: 'validate'
