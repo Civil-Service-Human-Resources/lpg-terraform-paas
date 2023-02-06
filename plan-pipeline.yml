@@ -68,12 +68,8 @@ steps:
     - task: TerraformTaskV3@3
       inputs:
         provider: 'azurerm'
-        command: 'init'
+        command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-        backendServiceArm: 'PrincipalConnectionProduction'
-        backendAzureRmResourceGroupName: 'lpgterraform'
-        backendAzureRmStorageAccountName: 'lpgterraformsecure'
-        backendAzureRmContainerName: 'tfstatesecure'
-        backendAzureRmKey: '00-integration.terraform.tfstate'
+        environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
 
     
