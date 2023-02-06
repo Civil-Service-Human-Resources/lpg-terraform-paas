@@ -3,6 +3,7 @@ trigger:
 
 parameters:
   - name: environments
+    type: object
     default:
       - integration
       - staging
