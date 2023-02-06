@@ -70,6 +70,6 @@ steps:
         provider: 'azurerm'
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-        environmentServiceNameAzureRM: 'CSL-Production(992a77b3-ad62-4fd9-add4-07501298eea8)'
+        environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
 
     
