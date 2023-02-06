@@ -42,7 +42,7 @@ steps:
       command: 'init'
       workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
       backendServiceArm: 'PrincipalConnectionStaging'
-      backendAzureRmResourceGroupName: 'lpgterraform'
+      backendAzureRmResourceGroupName: 'lpgprod'
       backendAzureRmStorageAccountName: 'lpgterraformsecure'
       backendAzureRmContainerName: 'tfstatesecure'
       backendAzureRmKey: '00-integration.terraform.tfstate'
