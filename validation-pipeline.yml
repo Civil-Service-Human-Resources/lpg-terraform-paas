@@ -1,13 +1,18 @@
 trigger:
 - idt-feature-*
 
-variables:
-  - name: ENV
-    value: integration
+parameters:
+  - name: environments
+    default:
+      - integration
+      - staging
+      - perf
+      - production
 
 pool:
   vmImage: ubuntu-latest
   
+- ${{ each ENV in parameters.environments }}:
 steps:
   - task: TerraformInstaller@0
     displayName: Install Terraform
@@ -48,7 +53,7 @@ steps:
       backendAzureRmKey: '00-integration.terraform.tfstate'
 
   - task: TerraformTaskV3@3
-    displayName: Validate $ENV environment
+    displayName: Validate environment
     inputs:
       provider: 'azurerm'
       command: 'validate'
