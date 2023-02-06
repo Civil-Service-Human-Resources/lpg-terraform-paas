@@ -65,25 +65,15 @@ steps:
         backendAzureRmContainerName: 'tfstatesecure'
         backendAzureRmKey: '00-integration.terraform.tfstate'
 
-    # - task: TerraformTaskV3@3
-    #   displayName: ${{ ENV }} - Create plan file for environment
-    #   inputs:
-    #     provider: 'azurerm'
-    #     command: 'plan'
-    #     commandOptions: '-out=tfplan-${{ ENV }}'
-    #     workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-    #     backendServiceArm: 'PrincipalConnectionProduction'
-    #     backendAzureRmResourceGroupName: 'lpgterraform'
-    #     backendAzureRmStorageAccountName: 'lpgterraformsecure'
-    #     backendAzureRmContainerName: 'tfstatesecure'
-    #     backendAzureRmKey: '00-integration.terraform.tfstate'
-    #     environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
-
     - task: TerraformTaskV3@3
-      displayName: ${{ ENV }} - Create plan file
       inputs:
         provider: 'azurerm'
-        command: 'plan'
+        command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-        commandOptions: '-out=tfplan-${{ ENV }}'
-        environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
+        backendServiceArm: 'PrincipalConnectionProduction'
+        backendAzureRmResourceGroupName: 'lpgterraform'
+        backendAzureRmStorageAccountName: 'lpgterraformsecure'
+        backendAzureRmContainerName: 'tfstatesecure'
+        backendAzureRmKey: '00-integration.terraform.tfstate'
+
+    
