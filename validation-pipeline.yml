@@ -1,6 +1,9 @@
 trigger:
 - idt-feature-*
 
+variables:
+  - name: ENV
+    value: integration
 
 pool:
   vmImage: ubuntu-latest
@@ -10,27 +13,25 @@ steps:
     displayName: Install Terraform
     inputs:
       terraformVersion: 0.13.0
-  
 
-  - task: TerraformTaskV3@3
+  - task: AzureCLI@2
     inputs:
-      provider: 'azurerm'
-      # command: 'init'
-      backendServiceArm: 'PrincipalConnectionStaging'
-      backendAzureRmResourceGroupName: 'lpgintegration'
-      backendAzureRmStorageAccountName: 'lpgterraformsecure'
-      backendAzureRmContainerName: 'tfstatesecure'
-      backendAzureRmKey: '00-integration.terraform.tfstate'
-    
+      azureSubscription: 'PrincipalConnectionStaging'
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az --version
+      addSpnToEnvironment: true
+      useGlobalConfig: true
 
-  # - task: AzureCLI@2
-  #   inputs:
-  #     azureSubscription: 'PrincipalConnectionStaging'
-  #     scriptType: 'bash'
-  #     scriptLocation: 'inlineScript'
-  #     inlineScript: |
-  #       az --version
-  #       cd environments/master
-  #       ../../scripts/ci/validate_envs.sh
-  #     addSpnToEnvironment: true
-  #     useGlobalConfig: true
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        cd environments/master
+        
+        cp -r ../$ENV/docker-tags-vars.tf .
+        cp -r ../$ENV/state.tf .
+        cp -r ../$ENV/vars.tf vars.tf
+        ls
+  
