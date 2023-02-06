@@ -39,39 +39,46 @@ steps:
         mkdir plan-files
         ls
 
-  # - ${{ each ENV in parameters.environments }}:
-  #   - task: Bash@3
-  #     displayName: ${{ ENV }} - Copy necessary files from  environment
-  #     inputs:
-  #       targetType: 'inline'
-  #       script: |
-  #         cd environments/master
-  #         echo "Validating $ENV environment..."
-  #         cp -r ../${{ ENV }}/docker-tags-vars.tf .
-  #         cp -r ../${{ ENV }}/state.tf .
-  #         cp -r ../${{ ENV }}/vars.tf vars.tf
+  - ${{ each ENV in parameters.environments }}:
+    - task: Bash@3
+      displayName: ${{ ENV }} - Copy necessary files from  environment
+      inputs:
+        targetType: 'inline'
+        script: |
+          cd environments/master
+          echo "Validating $ENV environment..."
+          cp -r ../${{ ENV }}/docker-tags-vars.tf .
+          cp -r ../${{ ENV }}/state.tf .
+          cp -r ../${{ ENV }}/vars.tf vars.tf
     
-  #   - task: TerraformTaskV3@3
-  #     displayName: ${{ ENV }} -  Run Terraform init
-  #     inputs:
-  #       provider: 'azurerm'
-  #       command: 'init'
-  #       workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-  #       backendServiceArm: 'PrincipalConnectionProduction'
-  #       backendAzureRmResourceGroupName: 'lpgterraform'
-  #       backendAzureRmStorageAccountName: 'lpgterraformsecure'
-  #       backendAzureRmContainerName: 'tfstatesecure'
-  #       backendAzureRmKey: '00-integration.terraform.tfstate'
+    - task: TerraformTaskV3@3
+      displayName: ${{ ENV }} -  Run Terraform init
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
+        backendServiceArm: 'PrincipalConnectionProduction'
+        backendAzureRmResourceGroupName: 'lpgterraform'
+        backendAzureRmStorageAccountName: 'lpgterraformsecure'
+        backendAzureRmContainerName: 'tfstatesecure'
+        backendAzureRmKey: '00-integration.terraform.tfstate'
 
-  #   - task: TerraformTaskV3@3
-  #     displayName: ${{ ENV }} - Create plan file for environment
-  #     inputs:
-  #       provider: 'azurerm'
-  #       command: 'plan'
-  #       commandOptions: '-out=tfplan-${{ ENV }}'
-  #       workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-  #       backendServiceArm: 'PrincipalConnectionProduction'
-  #       backendAzureRmResourceGroupName: 'lpgterraform'
-  #       backendAzureRmStorageAccountName: 'lpgterraformsecure'
-  #       backendAzureRmContainerName: 'tfstatesecure'
-  #       backendAzureRmKey: '00-integration.terraform.tfstate'
+    - task: TerraformTaskV3@3
+      displayName: ${{ ENV }} - Create plan file for environment
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+        commandOptions: '-out=tfplan-${{ ENV }}'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
+        backendServiceArm: 'PrincipalConnectionProduction'
+        backendAzureRmResourceGroupName: 'lpgterraform'
+        backendAzureRmStorageAccountName: 'lpgterraformsecure'
+        backendAzureRmContainerName: 'tfstatesecure'
+        backendAzureRmKey: '00-integration.terraform.tfstate'
+
+  - task: Bash@3
+    displayName: Create plan-files directory
+    inputs:
+      targetType: 'inline'
+      script: |
+        ls plan-files
