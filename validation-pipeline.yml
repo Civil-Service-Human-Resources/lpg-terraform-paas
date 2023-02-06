@@ -16,7 +16,7 @@ steps:
 
   - task: AzureCLI@2
     inputs:
-      azureSubscription: 'PrincipalConnectionStaging'
+      azureSubscription: 'PrincipalConnectionProduction'
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
       inlineScript: |
