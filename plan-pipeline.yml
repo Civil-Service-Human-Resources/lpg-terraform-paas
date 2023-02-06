@@ -75,6 +75,7 @@ steps:
         backendAzureRmStorageAccountName: 'lpgterraformsecure'
         backendAzureRmContainerName: 'tfstatesecure'
         backendAzureRmKey: '00-integration.terraform.tfstate'
+        environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
 
   - task: Bash@3
     displayName: Create plan-files directory
