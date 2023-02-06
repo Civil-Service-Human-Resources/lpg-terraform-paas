@@ -46,3 +46,15 @@ steps:
       backendAzureRmStorageAccountName: 'lpgterraformsecure'
       backendAzureRmContainerName: 'tfstatesecure'
       backendAzureRmKey: '00-integration.terraform.tfstate'
+
+  - task: TerraformTaskV3@3
+    displayName: Run Terraform init
+    inputs:
+      provider: 'azurerm'
+      command: 'validate'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
+      backendServiceArm: 'PrincipalConnectionProduction'
+      backendAzureRmResourceGroupName: 'lpgterraform'
+      backendAzureRmStorageAccountName: 'lpgterraformsecure'
+      backendAzureRmContainerName: 'tfstatesecure'
+      backendAzureRmKey: '00-integration.terraform.tfstate'
