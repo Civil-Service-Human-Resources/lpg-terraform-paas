@@ -32,15 +32,15 @@ steps:
 
   - ${{ each ENV in parameters.environments }}:
     - task: Bash@3
-      displayName: Copy necessary files from environment
+      displayName: Copy necessary files from ${{ ENV }} environment
       inputs:
         targetType: 'inline'
         script: |
           cd environments/master
           echo "Validating $ENV environment..."
-          cp -r ../$ENV/docker-tags-vars.tf .
-          cp -r ../$ENV/state.tf .
-          cp -r ../$ENV/vars.tf vars.tf
+          cp -r ../${{ ENV }}/docker-tags-vars.tf .
+          cp -r ../${{ ENV }}/state.tf .
+          cp -r ../${{ ENV }}/vars.tf vars.tf
     
     - task: TerraformTaskV3@3
       displayName: Run Terraform init
@@ -55,7 +55,7 @@ steps:
         backendAzureRmKey: '00-integration.terraform.tfstate'
 
     - task: TerraformTaskV3@3
-      displayName: Validate environment
+      displayName: Validate ${{ ENV }} environment
       inputs:
         provider: 'azurerm'
         command: 'validate'
