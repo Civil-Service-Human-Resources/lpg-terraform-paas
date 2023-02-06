@@ -76,22 +76,22 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 
   sku_name = "standard"
 
-  # access_policy {
-  #   tenant_id = data.azurerm_client_config.current.tenant_id
-  #   object_id = data.azurerm_client_config.current.object_id
+  access_policy {
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = data.azurerm_client_config.current.object_id
 
-  #   key_permissions = [
-  #     "Get"
-  #   ]
+    key_permissions = [
+      "Get"
+    ]
 
-  #   secret_permissions = [
-  #     "Get"
-  #   ]
+    secret_permissions = [
+      "Get"
+    ]
 
-  #   storage_permissions = [
-  #     "Get"
-  #   ]
-  # }
+    storage_permissions = [
+      "Get"
+    ]
+  }
 
   access_policy {
 
