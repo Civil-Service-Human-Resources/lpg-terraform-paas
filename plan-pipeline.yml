@@ -37,7 +37,6 @@ steps:
       targetType: 'inline'
       script: |
         mkdir plan-files
-        ls
 
   - ${{ each ENV in parameters.environments }}:
     - task: Bash@3
@@ -46,10 +45,13 @@ steps:
         targetType: 'inline'
         script: |
           cd environments/master
-          echo "Validating $ENV environment..."
-          cp -r ../${{ ENV }}/docker-tags-vars.tf .
-          cp -r ../${{ ENV }}/state.tf .
-          cp -r ../${{ ENV }}/vars.tf vars.tf
+          rm -rf .terraform
+          rm -rf state.tf
+          rm -rf vars.tf
+          rm -rf docker-tags-vars.tf
+          cp -r ../$ENV/docker-tags-vars.tf .
+          cp -r ../$ENV/state.tf .
+          cp -r ../$ENV/vars.tf vars.tf
     
     - task: TerraformTaskV3@3
       displayName: ${{ ENV }} -  Run Terraform init
@@ -76,10 +78,3 @@ steps:
         backendAzureRmContainerName: 'tfstatesecure'
         backendAzureRmKey: '00-integration.terraform.tfstate'
         environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
-
-  - task: Bash@3
-    displayName: Create plan-files directory
-    inputs:
-      targetType: 'inline'
-      script: |
-        ls plan-files
