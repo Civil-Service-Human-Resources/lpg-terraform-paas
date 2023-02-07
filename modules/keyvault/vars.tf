@@ -18,6 +18,6 @@ variable "keyvault_users_group" {
   default = "CSL KeyVault users"
 }
 
-variable "keyvault_users_group_object_id"{
-  default = ""
-}
+# variable "keyvault_users_group_object_id"{
+#   default = ""
+# }
