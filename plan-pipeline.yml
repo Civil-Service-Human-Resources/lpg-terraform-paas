@@ -62,12 +62,6 @@ steps:
         backendAzureRmContainerName: 'tfstatesecure'
         backendAzureRmKey: '00-integration.terraform.tfstate'
 
-    - task: Bash@3
-      inputs:
-        targetType: 'inline'
-        script: 'export TF_VAR_keyvault_users_group_object_id=$(KEYVAULT_USERS_OBJECT_ID)'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-
     - task: TerraformTaskV3@3
       displayName: Run Terraform plan
       inputs:
@@ -75,5 +69,7 @@ steps:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
         environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
+        commandOptions: -input=false -var "TF_VAR_keyvault_users_group_object_id=$(KEYVAULT_USERS_OBJECT_ID)"
+
 
     
