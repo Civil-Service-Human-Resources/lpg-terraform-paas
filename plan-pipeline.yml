@@ -1,6 +1,10 @@
 trigger:
 - idt-feature-*
 
+variables:
+  - name: TF_VAR_keyvault_users_group_object_id
+    value: $(KEYVAULT_USERS_OBJECT_ID)
+    
 parameters:
   - name: environments
     type: object
