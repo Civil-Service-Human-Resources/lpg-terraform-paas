@@ -1,8 +1,5 @@
 trigger:
 - idt-feature-*
-
-variables:
-  TF_VAR_keyvault_users_group_object_id: $(KEYVAULT_USERS_OBJECT_ID)
     
 parameters:
   - name: environments
@@ -64,6 +61,11 @@ steps:
         backendAzureRmStorageAccountName: 'lpgterraformsecure'
         backendAzureRmContainerName: 'tfstatesecure'
         backendAzureRmKey: '00-integration.terraform.tfstate'
+
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: 'export TF_VAR_keyvault_users_group_object_id=${{ KEYVAULT_USERS_OBJECT_ID }}'
 
     - task: TerraformTaskV3@3
       displayName: Run Terraform plan
