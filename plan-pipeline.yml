@@ -10,7 +10,7 @@ parameters:
 variables:
   - group: Terraform variables
   - name: KV_OID
-    value: $[variables.KEYVAULT_USERS_GROUP_OBJECTID]
+    value: $[variables.keyvault_users_group_object_id]
 
 pool:
   vmImage: ubuntu-latest
