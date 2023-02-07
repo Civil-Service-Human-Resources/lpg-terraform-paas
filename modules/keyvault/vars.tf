@@ -19,5 +19,5 @@ variable "keyvault_users_group" {
 }
 
 variable "keyvault_users_group_object_id"{
-  default = ""
+  default = string
 }
