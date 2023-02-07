@@ -17,71 +17,71 @@ pool:
   
 
 steps:
-#   - task: TerraformInstaller@0
-#     displayName: Install Terraform
-#     inputs:
-#       terraformVersion: 0.13.5
+  - task: TerraformInstaller@0
+    displayName: Install Terraform
+    inputs:
+      terraformVersion: 0.13.5
 
-#   - task: AzureCLI@2
-#     displayName: Log in to Azure
-#     inputs:
-#       azureSubscription: 'PrincipalConnectionProduction'
-#       scriptType: 'bash'
-#       scriptLocation: 'inlineScript'
-#       inlineScript: |
-#         az account list
-#       addSpnToEnvironment: true
-#       useGlobalConfig: true
-
-#   - task: Bash@3
-#     displayName: Create plan-files directory
-#     inputs:
-#       targetType: 'inline'
-#       script: |
-#         mkdir plan-files
-
-#   - ${{ each ENV in parameters.environments }}:
-#     - task: Bash@3
-#       displayName: ${{ ENV }} - Copy necessary files from  environment
-#       inputs:
-#         targetType: 'inline'
-#         script: |
-#           cd environments/master
-#           rm -rf .terraform
-#           rm -rf state.tf
-#           rm -rf vars.tf
-#           rm -rf docker-tags-vars.tf
-#           cp -r ../${{ ENV }}/docker-tags-vars.tf .
-#           cp -r ../${{ ENV }}/state.tf .
-#           cp -r ../${{ ENV }}/vars.tf vars.tf
-    
-#     - task: TerraformTaskV3@3
-#       displayName: ${{ ENV }} -  Run Terraform init
-#       inputs:
-#         provider: 'azurerm'
-#         command: 'init'
-#         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-#         backendServiceArm: 'PrincipalConnectionProduction'
-#         backendAzureRmResourceGroupName: 'lpgterraform'
-#         backendAzureRmStorageAccountName: 'lpgterraformsecure'
-#         backendAzureRmContainerName: 'tfstatesecure'
-#         backendAzureRmKey: '00-integration.terraform.tfstate'
+  - task: AzureCLI@2
+    displayName: Log in to Azure
+    inputs:
+      azureSubscription: 'PrincipalConnectionProduction'
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az account list
+      addSpnToEnvironment: true
+      useGlobalConfig: true
 
   - task: Bash@3
+    displayName: Create plan-files directory
     inputs:
       targetType: 'inline'
       script: |
-        echo 'Hello world'
-        echo $(KV_OID)
+        mkdir plan-files
 
-    # - task: TerraformTaskV3@3
-    #   displayName: Run Terraform plan
-    #   inputs:
-    #     provider: 'azurerm'
-    #     command: 'plan'
-    #     workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-    #     environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
-    #     commandOptions: '-var keyvault_users_group_object_id=$(KV_OID)'
+  - ${{ each ENV in parameters.environments }}:
+    - task: Bash@3
+      displayName: ${{ ENV }} - Copy necessary files from  environment
+      inputs:
+        targetType: 'inline'
+        script: |
+          cd environments/master
+          rm -rf .terraform
+          rm -rf state.tf
+          rm -rf vars.tf
+          rm -rf docker-tags-vars.tf
+          cp -r ../${{ ENV }}/docker-tags-vars.tf .
+          cp -r ../${{ ENV }}/state.tf .
+          cp -r ../${{ ENV }}/vars.tf vars.tf
+    
+    - task: TerraformTaskV3@3
+      displayName: ${{ ENV }} -  Run Terraform init
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
+        backendServiceArm: 'PrincipalConnectionProduction'
+        backendAzureRmResourceGroupName: 'lpgterraform'
+        backendAzureRmStorageAccountName: 'lpgterraformsecure'
+        backendAzureRmContainerName: 'tfstatesecure'
+        backendAzureRmKey: '00-integration.terraform.tfstate'
+
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: |
+          echo 'Hello world'
+          echo $(KV_OID)
+
+    - task: TerraformTaskV3@3
+      displayName: Run Terraform plan
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
+        environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
+        commandOptions: '-var keyvault_users_group_object_id=$(KV_OID)'
 
 
     
