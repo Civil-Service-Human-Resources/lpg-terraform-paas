@@ -8,31 +8,16 @@ locals {
 	"csl-service",
 	"rustici-engine"
   ])
-  cdns = toset([
-	"cslsa${var.rg_env}"
-  ])
 }
 
-# module "app_certificate_bindings" {
-#   source = "../../modules/app_service_certificate_binding"
+module "app_certificate_bindings" {
+  source = "../../modules/app_service_certificate_binding"
 
-#   for_each = local.apps
+  for_each = local.apps
 
-#   app_name = each.value
-#   app_rg_name = local.rg_name
-#   domain = local.domain
-#   certificate_name = local.cert_name
-#   environment = var.environment
-# }
-
-module "cdn_bindings" {
-	source = "../../modules/cdn_binding"
-
-	for_each = local.cdns
-
-	cdn_name = each.value
-	rg_name = local.rg_name
-	domain = local.domain
-	environment = var.environment
-	location = var.location
+  app_name = each.value
+  app_rg_name = local.rg_name
+  domain = local.domain
+  certificate_name = local.cert_name
+  environment = var.environment
 }

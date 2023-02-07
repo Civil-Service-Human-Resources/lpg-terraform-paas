@@ -37,3 +37,8 @@ variable "allowed_ip_addresses" {
 	type = set(string)
 	description = "A set of IP addresses that are allowed to connect to this application."
 }
+
+variable "healthcheck_path_override" {
+  type = "string"
+  default = "/health"
+}

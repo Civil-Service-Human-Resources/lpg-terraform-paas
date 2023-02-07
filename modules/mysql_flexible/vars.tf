@@ -34,3 +34,8 @@ variable "size_in_gb" {
 	type = string
 	description = "(optional) describe your variable"
 }
+
+variable "databases" {
+	type = set(string)
+	description = "(optional) describe your variable"
+}

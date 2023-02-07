@@ -31,16 +31,25 @@ resource "azurerm_linux_web_app" "app_service" {
     minimum_tls_version = "1.2"
     http2_enabled       = false
 
-    health_check_path = "/health"
+    health_check_path = var.healthcheck_path_override
   }
 
   logs {
     application_logs {
       file_system_level = "Information"
     }
+	http_logs {
+	  file_system {
+		retention_in_days = 0
+		retention_in_mb = 35
+	  }
+
+	}
   }
 
 }
+
+# Outputs
 
 output "verification_id" {
   value = azurerm_linux_web_app.app_service.custom_domain_verification_id
@@ -48,4 +57,8 @@ output "verification_id" {
 
 output "default_hostname" {
 	value = azurerm_linux_web_app.app_service.default_hostname
+}
+
+output "ip_addresses" {
+	value = azurerm_linux_web_app.app_service.possible_outbound_ip_address_list
 }

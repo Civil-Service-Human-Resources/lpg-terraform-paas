@@ -13,15 +13,6 @@ module "redis" {
   redis_capacity = var.redis_capacity
 }
 
-module "course_content" {
-	source = "../../modules/blob_storage/blob"
-	location = var.rg_location
-	rg_name = var.rg_name
-	name = var.env_profile
-	containers = ["content"]
-	replication = "LRS"
-}
-
 
 module "redis-session" {
   source         = "../../modules/redis"
@@ -392,6 +383,7 @@ module "rustici_engine" {
     app_command_line                = "./installScript.sh"
 	# The browser will be interacting with Rustici, so we can't filter any IP addresses here
     allowed_ip_addresses            = []
+	healthcheck_path_override = "/ping"
 }
 
 module "rustici_mysql" {
@@ -401,6 +393,7 @@ module "rustici_mysql" {
 	rg_name = var.rg_name
 	size_in_gb = var.rustici_mysql_size_gb
 	sku = var.rustici_mysql_sku
+	databases = [ "RusticiEngineDB" ]
 }
 
 module "keyvault" {
