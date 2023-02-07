@@ -9,7 +9,7 @@ parameters:
 
 variables:
   - group: Terraform variables
-  - name: KEYVAULT_USERS_GROUP_OBJECTID
+  - name: KV_OID
     value: $[variables.KEYVAULT_USERS_GROUP_OBJECTID]
 
 pool:
@@ -74,7 +74,7 @@ steps:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
         environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
-        commandOptions: -var "keyvault_users_group_object_id=$(KEYVAULT_USERS_GROUP_OBJECTID)"
+        commandOptions: '-var keyvault_users_group_object_id=$(KV_OID)'
 
 
     
