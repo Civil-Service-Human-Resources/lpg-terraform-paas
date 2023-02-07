@@ -6,9 +6,6 @@ parameters:
     type: object
     default:
       - integration
-      - staging
-      - perf
-      - production
 
 pool:
   vmImage: ubuntu-latest
