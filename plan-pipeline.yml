@@ -7,10 +7,10 @@ parameters:
     default:
       - integration
 
-variables:
-  - group: Terraform variables
-  - name: KV_OID
-    value: $[variables.keyvault_users_group_object_id]
+# variables:
+#   - group: Terraform variables
+#   - name: KV_OID
+#     value: $[variables.keyvault_users_group_object_id]
 
 pool:
   vmImage: ubuntu-latest
@@ -81,7 +81,7 @@ steps:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
         environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
-        commandOptions: '-var keyvault_users_group_object_id=$(KV_OID)'
+        commandOptions: '-var keyvault_users_group_object_id=e0ccfbb8-379c-40d2-8e57-c8fe83bdd16b'
 
 
     
