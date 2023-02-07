@@ -72,7 +72,7 @@ steps:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
         environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
-        commandOptions: -input=false -var "keyvault_users_group_object_id=${{ KEYVAULT_USERS_GROUP_OBJECT_ID }}"
+        commandOptions: -input=false -var "keyvault_users_group_object_id=${{ variables.KEYVAULT_USERS_GROUP_OBJECT_ID }}"
 
 
     
