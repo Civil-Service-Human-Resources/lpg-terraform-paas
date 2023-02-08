@@ -46,6 +46,7 @@ steps:
     - task: Bash@3
       displayName: ${{ ENV.name }} - Copy necessary files from  environment
       inputs:
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
         targetType: 'inline'
         script: |
           cd environments/master
@@ -85,11 +86,6 @@ steps:
         script: 'mv $(System.DefaultWorkingDirectory)/environments/master/tfplan-${{ ENV.name }} $(System.DefaultWorkingDirectory)/plan-files'
         workingDirectory: '$(System.DefaultWorkingDirectory)'
 
-  - task: Bash@3
-    inputs:
-      targetType: 'inline'
-      script: 'ls'
-      workingDirectory: '$(System.DefaultWorkingDirectory)/plan-files'
       
   - task: PublishPipelineArtifact@1
     displayName: Publish plan files as artifacts
