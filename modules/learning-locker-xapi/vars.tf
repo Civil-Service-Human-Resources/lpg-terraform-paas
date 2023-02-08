@@ -1,103 +1,84 @@
 variable "learning_locker_xapi_name" {
-  default = "name"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "rg_name" {
-  default = "holder"
-}
-
-variable "rg_prefix" {
-  default = "rgpref"
-}
-
-variable "rg_location" {
-  default = "location"
-}
-
-variable "webapp_sku_tier" {
-  default = "Basic"
-}
-
-variable "webapp_sku_name" {
-  default = "B1"
-}
-
-variable "xapi_capacity" {
-  default = "1"
-}
-
-variable "docker_tag" {
-  default = "latest"
-}
-
-variable "docker_image" {
-  default = "lpg-learning-locker"
-}
-
-variable "domain" {
-  default = ""
-}
-
-variable "websites_port" {
-  default = "8083"
-}
-
-variable "mongo_url" {
-  default = "mongo_url"
-}
-
-variable "redis_url" {
-  default = "url"
-}
-
-variable "express_port" {
-  default = "8083"
-}
-
-variable "env_profile" {
-  default = "test"
-}
-
-variable "redis_prefix" {
-  default = "learninglocker"
-}
-
-variable "redis_use_tls" {
-  default = "1"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "vaultresourcegroup" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "vaultname" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "existingkeyvaultsecretname" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "certificatename" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "domain" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "envurl" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "custom_emails" {
-  default = ""
+variable "webapp_sku_tier" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "scaling_enabled" {
-  default = ""
+variable "webapp_sku_name" {
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "xapi_capacity" {
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "env_profile" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "docker_registry_server_url" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
+variable "docker_image" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
+variable "docker_tag" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
+variable "custom_emails" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
+variable "scaling_enabled" {
+	type = string
+	description = "(optional) describe your variable"
+}

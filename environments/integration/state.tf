@@ -11,5 +11,5 @@ provider "azurerm" {
   version = ">=3.0.0"
 
   features {} 
-  subscription_id = var.integration_subscription_id
+  subscription_id = module.subscription.subscription_id
 }

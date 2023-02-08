@@ -1,184 +1,79 @@
 variable "lpg_management_name" {
-  default = "name"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "rg_name" {
-  default = "holder"
+	type = string
+	description = "(optional) describe your variable"
 }
-
-variable "rg_prefix" {
-  default = "rgpref"
-}
-
-variable "rg_location" {
-  default = "location"
-}
-
-variable "webapp_sku_tier" {
-  default = "Basic"
-}
-
-variable "webapp_sku_name" {
-  default = "B1"
-}
-
-variable "lpg_management_capacity" {
-  default = "1"
-}
-
-variable "docker_tag" {
-  default = ""
-}
-
-variable "docker_repository" {
-  default = "lpg-management"
-}
-
-variable "docker_repository_region" {
-  default = "test"
-}
-
-variable "domain" {
-  default = ""
-}
-
-variable "request_timeout_ms" {
-  default = "60000"
-}
-
-variable "authentication_service_url" {
-  default = ""
-}
-
-variable "server_timeout_ms" {
-  default = "235000"
-}
-
-variable "authentication_service_timeout_ms" {
-  default = "60000"
-}
-
-variable "env_profile" {
-  default = "test"
-}
-
-variable "websites_port" {
-  default = "3001"
-}
-
-variable "envurl" {
-  default = "local"
-}
-
-
 
 variable "vaultresourcegroup" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "vaultname" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "existingkeyvaultsecretname" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "certificatename" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "lpg_management2_server" {
-  default = ""
+variable "domain" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "callback_url" {
-  default = ""
+variable "envurl" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "lpg_ui_url" {
-  default = ""
+variable "webapp_sku_tier" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "report_service_url" {
-  default = ""
+variable "webapp_sku_name" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "report_service_timeout_ms" {
-  default = "235000"
+variable "lpg_management_capacity" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "course_catalogue_url" {
-  default = "course_catalogue_url"
-}
-
-variable "course_catalogue_timeout_ms" {
-  default = "60000"
-}
-
-variable "course_catalogue_user" {
-  default = "course_catalogue_user"
-}
-
-variable "course_catalogue_pass" {
-  default = "course_catalogue_pass"
-}
-
-variable "content_url" {
-  default = ""
-}
-
-variable "youtube_timeout_ms" {
-  default = "60000"
-}
-
-variable "registry_service_url" {
-  default = ""
-}
-
-variable "registry_service_timeout_ms" {
-  default = "60000"
-}
-
-variable "learner_record_url" {
-  default = ""
-}
-
-variable "learner_record_timeout_ms" {
-  default = "60000"
-}
-
-variable "redis_host" {
-  default = ""
-}
-
-variable "redis_password" {
-  default = ""
-}
-
-variable "redis_port" {
-  default = ""
-}
-
-variable "org_redis_host" {
-  default = ""
-}
-
-variable "org_redis_password" {
-  default = ""
-}
-
-variable "org_redis_port" {
-  default = ""
-}
-
-variable "org_redis_ttl" {
-  default = "604800"
+variable "env_profile" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "docker_registry_server_url" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
+variable "docker_repository" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
+variable "docker_repository_region" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
+variable "docker_tag" {
+	type = string
+	description = "(optional) describe your variable"
+}

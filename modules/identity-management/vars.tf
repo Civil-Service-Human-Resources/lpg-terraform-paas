@@ -1,108 +1,44 @@
 variable "identity_management_name" {
-  default = "identity_management"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "rg_name" {
-  default = "holder"
-}
-
-variable "rg_prefix" {
-  default = "rgpref"
-}
-
-variable "rg_location" {
-  default = "location"
-}
-
-variable "webapp_sku_tier" {
-  default = "Basic"
-}
-
-variable "webapp_sku_name" {
-  default = "B1"
-}
-
-variable "docker_tag" {
-  default = "latest"
-}
-
-variable "docker_repository" {
-  default = "identity-management"
-}
-
-variable "docker_repository_region" {
-  default = "test"
-}
-
-variable "datasource" {
-  default = "db_url"
-}
-
-variable "websites_port" {
-  default = "8081"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "env_profile" {
-  default = "test"
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "vaultresourcegroup" {
-  default = ""
+variable "webapp_sku_tier" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "vaultname" {
-  default = ""
-}
-
-variable "existingkeyvaultsecretname" {
-  default = ""
-}
-
-variable "certificatename" {
-  default = ""
-}
-
-variable "envurl" {
-  default = ""
-}
-
-variable "authentication_service_url" {
-  default = ""
-}
-variable "identity_management_client_id" {
-  default = ""
-}
-
-variable "learner_record_url" {
-  default = ""
-}
-
-variable "registry_service_url" {
-  default = ""
-}
-
-variable "notification_service_url" {
-  default = ""
-}
-
-variable "identity_management_url" {
-  default = ""
+variable "webapp_sku_name" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "docker_registry_server_url" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
-
-
-
-
-
-
-variable "data_retention_cron_schedule" {
-  default = ""
+variable "docker_repository" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "data_retention_enabled" {
-  default = ""
+variable "docker_repository_region" {
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "docker_tag" {
+	type = string
+	description = "(optional) describe your variable"
 }

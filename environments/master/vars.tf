@@ -1,495 +1,401 @@
-### Gen vars ###
+variable "subscription_name" {
+	type = string
+	description = "Subscription to apply the update to"
+	default = "CSL-Staging"
+}
+
 variable "rg_name" {
-  type    = string
-  default = ""
+	default = "lpgintegration"
 }
 
 variable "rg_name_lpg_ui" {
-  type = string
-  default = ""
+	default =  "lpgintegration"
 }
 
 variable "rg_prefix" {
-  type    = string
-  default = ""
+	default =  "lpg"
 }
 
 variable "rg_location" {
-  type    = string
-  default = ""
+	default =  "UK South"
 }
 
 variable "serviceplan_suffix" {
-  type = string
-  default = ""
+	default =  "serviceplan"
 }
 
 variable "serviceplan_suffix_lpgui" {
-  type = string
-  default = ""
+	default =  "serviceplan"
 }
 
 variable "webapp_sku_tier" {
-  default = ""
+	default =  "Basic"
 }
 
 variable "webapp_sku_tier_p2" {
-  default = ""
+	default =  "PremiumV2"
 }
 
 variable "webapp_sku_name_1" {
-  default = ""
+	default =  "B1"
 }
 
 variable "webapp_sku_name_2" {
-  default = ""
+	default =  "B2"
 }
 
 variable "webapp_sku_name_3" {
-  default = ""
+	default =  "B3"
 }
 
 variable "webapp_sku_name_p1" {
-  default = ""
+	default =  "P1v2"
 }
 
 variable "webapp_sku_name_p2" {
-  default = ""
+	default =  "P1v2"
 }
 
 variable "webapp_sku_name_p3" {
-  default = ""
+	default =  "P1v2"
 }
 
 variable "identity_capacity" {
-  default = ""
+	default =  "2"
 }
 
 variable "csrs_capacity" {
-  default = ""
+	default =  "1"
 }
 
 variable "xapi_capacity" {
-  default = ""
+	default =  "1"
 }
 
 variable "learner_record_capacity" {
-  default = ""
+	default =  "1"
 }
 
 variable "learning_catalogue_capacity" {
-  default = ""
+	default =  "1"
 }
 
 variable "lpg_ui_capacity" {
-  default = ""
+	default =  "2"
 }
 
 variable "notification_capacity" {
-  default = ""
+	default =  "1"
 }
 
 variable "lpg_management_capacity" {
-  default = ""
+	default =  "1"
 }
 
 variable "envurl" {
-  default = ""
+	default =  ""
 }
 
 variable "domain" {
-  default = ""
+	default =  "integration.learn.civilservice.gov.uk"
 }
 
 variable "scaling_enabled" {
-  default = ""
+	default =  "false"
 }
 
 variable "env_profile" {
-  default = ""
+	default =  "integration"
 }
 
 variable "google_analytics_id" {
-  default = ""
+	default =  "UA-22141655-3"
 }
 
-### cosmos ###
 variable "cosmos_name" {
-  default = ""
+	default =  "cosmos"
 }
 
 variable "cosmos_offer_type" {
-  default = ""
+	default =  "Standard"
 }
 
 variable "cosmos_consistency_policy_level" {
-  default = ""
+	default =  "Strong"
 }
 
 variable "cosmos_failover_policy_location" {
-  default = ""
+	default =  "West Europe"
 }
 
-### redis ###
 variable "redis_queue_provider" {
-  default = ""
+	default =  "REDIS"
 }
 
 variable "redis_queue_namespace" {
-  default = ""
+	default =  "learninglocker"
 }
 
 variable "redis_prefix" {
-  default = ""
+	default =  "learninglocker"
 }
 
 variable "redis_use_tls" {
-  default = ""
+	default =  "1"
 }
 
 variable "redis_capacity" {
-  default = ""
+	default =  "0"
 }
 
 variable "redis_session_capacity" {
-  default = ""
+	default =  "0"
 }
 
 variable "redis_org_capacity" {
-  default = ""
+	default =  "0"
 }
 
-### identity ###
 variable "identity_name" {
-  default = ""
+	default =  "identity"
 }
 
-### lpg-learner-record ###
 variable "lpg_learner_record_name" {
-  default = ""
+	default =  "lpg-learner-record"
 }
 
 variable "lpg_learner_record_websites_port" {
-  default = ""
+	default =  "9000"
 }
 
 variable "learner_record_command_line" {
-  default = ""
+	default =  "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
 
-### learning-locker-general ###
 variable "lpg_testing" {
-  default = ""
+	default =  "1"
 }
 
-### learning-locker-xapi ###
 variable "lpg_learning_locker_xapi_name" {
-  default = ""
+	default =  "learning-locker-xapi"
 }
 
 variable "ll_xapi_express_port" {
-  default = ""
+	default =  "8083"
 }
 
-### learning-locker-worker ###
 variable "lpg_learning_locker_worker_name" {
-  default = ""
+	default =  "learning-locker-api-worker"
 }
 
 variable "worker_api_env_app" {
-  default = ""
+	default =  "learning-locker-api-worker"
 }
 
-### learning-locker-ui ###
 variable "lpg_learning_locker_ui_name" {
-  default = ""
+	default =  "learning-locker-ui"
 }
 
 variable "lpg_learning_locker_api_port" {
-  default = ""
+	default =  "8082"
 }
 
 variable "ll_ui_port" {
-  default = ""
+	default =  "80"
 }
 
-### lpg-ui ###
 variable "lpg_ui_name" {
-  default = ""
+	default =  "lpg-ui"
 }
 
 variable "ui_websites_port" {
-  default = ""
+	default =  "3001"
 }
 
 variable "ui_server_timeout_ms" {
-  default = ""
+	default =  "235000"
 }
 
 variable "ui_static_asset_ttl" {
-  default = ""
+	default =  "86400000"
 }
 
 variable "ui_static_asset_root" {
-  default = ""
+	default =  "https://asset-cdn.integration.learn.civilservice.gov.uk"
 }
 
-### lpg-learning-catalogue ###
 variable "lpg_learning_catalogue_name" {
-  default = ""
+	default =  "lpg-learning-catalogue"
 }
 
 variable "azure_account_name" {
-  default = ""
+	default =  "lpgdev"
 }
 
-### mysql_gp ###
 variable "mysql_name_gp" {
-  default = ""
+	default =  "gp"
 }
 
-variable "mysql_user" {
-  default = ""
-}
-
-variable "mysql_pass" {
-  default = ""
-}
-
-variable "mysql_pass_ll" {
-  default = ""
-}
-
-### mysql_ll ###
 variable "mysql_name_ll" {
-  default = ""
+	default =  "ll"
 }
 
 variable "mysql_storage" {
-  default = ""
+	default =  "4194304"
 }
 
-### civil-servant-registry ###
 variable "civil_servant_registry_name" {
-  default = ""
+	default =  "civil-servant-registry"
 }
 
 variable "agency_token_max_capacity" {
-  default = ""
+	default =  "5000"
 }
 
 variable "agency_token_min_capacity" {
-  default = ""
+	default =  "1"
 }
 
 variable "lpg_report_service_name" {
-  default = ""
+	default =  "lpg-report-service"
 }
 
 variable "report_service_websites_port" {
-  default = ""
+	default =  "9004"
 }
 
 variable "report_service_command_line" {
-  default = ""
+	default =  "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
 
 variable "spring_profiles_active" {
-  default = ""
-}
-
-### identity-management ###
-
-variable "identity_management_name" {
-  default = ""
+	default =  "test,production"
 }
 
 variable "identity_management_data_retention_cron_schedule" {
-  default = ""
+	default =  "0 0 5 * * *"
 }
 
 variable "identity_management_data_retention_enabled" {
-  default = ""
+	default =  "true"### lpg-management ###
 }
 
-
-### lpg-management ###
 variable "lpg_management_name" {
-  default = ""
+	default =  "lpg-management"
 }
 
 variable "lpg_management_websites_port" {
-  default = ""
+	default =  "3005"
 }
 
 variable "content_container" {
-  default = ""
+	default =  "lpgdevcontent"
 }
 
 variable "lpg_management_report_service_timeout_ms" {
-  default = ""
+	default =  "235000"
 }
 
 variable "lpg_management_request_timeout_ms" {
-  default = ""
+	default =  "60000"
 }
 
 variable "lpg_management_server_timeout_ms" {
-  default = ""
+	default =  "235000"
 }
 
 variable "lpg_management_authentication_service_timeout_ms" {
-  default = ""
+	default =  "60000"
 }
 
 variable "lpg_management_youtube_timeout_ms" {
-  default = ""
+	default =  "60000"
 }
 
 variable "lpg_management_course_catalogue_timeout_ms" {
-  default = ""
+	default =  "60000"
 }
 
 variable "lpg_management_learner_record_timeout_ms" {
-  default = ""
+	default =  "60000"
 }
 
 variable "lpg_management_civil_servant_registry_service_timeout_ms" {
-  default = ""
+	default =  "60000"
 }
 
-### notification-service ###
 variable "notification_service_name" {
-  default = ""
+	default =  "notification-service"
 }
 
-### data-transchriver ###ß
 variable "data_transchiver_name" {
-  default = ""
+	default =  "lpg-data-transchriver"
 }
 
 variable "job_schedule" {
-  default = ""
+	default =  "0 1 21 * * *"
 }
+
 variable "invite_validity" {
-  default = ""
+	default =  "259200"
 }
+
 variable "duration_after_rereg_allowed_seconds" {
-  default = ""
+	default =  "86400"
 }
 
 variable "backend_api_call_batch_size" {
-  default = ""
+	default =  "50"
 }
 
 variable "identity_base_url" {
-  default = ""
-}
-
-variable "identity_docker_tag" {
-  default = ""
-}
-
-variable "identity_docker_repository_region"{
-  default = ""
+	default =  "https://identity.integration.learn.civilservice.gov.uk"
 }
 
 variable "vaultresourcegroup" {
-  default = ""
+	default = "lpg-prod-keyvault"
 }
 
 variable "vaultname" {
-  default = ""
+	default = "lpg-prod-kv"
 }
 
 variable "custom_emails" {
-  default = ""
+	default = "robertm@kainos.com"
 }
 
 variable "docker_registry_server_url" {
-  default = ""
-}
-
-variable "identity_management_docker_tag" {
-  default = ""
-}
-
-variable "identity_management_docker_repository_region" {
-  default = ""
-}
-
-variable "lpg_learner_record_docker_tag" {
-  default = ""
-}
-
-variable "lpg_learner_record_docker_repository_region" {
-  default = ""
-}
-
-variable "lpg_report_service_docker_tag" {
-  default = ""
-}
-
-variable "lpg_report_service_docker_repository_region" {
-  default = ""
-}
-
-variable "ll_docker_tag" {
-  default = ""
-}
-
-variable "lpg_services_docker_repository_region" {
-  default = ""
-}
-
-variable "lpg_services_tag" {
-  default = ""
-}
-
-variable "learning_catalogue_docker_tag" {
-  default = ""
-}
-
-variable "learning_catalogue_docker_repository_region" {
-  default = ""
-}
-
-variable "civil_servant_registry_docker_tag" {
-  default = ""
-}
-
-variable "civil_servant_registry_docker_repository_region" {
-  default = ""
-}
-
-variable "lpg_management_tag" {
-  default = ""
-}
-
-variable "lpg_management_docker_repository_region" {
-  default = ""
-}
-
-variable "notification_service_tag" {
-  default = ""
-}
-
-variable "notification_service_docker_repository_region" {
-  default = ""
-}
-
-variable "data_transchiver_tag" {
-  default = ""
+	default = "lpgregistry.azurecr.io"
 }
 
 variable "existingkeyvaultsecretname" {
-  default = ""
+	default = "star-integration-learn-civil-service-gov-uk-pfxsecret-2022"
 }
 
 variable "certificatename" {
-  default = ""
+	default = "star-integration-learn-civil-service-gov-uk-2022"
 }
 
 variable "ui_existingkeyvaultsecretname" {
-  default = ""
+	default = "star-integration-learn-civil-service-gov-uk-pfxsecret-2022"
+}
+
+variable "ui_certificatename" {
+	default = "star-integration-learn-civil-service-gov-uk-2022"
+}
+
+variable "identity_management_name" {
+	default = "identity-management"
+}
+
+## CSL-Service ##
+
+variable "csl_service_vertical_scale" {
+	type = string
+	default = "P1v2"
+}
+
+variable "csl_service_horizontal_scale" {
+	type = number
+	default = 1
 }

@@ -1,71 +1,54 @@
+variable "allowed_ip_addresses" {
+	type = set(string)
+	description = "A set of IP addresses that are allowed to connect to this application."
+}
+
 variable "notification_service_name" {
-  default = "name"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "rg_name" {
-  default = "holder"
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "rg_prefix" {
-  default = "rgpref"
-}
-
-variable "rg_location" {
-  default = "location"
+variable "env_profile" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "webapp_sku_tier" {
-  default = "Basic"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "webapp_sku_name" {
-  default = "B1"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "notification_capacity" {
-  default = "1" 
-}
-
-variable "docker_tag" {
-  default = ""
-}
-
-variable "docker_repository" {
-  default = "notification-service"
-}
-
-variable "docker_repository_region" {
-  default = "test"
-}
-
-variable "envurl" {
-  default = "local"
-}
-
-
-
-variable "env_profile" {
-  default = "test"
-}
-
-variable "websites_port" {
-  default = "9006"
-}
-
-variable "authentication_service_url" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "docker_registry_server_url" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
+variable "docker_repository" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
+variable "docker_repository_region" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
-
-
-
-
-variable "allowed_ip_addresses" {
-	type = set(string)
+variable "docker_tag" {
+	type = string
+	description = "(optional) describe your variable"
 }

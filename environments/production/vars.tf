@@ -1,4 +1,11 @@
 ### Gen vars ###
+
+variable "subscription_name" {
+	type = string
+	description = "Subscription to apply the update to"
+	default = "CSL-Production"
+}
+
 variable "rg_name" {
   type    = string
   default = "lpgprod"
@@ -427,4 +434,16 @@ variable "existingkeyvaultsecretname" {
 
 variable "ui_existingkeyvaultsecretname" {
   default = "learn-civilservice-gov-uk-pfxsecret-2023"
+}
+
+## CSL-Service ##
+
+variable "csl_service_vertical_scale" {
+	type = string
+	default = "P1v2"
+}
+
+variable "csl_service_horizontal_scale" {
+	type = number
+	default = 1
 }

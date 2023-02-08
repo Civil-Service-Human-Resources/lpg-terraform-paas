@@ -1,3 +1,9 @@
+variable "subscription_name" {
+	type = string
+	description = "Subscription to apply the update to"
+	default = "CSL-Staging"
+}
+
 variable "rg_name" {
   default = "lpgstaging"
 }
@@ -374,6 +380,22 @@ variable "ui_existingkeyvaultsecretname" {
   default = "star-staging-learn-civil-service-gov-uk-pfxsecret-2022"
 }
 
+variable "ui_certificatename" {
+	default = "star-staging-learn-civil-service-gov-uk-2022"
+}
+
 variable "identity_management_name" {
   default = "identity-management"
+}
+
+## CSL-Service ##
+
+variable "csl_service_vertical_scale" {
+	type = string
+	default = "P1v2"
+}
+
+variable "csl_service_horizontal_scale" {
+	type = number
+	default = 1
 }

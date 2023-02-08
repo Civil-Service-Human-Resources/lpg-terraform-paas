@@ -1,118 +1,95 @@
+variable "allowed_ip_addresses" {
+	type = set(string)
+	description = "A set of IP addresses that are allowed to connect to this application."
+}
+
 variable "civil_servant_registry_name" {
-  default = "civil-servant-registry"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "rg_name" {
-  default = "holder"
-}
-
-variable "rg_prefix" {
-  default = "rgpref"
-}
-
-variable "rg_location" {
-  default = "location"
-}
-
-variable "webapp_sku_tier" {
-  default = "Basic"
-}
-
-variable "webapp_sku_name" {
-  default = "B1"
-}
-
-variable "csrs_capacity" {
-  default = "1"
-}
-
-
-variable "docker_tag" {
-  default = "latest"
-}
-
-variable "docker_repository" {
-  default = "civil-servant-registry-service"
-}
-
-variable "docker_repository_region" {
-  default = "test"
-}
-
-variable "domain" {
-  default = ""
-}
-
-variable "datasource" {
-  default = "db_url"
-}
-
-variable "websites_port" {
-  default = "9002"
-}
-
-variable "env_profile" {
-  default = "test"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "vaultresourcegroup" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "vaultname" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "existingkeyvaultsecretname" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "certificatename" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "domain" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "envurl" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
-
-variable "check_token_url" {
-  default = ""
+variable "webapp_sku_tier" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "gov_notify_linemanager_template_id" {
-  default = "52052be1-b468-40ad-a161-cb5e4f034d4f"
+variable "webapp_sku_name" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "authentication_service_url" {
-  default = ""
+variable "csrs_capacity" {
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "env_profile" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "docker_registry_server_url" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
+variable "docker_repository" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
+variable "docker_repository_region" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
-
+variable "docker_tag" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
 variable "custom_emails" {
-  default = ""
+	type = string
+	default = ""
+	description = "(optional) describe your variable"
 }
 
 variable "scaling_enabled" {
-  default = ""
-}
-
-variable "agency_token_max_capacity" {
-  default = "1500"
-}
-
-variable "agency_token_min_capacity" {
-  default = "1"
-}
-
-
-variable "allowed_ip_addresses" {
-	type = set(string)
+	type = string
+	description = "(optional) describe your variable"
 }

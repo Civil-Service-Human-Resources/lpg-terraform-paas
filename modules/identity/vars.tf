@@ -1,149 +1,94 @@
 variable "identity_name" {
-  default = "identity"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "rg_name" {
-  default = "holder"
-}
-
-variable "rg_prefix" {
-  default = "rgpref"
-}
-
-variable "rg_location" {
-  default = "location"
-}
-
-variable "serviceplan_suffix" {
-  default = "serviceplan"
-}
-
-variable "webapp_sku_tier" {
-  default = "Basic"
-}
-
-variable "webapp_sku_name" {
-  default = "B1"
-}
-
-variable "identity_capacity" {
-  default = "1"
-}
-
-variable "docker_tag" {
-  default = "latest"
-}
-
-variable "docker_repository" {
-  default = "identity-service"
-}
-
-variable "docker_repository_region" {
-  default = "test"
-}
-
-variable "domain" {
-  default = ""
-}
-
-variable "datasource" {
-  default = "db_url"
-}
-
-variable "websites_port" {
-  default = "8080"
-}
-
-variable "env_profile" {
-  default = "test"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "vaultresourcegroup" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "vaultname" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "existingkeyvaultsecretname" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "certificatename" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "domain" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "envurl" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
-
-
-variable "invite_signup_url" {
-  default = ""
+variable "serviceplan_suffix" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "reset_url" {
-  default = ""
+variable "webapp_sku_tier" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "lpg_ui_url" {
-  default = ""
+variable "webapp_sku_name" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "redis_host" {
-  default = ""
+variable "identity_capacity" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "redis_password" {
-  default = ""
-}
-
-variable "redis_port" {
-  default = ""
+variable "env_profile" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "docker_registry_server_url" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
+variable "docker_repository" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
+variable "docker_repository_region" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
-
+variable "docker_tag" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
 variable "custom_emails" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "scaling_enabled" {
-  default = ""
-}
-
-variable "authentication_service_url" {
-  default = ""
-}
-
-variable "registry_service_url" {
-  default = ""
-}
-
-
-variable "invite_validity" {
-  default = "259200"
-}
-variable "duration_after_rereg_allowed_seconds" {
-  default = "86400"
-}
-
-variable "identity_base_url" {
-  default = ""
-}
-
-variable "identity_management_docker_tag" {
-  default = ""
-}
-
-variable "identity_management_docker_repository_region" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }

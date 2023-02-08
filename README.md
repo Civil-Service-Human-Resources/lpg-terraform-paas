@@ -13,6 +13,10 @@ In order to run the code in this repository, the following should be installed o
 
 - Azure Account for LPG
 
+#### access key for state file
+
+- The access key for the state's relevant blob storage account must be set in an environment variable named `access_key`. This can be found in the Azure portal.
+
 ------------
 
 ### Azure Access
@@ -70,33 +74,18 @@ Once the environment has been configured and updated as required for the deploym
 To deploy for a specific environment, use the `plan.sh` script:
 
 ```sh
-./scripts/management/plan.sh <environment>
+./plan.sh <environment>
 ```
 
-This will create a `plan/<environment>` directory. Once you're happy with the plan, point your terminal to that directory and run `terraform apply`:
+This will sync files from the environment into the `master` directory. Once you're happy with the plan, run `terraform apply`:
 
 For example, for integration:
 
 ```sh
-cd plan/integration
+cd environments/master
+./plan.sh integration
 terraform apply "tfplan-integration"
 ```
-
-#### Targeted Deployment
-
-Module names can be found in the `modules` directory.
-
-To do a targeted deployment of a single module:
-
-1. `terraform plan -target=module.lpg-ui`
-2. `terraform apply -target=module.lpg-ui`
-
-To do a targeted deployment of multiple modules:
-
-1. `terraform plan -target=module.lpg-ui -target=module.lpg-learner-record`
-2. `terraform apply -target=module.lpg-ui -target=module.lpg-learner-record`
-
-Note the section in the cosmos module that needs to be un-commented for **stage** only deploys.
 
 ------------
 

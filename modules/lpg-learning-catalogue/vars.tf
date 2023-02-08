@@ -1,132 +1,90 @@
+
 variable "lpg_learning_catalogue_name" {
-  default = "name"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "rg_name" {
-  default = "holder"
-}
-
-variable "rg_prefix" {
-  default = "rgpref"
-}
-
-variable "rg_location" {
-  default = "location"
-}
-
-variable "webapp_sku_tier" {
-  default = "Basic"
-}
-
-variable "webapp_sku_name" {
-  default = "B1"
-}
-
-variable "learning_catalogue_capacity" {
-  default = "1"
-}
-
-variable "docker_tag" {
-  default = "latest"
-}
-
-variable "docker_repository" {
-  default = "lpg-learning-catalogue"
-}
-
-variable "docker_repository_region" {
-  default = "test"
-}
-
-variable "domain" {
-  default = ""
-}
-
-variable "websites_port" {
-  default = "9001"
-}
-
-variable "auth_user" {
-  default = "user"
-}
-
-variable "auth_password" {
-  default = "password"
-}
-
-variable "elasticsearch_protocol" {
-  default = "elasticsearch_protocol"
-}
-
-variable "elasticsearch_port" {
-  default = "elasticsearch_port"
-}
-
-variable "env_profile" {
-  default = "test"
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "vaultresourcegroup" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "vaultname" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "existingkeyvaultsecretname" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "certificatename" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "domain" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "envurl" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "azure_account_name" {
-  default = "lpgdev"
+variable "webapp_sku_tier" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "azure_storage_container" {
-  default = "lpgdevcontent"
+variable "webapp_sku_name" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "oauth_service_url" {
-  default = "oauth_service_url"
+variable "learning_catalogue_capacity" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
-variable "client_id" {
-  default = ""
-}
-
-variable "client_secret" {
-  default = ""
-}
-
-variable "learner_record_url" {
-  default = ""
-}
-
-variable "registry_service_url" {
-  default = ""
+variable "env_profile" {
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "docker_registry_server_url" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
+variable "docker_repository" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
+variable "docker_repository_region" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
-
+variable "docker_tag" {
+	type = string
+	description = "(optional) describe your variable"
+}
 
 variable "custom_emails" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
 
 variable "scaling_enabled" {
-  default = ""
+	type = string
+	description = "(optional) describe your variable"
 }
-

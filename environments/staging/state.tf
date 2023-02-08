@@ -8,9 +8,9 @@ terraform {
 }
 
 provider "azurerm" {
-  version = ">3.0.0"
+  version = ">=3.0.0"
 
   features {} 
-  subscription_id = var.staging_subscription_id
+  subscription_id = module.subscription.subscription_id
 }
 

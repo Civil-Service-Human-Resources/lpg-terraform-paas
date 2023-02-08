@@ -3,14 +3,20 @@ terraform {
   backend "azurerm" {
     storage_account_name = "lpgterraformsecure"
     container_name       = "tfstatesecure"
-    key                  = "00-perf.terraform.tfstate"
+    key                  = "prod-devops.terraform.tfstate"
+	resource_group_name = "lpgterraform"
+  }
+
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "=3.5.0"
+    }
   }
 }
 
 provider "azurerm" {
-  version = ">=3.0.0"
-
-  features {} 
   subscription_id = module.subscription.subscription_id
+  features {} 
 }
 

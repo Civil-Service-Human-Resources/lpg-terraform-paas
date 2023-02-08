@@ -1,4 +1,11 @@
 ### Gen vars ###
+
+variable "subscription_name" {
+	type = string
+	description = "Subscription to apply the update to"
+	default = "CSL-Staging"
+}
+
 variable "rg_name" {
   type    = string
   default = "lpgperf"
@@ -428,4 +435,16 @@ variable "ui_existingkeyvaultsecretname" {
 
 variable "custom_emails" {
   default = "pritpalp@kainos.com"
+}
+
+## CSL-Service ##
+
+variable "csl_service_vertical_scale" {
+	type = string
+	default = "P1v2"
+}
+
+variable "csl_service_horizontal_scale" {
+	type = number
+	default = 1
 }
