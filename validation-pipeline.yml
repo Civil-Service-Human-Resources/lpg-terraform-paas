@@ -1,5 +1,11 @@
 trigger:
-- idt-feature-*
+  branches:
+    include:
+      - master
+      - idt-develop
+      - idt-feature-LC-*
+      - idt-release-v*
+      - idt-hotfix-v*
 
 parameters:
   - name: environments
