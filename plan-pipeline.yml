@@ -6,15 +6,13 @@ parameters:
     type: object
     default:
       - integration
+      - {"name": "integration", "blobKey": "00-integration.terraform.tfstate"}
       - staging
+      - {"name": "staging", "blobKey": "00-staging.terraform.tfstate"}
       - perf
+      - {"name": "perf", "blobKey": "00-perf.terraform.tfstate"}
       - production
-
-  - name: people
-    type: object
-    default:
-      - {"name": "Savvas", "age": 36}
-      - {"name": "Alice", "age": 40}
+      - {"name": "production", "blobKey": "prod.terraform.tfstate"}
 
 variables:
   - group: Terraform variables
@@ -23,92 +21,83 @@ variables:
 
 pool:
   vmImage: ubuntu-latest
-  
 
 steps:
-  - ${{ each PERSON in parameters.people }}:
+  - task: TerraformInstaller@0
+    displayName: Install Terraform
+    inputs:
+      terraformVersion: 0.13.5
+
+  - task: AzureCLI@2
+    displayName: Log in to Azure
+    inputs:
+      azureSubscription: 'PrincipalConnectionProduction'
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az account list
+      addSpnToEnvironment: true
+      useGlobalConfig: true
+
+  - task: Bash@3
+    displayName: Create plan-files directory
+    inputs:
+      targetType: 'inline'
+      script: |
+        mkdir plan-files
+
+  - ${{ each ENV in parameters.environments }}:
     - task: Bash@3
+      displayName: ${{ ENV.name }} - Copy necessary files from  environment
       inputs:
         targetType: 'inline'
         script: |
-          echo ${{ PERSON.name }}
-          echo ${{ PERSON.age }}
-
-  # - task: TerraformInstaller@0
-  #   displayName: Install Terraform
-  #   inputs:
-  #     terraformVersion: 0.13.5
-
-  # - task: AzureCLI@2
-  #   displayName: Log in to Azure
-  #   inputs:
-  #     azureSubscription: 'PrincipalConnectionProduction'
-  #     scriptType: 'bash'
-  #     scriptLocation: 'inlineScript'
-  #     inlineScript: |
-  #       az account list
-  #     addSpnToEnvironment: true
-  #     useGlobalConfig: true
-
-  # - task: Bash@3
-  #   displayName: Create plan-files directory
-  #   inputs:
-  #     targetType: 'inline'
-  #     script: |
-  #       mkdir plan-files
-
-  # - ${{ each ENV in parameters.environments }}:
-  #   - task: Bash@3
-  #     displayName: ${{ ENV }} - Copy necessary files from  environment
-  #     inputs:
-  #       targetType: 'inline'
-  #       script: |
-  #         cd environments/master
-  #         rm -rf .terraform
-  #         rm -rf state.tf
-  #         rm -rf vars.tf
-  #         rm -rf docker-tags-vars.tf
-  #         cp -r ../${{ ENV }}/docker-tags-vars.tf .
-  #         cp -r ../${{ ENV }}/state.tf .
-  #         cp -r ../${{ ENV }}/vars.tf vars.tf
+          cd environments/master
+          rm -rf .terraform
+          rm -rf state.tf
+          rm -rf vars.tf
+          rm -rf docker-tags-vars.tf
+          cp -r ../${{ ENV.name }}/docker-tags-vars.tf .
+          cp -r ../${{ ENV.name }}/state.tf .
+          cp -r ../${{ ENV.name }}/vars.tf vars.tf
     
-  #   - task: TerraformTaskV3@3
-  #     displayName: ${{ ENV }} -  Run Terraform init
-  #     inputs:
-  #       provider: 'azurerm'
-  #       command: 'init'
-  #       workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-  #       backendServiceArm: 'PrincipalConnectionProduction'
-  #       backendAzureRmResourceGroupName: 'lpgterraform'
-  #       backendAzureRmStorageAccountName: 'lpgterraformsecure'
-  #       backendAzureRmContainerName: 'tfstatesecure'
-  #       backendAzureRmKey: '00-integration.terraform.tfstate'
+    - task: TerraformTaskV3@3
+      displayName: ${{ ENV.name }} -  Run Terraform init
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
+        backendServiceArm: 'PrincipalConnectionProduction'
+        backendAzureRmResourceGroupName: 'lpgterraform'
+        backendAzureRmStorageAccountName: 'lpgterraformsecure'
+        backendAzureRmContainerName: 'tfstatesecure'
+        backendAzureRmKey: '{{ ENV.blobKey }}'
 
-  #   - task: TerraformTaskV3@3
-  #     displayName: ${{ ENV }} - Run Terraform plan
-  #     inputs:
-  #       provider: 'azurerm'
-  #       command: 'plan'
-  #       workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-  #       environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
-  #       commandOptions: '-var keyvault_users_group_object_id=$(KV_OID) -out tfplan-${{ ENV }}'
+    - task: TerraformTaskV3@3
+      displayName: ${{ ENV.name }} - Run Terraform plan
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
+        environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
+        commandOptions: '-var keyvault_users_group_object_id=$(KV_OID) -out tfplan-${{ ENV.name }}'
 
-  #   - task: Bash@3
-  #     displayName: Move plan file to plan-files
-  #     inputs:
-  #       targetType: 'inline'
-  #       script: 'mv $(System.DefaultWorkingDirectory)/environments/master/tfplan-${{ ENV }} $(System.DefaultWorkingDirectory)/plan-files'
-  #       workingDirectory: '$(System.DefaultWorkingDirectory)'
+    - task: Bash@3
+      displayName: Move plan file to plan-files
+      inputs:
+        targetType: 'inline'
+        script: 'mv $(System.DefaultWorkingDirectory)/environments/master/tfplan-${{ ENV.name }} $(System.DefaultWorkingDirectory)/plan-files'
+        workingDirectory: '$(System.DefaultWorkingDirectory)'
 
-  # - task: Bash@3
-  #   inputs:
-  #     targetType: 'inline'
-  #     script: 'ls'
-  #     workingDirectory: '$(System.DefaultWorkingDirectory)/plan-files'
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: 'ls'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/plan-files'
       
-  # - task: PublishPipelineArtifact@1
-  #   displayName: Publish plan files as artifacts
-  #   inputs:
-  #     targetPath: $(System.DefaultWorkingDirectory)/plan-files
-  #     artifactName: CSLPlanFiles
+  - task: PublishPipelineArtifact@1
+    displayName: Publish plan files as artifacts
+    inputs:
+      targetPath: $(System.DefaultWorkingDirectory)/plan-files
+      artifactName: CSLPlanFiles
     
