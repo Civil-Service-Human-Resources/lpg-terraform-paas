@@ -5,13 +5,9 @@ parameters:
   - name: environments
     type: object
     default:
-      - integration
       - {"name": "integration", "blobKey": "00-integration.terraform.tfstate"}
-      - staging
       - {"name": "staging", "blobKey": "00-staging.terraform.tfstate"}
-      - perf
       - {"name": "perf", "blobKey": "00-perf.terraform.tfstate"}
-      - production
       - {"name": "production", "blobKey": "prod.terraform.tfstate"}
 
 variables:
