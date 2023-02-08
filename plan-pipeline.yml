@@ -8,7 +8,6 @@ parameters:
       - {"name": "integration", "blobKey": "00-integration.terraform.tfstate"}
       - {"name": "staging", "blobKey": "00-staging.terraform.tfstate"}
       - {"name": "perf", "blobKey": "00-perf.terraform.tfstate"}
-      - {"name": "production", "blobKey": "prod.terraform.tfstate"}
 
 variables:
   - group: Terraform variables
