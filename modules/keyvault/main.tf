@@ -1,52 +1,24 @@
+locals {
+  keyvault_access_apps = toset([
+	"civil-servant-registry",
+	"identity",
+	"identity-management",
+	"learning-locker-ui",
+	"learning-locker-api-worker",
+	"learning-locker-xapi",
+	"lpg-learner-record",
+	"lpg-learning-catalogue",
+	"lpg-management",
+	"lpg-report-service",
+	"notification-service"
+  ])
+}
+
 data "azurerm_client_config" "current" {}
 
-data "azurerm_linux_web_app" "CSRSAppData" {
-  name                = "lpg-${var.rg_name}-civil-servant-registry"
-  resource_group_name = var.rg_name
-}
-
-data "azurerm_linux_web_app" "IdentityAppData" {
-  name                = "lpg-${var.rg_name}-identity"
-  resource_group_name = var.rg_name
-}
-
-data "azurerm_linux_web_app" "IdentityManagementAppData" {
-  name                = "lpg-${var.rg_name}-identity-management"
-  resource_group_name = var.rg_name
-}
-
-data "azurerm_linux_web_app" "LearningLockerUIAppData" {
-  name                = "lpg-${var.rg_name}-learning-locker-ui"
-  resource_group_name = var.rg_name
-}
-
-data "azurerm_linux_web_app" "LearningLockerWorkerAppData" {
-  name                = "lpg-${var.rg_name}-learning-locker-api-worker"
-  resource_group_name = var.rg_name
-}
-
-data "azurerm_linux_web_app" "LearningLockerXapiAppData" {
-  name                = "lpg-${var.rg_name}-learning-locker-xapi"
-  resource_group_name = var.rg_name
-}
-
-data "azurerm_linux_web_app" "LearnerRecordAppData" {
-  name                = "lpg-${var.rg_name}-lpg-learner-record"
-  resource_group_name = var.rg_name
-}
-
-data "azurerm_linux_web_app" "LearningCatalogueAppData" {
-  name                = "lpg-${var.rg_name}-lpg-learning-catalogue"
-  resource_group_name = var.rg_name
-}
-
-data "azurerm_linux_web_app" "LPGManagementAppData" {
-  name                = "lpg-${var.rg_name}-lpg-management"
-  resource_group_name = var.rg_name
-}
-
-data "azurerm_linux_web_app" "ReportServiceAppData" {
-  name                = "lpg-${var.rg_name}-lpg-report-service"
+data "azurerm_linux_web_app" "access_policy_app" {
+  for_each = local.keyvault_access_apps
+  name                = "lpg-${var.rg_name}-${each.value}"
   resource_group_name = var.rg_name
 }
 
@@ -55,10 +27,6 @@ data "azurerm_linux_web_app" "LPGUIAppData" {
   resource_group_name = var.rg_name_lpg_ui
 }
 
-data "azurerm_linux_web_app" "NotificationServiceAppData" {
-  name                = "lpg-${var.rg_name}-notification-service"
-  resource_group_name = var.rg_name
-}
 
 # data "azuread_group" "KeyVaultUsersGroup" {
 #   display_name     = var.keyvault_users_group
@@ -75,232 +43,12 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
   purge_protection_enabled    = false
 
   sku_name = "standard"
+}
 
-  # access_policy {
-  #   tenant_id = data.azurerm_client_config.current.tenant_id
-  #   object_id = data.azurerm_client_config.current.object_id
-
-  #   key_permissions = [
-  #     "Get"
-  #   ]
-
-  #   secret_permissions = [
-  #     "Get"
-  #   ]
-
-  #   storage_permissions = [
-  #     "Get"
-  #   ]
-  # }
-
-  access_policy {
-
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.IdentityAppData.identity.0.principal_id
-
-    key_permissions = [
-      "Get"
-    ]
-
-    secret_permissions = [
-      "Get"
-    ]
-
-    storage_permissions = [
-      "Get"
-    ]
-  }
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.CSRSAppData.identity.0.principal_id
-
-    key_permissions = [
-      "Get"
-    ]
-
-    secret_permissions = [
-      "Get"
-    ]
-
-    storage_permissions = [
-      "Get"
-    ]
-  }
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.IdentityManagementAppData.identity.0.principal_id
-
-
-    key_permissions = [
-      "Get"
-    ]
-
-    secret_permissions = [
-      "Get"
-    ]
-
-    storage_permissions = [
-      "Get"
-    ]
-  }
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.LearningLockerWorkerAppData.identity.0.principal_id
-
-    key_permissions = [
-      "Get"
-    ]
-
-    secret_permissions = [
-      "Get"
-    ]
-
-    storage_permissions = [
-      "Get"
-    ]
-  }
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.LearningLockerUIAppData.identity.0.principal_id
-
-    key_permissions = [
-      "Get"
-    ]
-
-    secret_permissions = [
-      "Get"
-    ]
-
-    storage_permissions = [
-      "Get"
-    ]
-  }
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.LearningLockerXapiAppData.identity.0.principal_id
-
-    key_permissions = [
-      "Get"
-    ]
-
-    secret_permissions = [
-      "Get"
-    ]
-
-    storage_permissions = [
-      "Get"
-    ]
-  }
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.LearnerRecordAppData.identity.0.principal_id
-
-    key_permissions = [
-      "Get"
-    ]
-
-    secret_permissions = [
-      "Get"
-    ]
-
-    storage_permissions = [
-      "Get"
-    ]
-  }
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.LearningCatalogueAppData.identity.0.principal_id
-
-    key_permissions = [
-      "Get"
-    ]
-
-    secret_permissions = [
-      "Get"
-    ]
-
-    storage_permissions = [
-      "Get"
-    ]
-  }
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.LPGManagementAppData.identity.0.principal_id
-
-    key_permissions = [
-      "Get"
-    ]
-
-    secret_permissions = [
-      "Get"
-    ]
-
-    storage_permissions = [
-      "Get"
-    ]
-  }
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.ReportServiceAppData.identity.0.principal_id
-
-    key_permissions = [
-      "Get"
-    ]
-
-    secret_permissions = [
-      "Get"
-    ]
-
-    storage_permissions = [
-      "Get"
-    ]
-  }
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.LPGUIAppData.identity.0.principal_id
-
-    key_permissions = [
-      "Get"
-    ]
-
-    secret_permissions = [
-      "Get"
-    ]
-
-    storage_permissions = [
-      "Get"
-    ]
-  }
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_linux_web_app.NotificationServiceAppData.identity.0.principal_id
-
-    key_permissions = [
-      "Get"
-    ]
-
-    secret_permissions = [
-      "Get"
-    ]
-
-    storage_permissions = [
-      "Get"
-    ]
-  }
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = var.keyvault_users_group_object_id
+resource "azurerm_key_vault_access_policy" "dev_group_access_policy" {
+	key_vault_id = azurerm_key_vault.csl-vars-key-vault.id
+	tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = data.azuread_group.KeyVaultUsersGroup.object_id
 
     key_permissions = [
       "Get"
@@ -319,5 +67,36 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
     storage_permissions = [
       "Get"
     ]
-  }
+  
+}
+
+resource "azurerm_key_vault_access_policy" "app_access_policy" {
+  for_each = data.azurerm_linux_web_app.access_policy_app
+  key_vault_id = azurerm_key_vault.csl-vars-key-vault.id
+  tenant_id = data.azurerm_client_config.current.tenant_id
+  object_id = each.value.identity.0.principal_id
+  key_permissions = [
+    "Get"
+  ]  
+  secret_permissions = [
+    "Get"
+  ]  
+  storage_permissions = [
+    "Get"
+  ]
+}
+
+resource "azurerm_key_vault_access_policy" "lpg_ui_access_policy" {
+  key_vault_id = azurerm_key_vault.csl-vars-key-vault.id
+  tenant_id = data.azurerm_client_config.current.tenant_id
+  object_id = data.azurerm_linux_web_app.LPGUIAppData.identity.0.principal_id  
+  key_permissions = [
+    "Get"
+  ]  
+  secret_permissions = [
+    "Get"
+  ]  
+  storage_permissions = [
+    "Get"
+  ]
 }
