@@ -6,9 +6,6 @@ parameters:
     type: object
     default:
       - integration
-      - staging
-      - perf
-      - production
 
 variables:
   - group: Terraform variables
@@ -77,7 +74,18 @@ steps:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
         environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
-        commandOptions: '-var keyvault_users_group_object_id=$(KV_OID)'
+        commandOptions: '-var keyvault_users_group_object_id=$(KV_OID) -out tfplan-${{ ENV }}'
+
+    - task: Bash@3
+      displayName: List files
+      inputs:
+        workingDirectory: '$(System.DefaultWorkingDirectory)'
+        targetType: 'inline'
+        script: |
+          cp $(System.DefaultWorkingDirectory)/environments/master/tfplan-${{ ENV }} ./plan-files/.
+          ls
+          echo "Plan files:"
+          ls plan-files
 
 
     
