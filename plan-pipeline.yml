@@ -79,6 +79,19 @@ steps:
         environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
         commandOptions: '-var keyvault_users_group_object_id=$(KV_OID) -out tfplan-${{ ENV }}'
 
+    - task: Bash@3
+      displayName: Move plan file to plan-files
+      inputs:
+        targetType: 'inline'
+        script: 'mv $(System.DefaultWorkingDirectory)/environments/master/tfplan-${{ ENV }} $(System.DefaultWorkingDirectory)/plan-files'
+        workingDirectory: '$(System.DefaultWorkingDirectory)'
+
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: 'ls'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/plan-files'
+      
   - task: PublishPipelineArtifact@1
     displayName: Publish plan files as artifacts
     inputs:
