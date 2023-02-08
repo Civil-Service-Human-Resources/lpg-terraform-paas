@@ -1,5 +1,5 @@
 trigger:
-- idt-feature-*
+- master
     
 parameters:
   - name: environments

@@ -5,10 +5,10 @@ parameters:
   - name: environments
     type: object
     default:
-      - integration
-      - staging
-      - perf
-      - production
+      - {"name": "integration", "blobKey": "00-integration.terraform.tfstate"}
+      - {"name": "staging", "blobKey": "00-staging.terraform.tfstate"}
+      - {"name": "perf", "blobKey": "00-perf.terraform.tfstate"}
+      - {"name": "production", "blobKey": "prod.terraform.tfstate"}
 
 pool:
   vmImage: ubuntu-latest
@@ -33,18 +33,18 @@ steps:
 
   - ${{ each ENV in parameters.environments }}:
     - task: Bash@3
-      displayName: ${{ ENV }} - Copy necessary files from  environment
+      displayName: ${{ ENV.name }} - Copy necessary files from  environment
       inputs:
         targetType: 'inline'
         script: |
           cd environments/master
           echo "Validating $ENV environment..."
-          cp -r ../${{ ENV }}/docker-tags-vars.tf .
-          cp -r ../${{ ENV }}/state.tf .
-          cp -r ../${{ ENV }}/vars.tf vars.tf
+          cp -r ../${{ ENV.name }}/docker-tags-vars.tf .
+          cp -r ../${{ ENV.name }}/state.tf .
+          cp -r ../${{ ENV.name }}/vars.tf vars.tf
     
     - task: TerraformTaskV3@3
-      displayName: ${{ ENV }} -  Run Terraform init
+      displayName: ${{ ENV.name }} -  Run Terraform init
       inputs:
         provider: 'azurerm'
         command: 'init'
@@ -56,7 +56,7 @@ steps:
         backendAzureRmKey: '00-integration.terraform.tfstate'
 
     - task: TerraformTaskV3@3
-      displayName: ${{ ENV }} - Validate environment
+      displayName: ${{ ENV.name }} - Validate environment
       inputs:
         provider: 'azurerm'
         command: 'validate'
@@ -65,4 +65,4 @@ steps:
         backendAzureRmResourceGroupName: 'lpgterraform'
         backendAzureRmStorageAccountName: 'lpgterraformsecure'
         backendAzureRmContainerName: 'tfstatesecure'
-        backendAzureRmKey: '00-integration.terraform.tfstate'
+        backendAzureRmKey: '{{ ENV.blobKey }}'

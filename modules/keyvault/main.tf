@@ -48,7 +48,7 @@ resource "azurerm_key_vault" "csl-vars-key-vault" {
 resource "azurerm_key_vault_access_policy" "dev_group_access_policy" {
 	key_vault_id = azurerm_key_vault.csl-vars-key-vault.id
 	tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azuread_group.KeyVaultUsersGroup.object_id
+    object_id = var.keyvault_users_group_object_id
 
     key_permissions = [
       "Get"
