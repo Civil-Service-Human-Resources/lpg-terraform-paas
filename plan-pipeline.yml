@@ -6,6 +6,7 @@ parameters:
     type: object
     default:
       - integration
+      - staging
 
 variables:
   - group: Terraform variables
