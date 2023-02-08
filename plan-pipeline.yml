@@ -67,7 +67,7 @@ steps:
         backendAzureRmResourceGroupName: 'lpgterraform'
         backendAzureRmStorageAccountName: 'lpgterraformsecure'
         backendAzureRmContainerName: 'tfstatesecure'
-        backendAzureRmKey: '{{ ENV.blobKey }}'
+        backendAzureRmKey: '${{ ENV.blobKey }}'
 
     - task: TerraformTaskV3@3
       displayName: ${{ ENV.name }} - Run Terraform plan
