@@ -79,16 +79,9 @@ steps:
         environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
         commandOptions: '-var keyvault_users_group_object_id=$(KV_OID) -out tfplan-${{ ENV }}'
 
-    - task: Bash@3
-      displayName: List files
-      inputs:
-        workingDirectory: '$(System.DefaultWorkingDirectory)'
-        targetType: 'inline'
-        script: |
-          cp $(System.DefaultWorkingDirectory)/environments/master/tfplan-${{ ENV }} ./plan-files/.
-          ls
-          echo "Plan files:"
-          ls plan-files
-
-
+  - task: PublishPipelineArtifact@1
+    displayName: Publish plan files as artifacts
+    inputs:
+      targetPath: $(System.DefaultWorkingDirectory)/plan-files
+      artifactName: CSLPlanFiles
     
