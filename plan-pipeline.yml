@@ -6,11 +6,14 @@ parameters:
     type: object
     default:
       - integration
+      - staging
+      - perf
+      - production
 
 variables:
   - group: Terraform variables
   - name: KV_OID
-    value: $[variables.keyvault_users_group_object_id]
+    value: $[variables.KEYVAULT_USERS_GROUP_OBJECTID]
 
 pool:
   vmImage: ubuntu-latest
@@ -67,20 +70,14 @@ steps:
         backendAzureRmContainerName: 'tfstatesecure'
         backendAzureRmKey: '00-integration.terraform.tfstate'
 
-    - task: Bash@3
+    - task: TerraformTaskV3@3
+      displayName: ${{ ENV }} - Run Terraform plan
       inputs:
-        targetType: 'inline'
-        script: 'ls'
+        provider: 'azurerm'
+        command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-
-    # - task: TerraformTaskV3@3
-    #   displayName: ${{ ENV }} - Run Terraform plan
-    #   inputs:
-    #     provider: 'azurerm'
-    #     command: 'plan'
-    #     workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
-    #     environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
-    #     commandOptions: '-var keyvault_users_group_object_id=$(KV_OID)'
+        environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
+        commandOptions: '-var keyvault_users_group_object_id=$(KV_OID)'
 
 
     
