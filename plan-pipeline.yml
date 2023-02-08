@@ -31,8 +31,8 @@ steps:
       inputs:
         targetType: 'inline'
         script: |
-          echo {{ PERSON.name }}
-          echo {{ PERSON.age }}
+          echo ${{ PERSON.name }}
+          echo ${{ PERSON.age }}
 
   # - task: TerraformInstaller@0
   #   displayName: Install Terraform
