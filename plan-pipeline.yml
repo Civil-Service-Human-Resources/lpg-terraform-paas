@@ -50,7 +50,6 @@ steps:
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
         targetType: 'inline'
         script: |
-          cd environments/master
           rm -rf .terraform
           rm -rf state.tf
           rm -rf vars.tf
