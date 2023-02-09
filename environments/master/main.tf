@@ -402,4 +402,5 @@ module "keyvault" {
   rg_name_lpg_ui = var.rg_name_lpg_ui
   name = "kv-${var.rg_name}-vars"
   location = var.rg_location
+  keyvault_users_group_object_id = var.keyvault_users_group_object_id
 }

@@ -1,0 +1,95 @@
+trigger:
+  branches:
+    include:
+      - master
+    
+parameters:
+  - name: environments
+    type: object
+    default:
+      - {"name": "integration", "blobKey": "00-integration.terraform.tfstate"}
+      - {"name": "staging", "blobKey": "00-staging.terraform.tfstate"}
+      - {"name": "perf", "blobKey": "00-perf.terraform.tfstate"}
+
+variables:
+  - group: Terraform variables
+  - name: KV_OID
+    value: $[variables.KEYVAULT_USERS_GROUP_OBJECTID]
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: TerraformInstaller@0
+    displayName: Install Terraform
+    inputs:
+      terraformVersion: 0.13.5
+
+  - task: AzureCLI@2
+    displayName: Log in to Azure
+    inputs:
+      azureSubscription: 'PrincipalConnectionProduction'
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az account list
+      addSpnToEnvironment: true
+      useGlobalConfig: true
+
+  - task: Bash@3
+    displayName: Create plan-files directory
+    inputs:
+      targetType: 'inline'
+      script: |
+        mkdir plan-files
+
+  - ${{ each ENV in parameters.environments }}:
+    - task: Bash@3
+      displayName: ${{ ENV.name }} - Copy necessary files from  environment
+      inputs:
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
+        targetType: 'inline'
+        script: |
+          rm -rf .terraform
+          rm -rf state.tf
+          rm -rf vars.tf
+          rm -rf docker-tags-vars.tf
+          cp -r ../${{ ENV.name }}/docker-tags-vars.tf .
+          cp -r ../${{ ENV.name }}/state.tf .
+          cp -r ../${{ ENV.name }}/vars.tf vars.tf
+    
+    - task: TerraformTaskV3@3
+      displayName: ${{ ENV.name }} -  Run Terraform init
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
+        backendServiceArm: 'PrincipalConnectionProduction'
+        backendAzureRmResourceGroupName: 'lpgterraform'
+        backendAzureRmStorageAccountName: 'lpgterraformsecure'
+        backendAzureRmContainerName: 'tfstatesecure'
+        backendAzureRmKey: '${{ ENV.blobKey }}'
+
+    - task: TerraformTaskV3@3
+      displayName: ${{ ENV.name }} - Run Terraform plan
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
+        environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
+        commandOptions: '-var keyvault_users_group_object_id=$(KV_OID) -out tfplan-${{ ENV.name }}'
+
+    - task: Bash@3
+      displayName: Move plan file to plan-files
+      inputs:
+        targetType: 'inline'
+        script: 'mv $(System.DefaultWorkingDirectory)/environments/master/tfplan-${{ ENV.name }} $(System.DefaultWorkingDirectory)/plan-files'
+        workingDirectory: '$(System.DefaultWorkingDirectory)'
+
+      
+  - task: PublishPipelineArtifact@1
+    displayName: Publish plan files as artifacts
+    inputs:
+      targetPath: $(System.DefaultWorkingDirectory)/plan-files
+      artifactName: CSLPlanFiles
+    

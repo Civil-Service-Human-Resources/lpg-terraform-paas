@@ -17,3 +17,7 @@ variable "rg_name_lpg_ui" {
 variable "keyvault_users_group" {
   default = "CSL KeyVault users"
 }
+
+variable "keyvault_users_group_object_id"{
+  default = ""
+}

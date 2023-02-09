@@ -1,8 +1,9 @@
-rm -rf plan-files
-mkdir plan-files
+rm -rf ../../plan-files
+mkdir ../../plan-files
 
-for ENVIRONMENT in integration staging
+for ENVIRONMENT in integration staging perf production
 do
-    ./scripts/management/plan.sh $ENVIRONMENT
-    mv ./plan/$ENVIRONMENT/tfplan-$ENVIRONMENT ./plan-files/.
+    ./plan.sh unlink
+    ./plan.sh $ENVIRONMENT
+    mv ./tfplan-$ENVIRONMENT ../../plan-files/.
 done
