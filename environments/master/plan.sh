@@ -2,9 +2,10 @@
 
 ENV=$1
 
-if [[ -z "$access_key" && "$ENV" != "unlink" ]]; then 
-	echo "This script requires an \"access_key\" environment variable to be set. This must be the access key for the blob storage account that holds the state files."
-	exit
+if [[ -z "$ACCOUNT_KEY" && "$ENV" != "unlink" ]]; then 
+	az account set --subscription CSL-Production
+	ACCOUNT_KEY=$(az storage account keys list --resource-group lpgterraform --account-name lpgterraformsecure --query '[0].value' -o tsv)
+	export ARM_ACCESS_KEY=$ACCOUNT_KEY
 fi
 
 if [[ "$PWD" == */environments/master ]]; then
@@ -45,8 +46,6 @@ fi
 
 az account set --subscription $SUBSCRIPTION_NAME
 
-echo """access_key=\"$access_key\"""" > backend.conf
-
-terraform init -backend-config=backend.conf
+terraform init
 
 terraform plan -out tfplan-$ENV
