@@ -48,7 +48,10 @@ steps:
         targetType: 'inline'
         script: |
           cd environments/master
-          echo "Validating $ENV environment..."
+          rm -rf .terraform
+          rm -rf state.tf
+          rm -rf vars.tf
+          rm -rf docker-tags-vars.tf
           cp -r ../${{ ENV.name }}/docker-tags-vars.tf .
           cp -r ../${{ ENV.name }}/state.tf .
           cp -r ../${{ ENV.name }}/vars.tf vars.tf
