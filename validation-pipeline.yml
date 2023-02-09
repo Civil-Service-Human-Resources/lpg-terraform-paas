@@ -7,6 +7,10 @@ trigger:
       - idt-release-v*
       - idt-hotfix-v*
 
+  tags:
+    include:
+      - '*'
+
 parameters:
   - name: environments
     type: object
@@ -59,7 +63,7 @@ steps:
         backendAzureRmResourceGroupName: 'lpgterraform'
         backendAzureRmStorageAccountName: 'lpgterraformsecure'
         backendAzureRmContainerName: 'tfstatesecure'
-        backendAzureRmKey: '00-integration.terraform.tfstate'
+        backendAzureRmKey: '${{ ENV.blobKey }}'
 
     - task: TerraformTaskV3@3
       displayName: ${{ ENV.name }} - Validate environment
@@ -71,4 +75,4 @@ steps:
         backendAzureRmResourceGroupName: 'lpgterraform'
         backendAzureRmStorageAccountName: 'lpgterraformsecure'
         backendAzureRmContainerName: 'tfstatesecure'
-        backendAzureRmKey: '{{ ENV.blobKey }}'
+        backendAzureRmKey: '${{ ENV.blobKey }}'

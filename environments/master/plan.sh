@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
 ENV=$1
+KEYVAULT_USERS_GROUP_OBJECTID=$(az ad group list --display-name "CSL KeyVault Users" --query "[0].id" | tr -d '"')
 
 if [[ -z "$access_key" && "$ENV" != "unlink" ]]; then 
 	echo "This script requires an \"access_key\" environment variable to be set. This must be the access key for the blob storage account that holds the state files."
@@ -49,4 +50,4 @@ echo """access_key=\"$access_key\"""" > backend.conf
 
 terraform init -backend-config=backend.conf
 
-terraform plan -out tfplan-$ENV
+terraform plan -out tfplan-$ENV -var keyvault_users_group_object_id=$KEYVAULT_USERS_GROUP_OBJECTID
