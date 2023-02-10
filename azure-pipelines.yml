@@ -18,16 +18,9 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- task: DownloadBuildArtifacts@1
+- task: DownloadPipelineArtifact@2
   inputs:
-    buildType: 'specific'
-    project: '66f6482d-eba9-4646-a1bc-f32162172e26'
-    pipeline: '18'
-    specificBuildWithTriggering: true
-    buildVersionToDownload: 'latest'
-    downloadType: 'single'
-    artifactName: 'CSLPlanFiles'
-    downloadPath: '$(System.ArtifactsDirectory)'
+    artifact: CSLPlanFiles
 
 - task: Bash@3
   inputs:
