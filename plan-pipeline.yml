@@ -7,6 +7,10 @@ trigger:
       - idt-release-v*
       - idt-hotfix-v*
 
+  tags:
+    include:
+      - '*'
+
 parameters:
   - name: environments
     type: object
