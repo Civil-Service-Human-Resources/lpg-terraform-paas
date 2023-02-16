@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
 ENV=$1
+KEYVAULT_USERS_GROUP_OBJECTID=$(az ad group list --display-name "CSL KeyVault Users" --query "[0].id" | tr -d '"')
 
 if [[ -z "$ACCOUNT_KEY" && "$ENV" != "unlink" ]]; then 
 	az account set --subscription CSL-Production
@@ -48,4 +49,4 @@ az account set --subscription $SUBSCRIPTION_NAME
 
 terraform init
 
-terraform plan -out tfplan-$ENV
+terraform plan -out tfplan-$ENV -var keyvault_users_group_object_id=$KEYVAULT_USERS_GROUP_OBJECTID
