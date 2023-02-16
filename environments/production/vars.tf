@@ -447,3 +447,7 @@ variable "csl_service_horizontal_scale" {
 	type = number
 	default = 1
 }
+
+variable keyvault_users_group_object_id {
+	type=string
+}
