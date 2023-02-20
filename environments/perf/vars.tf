@@ -405,10 +405,6 @@ variable "identity_base_url" {
   default = "https://identity.performance.learn.civilservice.gov.uk"
 }
 
-variable "docker_registry_server_url" {
-    default = "lpgregistry.azurecr.io"
-}
-
 variable "vaultresourcegroup" {
   default = "lpg-prod-keyvault"
 }

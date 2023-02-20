@@ -6,9 +6,7 @@ do
 
     rm -rf state.tf
     rm -rf vars.tf
-    rm -rf docker-tags-vars.tf
 
-    cp -r ../$ENV/docker-tags-vars.tf .
     cp -r ../$ENV/state.tf .
     cp -r ../$ENV/vars.tf vars.tf
 

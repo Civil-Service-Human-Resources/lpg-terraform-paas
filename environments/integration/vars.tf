@@ -364,10 +364,6 @@ variable "custom_emails" {
 	default = "robertm@kainos.com"
 }
 
-variable "docker_registry_server_url" {
-	default = "lpgregistry.azurecr.io"
-}
-
 variable "existingkeyvaultsecretname" {
 	default = "star-integration-learn-civil-service-gov-uk-pfxsecret-2022"
 }

@@ -108,8 +108,6 @@ module "integration-environment" {
     vaultname = "lpg-prod-kv"
     custom_emails = "robertm@kainos.com"
 
-    docker_registry_server_url = "lpgregistry.azurecr.io"
-
     existingkeyvaultsecretname ="star-integration-learn-civil-service-gov-uk-pfxsecret-2022"
     certificatename = "star-integration-learn-civil-service-gov-uk-2022"
     ui_existingkeyvaultsecretname = "star-integration-learn-civil-service-gov-uk-pfxsecret-2022"

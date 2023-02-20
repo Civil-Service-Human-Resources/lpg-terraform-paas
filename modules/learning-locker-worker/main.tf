@@ -68,7 +68,6 @@ resource "azurerm_template_deployment" "learning-locker-worker-app-service" {
                   "detailedErrorLoggingEnabled": true,
                   "alwaysOn": true,
                   "appCommandLine": "node /opt/learning-locker/worker/dist/server",
-                  "linuxFxVersion": "DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
                   "minTlsVersion": "1.2",
                   "ftpsState": "Disabled"
               },
