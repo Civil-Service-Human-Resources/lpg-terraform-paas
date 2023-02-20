@@ -448,6 +448,32 @@ variable "csl_service_horizontal_scale" {
 	default = 1
 }
 
+## Rustici ##
+
+variable "rustici_engine_vertical_scale" {
+	type = string
+	description = "(optional) describe your variable"
+	default = "P1v2"
+}
+
+variable "rustici_engine_horizontal_scale" {
+	type = string
+	description = "(optional) describe your variable"
+	default = 1
+}
+
+variable "rustici_mysql_size_gb" {
+	type = string
+	description = "(optional) describe your variable"
+	default = 20
+}
+
+variable "rustici_mysql_sku" {
+	type = string
+	description = "(optional) describe your variable"
+	default = "GP_Standard_D2ds_v4"
+}
+
 variable keyvault_users_group_object_id {
 	type=string
 }

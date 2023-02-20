@@ -13,6 +13,7 @@ module "redis" {
   redis_capacity = var.redis_capacity
 }
 
+
 module "redis-session" {
   source         = "../../modules/redis"
   rg_name        = var.rg_name
@@ -359,6 +360,8 @@ module "data-transchiver" {
   docker_tag                       = var.data_transchiver_tag
 }
 
+# CSL-SERVICE
+
 module "csl_service" {
     source                          = "../../modules/app_service"
     rg_name                         = var.rg_name
@@ -367,6 +370,30 @@ module "csl_service" {
     horizontal_scale                = var.csl_service_horizontal_scale
     app_command_line                = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.4.4.jar -jar /target/app.jar"
     allowed_ip_addresses            = local.allowed_ips
+}
+
+# RUSTICI
+
+module "rustici_engine" {
+    source                          = "../../modules/app_service"
+    rg_name                         = var.rg_name
+    app_name                        = "rustici-engine"
+    sku_name                        = var.rustici_engine_vertical_scale
+    horizontal_scale                = var.rustici_engine_horizontal_scale
+    app_command_line                = "./installScript.sh"
+	# The browser will be interacting with Rustici, so we can't filter any IP addresses here
+    allowed_ip_addresses            = []
+	healthcheck_path_override = "/ping"
+}
+
+module "rustici_mysql" {
+	source = "../../modules/mysql_flexible"
+	name = "fl-mysql-${var.rg_name}-rustici"
+	location = var.rg_location
+	rg_name = var.rg_name
+	size_in_gb = var.rustici_mysql_size_gb
+	sku = var.rustici_mysql_sku
+	databases = [ "RusticiEngineDB" ]
 }
 
 module "keyvault" {
