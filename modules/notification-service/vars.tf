@@ -32,23 +32,3 @@ variable "notification_capacity" {
 	type = string
 	description = "(optional) describe your variable"
 }
-
-variable "docker_registry_server_url" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "docker_repository" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "docker_repository_region" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "docker_tag" {
-	type = string
-	description = "(optional) describe your variable"
-}

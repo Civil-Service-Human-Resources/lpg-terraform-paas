@@ -63,26 +63,6 @@ variable "env_profile" {
 	description = "(optional) describe your variable"
 }
 
-variable "docker_registry_server_url" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "docker_repository" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "docker_repository_region" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "docker_tag" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
 variable "custom_emails" {
 	type = string
 	description = "(optional) describe your variable"

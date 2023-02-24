@@ -87,10 +87,6 @@ module "identity" {
   webapp_sku_name                         = var.webapp_sku_name_p2
   identity_capacity                       = var.identity_capacity
   env_profile                             = var.env_profile
-  docker_registry_server_url              = var.docker_registry_server_url
-  docker_repository						  = "identity-service"
-  docker_repository_region                = var.identity_docker_repository_region
-  docker_tag                              = var.identity_docker_tag
   custom_emails                           = var.custom_emails
   scaling_enabled                         = var.scaling_enabled
 
@@ -104,10 +100,6 @@ module "identity-management" {
   env_profile                       = var.env_profile
   webapp_sku_tier                   = var.webapp_sku_tier_p2
   webapp_sku_name                   = var.webapp_sku_name_p1
-  docker_registry_server_url        = var.docker_registry_server_url
-  docker_repository					= "identity-management"
-  docker_repository_region          = var.identity_management_docker_repository_region
-  docker_tag                        = var.identity_management_docker_tag
 
 }
 
@@ -128,10 +120,6 @@ module "lpg-learner-record" {
   learner_record_capacity         = var.learner_record_capacity
   env_profile                     = var.env_profile
   learner_record_command_line     = var.learner_record_command_line
-  docker_registry_server_url      = var.docker_registry_server_url
-  docker_repository				  = "lpg-learner-record"
-  docker_repository_region        = var.lpg_learner_record_docker_repository_region
-  docker_tag                      = var.lpg_learner_record_docker_tag
   custom_emails                   = var.custom_emails
   scaling_enabled                 = var.scaling_enabled
 
@@ -153,10 +141,6 @@ module "lpg-report-service" {
   webapp_sku_name                 = var.webapp_sku_name_p3
   env_profile                     = var.env_profile
   report_service_command_line     = var.report_service_command_line
-  docker_registry_server_url      = var.docker_registry_server_url
-  docker_tag                      = var.lpg_report_service_docker_tag
-  docker_repository				  = "lpg-report-service"
-  docker_repository_region        = var.lpg_report_service_docker_repository_region
 
 }
 
@@ -175,9 +159,6 @@ module "lpg-learning-locker-xapi" {
   webapp_sku_name                 = var.webapp_sku_name_p1
   xapi_capacity                   = var.xapi_capacity
   env_profile                     = var.env_profile
-  docker_registry_server_url      = var.docker_registry_server_url
-  docker_image					  = "lpg-learning-locker"
-  docker_tag                      = var.ll_docker_tag
   custom_emails                   = var.custom_emails
   scaling_enabled                 = var.scaling_enabled
   
@@ -191,9 +172,6 @@ module "lpg-learning-locker-worker" {
   env_profile                     = var.env_profile
   webapp_sku_tier                 = var.webapp_sku_tier_p2
   webapp_sku_name                 = var.webapp_sku_name_p1
-  docker_registry_server_url      = var.docker_registry_server_url
-  docker_image					  = "lpg-learning-locker"
-  docker_tag                      = var.ll_docker_tag
 
 }
 
@@ -205,9 +183,6 @@ module "lpg-learning-locker-ui" {
   env_profile                     = var.env_profile
   webapp_sku_tier                 = var.webapp_sku_tier_p2
   webapp_sku_name                 = var.webapp_sku_name_p1
-  docker_registry_server_url      = var.docker_registry_server_url
-  docker_image					  = "lpg-learning-locker"
-  docker_tag                      = var.ll_docker_tag
 
 }
 
@@ -227,10 +202,6 @@ module "lpg-ui" {
   webapp_sku_name                 = var.webapp_sku_name_p2
   lpg_ui_capacity                 = var.lpg_ui_capacity
   env_profile                     = var.env_profile
-  docker_registry_server_url      = var.docker_registry_server_url
-  docker_repository				  = "lpg-services"
-  docker_repository_region        = var.lpg_services_docker_repository_region
-  docker_tag                      = var.lpg_services_tag
   custom_emails                   = var.custom_emails
   scaling_enabled                 = var.scaling_enabled
 
@@ -251,10 +222,6 @@ module "lpg-learning-catalogue" {
   webapp_sku_name                 = var.webapp_sku_name_p1
   learning_catalogue_capacity     = var.learning_catalogue_capacity
   env_profile                     = var.env_profile
-  docker_tag                      = var.learning_catalogue_docker_tag
-  docker_repository				  = "lpg-learning-catalogue"
-  docker_repository_region        = var.learning_catalogue_docker_repository_region
-  docker_registry_server_url      = var.docker_registry_server_url
   custom_emails                   = var.custom_emails
   scaling_enabled                 = var.scaling_enabled
   
@@ -275,11 +242,7 @@ module "civil-servant-registry-service" {
   webapp_sku_tier                 = var.webapp_sku_tier_p2
   webapp_sku_name                 = var.webapp_sku_name_p1
   csrs_capacity                   = var.csrs_capacity
-  env_profile                     = var.env_profile
-  docker_registry_server_url      = var.docker_registry_server_url
-  docker_tag                      = var.civil_servant_registry_docker_tag
-  docker_repository_region        = var.civil_servant_registry_docker_repository_region
-  docker_repository				  = "civil-servant-registry-service"			
+  env_profile                     = var.env_profile		
   scaling_enabled				  = var.scaling_enabled
   custom_emails 				  = var.custom_emails
 }
@@ -299,11 +262,6 @@ module "lpg-management" {
   webapp_sku_name                    = var.webapp_sku_name_p2
   lpg_management_capacity            = var.lpg_management_capacity
   env_profile                        = var.env_profile
-  docker_registry_server_url         = var.docker_registry_server_url
-  docker_repository_region           = var.lpg_management_docker_repository_region
-  docker_repository 				 = "lpg-management"
-  docker_tag                         = var.lpg_management_tag
-
 }
 
 module "notification-service" {
@@ -311,11 +269,7 @@ module "notification-service" {
 
   rg_name                            = var.rg_name
   notification_service_name          = "${var.rg_prefix}-${var.rg_name}-${var.notification_service_name}"
-  docker_tag                         = var.notification_service_tag
-  docker_repository					 = "notification-service"
-  docker_repository_region           = var.notification_service_docker_repository_region
   env_profile                        = var.env_profile
-  docker_registry_server_url         = var.docker_registry_server_url
   webapp_sku_tier                    = var.webapp_sku_tier_p2
   webapp_sku_name                    = var.webapp_sku_name_p1
   notification_capacity              = var.notification_capacity
@@ -355,9 +309,6 @@ module "data-transchiver" {
   env_profile                      = var.env_profile
   webapp_sku_tier                  = var.webapp_sku_tier_p2
   webapp_sku_name                  = var.webapp_sku_name_p1
-  docker_registry_server_url       = var.docker_registry_server_url
-  docker_image					   = "data-transchriver"
-  docker_tag                       = var.data_transchiver_tag
 }
 
 # CSL-SERVICE

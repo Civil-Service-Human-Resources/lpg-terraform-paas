@@ -136,7 +136,6 @@ resource "azurerm_template_deployment" "learning-locker-xapi" {
                   "detailedErrorLoggingEnabled":true,
                   "alwaysOn":true,
                   "appCommandLine":"node /opt/xapi-service/dist/server",
-                  "linuxFxVersion":"DOCKER|${var.docker_registry_server_url}/${var.docker_image}:${var.docker_tag}",
                   "minTlsVersion":"1.2",
                   "ftpsState":"Disabled"
               },
