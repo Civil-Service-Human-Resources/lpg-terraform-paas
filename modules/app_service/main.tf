@@ -47,6 +47,12 @@ resource "azurerm_linux_web_app" "app_service" {
 	}
   }
 
+  lifecycle {
+	ignore_changes = [
+	  app_settings
+	]
+  }
+
 }
 
 # Outputs

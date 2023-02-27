@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 ENV=$1
-KEYVAULT_USERS_GROUP_OBJECTID=$(az ad group list --display-name "CSL KeyVault Users" --query "[0].id" | tr -d '"')
+export TF_VAR_keyvault_users_group_object_id=$(az ad group list --display-name "CSL KeyVault Users" --query "[0].id" | tr -d '"')
 
 if [[ -z "$ACCOUNT_KEY" && "$ENV" != "unlink" ]]; then 
 	az account set --subscription CSL-Production
@@ -17,25 +17,24 @@ else
     exit
 fi
 
-if [[ "$ENV" =~ ^(production|staging|integration|perf)$ ]]; then
-    echo "Setting symlink: $1"
-elif [[ "$ENV" == "unlink" ]]; then
+if [[ "$ENV" =~ ^(production|staging|integration|perf|unlink)$ ]]; then
     echo "Removing .terraform state directory"
     rm -rf .terraform
 
     echo "Un-linking any symlink files"
     rm state.tf
     rm vars.tf
-    rm docker-tags-vars.tf
-    
-    echo "Environment unlinked - exiting"
-    exit 1
 else
     echo "$ENV is not a valid environment"
     exit
 fi
 
-cp -r ../$ENV/docker-tags-vars.tf .
+if [[ "$ENV" == "unlink" ]]; then
+    echo "Environment unlinked - exiting"
+    exit 1
+fi
+
+echo "Setting symlink: $1"
 cp -r ../$ENV/state.tf .
 cp -r ../$ENV/vars.tf vars.tf
 
@@ -49,4 +48,4 @@ az account set --subscription $SUBSCRIPTION_NAME
 
 terraform init
 
-terraform plan -out tfplan-$ENV -var keyvault_users_group_object_id=$KEYVAULT_USERS_GROUP_OBJECTID
+terraform plan -out tfplan-$ENV

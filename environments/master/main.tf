@@ -319,7 +319,7 @@ module "csl_service" {
     app_name                        = "csl-service"
     sku_name                        = var.csl_service_vertical_scale
     horizontal_scale                = var.csl_service_horizontal_scale
-    app_command_line                = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.4.4.jar -jar /target/app.jar"
+    app_command_line                = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.4.4.jar -jar /data/app.jar"
     allowed_ip_addresses            = local.allowed_ips
 }
 
