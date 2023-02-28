@@ -22,8 +22,8 @@ if [[ "$ENV" =~ ^(production|staging|integration|perf|unlink)$ ]]; then
     rm -rf .terraform
 
     echo "Un-linking any symlink files"
-    rm state.tf
-    rm vars.tf
+    rm -f state.tf
+    rm -f vars.tf
 else
     echo "$ENV is not a valid environment"
     exit
