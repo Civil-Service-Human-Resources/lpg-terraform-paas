@@ -326,15 +326,17 @@ module "csl_service" {
 # RUSTICI
 
 module "rustici_engine" {
-    source                          = "../../modules/app_service"
+    source                          = "../../modules/rustici_engine"
     rg_name                         = var.rg_name
-    app_name                        = "rustici-engine"
-    sku_name                        = var.rustici_engine_vertical_scale
     horizontal_scale                = var.rustici_engine_horizontal_scale
-    app_command_line                = "./installScript.sh"
-	# The browser will be interacting with Rustici, so we can't filter any IP addresses here
-    allowed_ip_addresses            = []
-	healthcheck_path_override = "/ping"
+	vertical_scale                  = var.rustici_engine_vertical_scale
+	gateway_capacity                = 1
+	content_cdn_fqdn                = "${var.content_container}.azureedge.net"
+	env_profile                     = var.env_profile
+	domain                          = var.domain
+	cert_name 						= var.certificatename
+	key_vault_name 					= var.vaultname
+	key_vault_rg_name				= var.vaultresourcegroup
 }
 
 module "rustici_mysql" {

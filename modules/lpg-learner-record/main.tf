@@ -114,6 +114,9 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                   "siteConfig":{
                       "healthCheckPath": "/health"
                   },
+				"identity": {
+					"type": "SystemAssigned"
+				},
                   "httpsOnly":true,
                   "reserved":true,
                   "name":"[parameters('siteName')]",

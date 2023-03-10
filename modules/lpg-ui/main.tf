@@ -138,7 +138,10 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                   "alwaysOn":true,
                   "appCommandLine":"npm run start:ui",
                   "minTlsVersion":"1.2",
-                  "ftpsState":"Disabled"
+                  "ftpsState":"Disabled",
+					"identity": {
+						"type": "SystemAssigned"
+					}
               },
               "dependsOn":[
                   "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

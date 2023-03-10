@@ -113,6 +113,9 @@ resource "azurerm_template_deployment" "lpg-report-service-app-service" {
         "siteConfig": {
           "healthCheckPath": "/health"
         },
+		"identity": {
+			"type": "SystemAssigned"
+		},
         "httpsOnly": true,
         "reserved": true,
         "name": "[parameters('siteName')]",

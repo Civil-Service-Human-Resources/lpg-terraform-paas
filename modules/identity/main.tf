@@ -104,6 +104,9 @@ resource "azurerm_template_deployment" "identity-app-service" {
                   "siteConfig":{
                       "healthCheckPath": "/health"
                   },
+					"identity": {
+						"type": "SystemAssigned"
+					},
                   "clientAffinityEnabled":false,
                   "httpsOnly":true,
                   "reserved":true,

@@ -5,8 +5,7 @@ locals {
 	domain = local.is_test_env ? "${var.environment}.${local.csl_domain}" : local.csl_domain
 	cert_name = local.is_test_env ? "star-${var.environment}-learn-civil-service-gov-uk-2022" : "star-learn-civil-service-gov-uk-2022"
   apps = toset([
-	"csl-service",
-	"rustici-engine"
+	"csl-service"
   ])
 }
 

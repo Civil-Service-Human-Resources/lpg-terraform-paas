@@ -118,6 +118,9 @@ resource "azurerm_template_deployment" "civil-servant-registry-app-service" {
           "reserved": true,
           "name": "[parameters('siteName')]",
           "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+			"identity": {
+				"type": "SystemAssigned"
+			},
           "hostNameSslStates": [
             {
               "name": "[concat(parameters('websiteCustomName'),'.',parameters('websiteCustomDomain'))]",

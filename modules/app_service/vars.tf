@@ -39,6 +39,6 @@ variable "allowed_ip_addresses" {
 }
 
 variable "healthcheck_path_override" {
-  type = "string"
+  type = string
   default = "/health"
 }

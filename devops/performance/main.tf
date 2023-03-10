@@ -7,5 +7,6 @@ module "env" {
 	source = "../module"
 
 	rg_env = "perf"
-	env = "performance"
+	environment = "performance"
+	location = "UKSouth"
 }
