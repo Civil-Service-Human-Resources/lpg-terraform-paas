@@ -144,10 +144,6 @@ variable "lpg_testing" {
 	default =  "1"
 }
 
-variable "worker_api_env_app" {
-	default =  "learning-locker-api-worker"
-}
-
 variable "lpg_ui_name" {
 	default =  "lpg-ui"
 }
@@ -266,10 +262,6 @@ variable "lpg_management_civil_servant_registry_service_timeout_ms" {
 
 variable "notification_service_name" {
 	default =  "notification-service"
-}
-
-variable "job_schedule" {
-	default =  "0 1 21 * * *"
 }
 
 variable "invite_validity" {

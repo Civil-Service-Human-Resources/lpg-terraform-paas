@@ -194,10 +194,6 @@ variable "mysql_name_gp" {
   default = "gp"
 }
 
-### mysql_ll ###
-variable "mysql_name_ll" {
-  default = "ll"
-}
 
 variable "mysql_storage" {
   default = "4194304"
@@ -300,14 +296,6 @@ variable "feedback_recipient" {
   default = "feedback@cslearning.gov.uk"
 }
 
-### data-transchriver ###ß
-variable "data_transchiver_name" {
-  default = "lpg-data-transchriver"
-}
-
-variable "job_schedule" {
-  default = "0 0 19 * * *"
-}
 variable "invite_validity" {
   default = "259200"
 }

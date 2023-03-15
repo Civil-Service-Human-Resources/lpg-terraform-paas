@@ -184,10 +184,6 @@ variable "mysql_name_gp" {
   default = "gp"
 }
 
-variable "mysql_name_ll" {
-  default = "ll"
-}
-
 variable "mysql_storage" {
   default = "4194304"
 }
@@ -274,14 +270,6 @@ variable "lpg_management_civil_servant_registry_service_timeout_ms" {
 
 variable "notification_service_name" {
   default = "notification-service"
-}
-
-variable "data_transchiver_name" {
-  default = "lpg-data-transchriver"
-}
-
-variable "job_schedule" {
-  default = "0 1 21 * * *"
 }
 
 variable "invite_validity" {

@@ -195,15 +195,6 @@ variable "mysql_name_gp" {
   default = "gp"
 }
 
-### mysql_ll ###
-variable "mysql_name_ll" {
-  default = "ll"
-}
-
-variable "mysql_storage" {
-  default = "4194304"
-}
-
 ### civil-servant-registry ###
 variable "civil_servant_registry_name" {
   default = "civil-servant-registry"
@@ -301,14 +292,6 @@ variable "feedback_recipient" {
   default = "feedback@cslearning.gov.uk"
 }
 
-### data-transchriver ###ß
-variable "data_transchiver_name" {
-  default = "lpg-data-transchriver"
-}
-
-variable "job_schedule" {
-  default = "0 1 21 * * *"
-}
 variable "invite_validity" {
   default = "259200"
 }

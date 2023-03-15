@@ -54,7 +54,6 @@ module "integration-environment" {
 
     mysql_name_gp =  "gp"
 
-    mysql_name_ll =  "ll"
     mysql_storage =  "4194304"
 
     civil_servant_registry_name =  "civil-servant-registry"
@@ -81,8 +80,6 @@ module "integration-environment" {
 
     notification_service_name =  "notification-service"
 
-    data_transchiver_name =  "lpg-data-transchriver"
-    job_schedule =  "0 1 21 * * *"
     invite_validity =  "259200"
     duration_after_rereg_allowed_seconds =  "86400"
     backend_api_call_batch_size =  "50"
