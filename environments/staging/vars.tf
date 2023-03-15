@@ -112,14 +112,6 @@ variable "google_analytics_id" {
   default = "UA-22141655-3"
 }
 
-variable "redis_queue_provider" {
-  default = "REDIS"
-}
-
-variable "redis_use_tls" {
-  default = "1"
-}
-
 variable "redis_capacity" {
   default = "0"
 }
@@ -146,10 +138,6 @@ variable "lpg_learner_record_websites_port" {
 
 variable "learner_record_command_line" {
   default = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
-}
-
-variable "lpg_testing" {
-  default = "1"
 }
 
 variable "lpg_ui_name" {
@@ -356,10 +344,4 @@ variable "rustici_mysql_sku" {
 	type = string
 	description = "(optional) describe your variable"
 	default = "GP_Standard_D2ds_v4"
-}
-
-variable "gateway_capacity" {
-	type = number
-	description = "(optional) describe your variable"
-	default = 1
 }

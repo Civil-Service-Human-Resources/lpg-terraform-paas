@@ -28,8 +28,6 @@ module "integration-environment" {
     env_profile =  "integration"
     google_analytics_id =  "UA-22141655-3"
 
-    redis_queue_provider =  "REDIS"
-    redis_use_tls =  "1"
     redis_capacity =  "0"
     redis_session_capacity =  "0"
     redis_org_capacity =  "0"
@@ -40,7 +38,6 @@ module "integration-environment" {
     lpg_learner_record_websites_port =  "9000"
     learner_record_command_line =  "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 
-    lpg_testing =  "1"
     ll_ui_port =  "80"
 
     lpg_ui_name =  "lpg-ui"

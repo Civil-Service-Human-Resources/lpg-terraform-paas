@@ -121,13 +121,6 @@ variable "google_analytics_id" {
 }
 
 ### redis ###
-variable "redis_queue_provider" {
-  default = "REDIS"
-}
-
-variable "redis_use_tls" {
-  default = "1"
-}
 
 variable "redis_capacity" {
   default = "2"
@@ -391,10 +384,4 @@ variable "rustici_mysql_sku" {
 	type = string
 	description = "(optional) describe your variable"
 	default = "GP_Standard_D2ds_v4"
-}
-
-variable "gateway_capacity" {
-	type = number
-	description = "(optional) describe your variable"
-	default = 1
 }
