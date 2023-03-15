@@ -1,22 +1,48 @@
-locals {
-	rg_name = "lpg${var.rg_env}"
-	is_test_env = var.environment != "production"
-	csl_domain = "learn.civilservice.gov.uk"
-	domain = local.is_test_env ? "${var.environment}.${local.csl_domain}" : local.csl_domain
-	cert_name = local.is_test_env ? "star-${var.environment}-learn-civil-service-gov-uk-2022" : "star-learn-civil-service-gov-uk-2022"
-  apps = toset([
-	"csl-service"
-  ])
+data "azurerm_client_config" "current" {}
+
+# IDs
+
+resource "azurerm_resource_group" "devops_rg" {
+  name = "rg-devops-${var.rg_env}"
+  location = "UKSouth"
 }
 
-module "app_certificate_bindings" {
-  source = "../../modules/app_service_certificate_binding"
+resource "azurerm_user_assigned_identity" "managed_app_service_identity" {
+  location            = azurerm_resource_group.devops_rg.location
+  name                = "uai-${var.rg_env}"
+  resource_group_name = azurerm_resource_group.devops_rg.name
+}
 
-  for_each = local.apps
+# Keyvaults
 
-  app_name = each.value
-  app_rg_name = local.rg_name
-  domain = local.domain
-  certificate_name = local.cert_name
-  environment = var.environment
+module "secrets_vault" {
+	source = "../../modules/keyvault"
+
+	name = "kv-lpg${var.rg_env}-vars"
+	app_service_managed_id_object_id = azurerm_user_assigned_identity.managed_app_service_identity.principal_id
+	keyvault_users_group_object_id = var.keyvault_users_group_object_id
+	rg_name = azurerm_resource_group.devops_rg.name
+	location = azurerm_resource_group.devops_rg.location
+	tenant_id = data.azurerm_client_config.current.tenant_id
+}
+
+## Cert vault - should be managed by TF, however the test environments all share the
+## same KV at the moment. Can be fixed at a later date
+
+data "azurerm_key_vault" "cert_vault" {
+  name = var.cert_vault_name
+  resource_group_name = var.cert_vault_rg_name
+}
+
+resource "azurerm_key_vault_access_policy" "cert_access_policy" {
+	key_vault_id = data.azurerm_key_vault.cert_vault.id
+	tenant_id = data.azurerm_client_config.current.tenant_id
+	object_id = azurerm_user_assigned_identity.managed_app_service_identity.principal_id
+	secret_permissions = [
+		"Get"
+	]  
+	certificate_permissions = [
+		"Get",
+		"Import"
+	]
 }

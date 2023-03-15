@@ -120,34 +120,9 @@ variable "google_analytics_id" {
   default = "UA-22141655-7"
 }
 
-### cosmos ###
-variable "cosmos_name" {
-  default = "cosmos"
-}
-
-variable "cosmos_offer_type" {
-  default = "Standard"
-}
-
-variable "cosmos_consistency_policy_level" {
-  default = "Strong"
-}
-
-variable "cosmos_failover_policy_location" {
-  default = "West Europe"
-}
-
 ### redis ###
 variable "redis_queue_provider" {
   default = "REDIS"
-}
-
-variable "redis_queue_namespace" {
-  default = "learninglocker"
-}
-
-variable "redis_prefix" {
-  default = "learninglocker"
 }
 
 variable "redis_use_tls" {
@@ -183,42 +158,6 @@ variable "lpg_learner_record_websites_port" {
 
 variable "learner_record_command_line" {
   default = "java -Xmx7g -Xms3g -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
-}
-
-### learning-locker-general ###
-variable "lpg_testing" {
-  default = "1"
-}
-
-### learning-locker-xapi ###
-variable "lpg_learning_locker_xapi_name" {
-  default = "learning-locker-xapi"
-}
-
-variable "ll_xapi_express_port" {
-  default = "8083"
-}
-
-### learning-locker-worker ###
-variable "lpg_learning_locker_worker_name" {
-  default = "learning-locker-api-worker"
-}
-
-variable "worker_api_env_app" {
-  default = "learning-locker-api-worker"
-}
-
-### learning-locker-ui ###
-variable "lpg_learning_locker_ui_name" {
-  default = "learning-locker-ui"
-}
-
-variable "lpg_learning_locker_api_port" {
-  default = "8082"
-}
-
-variable "ll_ui_port" {
-  default = "80"
 }
 
 ### lpg-ui ###
@@ -471,6 +410,8 @@ variable "rustici_mysql_sku" {
 	default = "GP_Standard_D2ds_v4"
 }
 
-variable keyvault_users_group_object_id {
-	type=string
+variable "gateway_capacity" {
+	type = number
+	description = "(optional) describe your variable"
+	default = 1
 }

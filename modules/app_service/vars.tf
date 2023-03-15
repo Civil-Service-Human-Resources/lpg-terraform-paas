@@ -42,3 +42,8 @@ variable "healthcheck_path_override" {
   type = string
   default = "/health"
 }
+
+variable "app_managed_identity_id" {
+	type = string
+	description = "ID for the global app service user-assigned identity"
+}

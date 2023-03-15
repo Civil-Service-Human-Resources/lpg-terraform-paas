@@ -19,13 +19,13 @@ resource "azurerm_linux_web_app" "app_service" {
 
   site_config {
     app_command_line = var.app_command_line
-    ip_restriction = [for ip in var.allowed_ip_addresses : {
-      ip_address = "${ip}/32"
-      action     = "Allow"
-      priority   = 1
-      name       = "app service"
-      headers = []
-      service_tag               = null
+    ip_restriction = [{
+      action     				= "Allow"
+	  ip_address				= null
+      priority   				= 1
+      name       				= "Front door"
+      headers 					= []
+      service_tag               = "AzureFrontDoor.Backend"
       virtual_network_subnet_id = null
     }]
     minimum_tls_version = "1.2"
@@ -35,8 +35,11 @@ resource "azurerm_linux_web_app" "app_service" {
   }
 
   identity {
-	type = "SystemAssigned"
+	type = "SystemAssigned, UserAssigned"
+	identity_ids = [ var.app_managed_identity_id ]
   }
+
+  key_vault_reference_identity_id = var.app_managed_identity_id
 
   logs {
     application_logs {

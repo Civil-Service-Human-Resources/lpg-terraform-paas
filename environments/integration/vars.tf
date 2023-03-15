@@ -68,10 +68,6 @@ variable "csrs_capacity" {
 	default =  "1"
 }
 
-variable "xapi_capacity" {
-	default =  "1"
-}
-
 variable "learner_record_capacity" {
 	default =  "1"
 }
@@ -112,40 +108,12 @@ variable "google_analytics_id" {
 	default =  "UA-22141655-3"
 }
 
-variable "cosmos_name" {
-	default =  "cosmos"
-}
-
-variable "cosmos_offer_type" {
-	default =  "Standard"
-}
-
-variable "cosmos_consistency_policy_level" {
-	default =  "Strong"
-}
-
-variable "cosmos_failover_policy_location" {
-	default =  "West Europe"
-}
-
 variable "redis_queue_provider" {
 	default =  "REDIS"
 }
 
-variable "redis_queue_namespace" {
-	default =  "learninglocker"
-}
-
-variable "redis_prefix" {
-	default =  "learninglocker"
-}
-
 variable "redis_use_tls" {
 	default =  "1"
-}
-
-variable "redis_capacity" {
-	default =  "0"
 }
 
 variable "redis_session_capacity" {
@@ -176,32 +144,8 @@ variable "lpg_testing" {
 	default =  "1"
 }
 
-variable "lpg_learning_locker_xapi_name" {
-	default =  "learning-locker-xapi"
-}
-
-variable "ll_xapi_express_port" {
-	default =  "8083"
-}
-
-variable "lpg_learning_locker_worker_name" {
-	default =  "learning-locker-api-worker"
-}
-
 variable "worker_api_env_app" {
 	default =  "learning-locker-api-worker"
-}
-
-variable "lpg_learning_locker_ui_name" {
-	default =  "learning-locker-ui"
-}
-
-variable "lpg_learning_locker_api_port" {
-	default =  "8082"
-}
-
-variable "ll_ui_port" {
-	default =  "80"
 }
 
 variable "lpg_ui_name" {
@@ -234,10 +178,6 @@ variable "azure_account_name" {
 
 variable "mysql_name_gp" {
 	default =  "gp"
-}
-
-variable "mysql_name_ll" {
-	default =  "ll"
 }
 
 variable "mysql_storage" {
@@ -277,7 +217,7 @@ variable "identity_management_data_retention_cron_schedule" {
 }
 
 variable "identity_management_data_retention_enabled" {
-	default =  "true"### lpg-management ###
+	default =  "true"
 }
 
 variable "lpg_management_name" {
@@ -326,10 +266,6 @@ variable "lpg_management_civil_servant_registry_service_timeout_ms" {
 
 variable "notification_service_name" {
 	default =  "notification-service"
-}
-
-variable "data_transchiver_name" {
-	default =  "lpg-data-transchriver"
 }
 
 variable "job_schedule" {
@@ -422,8 +358,8 @@ variable "rustici_mysql_sku" {
 	default = "GP_Standard_D2ds_v4"
 }
 
-## Keyvault ##
-
-variable keyvault_users_group_object_id {
-	type=string
+variable "gateway_capacity" {
+	type = number
+	description = "(optional) describe your variable"
+	default = 1
 }

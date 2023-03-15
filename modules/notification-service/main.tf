@@ -25,7 +25,11 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
            "metadata":{
               "description":"Name of azure web app"
            }
-        }
+        },
+		  "uaiId": {
+				"defaultValue": "${var.app_managed_identity_id}",
+				"type": "String"
+			}
      },
      "variables":{
         "hostingPlanName":"[concat(parameters('siteName'), 'serviceplan')]"
@@ -33,6 +37,12 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
      "resources":[
         {
            "type":"Microsoft.Web/sites",
+			"identity": {
+				"type": "UserAssigned",
+				"userAssignedIdentities": {
+					"${var.app_managed_identity_id}": {}
+				}
+			},
            "name":"[parameters('siteName')]",
            "properties":{
               "siteConfig":{
@@ -42,9 +52,7 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
               "reserved":true,
               "name":"[parameters('siteName')]",
               "serverFarmId":"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-			  "identity": {
-					"type": "SystemAssigned"
-				}
+			"keyVaultReferenceIdentity": "[parameters('uaiId')]"
            },
            "apiVersion":"2019-08-01",
            "location":"[resourceGroup().location]",

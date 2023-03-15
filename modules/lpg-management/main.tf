@@ -16,6 +16,10 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                   "description":"Name of azure web app"
               }
           },
+		  "uaiId": {
+				"defaultValue": "${var.app_managed_identity_id}",
+				"type": "String"
+			},
           "vaultResourceGroup":{
               "type":"string",
               "defaultvalue":"${var.vaultresourcegroup}"
@@ -127,6 +131,12 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
           },
           {
               "type":"Microsoft.Web/sites/config",
+			  "identity": {
+					"type": "UserAssigned",
+					"userAssignedIdentities": {
+						"${var.app_managed_identity_id}": {}
+					}
+				},
               "name":"[concat(parameters('siteName'), '/web')]",
               "apiVersion":"2019-08-01",
               "location":"[resourceGroup().location]",
@@ -137,10 +147,8 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                   "alwaysOn":true,
                   "appCommandLine":"npm start",
                   "minTlsVersion":"1.2",
-                  "ftpsState":"Disabled",
-				"identity": {
-					"type": "SystemAssigned"
-				}
+				"ftpsState":"Disabled",
+				"keyVaultReferenceIdentity": "[parameters('uaiId')]"
               },
               "dependsOn":[
                   "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"

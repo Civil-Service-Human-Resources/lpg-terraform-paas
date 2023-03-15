@@ -1,28 +1,24 @@
-variable "name" {
+variable "domain_validation_token" {
 	type = string
 	description = "(optional) describe your variable"
 }
 
-variable "location" {
+variable "app_subdomain" {
 	type = string
 	description = "(optional) describe your variable"
 }
 
-variable "rg_name" {
+variable "dns_zone_name" {
 	type = string
 	description = "(optional) describe your variable"
 }
 
-variable "keyvault_users_group_object_id" {
+variable "dns_zone_resource_group" {
 	type = string
 	description = "(optional) describe your variable"
 }
 
-variable "app_service_managed_id_object_id" {
+variable "endpoint_hostname" {
 	type = string
 	description = "(optional) describe your variable"
-}
-
-variable "tenant_id" {
-  type = string
 }

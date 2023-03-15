@@ -62,3 +62,7 @@ variable "report_service_command_line" {
 	type = string
 	description = "(optional) describe your variable"
 }
+
+variable "app_managed_identity_id" {
+	type = string
+}

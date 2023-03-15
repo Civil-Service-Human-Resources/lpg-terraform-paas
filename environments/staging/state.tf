@@ -4,6 +4,7 @@ terraform {
     storage_account_name  = "lpgterraformsecure"
     container_name        = "tfstatesecure"
     key                   = "00-staging.terraform.tfstate"
+	resource_group_name = "lpgterraform"
   }
 }
 
