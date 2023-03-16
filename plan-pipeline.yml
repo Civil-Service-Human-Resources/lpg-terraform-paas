@@ -78,7 +78,7 @@ steps:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
         environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
-        commandOptions: '-var -out tfplan-${{ ENV.name }}'
+        commandOptions: '-out tfplan-${{ ENV.name }}'
 
     - task: Bash@3
       displayName: Move plan file to plan-files
