@@ -43,16 +43,6 @@ module "mysql_gp" {
 
 # DevOps
 
-data "azurerm_key_vault" "cert_kv" {
-  name = var.vaultname
-  resource_group_name = var.vaultresourcegroup
-}
-
-data "azurerm_key_vault_certificate" "cert" {
-  key_vault_id = data.azurerm_key_vault.cert_kv.id
-  name = var.certificatename
-}
-
 data "azurerm_user_assigned_identity" "app_service_identity" {
   resource_group_name = "rg-devops-${var.env_profile}"
   name = "uai-${var.env_profile}"
