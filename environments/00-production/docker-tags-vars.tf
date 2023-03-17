@@ -37,7 +37,7 @@ variable "ll_docker_tag" {
 ## learner-record ##
 
 variable "lpg_learner_record_docker_tag" {
-  default = "v1.2.0"
+  default = "v1.3.0"
 }
 
 variable "lpg_learner_record_docker_repository_region" {
@@ -47,7 +47,7 @@ variable "lpg_learner_record_docker_repository_region" {
 ## learning-catalogue ##
 
 variable "learning_catalogue_docker_tag" {
-  default = "v1.2.0"
+  default = "v1.3.0"
 }
 
 variable "learning_catalogue_docker_repository_region" {
@@ -81,7 +81,7 @@ variable "lpg_services_docker_repository_region" {
 }
 
 variable "lpg_services_tag" {
-  default = "v1.6.1"
+  default = "v1.7.0"
 }
 
 ## notification-service ##
