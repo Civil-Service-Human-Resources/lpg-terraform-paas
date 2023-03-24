@@ -28,9 +28,9 @@ module "integration-environment" {
     env_profile =  "integration"
     google_analytics_id =  "UA-22141655-3"
 
-    redis_capacity =  "0"
     redis_session_capacity =  "0"
     redis_org_capacity =  "0"
+    redis-csl-service_capacity =  "0"
 
     identity_name =  "identity"
 

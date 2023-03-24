@@ -112,15 +112,15 @@ variable "google_analytics_id" {
   default = "UA-22141655-3"
 }
 
-variable "redis_capacity" {
-  default = "0"
-}
-
 variable "redis_session_capacity" {
   default = "0"
 }
 
 variable "redis_org_capacity" {
+  default = "0"
+}
+
+variable "redis-csl-service_capacity" {
   default = "0"
 }
 

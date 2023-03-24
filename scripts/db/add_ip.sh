@@ -16,11 +16,11 @@ transchiverApp="lpg-$1-lpg-data-transchriver"
 
 gpMysql="lpg-$1-gp"
 llMysql="lpg-$1-ll"
-redis="lpg-$1-redis"
 sessionRedis="lpg-$1-redis-session"
 orgRedis="lpg-$1-redis-org"
+cslServiceRedis="lpg-$1-redis-csl-service"
 
-SERVICES_TO_UPDATE="${gpMysql} ${llMysql} ${redis} ${sessionRedis} ${orgRedis}"
+SERVICES_TO_UPDATE="${gpMysql} ${llMysql} ${sessionRedis} ${orgRedis} ${cslServiceRedis}"
 
 identityOutboundIPs=$(az webapp show -g $1 -n ${identityApp} --query possibleOutboundIpAddresses -o tsv)
 transchiverOutboundIPs=$(az webapp show -g $1 -n ${transchiverApp} --query possibleOutboundIpAddresses -o tsv)
@@ -53,17 +53,6 @@ do
                 fi
             done
             ;;
-        ${redis})
-            echo "Firewall setting for ${redis}"
-            redisFirewallList=$(az redis firewall-rules list -g $1 -n ${redis} | grep -i startIp || true)
-            for ip in ${identityIPList}
-            do
-                if [[ ${redisFirewallList} != *"${ip}"* ]]; then
-                    echo "Adding rule to Redis for ${ip}"
-                    addRedisRule=$(az redis firewall-rules create -g $1 -n ${redis} --rule-name Rule_${1}_${ip//./} --start-ip ${ip} --end-ip ${ip})
-                fi
-            done
-            ;;
         ${sessionRedis})
             echo "Firewall setting for ${sessionRedis}"
             redisFirewallList=$(az redis firewall-rules list -g $1 -n ${sessionRedis} | grep -i startIp || true)
@@ -83,6 +72,17 @@ do
                 if [[ ${redisFirewallList} != *"${ip}"* ]]; then
                     echo "Adding rule to Redis for ${ip}"
                     addRedisRule=$(az redis firewall-rules create -g $1 -n ${orgRedis} --rule-name Rule_${1}_${ip//./} --start-ip ${ip} --end-ip ${ip})
+                fi
+            done
+            ;;
+        ${cslServiceRedis})
+            echo "Firewall setting for ${cslServiceRedis}"
+            redisFirewallList=$(az redis firewall-rules list -g $1 -n ${cslServiceRedis} | grep -i startIp || true)
+            for ip in ${identityIPList}
+            do
+                if [[ ${redisFirewallList} != *"${ip}"* ]]; then
+                    echo "Adding rule to Redis for ${ip}"
+                    addRedisRule=$(az redis firewall-rules create -g $1 -n ${cslServiceRedis} --rule-name Rule_${1}_${ip//./} --start-ip ${ip} --end-ip ${ip})
                 fi
             done
             ;;
