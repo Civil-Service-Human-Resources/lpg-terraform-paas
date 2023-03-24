@@ -17,7 +17,7 @@ In order to run the code in this repository, the following should be installed o
 
 - The access key for the state's relevant blob storage account must be set in an environment variable named `ARM_ACCESS_KEY`.
 
-The command for this is:
+The command to retrieve the key is:
 
 `az storage account keys list --resource-group lpgterraform --account-name lpgterraformsecure --query '[0].value' -o tsv`
 
