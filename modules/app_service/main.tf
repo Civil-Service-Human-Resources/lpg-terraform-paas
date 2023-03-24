@@ -19,7 +19,7 @@ resource "azurerm_linux_web_app" "app_service" {
 
   site_config {
     app_command_line = var.app_command_line
-    ip_restriction = [{
+    ip_restriction {
       action     				= "Allow"
 	  ip_address				= null
       priority   				= 1
@@ -27,7 +27,7 @@ resource "azurerm_linux_web_app" "app_service" {
       headers 					= []
       service_tag               = "AzureFrontDoor.Backend"
       virtual_network_subnet_id = null
-    }]
+    }
     minimum_tls_version = "1.2"
     http2_enabled       = false
 

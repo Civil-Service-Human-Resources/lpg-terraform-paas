@@ -237,6 +237,7 @@ module "csl_service" {
     app_command_line                = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.4.4.jar -jar /data/app.jar"
     allowed_ip_addresses            = local.allowed_ips
 	app_managed_identity_id         = data.azurerm_user_assigned_identity.app_service_identity.id
+	healthcheck_path_override 		= "/api/manage/health"
 }
 
 module "csl_service_frontdoor" {
