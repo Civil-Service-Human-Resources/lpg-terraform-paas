@@ -120,7 +120,7 @@ variable "redis_org_capacity" {
   default = "0"
 }
 
-variable "redis-csl-service_capacity" {
+variable "redis_csl_service_capacity" {
   default = "0"
 }
 

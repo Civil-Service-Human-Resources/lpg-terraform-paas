@@ -30,7 +30,7 @@ module "integration-environment" {
 
     redis_session_capacity =  "0"
     redis_org_capacity =  "0"
-    redis-csl-service_capacity =  "0"
+    redis_csl_service_capacity =  "0"
 
     identity_name =  "identity"
 

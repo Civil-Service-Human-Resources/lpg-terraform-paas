@@ -30,7 +30,7 @@ module "redis-csl-service" {
   rg_location    = var.rg_location
   redis_name     = "${var.rg_prefix}-${var.rg_name}-redis-csl-service"
   env_profile    = var.env_profile
-  redis_capacity = var.redis-csl-service_capacity
+  redis_capacity = var.redis_csl_service_capacity
 }
 
 module "mysql_gp" {
