@@ -52,7 +52,7 @@ For deployments to other environments, set the subscription to **CSL-Staging**
 ### How to configure each environment for deployment
 
 1. Clone this repository
-1. Change into the `environments/<environmentName>/master` folder in a terminal
+1. Change into the `environments/master` folder in a terminal
 1. Run `./plan.sh <environment>`
 
 ------------
