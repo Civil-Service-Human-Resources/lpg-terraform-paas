@@ -3,26 +3,22 @@ variable "name" {
 	description = "(optional) describe your variable"
 }
 
-variable "location" {
+variable "frontdoor_profile_id" {
 	type = string
 	description = "(optional) describe your variable"
 }
 
-variable "rg_name" {
+variable "app_service_fqdn" {
 	type = string
 	description = "(optional) describe your variable"
 }
 
-variable "keyvault_users_group_object_id" {
+variable "endpoint_id" {
 	type = string
 	description = "(optional) describe your variable"
 }
 
-variable "app_service_managed_id_object_id" {
+variable "custom_domain_id" {
 	type = string
 	description = "(optional) describe your variable"
-}
-
-variable "tenant_id" {
-  type = string
 }

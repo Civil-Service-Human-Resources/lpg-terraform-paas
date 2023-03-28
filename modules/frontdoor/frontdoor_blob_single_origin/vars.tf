@@ -1,38 +1,34 @@
-variable "allowed_ip_addresses" {
+variable "name" {
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "frontdoor_profile_id" {
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "blob_storage_fqdn" {
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "endpoint_id" {
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "cdn_paths" {
 	type = set(string)
-	description = "A set of IP addresses that are allowed to connect to this application."
+	description = "(optional) describe your variable"
 }
 
-variable "notification_service_name" {
+variable "blob_container" {
 	type = string
 	description = "(optional) describe your variable"
 }
 
-variable "rg_name" {
+variable "custom_domain_id" {
 	type = string
 	description = "(optional) describe your variable"
-}
-
-variable "env_profile" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "webapp_sku_tier" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "webapp_sku_name" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "notification_capacity" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "app_managed_identity_id" {
-	type = string
 }

@@ -26,6 +26,10 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                   "description":"Name of azure web app"
               }
           },
+		"uaiId": {
+			"defaultValue": "${var.app_managed_identity_id}",
+			"type": "String"
+		},
           "vaultResourceGroup":{
               "type":"string",
               "defaultvalue":"${var.vaultresourcegroup}"
@@ -109,11 +113,18 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
           },
           {
               "type":"Microsoft.Web/sites",
+				"identity": {
+					"type": "UserAssigned",
+					"userAssignedIdentities": {
+						"${var.app_managed_identity_id}": {}
+					}
+				},
               "name":"[parameters('siteName')]",
               "properties":{
                   "siteConfig":{
                       "healthCheckPath": "/health"
                   },
+					"keyVaultReferenceIdentity": "[parameters('uaiId')]",
                   "httpsOnly":true,
                   "reserved":true,
                   "name":"[parameters('siteName')]",

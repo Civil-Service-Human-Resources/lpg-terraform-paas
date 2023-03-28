@@ -1,14 +1,19 @@
-variable "allowed_ip_addresses" {
-	type = set(string)
-	description = "A set of IP addresses that are allowed to connect to this application."
-}
-
-variable "notification_service_name" {
+variable "dns_zone_id" {
 	type = string
 	description = "(optional) describe your variable"
 }
 
-variable "rg_name" {
+variable "rustici_engine_hostname" {
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "cdn_frontdoor_profile_id" {
+	type = string
+	description = "(optional) describe your variable"
+}
+
+variable "blob_storage_fqdn" {
 	type = string
 	description = "(optional) describe your variable"
 }
@@ -18,21 +23,12 @@ variable "env_profile" {
 	description = "(optional) describe your variable"
 }
 
-variable "webapp_sku_tier" {
+variable "domain" {
 	type = string
 	description = "(optional) describe your variable"
 }
 
-variable "webapp_sku_name" {
+variable "dns_zone_resource_group" {
 	type = string
 	description = "(optional) describe your variable"
-}
-
-variable "notification_capacity" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
-variable "app_managed_identity_id" {
-	type = string
 }

@@ -14,8 +14,12 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
               "defaultvalue":"${var.lpg_ui_name}",
               "metadata":{
                   "description":"Name of azure web app"
-              }
+              },
           },
+		  "uaiId": {
+			"defaultValue": "${var.app_managed_identity_id}",
+			"type": "String"
+		  },
           "vaultResourceGroup":{
               "type":"string",
               "defaultvalue":"${var.vaultresourcegroup}"
@@ -102,6 +106,7 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
               "name":"[parameters('siteName')]",
               "properties":{
                   "clientAffinityEnabled":false,
+				  "keyVaultReferenceIdentity": "[parameters('uaiId')]",
                   "httpsOnly":true,
                   "reserved":true,
                   "name":"[parameters('siteName')]",
@@ -128,6 +133,12 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
           },
           {
               "type":"Microsoft.Web/sites/config",
+				"identity": {
+					"type": "UserAssigned",
+					"userAssignedIdentities": {
+						"${var.app_managed_identity_id}": {}
+					}
+				},
               "name":"[concat(parameters('siteName'), '/web')]",
               "apiVersion":"2019-08-01",
               "location":"[resourceGroup().location]",

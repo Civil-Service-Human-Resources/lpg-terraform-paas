@@ -15,7 +15,13 @@ In order to run the code in this repository, the following should be installed o
 
 #### access key for state file
 
-- The access key for the state's relevant blob storage account must be set in an environment variable named `access_key`. This can be found in the Azure portal.
+- The access key for the state's relevant blob storage account must be set in an environment variable named `ARM_ACCESS_KEY`.
+
+The command to retrieve the key is:
+
+`az storage account keys list --resource-group lpgterraform --account-name lpgterraformsecure --query '[0].value' -o tsv`
+
+Alternatively, the access key can be retrieved from the Azure portal.
 
 ------------
 
@@ -46,8 +52,8 @@ For deployments to other environments, set the subscription to **CSL-Staging**
 ### How to configure each environment for deployment
 
 1. Clone this repository
-2. Change into the `environments/<environmentName>` folder in a terminal
-4. Run `terraform init`
+1. Change into the `environments/master` folder in a terminal
+1. Run `./plan.sh <environment>`
 
 ------------
 
@@ -69,7 +75,16 @@ For deployments to other environments, set the subscription to **CSL-Staging**
 
 Once the environment has been configured and updated as required for the deployment, run the appropriate set of commands
 
-#### Full deployment
+#### DevOps deployment
+
+Resources within the `environments` directory rely on resources being deployed using the `devops` directory. This includes things like:
+
+- Assigned identities
+- Keyvaults
+
+To deploy devops resources for an environment, simply `cd` into the desired environment sub-directory and run `terraform init`, `terraform plan` and `terraform apply`
+
+#### App deployment
 
 To deploy for a specific environment, use the `plan.sh` script:
 

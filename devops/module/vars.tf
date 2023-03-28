@@ -3,12 +3,16 @@ variable "rg_env" {
 	description = "(optional) describe your variable"
 }
 
-variable "environment" {
+variable "keyvault_users_group_object_id" {
+	type = string
+}
+
+variable "cert_vault_name" {
 	type = string
 	description = "(optional) describe your variable"
 }
 
-variable "location" {
+variable "cert_vault_rg_name" {
 	type = string
 	description = "(optional) describe your variable"
 }

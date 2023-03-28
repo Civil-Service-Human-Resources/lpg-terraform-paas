@@ -19,11 +19,6 @@ parameters:
       - {"name": "staging", "blobKey": "00-staging.terraform.tfstate"}
       - {"name": "perf", "blobKey": "00-perf.terraform.tfstate"}
 
-variables:
-  - group: Terraform variables
-  - name: KV_OID
-    value: $[variables.KEYVAULT_USERS_GROUP_OBJECTID]
-
 pool:
   vmImage: ubuntu-latest
 
@@ -83,7 +78,7 @@ steps:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environments/master'
         environmentServiceNameAzureRM: 'PrincipalConnectionProduction'
-        commandOptions: '-var keyvault_users_group_object_id=$(KV_OID) -out tfplan-${{ ENV.name }}'
+        commandOptions: '-out tfplan-${{ ENV.name }}'
 
     - task: Bash@3
       displayName: Move plan file to plan-files

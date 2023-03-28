@@ -1,7 +1,6 @@
 resource "random_string" "username" {
   length           = 16
-  special          = true
-  override_special = "-"
+  special          = false
 }
 
 resource "random_password" "password" {

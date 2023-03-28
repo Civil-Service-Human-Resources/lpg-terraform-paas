@@ -78,3 +78,7 @@ variable "scaling_enabled" {
 	type = string
 	description = "(optional) describe your variable"
 }
+
+variable "app_managed_identity_id" {
+	type = string
+}

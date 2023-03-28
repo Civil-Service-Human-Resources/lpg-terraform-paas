@@ -28,15 +28,6 @@ module "integration-environment" {
     env_profile =  "integration"
     google_analytics_id =  "UA-22141655-3"
 
-    cosmos_name =  "cosmos"
-    cosmos_offer_type =  "Standard"
-    cosmos_consistency_policy_level =  "Strong"
-    cosmos_failover_policy_location =  "West Europe"
-
-    redis_queue_provider =  "REDIS"
-    redis_queue_namespace =  "learninglocker"
-    redis_prefix =  "learninglocker"
-    redis_use_tls =  "1"
     redis_capacity =  "0"
     redis_session_capacity =  "0"
     redis_org_capacity =  "0"
@@ -47,16 +38,6 @@ module "integration-environment" {
     lpg_learner_record_websites_port =  "9000"
     learner_record_command_line =  "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 
-    lpg_testing =  "1"
-
-    lpg_learning_locker_xapi_name =  "learning-locker-xapi"
-    ll_xapi_express_port =  "8083"
-
-    lpg_learning_locker_worker_name =  "learning-locker-api-worker"
-    worker_api_env_app =  "learning-locker-api-worker"
-
-    lpg_learning_locker_ui_name =  "learning-locker-ui"
-    lpg_learning_locker_api_port =  "8082"
     ll_ui_port =  "80"
 
     lpg_ui_name =  "lpg-ui"
@@ -70,7 +51,6 @@ module "integration-environment" {
 
     mysql_name_gp =  "gp"
 
-    mysql_name_ll =  "ll"
     mysql_storage =  "4194304"
 
     civil_servant_registry_name =  "civil-servant-registry"
@@ -97,8 +77,6 @@ module "integration-environment" {
 
     notification_service_name =  "notification-service"
 
-    data_transchiver_name =  "lpg-data-transchriver"
-    job_schedule =  "0 1 21 * * *"
     invite_validity =  "259200"
     duration_after_rereg_allowed_seconds =  "86400"
     backend_api_call_batch_size =  "50"
