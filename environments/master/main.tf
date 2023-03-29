@@ -23,6 +23,16 @@ module "redis-org" {
   redis_capacity = var.redis_org_capacity
 }
 
+module "redis-csl-service" {
+  source         = "../../modules/redis"
+  rg_name        = var.rg_name
+  rg_prefix      = var.rg_prefix
+  rg_location    = var.rg_location
+  redis_name     = "${var.rg_prefix}-${var.rg_name}-redis-csl-service"
+  env_profile    = var.env_profile
+  redis_capacity = var.redis_csl_service_capacity
+}
+
 module "mysql_gp" {
   source            = "../../modules/mysql_generalpurpose"
   rg_name           = var.rg_name

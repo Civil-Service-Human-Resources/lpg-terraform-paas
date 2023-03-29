@@ -116,6 +116,10 @@ variable "redis_org_capacity" {
 	default =  "0"
 }
 
+variable "redis_csl_service_capacity" {
+	default =  "0"
+}
+
 variable "identity_name" {
 	default =  "identity"
 }

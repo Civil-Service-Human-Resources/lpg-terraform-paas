@@ -122,15 +122,15 @@ variable "google_analytics_id" {
 
 ### redis ###
 
-variable "redis_capacity" {
-  default = "2"
-}
-
 variable "redis_session_capacity" {
   default = "1"
 }
 
 variable "redis_org_capacity" {
+  default = "1"
+}
+
+variable "redis_csl_service_capacity" {
   default = "1"
 }
 
