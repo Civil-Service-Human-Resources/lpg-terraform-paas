@@ -38,14 +38,6 @@ echo "Setting symlink: $1"
 cp -r ../$ENV/state.tf .
 cp -r ../$ENV/vars.tf vars.tf
 
-if [[ $ENV =~ ^(integration|staging|perf)$ ]]; then
-    SUBSCRIPTION_NAME="CSL-Staging"
-else
-    SUBSCRIPTION_NAME="CSL-Production"
-fi
-
-az account set --subscription $SUBSCRIPTION_NAME
-
 terraform init
 
 terraform plan -out tfplan-$ENV
