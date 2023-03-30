@@ -21,6 +21,15 @@ resource "azurerm_redis_cache" "redis_cache" {
   }
 }
 
+resource "azurerm_redis_firewall_rule" "example" {
+	for_each 			= var.allowed_ips
+	name                = "app_service"
+	redis_cache_name    = azurerm_redis_cache.redis_cache.name
+	resource_group_name = var.rg_name
+	start_ip            = each.value
+	end_ip              = each.value
+}
+
 output "redis_key" {
   value = azurerm_redis_cache.redis_cache.primary_access_key
 }
