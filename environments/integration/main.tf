@@ -36,7 +36,6 @@ module "integration-environment" {
 
     lpg_learner_record_name =  "lpg-learner-record"
     lpg_learner_record_websites_port =  "9000"
-    learner_record_command_line =  "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 
     ll_ui_port =  "80"
 
@@ -58,7 +57,6 @@ module "integration-environment" {
     agency_token_min_capacity =  "1"
     lpg_report_service_name =  "lpg-report-service"
     report_service_websites_port =  "9004"
-    report_service_command_line =  "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
     spring_profiles_active =  "test,production"
 
     identity_management_data_retention_cron_schedule =  "0 0 5 * * *"

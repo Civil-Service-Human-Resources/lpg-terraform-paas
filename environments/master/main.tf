@@ -96,6 +96,7 @@ module "identity" {
   custom_emails                           = var.custom_emails
   scaling_enabled                         = var.scaling_enabled
   app_managed_identity_id				  = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_command_line				  		  = var.identity_app_command_line
 
 }
 
@@ -126,10 +127,10 @@ module "lpg-learner-record" {
   webapp_sku_name                 = var.webapp_sku_name_p2
   learner_record_capacity         = var.learner_record_capacity
   env_profile                     = var.env_profile
-  learner_record_command_line     = var.learner_record_command_line
   custom_emails                   = var.custom_emails
   scaling_enabled                 = var.scaling_enabled
   app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_command_line     			  = var.learner_record_app_command_line
 
 }
 
@@ -148,9 +149,8 @@ module "lpg-report-service" {
   webapp_sku_tier                 = var.webapp_sku_tier_p2
   webapp_sku_name                 = var.webapp_sku_name_p3
   env_profile                     = var.env_profile
-  report_service_command_line     = var.report_service_command_line
   app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
-
+  app_command_line				  = var.report_service_app_command_line
 }
 
 module "lpg-ui" {
@@ -193,7 +193,7 @@ module "lpg-learning-catalogue" {
   custom_emails                   = var.custom_emails
   scaling_enabled                 = var.scaling_enabled
   app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
-  
+  app_command_line				  = var.learning_catalogue_app_command_line
 }
 
 module "civil-servant-registry-service" {
@@ -215,6 +215,7 @@ module "civil-servant-registry-service" {
   scaling_enabled				  = var.scaling_enabled
   custom_emails 				  = var.custom_emails
   app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_command_line				  = var.civil_servant_registry_app_command_line
 }
 
 module "lpg-management" {
@@ -246,6 +247,7 @@ module "notification-service" {
   notification_capacity              = var.notification_capacity
   allowed_ip_addresses 				 = local.allowed_ips
   app_managed_identity_id			 = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_command_line					 = var.notification_service_app_command_line
 }
 
 # CSL-SERVICE
@@ -256,7 +258,7 @@ module "csl_service" {
     app_name                        = "csl-service"
     sku_name                        = var.csl_service_vertical_scale
     horizontal_scale                = var.csl_service_horizontal_scale
-    app_command_line                = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.4.4.jar -jar /data/app.jar"
+    app_command_line                = var.csl_service_app_command_line
     allowed_ip_addresses            = local.allowed_ips
 	app_managed_identity_id         = data.azurerm_user_assigned_identity.app_service_identity.id
 	healthcheck_path_override 		= "/api/manage/health"

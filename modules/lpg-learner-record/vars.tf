@@ -64,11 +64,6 @@ variable "env_profile" {
 	description = "(optional) describe your variable"
 }
 
-variable "learner_record_command_line" {
-	type = string
-	description = "(optional) describe your variable"
-}
-
 variable "custom_emails" {
 	type = string
 	description = "(optional) describe your variable"
@@ -80,5 +75,9 @@ variable "scaling_enabled" {
 }
 
 variable "app_managed_identity_id" {
+	type = string
+}
+
+variable "app_command_line" {
 	type = string
 }

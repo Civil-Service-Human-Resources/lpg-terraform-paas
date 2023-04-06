@@ -92,7 +92,7 @@ resource "azurerm_template_deployment" "notification-service-app-service" {
               "logsDirectorySizeLimit":35,
               "detailedErrorLoggingEnabled":true,
               "alwaysOn":true,
-              "appCommandLine":"java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar",
+              "appCommandLine":"${var.app_command_line}",
               "minTlsVersion":"1.2",
               "ftpsState":"Disabled",
 			  "ipSecurityRestrictions": ${jsonencode(local.allowed_ip_address_blocks)}

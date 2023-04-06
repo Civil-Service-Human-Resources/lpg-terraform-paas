@@ -136,10 +136,6 @@ variable "lpg_learner_record_websites_port" {
   default = "9000"
 }
 
-variable "learner_record_command_line" {
-  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
-}
-
 variable "lpg_ui_name" {
   default = "lpg-ui"
 }
@@ -194,10 +190,6 @@ variable "lpg_report_service_name" {
 
 variable "report_service_websites_port" {
   default = "9004"
-}
-
-variable "report_service_command_line" {
-  default = "java -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
 
 variable "spring_profiles_active" {
@@ -344,4 +336,41 @@ variable "rustici_mysql_sku" {
 	type = string
 	description = "(optional) describe your variable"
 	default = "GP_Standard_D2ds_v4"
+}
+
+## APP COMMAND LINES ##
+
+variable "learner_record_app_command_line" {
+	type = string
+	default = "java -Xmx256m -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+}
+
+variable "identity_app_command_line" {
+	type = string
+	default = "java -Xmx256m -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+}
+
+variable "report_service_app_command_line" {
+	type = string
+	default = "java -Xmx256m -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+}
+
+variable "learning_catalogue_app_command_line" {
+	type = string
+	default = "java -Xmx256m -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+}
+
+variable "civil_servant_registry_app_command_line" {
+	type = string
+	default = "java -Xmx256m -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+}
+
+variable "notification_service_app_command_line" {
+	type = string
+	default = "java -Xmx256m -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+}
+
+variable "csl_service_app_command_line" {
+	type = string
+	default = "java -Xmx256m -javaagent:/opt/appinsights/applicationinsights-agent-3.4.4.jar -jar /data/app.jar"
 }
