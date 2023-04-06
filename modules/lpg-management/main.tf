@@ -254,6 +254,10 @@ resource "azurerm_template_deployment" "lpg-management-app-service" {
                           {
                               "name":"ORG_REDIS_TTL",
                               "value":"${var.org_redis_ttl}"
+                          },
+                          {
+                              "name":"FEEDBACK_URL",
+                              "value":"${var.feedback_url}"
                           }
                       ]
                   },

@@ -238,6 +238,10 @@ variable "lpg_ui_logging_level" {
   default = "INFO"
 }
 
+variable "feedback_url" {
+  default = "ChangeMe"
+}
+
 ### lpg-learning-catalogue ###
 variable "lpg_learning_catalogue_name" {
   default = "lpg-learning-catalogue"
@@ -352,10 +356,6 @@ variable "lpg_management_civil_servant_registry_service_timeout_ms" {
 ### notification-service ###
 variable "notification_service_name" {
   default = "notification-service"
-}
-
-variable "feedback_recipient" {
-  default = "feedback@cslearning.gov.uk"
 }
 
 ### data-transchriver ###ß
