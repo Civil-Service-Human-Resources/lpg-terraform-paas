@@ -159,7 +159,7 @@ resource "azurerm_template_deployment" "lpg-learner-record-app-service" {
                   "logsDirectorySizeLimit":35,
                   "detailedErrorLoggingEnabled":true,
                   "alwaysOn":true,
-                  "appCommandLine":"${var.learner_record_command_line}",
+                  "appCommandLine":"${var.app_command_line}",
                   "minTlsVersion":"1.2",
                   "ftpsState":"Disabled",
 				  "ipSecurityRestrictions": ${jsonencode(local.allowed_ip_address_blocks)}

@@ -72,3 +72,7 @@ variable "scaling_enabled" {
 variable "app_managed_identity_id" {
 	type = string
 }
+
+variable "app_command_line" {
+	type = string
+}

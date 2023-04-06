@@ -58,11 +58,10 @@ variable "env_profile" {
 	description = "(optional) describe your variable"
 }
 
-variable "report_service_command_line" {
+variable "app_managed_identity_id" {
 	type = string
-	description = "(optional) describe your variable"
 }
 
-variable "app_managed_identity_id" {
+variable "app_command_line" {
 	type = string
 }

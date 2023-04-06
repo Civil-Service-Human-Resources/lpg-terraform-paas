@@ -158,7 +158,7 @@ resource "azurerm_template_deployment" "lpg-report-service-app-service" {
         "logsDirectorySizeLimit": 35,
         "detailedErrorLoggingEnabled": true,
         "alwaysOn": true,
-        "appCommandLine": "${var.report_service_command_line}",
+        "appCommandLine": "${var.app_command_line}",
         "minTlsVersion": "1.2",
         "ftpsState": "Disabled",
 		"ipSecurityRestrictions": ${jsonencode(local.allowed_ip_address_blocks)}
