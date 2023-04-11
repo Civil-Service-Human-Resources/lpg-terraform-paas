@@ -150,7 +150,7 @@ variable "lpg_management_server" {
   default = ""
 }
 
-variable "feedback_recipient" {
+variable "feedback_url" {
   default = ""
 }
 

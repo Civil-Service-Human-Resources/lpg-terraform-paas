@@ -341,7 +341,7 @@ module "lpg-ui" {
   lpg_ui_oauth_client_id          = var.lpg_ui_oauth_client_id
   lpg_ui_oauth_client_secret      = var.lpg_ui_oauth_client_secret
   lpg_management_server           = "https://management.${var.domain}"
-  feedback_recipient              = var.feedback_recipient
+  feedback_url                    = var.feedback_url
   contact_us_email                = var.lpg_ui_contact_us_email
   scaling_enabled                 = var.scaling_enabled
   custom_emails                   = var.custom_emails
@@ -492,6 +492,7 @@ module "lpg-management" {
   org_redis_port                     = "6379"
   org_redis_ttl                      = "604800"
   application_insights_connection_string = var.application_insights_connection_string
+  feedback_url                       = var.feedback_url
 }
 
 module "notification-service" {

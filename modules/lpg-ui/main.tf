@@ -196,8 +196,8 @@ resource "azurerm_template_deployment" "lpg-ui-app-service" {
                               "value":"${var.lpg_management_server}"
                           },
                           {
-                              "name":"FEEDBACK_RECIPIENT",
-                              "value":"${var.feedback_recipient}"
+                              "name":"FEEDBACK_URL",
+                              "value":"${var.feedback_url}"
                           },
                           {
                               "name": "CONTACT_EMAIL",
