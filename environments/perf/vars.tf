@@ -321,19 +321,19 @@ variable "vaultname" {
 }
 
 variable "existingkeyvaultsecretname" {
-  default = "star-performance-learn-civil-service-gov-uk-pfxsecret-2022"
+	default = "star-performance-learn-civil-service-gov-uk-2023"
 }
 
 variable "certificatename" {
-  default = "star-performance-learn-civil-service-gov-uk-2022"
-}
-
-variable "ui_certificatename" {
-  default = "star-performance-learn-civil-service-gov-uk-2022"
+	default = "star-performance-learn-civilservice-gov-uk-2023"
 }
 
 variable "ui_existingkeyvaultsecretname" {
-  default = "star-performance-learn-civil-service-gov-uk-pfxsecret-2022"
+	default = "star-performance-learn-civil-service-gov-uk-2023"
+}
+
+variable "ui_certificatename" {
+	default = "star-performance-learn-civilservice-gov-uk-2023"
 }
 
 variable "custom_emails" {
