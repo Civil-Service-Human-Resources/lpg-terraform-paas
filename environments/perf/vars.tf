@@ -349,7 +349,7 @@ variable "csl_service_vertical_scale" {
 
 variable "csl_service_horizontal_scale" {
 	type = number
-	default = 1
+	default = 2
 }
 
 ## Rustici ##
@@ -363,7 +363,7 @@ variable "rustici_engine_vertical_scale" {
 variable "rustici_engine_horizontal_scale" {
 	type = string
 	description = "(optional) describe your variable"
-	default = 1
+	default = 2
 }
 
 variable "rustici_mysql_size_gb" {
