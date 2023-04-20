@@ -321,19 +321,19 @@ variable "vaultname" {
 }
 
 variable "existingkeyvaultsecretname" {
-  default = "star-performance-learn-civil-service-gov-uk-pfxsecret-2022"
+	default = "star-performance-learn-civil-service-gov-uk-2023"
 }
 
 variable "certificatename" {
-  default = "star-performance-learn-civil-service-gov-uk-2022"
-}
-
-variable "ui_certificatename" {
-  default = "star-performance-learn-civil-service-gov-uk-2022"
+	default = "star-performance-learn-civilservice-gov-uk-2023"
 }
 
 variable "ui_existingkeyvaultsecretname" {
-  default = "star-performance-learn-civil-service-gov-uk-pfxsecret-2022"
+	default = "star-performance-learn-civil-service-gov-uk-2023"
+}
+
+variable "ui_certificatename" {
+	default = "star-performance-learn-civilservice-gov-uk-2023"
 }
 
 variable "custom_emails" {
@@ -349,7 +349,7 @@ variable "csl_service_vertical_scale" {
 
 variable "csl_service_horizontal_scale" {
 	type = number
-	default = 1
+	default = 2
 }
 
 ## Rustici ##
@@ -363,7 +363,7 @@ variable "rustici_engine_vertical_scale" {
 variable "rustici_engine_horizontal_scale" {
 	type = string
 	description = "(optional) describe your variable"
-	default = 1
+	default = 2
 }
 
 variable "rustici_mysql_size_gb" {

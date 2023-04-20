@@ -277,19 +277,19 @@ variable "custom_emails" {
 }
 
 variable "existingkeyvaultsecretname" {
-	default = "star-integration-learn-civil-service-gov-uk-pfxsecret-2022"
+	default = "star-integration-learn-civil-service-gov-uk-2023"
 }
 
 variable "certificatename" {
-	default = "star-integration-learn-civil-service-gov-uk-2022"
+	default = "star-integration-learn-civilservice-gov-uk-2023"
 }
 
 variable "ui_existingkeyvaultsecretname" {
-	default = "star-integration-learn-civil-service-gov-uk-pfxsecret-2022"
+	default = "star-integration-learn-civil-service-gov-uk-2023"
 }
 
 variable "ui_certificatename" {
-	default = "star-integration-learn-civil-service-gov-uk-2022"
+	default = "star-integration-learn-civilservice-gov-uk-2023"
 }
 
 variable "identity_management_name" {
