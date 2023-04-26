@@ -239,10 +239,6 @@ variable "lpg_ui_logging_level" {
   default = "INFO"
 }
 
-variable "feedback_url" {
-  default = "ChangeMe"
-}
-
 ### lpg-learning-catalogue ###
 variable "lpg_learning_catalogue_name" {
   default = "lpg-learning-catalogue"
