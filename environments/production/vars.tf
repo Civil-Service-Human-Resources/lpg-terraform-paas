@@ -135,6 +135,10 @@ variable "lpg_management_vertical_scale" {
   default = "P2v2"
 }
 
+variable "content_container" {
+  default =  "lpgprodcontent"
+}
+
 ## Notification service
 
 variable notification_service_horizontal_scale {
