@@ -77,191 +77,138 @@ data "azurerm_dns_zone" "dns_zone" {
 
 # Apps
 
-module "identity" {
-  source                                  = "../../modules/identity"
-  
-  identity_name                           = "${var.rg_prefix}-${var.rg_name}-${var.identity_name}"
-  rg_name                                 = var.rg_name
-  vaultresourcegroup                      = var.vaultresourcegroup
-  vaultname                               = var.vaultname
-  existingkeyvaultsecretname              = var.existingkeyvaultsecretname
-  certificatename                         = var.certificatename
-  domain                                  = var.domain
-  envurl                                  = var.envurl
-  serviceplan_suffix					  = "serviceplan"
-  webapp_sku_tier                         = var.webapp_sku_tier_p2
-  webapp_sku_name                         = var.webapp_sku_name_p2
-  identity_capacity                       = var.identity_capacity
-  env_profile                             = var.env_profile
-  custom_emails                           = var.custom_emails
-  scaling_enabled                         = var.scaling_enabled
-  app_managed_identity_id				  = data.azurerm_user_assigned_identity.app_service_identity.id
-  app_command_line				  		  = var.identity_app_command_line
-
-}
-
-module "identity-management" {
-  source                            = "../../modules/identity-management"
-  
-  identity_management_name          = "${var.rg_prefix}-${var.rg_name}-${var.identity_management_name}"
-  rg_name                           = var.rg_name
-  env_profile                       = var.env_profile
-  webapp_sku_tier                   = var.webapp_sku_tier_p2
-  webapp_sku_name                   = var.webapp_sku_name_p1
-
-}
-
-module "lpg-learner-record" {
-  source                          = "../../modules/lpg-learner-record"
-
-  allowed_ip_addresses 			  = local.allowed_ips
-  lpg_learner_record_name         = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learner_record_name}"
-  rg_name                         = var.rg_name
-  vaultresourcegroup              = var.vaultresourcegroup
-  vaultname                       = var.vaultname
-  existingkeyvaultsecretname      = var.existingkeyvaultsecretname
-  certificatename                 = var.certificatename
-  domain                          = var.domain
-  envurl                          = var.envurl
-  webapp_sku_tier                 = var.webapp_sku_tier_p2
-  webapp_sku_name                 = var.webapp_sku_name_p2
-  learner_record_capacity         = var.learner_record_capacity
-  env_profile                     = var.env_profile
-  custom_emails                   = var.custom_emails
-  scaling_enabled                 = var.scaling_enabled
-  app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
-  app_command_line     			  = var.learner_record_app_command_line
-
-}
-
-module "lpg-report-service" {
-  source                          = "../../modules/lpg-report-service"
-  
-  lpg_report_service_name         = "${var.rg_prefix}-${var.rg_name}-${var.lpg_report_service_name}"
-  allowed_ip_addresses			  = local.allowed_ips
-  rg_name                         = var.rg_name
-  vaultresourcegroup              = var.vaultresourcegroup
-  vaultname                       = var.vaultname
-  existingkeyvaultsecretname      = var.existingkeyvaultsecretname
-  certificatename                 = var.certificatename
-  domain                          = var.domain
-  envurl                          = var.envurl
-  webapp_sku_tier                 = var.webapp_sku_tier_p2
-  webapp_sku_name                 = var.webapp_sku_name_p3
-  env_profile                     = var.env_profile
-  app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
-  app_command_line				  = var.report_service_app_command_line
-}
+## Frontend
 
 module "lpg-ui" {
-  source                          = "../../modules/lpg-ui"
-  
-  lpg_ui_name                     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
-  rg_name_lpg_ui                  = var.rg_name_lpg_ui
-  vaultresourcegroup              = var.vaultresourcegroup
-  vaultname                       = var.vaultname
-  existingkeyvaultsecretname      = var.ui_existingkeyvaultsecretname
-  certificatename 			      = var.ui_certificatename
-  domain                          = var.domain
-  envurl                          = var.envurl
-  serviceplan_suffix_lpgui        = var.serviceplan_suffix_lpgui
-  webapp_sku_tier                 = var.webapp_sku_tier_p2
-  webapp_sku_name                 = var.webapp_sku_name_p2
-  lpg_ui_capacity                 = var.lpg_ui_capacity
-  env_profile                     = var.env_profile
-  custom_emails                   = var.custom_emails
-  scaling_enabled                 = var.scaling_enabled
+  source = "../../modules/app_service"
+
+  app_command_line = "npm run start:ui"
   app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
-
-}
-
-module "lpg-learning-catalogue" {
-  source                          = "../../modules/lpg-learning-catalogue"
-
-  lpg_learning_catalogue_name     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_catalogue_name}"
-  rg_name                         = var.rg_name
-  vaultresourcegroup              = var.vaultresourcegroup
-  vaultname                       = var.vaultname
-  existingkeyvaultsecretname      = var.existingkeyvaultsecretname
-  certificatename                 = var.certificatename
-  domain                          = var.domain
-  envurl                          = var.envurl
-  webapp_sku_tier                 = var.webapp_sku_tier_p2
-  webapp_sku_name                 = var.webapp_sku_name_p1
-  learning_catalogue_capacity     = var.learning_catalogue_capacity
-  env_profile                     = var.env_profile
-  custom_emails                   = var.custom_emails
-  scaling_enabled                 = var.scaling_enabled
-  app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
-  app_command_line				  = var.learning_catalogue_app_command_line
-}
-
-module "civil-servant-registry-service" {
-  source                          = "../../modules/civil-servant-registry-service"
-
-  allowed_ip_addresses			  = local.allowed_ips
-  civil_servant_registry_name	  = "${var.rg_prefix}-${var.rg_name}-${var.civil_servant_registry_name}"
-  rg_name						  = var.rg_name
-  vaultresourcegroup			  = var.vaultresourcegroup
-  vaultname						  = var.vaultname
-  existingkeyvaultsecretname	  = var.existingkeyvaultsecretname
-  certificatename				  = var.certificatename
-  domain						  = var.domain
-  envurl						  = var.envurl
-  webapp_sku_tier                 = var.webapp_sku_tier_p2
-  webapp_sku_name                 = var.webapp_sku_name_p1
-  csrs_capacity                   = var.csrs_capacity
-  env_profile                     = var.env_profile		
-  scaling_enabled				  = var.scaling_enabled
-  custom_emails 				  = var.custom_emails
-  app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
-  app_command_line				  = var.civil_servant_registry_app_command_line
+  app_name = "lpg-ui"
+  rg_name = var.rg_name
+  horizontal_scale = var.lpg_ui_horizontal_scale
+  sku_name = var.lpg_ui_vertical_scale
+  use_legacy_name = true
+  healthcheck_path_override = ""
+  serviceplan_suffix = var.serviceplan_suffix_lpgui
 }
 
 module "lpg-management" {
-  source                             = "../../modules/lpg-management"
+  source = "../../modules/app_service"
 
-  lpg_management_name                = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management_name}"
-  rg_name                            = var.rg_name
-  vaultresourcegroup                 = var.vaultresourcegroup
-  vaultname                          = var.vaultname
-  existingkeyvaultsecretname         = var.existingkeyvaultsecretname
-  certificatename                    = var.certificatename
-  domain                             = var.domain
-  envurl                             = var.envurl
-  webapp_sku_tier                    = var.webapp_sku_tier_p2
-  webapp_sku_name                    = var.webapp_sku_name_p2
-  lpg_management_capacity            = var.lpg_management_capacity
-  env_profile                        = var.env_profile
-  app_managed_identity_id			 = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_command_line = "npm start"
+  app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_name = "lpg-management"
+  rg_name = var.rg_name
+  horizontal_scale = var.lpg_management_horizontal_scale
+  sku_name = var.lpg_management_vertical_scale
+  use_legacy_name = true
+  healthcheck_path_override = ""
+}
+
+## Backend
+
+module "identity" {
+  source = "../../modules/app_service"
+
+  app_command_line = var.identity_app_command_line
+  app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_name = "identity"
+  rg_name = var.rg_name
+  horizontal_scale = var.identity_horizontal_scale
+  sku_name = var.identity_vertical_scale
+  use_legacy_name = true
+}
+
+module "identity-management" {
+  source = "../../modules/app_service"
+
+  app_command_line = ""
+  app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_name = "identity-management"
+  rg_name = var.rg_name
+  horizontal_scale = var.identity_management_horizontal_scale
+  sku_name = var.identity_management_vertical_scale
+  use_legacy_name = true
+  healthcheck_path_override = ""
+}
+
+module "lpg-learner-record" {
+  source = "../../modules/app_service"
+
+  app_command_line = var.learner_record_app_command_line
+  app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_name = "lpg-learner-record"
+  rg_name = var.rg_name
+  horizontal_scale = var.learner_record_horizontal_scale
+  sku_name = var.learner_record_vertical_scale
+  use_legacy_name = true
+  allowed_ip_addresses = local.allowed_ips
+}
+
+module "lpg-report-service" {
+  source = "../../modules/app_service"
+
+  app_command_line = var.report_service_app_command_line
+  app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_name = "lpg-report-service"
+  rg_name = var.rg_name
+  horizontal_scale = var.report_service_horizontal_scale
+  sku_name = var.report_service_vertical_scale
+  use_legacy_name = true
+  allowed_ip_addresses = local.allowed_ips
+}
+
+module "lpg-learning-catalogue" {
+  source = "../../modules/app_service"
+
+  app_command_line = var.learning_catalogue_app_command_line
+  app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_name = "lpg-learning-catalogue"
+  rg_name = var.rg_name
+  horizontal_scale = var.learning_catalogue_horizontal_scale
+  sku_name = var.learning_catalogue_vertical_scale
+  use_legacy_name = true
+}
+
+module "civil-servant-registry-service" {
+  source = "../../modules/app_service"
+
+  app_command_line = var.civil_servant_registry_app_command_line
+  app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_name = "civil-servant-registry"
+  rg_name = var.rg_name
+  horizontal_scale = var.civil_servant_registry_horizontal_scale
+  sku_name = var.civil_servant_registry_vertical_scale
+  use_legacy_name = true
+  allowed_ip_addresses = local.allowed_ips
 }
 
 module "notification-service" {
-  source                             = "../../modules/notification-service"
+  source = "../../modules/app_service"
 
-  rg_name                            = var.rg_name
-  notification_service_name          = "${var.rg_prefix}-${var.rg_name}-${var.notification_service_name}"
-  env_profile                        = var.env_profile
-  webapp_sku_tier                    = var.webapp_sku_tier_p2
-  webapp_sku_name                    = var.webapp_sku_name_p1
-  notification_capacity              = var.notification_capacity
-  allowed_ip_addresses 				 = local.allowed_ips
-  app_managed_identity_id			 = data.azurerm_user_assigned_identity.app_service_identity.id
-  app_command_line					 = var.notification_service_app_command_line
+  app_command_line = var.notification_service_app_command_line
+  app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_name = "notification-service"
+  rg_name = var.rg_name
+  horizontal_scale = var.notification_service_horizontal_scale
+  sku_name = var.notification_service_vertical_scale
+  use_legacy_name = true
+  allowed_ip_addresses = local.allowed_ips
 }
 
 # CSL-SERVICE
 
 module "csl_service" {
-    source                          = "../../modules/app_service"
-    rg_name                         = var.rg_name
-    app_name                        = "csl-service"
-    sku_name                        = var.csl_service_vertical_scale
-    horizontal_scale                = var.csl_service_horizontal_scale
-    app_command_line                = var.csl_service_app_command_line
-    allowed_ip_addresses            = local.allowed_ips
-	app_managed_identity_id         = data.azurerm_user_assigned_identity.app_service_identity.id
-	healthcheck_path_override 		= "/api/manage/health"
+  source                          = "../../modules/app_service"
+  rg_name                         = var.rg_name
+  app_name                        = "csl-service"
+  sku_name                        = var.csl_service_vertical_scale
+  horizontal_scale                = var.csl_service_horizontal_scale
+  app_command_line                = var.csl_service_app_command_line
+  app_managed_identity_id         = data.azurerm_user_assigned_identity.app_service_identity.id
+  healthcheck_path_override 		= "/api/manage/health"
+  frontdoor_enabled = true
 }
 
 module "csl_service_frontdoor" {
@@ -285,10 +232,9 @@ module "rustici_engine" {
   sku_name                        = var.rustici_engine_vertical_scale
   horizontal_scale                = var.rustici_engine_horizontal_scale
   app_command_line                = "./installScript.sh"
-  # The browser will be interacting with Rustici, so we can't filter any IP addresses here
-  allowed_ip_addresses            = []
   healthcheck_path_override       = "/ping"
   app_managed_identity_id         = data.azurerm_user_assigned_identity.app_service_identity.id
+  frontdoor_enabled = true
 }
 
 module "rustici_frontdoor" {
