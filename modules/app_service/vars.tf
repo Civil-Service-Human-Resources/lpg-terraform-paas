@@ -36,6 +36,7 @@ variable "app_command_line" {
 variable "allowed_ip_addresses" {
 	type = set(string)
 	description = "A set of IP addresses that are allowed to connect to this application."
+	default = []
 }
 
 variable "healthcheck_path_override" {
@@ -46,4 +47,22 @@ variable "healthcheck_path_override" {
 variable "app_managed_identity_id" {
 	type = string
 	description = "ID for the global app service user-assigned identity"
+}
+
+variable "frontdoor_enabled" {
+	type = bool
+	description = "Should this web app be served via Azure Frontdoor"
+	default = false
+}
+
+variable "use_legacy_name" {
+	type = bool
+	description = "Use the legacy naming convention (lpg-{resource_group}-app_name)"
+	default = false
+}
+
+variable "serviceplan_suffix" {
+	type = string
+	description = "Suffix for the serviceplan name - only used by lpg UI in production"
+	default = ""
 }

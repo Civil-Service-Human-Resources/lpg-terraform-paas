@@ -21,7 +21,7 @@ resource "azurerm_redis_cache" "redis_cache" {
   }
 }
 
-resource "azurerm_redis_firewall_rule" "example" {
+resource "azurerm_redis_firewall_rule" "firewall_rules" {
 	for_each 			= var.allowed_ips
 	name                = replace(each.value, ".", "_")
 	redis_cache_name    = azurerm_redis_cache.redis_cache.name

@@ -1,40 +1,40 @@
 data "azurerm_linux_web_app" "lpg_ui_data" {
-	name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
-	resource_group_name = var.rg_name_lpg_ui
+	name = "${var.rg_prefix}-${var.rg_name}-lpg-ui"
+	resource_group_name = var.rg_name
 }
 
 data "azurerm_linux_web_app" "lpg_management_data" {
-	name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_management_name}"
+	name = "${var.rg_prefix}-${var.rg_name}-lpg-management"
 	resource_group_name = var.rg_name
 }
 
 data "azurerm_linux_web_app" "report_service_data" {
-	name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_report_service_name}"
+	name = "${var.rg_prefix}-${var.rg_name}-lpg-report-service"
 	resource_group_name = var.rg_name
 }
 
 data "azurerm_linux_web_app" "identity_data" {
-	name = "${var.rg_prefix}-${var.rg_name}-${var.identity_name}"
+	name = "${var.rg_prefix}-${var.rg_name}-identity"
 	resource_group_name = var.rg_name
 }
 
 data "azurerm_linux_web_app" "civil_servant_registry_data" {
-	name = "${var.rg_prefix}-${var.rg_name}-${var.civil_servant_registry_name}"
+	name = "${var.rg_prefix}-${var.rg_name}-civil-servant-registry"
 	resource_group_name = var.rg_name
 }
 
 data "azurerm_linux_web_app" "learning_catalogue_data" {
-	name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learning_catalogue_name}"
+	name = "${var.rg_prefix}-${var.rg_name}-lpg-learning-catalogue"
 	resource_group_name = var.rg_name
 }
 
 data "azurerm_linux_web_app" "learner_record_data" {
-	name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_learner_record_name}"
+	name = "${var.rg_prefix}-${var.rg_name}-lpg-learner-record"
 	resource_group_name = var.rg_name
 }
 
 data "azurerm_linux_web_app" "identity_management_data" {
-	name = "${var.rg_prefix}-${var.rg_name}-${var.identity_management_name}"
+	name = "${var.rg_prefix}-${var.rg_name}-identity-management"
 	resource_group_name = var.rg_name
 }
 
