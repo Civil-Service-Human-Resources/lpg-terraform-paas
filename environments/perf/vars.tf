@@ -13,7 +13,7 @@ variable "rg_name" {
 
 variable "rg_name_lpg_ui" {
   type = string
-  default = "perf_temp"
+  default = "lpgperf"
 }
 
 variable "rg_prefix" {
