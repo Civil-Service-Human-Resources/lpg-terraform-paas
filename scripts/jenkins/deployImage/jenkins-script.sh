@@ -17,7 +17,7 @@ if [[ ${webappName} =~ ^(civil-servant-registry|identity|lpg-management|lpg-ui|l
   if [[ ${webappName} = "identity" ]]; then
     webappName="identity-service"
   elif [[ ${webappName} = "lpg-ui" ]]; then
-    if [[ ${resourceGroup} = "perf_temp" ]]; then
+    if [[ ${resourceGroup} = "lpgperf" ]]; then
       name="lpg-lpgperf-${webappName}"
     fi
     webappName="lpg-services"

@@ -13,7 +13,7 @@ variable "rg_name" {
 
 variable "rg_name_lpg_ui" {
   type = string
-  default = "lpgprod2"
+  default = "lpgprod"
 }
 
 variable "rg_prefix" {
