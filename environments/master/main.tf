@@ -114,7 +114,29 @@ module "lpg-management" {
 ## Backend
 
 module "identity" {
+<<<<<<< HEAD
   source = "../../modules/app_service"
+=======
+  source                                  = "../../modules/identity"
+
+  identity_name                           = "${var.rg_prefix}-${var.rg_name}-${var.identity_name}"
+  rg_name                                 = var.rg_name
+  vaultresourcegroup                      = var.vaultresourcegroup
+  vaultname                               = var.vaultname
+  existingkeyvaultsecretname              = var.existingkeyvaultsecretname
+  certificatename                         = var.certificatename
+  domain                                  = var.domain
+  envurl                                  = var.envurl
+  serviceplan_suffix					  = "serviceplan"
+  webapp_sku_tier                         = var.webapp_sku_tier_p2
+  webapp_sku_name                         = var.webapp_sku_name_p2
+  identity_capacity                       = var.identity_capacity
+  env_profile                             = var.env_profile
+  custom_emails                           = var.custom_emails
+  scaling_enabled                         = var.scaling_enabled
+  app_managed_identity_id				  = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_command_line				  		  = var.identity_app_command_line
+>>>>>>> idt-develop
 
   app_command_line = var.identity_app_command_line
   app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
@@ -126,7 +148,17 @@ module "identity" {
 }
 
 module "identity-management" {
+<<<<<<< HEAD
   source = "../../modules/app_service"
+=======
+  source                            = "../../modules/identity-management"
+
+  identity_management_name          = "${var.rg_prefix}-${var.rg_name}-${var.identity_management_name}"
+  rg_name                           = var.rg_name
+  env_profile                       = var.env_profile
+  webapp_sku_tier                   = var.webapp_sku_tier_p2
+  webapp_sku_name                   = var.webapp_sku_name_p1
+>>>>>>> idt-develop
 
   app_command_line = ""
   app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
@@ -152,9 +184,48 @@ module "lpg-learner-record" {
 }
 
 module "lpg-report-service" {
+<<<<<<< HEAD
   source = "../../modules/app_service"
 
   app_command_line = var.report_service_app_command_line
+=======
+  source                          = "../../modules/lpg-report-service"
+
+  lpg_report_service_name         = "${var.rg_prefix}-${var.rg_name}-${var.lpg_report_service_name}"
+  allowed_ip_addresses			  = local.allowed_ips
+  rg_name                         = var.rg_name
+  vaultresourcegroup              = var.vaultresourcegroup
+  vaultname                       = var.vaultname
+  existingkeyvaultsecretname      = var.existingkeyvaultsecretname
+  certificatename                 = var.certificatename
+  domain                          = var.domain
+  envurl                          = var.envurl
+  webapp_sku_tier                 = var.webapp_sku_tier_p2
+  webapp_sku_name                 = var.webapp_sku_name_p3
+  env_profile                     = var.env_profile
+  app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
+  app_command_line				  = var.report_service_app_command_line
+}
+
+module "lpg-ui" {
+  source                          = "../../modules/lpg-ui"
+
+  lpg_ui_name                     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
+  rg_name_lpg_ui                  = var.rg_name_lpg_ui
+  vaultresourcegroup              = var.vaultresourcegroup
+  vaultname                       = var.vaultname
+  existingkeyvaultsecretname      = var.ui_existingkeyvaultsecretname
+  certificatename 			      = var.ui_certificatename
+  domain                          = var.domain
+  envurl                          = var.envurl
+  serviceplan_suffix_lpgui        = var.serviceplan_suffix_lpgui
+  webapp_sku_tier                 = var.webapp_sku_tier_p2
+  webapp_sku_name                 = var.webapp_sku_name_p2
+  lpg_ui_capacity                 = var.lpg_ui_capacity
+  env_profile                     = var.env_profile
+  custom_emails                   = var.custom_emails
+  scaling_enabled                 = var.scaling_enabled
+>>>>>>> idt-develop
   app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
   app_name = "lpg-report-service"
   rg_name = var.rg_name
