@@ -355,10 +355,6 @@ variable "notification_service_name" {
   default = "notification-service"
 }
 
-variable "feedback_recipient" {
-  default = "feedback@cslearning.gov.uk"
-}
-
 ### data-transchriver ###ß
 variable "data_transchiver_name" {
   default = "lpg-data-transchriver"
