@@ -79,7 +79,7 @@ data "azurerm_dns_zone" "dns_zone" {
 
 module "identity" {
   source                                  = "../../modules/identity"
-  
+
   identity_name                           = "${var.rg_prefix}-${var.rg_name}-${var.identity_name}"
   rg_name                                 = var.rg_name
   vaultresourcegroup                      = var.vaultresourcegroup
@@ -102,7 +102,7 @@ module "identity" {
 
 module "identity-management" {
   source                            = "../../modules/identity-management"
-  
+
   identity_management_name          = "${var.rg_prefix}-${var.rg_name}-${var.identity_management_name}"
   rg_name                           = var.rg_name
   env_profile                       = var.env_profile
@@ -136,7 +136,7 @@ module "lpg-learner-record" {
 
 module "lpg-report-service" {
   source                          = "../../modules/lpg-report-service"
-  
+
   lpg_report_service_name         = "${var.rg_prefix}-${var.rg_name}-${var.lpg_report_service_name}"
   allowed_ip_addresses			  = local.allowed_ips
   rg_name                         = var.rg_name
@@ -155,7 +155,7 @@ module "lpg-report-service" {
 
 module "lpg-ui" {
   source                          = "../../modules/lpg-ui"
-  
+
   lpg_ui_name                     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
   rg_name_lpg_ui                  = var.rg_name_lpg_ui
   vaultresourcegroup              = var.vaultresourcegroup
@@ -211,7 +211,7 @@ module "civil-servant-registry-service" {
   webapp_sku_tier                 = var.webapp_sku_tier_p2
   webapp_sku_name                 = var.webapp_sku_name_p1
   csrs_capacity                   = var.csrs_capacity
-  env_profile                     = var.env_profile		
+  env_profile                     = var.env_profile
   scaling_enabled				  = var.scaling_enabled
   custom_emails 				  = var.custom_emails
   app_managed_identity_id		  = data.azurerm_user_assigned_identity.app_service_identity.id
