@@ -9,14 +9,6 @@ variable "rg_name" {
   default = "lpgperf"
 }
 
-<<<<<<< HEAD
-=======
-variable "rg_name_lpg_ui" {
-  type = string
-  default = "lpgperf"
-}
-
->>>>>>> idt-develop
 variable "rg_prefix" {
   type    = string
   default = "lpg"
