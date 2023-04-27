@@ -108,7 +108,7 @@ variable "civil_servant_registry_vertical_scale" {
 ## Report service
 
 variable "report_service_horizontal_scale" {
-  default = 10
+  default = 2
 }
 
 variable "report_service_vertical_scale" {
@@ -193,12 +193,12 @@ variable "rustici_mysql_sku" {
 
 variable "learner_record_app_command_line" {
 	type = string
-	default = "java -Xms1g -Xmx6g -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+	default = "java -Xms3g -Xmx7g -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
 
 variable "identity_app_command_line" {
 	type = string
-	default = "java -Xms1g -Xmx6g -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+	default = "java -Xms3g -Xmx7g -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
 }
 
 variable "report_service_app_command_line" {

@@ -71,11 +71,16 @@ data "azurerm_user_assigned_identity" "app_service_identity" {
 }
 
 data "azurerm_dns_zone" "dns_zone" {
+  count = var.env_profile != "prod" ? 1 : 0
   name = var.domain
   resource_group_name = "lpgdomain"
 }
 
 # Apps
+
+locals {
+  dns_zone_id = var.env_profile != "prod" ? data.azurerm_dns_zone.dns_zone[0].id : null
+}
 
 ## Frontend
 
@@ -215,7 +220,7 @@ module "csl_service_frontdoor" {
   source = "../../modules/frontdoor/app_service_single_frontdoor_domain"
 
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.frontdoor_profile.id
-  dns_zone_id = data.azurerm_dns_zone.dns_zone.id
+  dns_zone_id = local.dns_zone_id
   app_subdomain = "csl-service"
   app_service_hostname = module.csl_service.default_hostname
   env_profile = var.env_profile
@@ -238,15 +243,15 @@ module "rustici_engine" {
 }
 
 module "rustici_frontdoor" {
-	source = "../../modules/frontdoor/rustici_frontdoor_domain"
+  source = "../../modules/frontdoor/rustici_frontdoor_domain"
 
-	cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.frontdoor_profile.id
-	dns_zone_id = data.azurerm_dns_zone.dns_zone.id
-	rustici_engine_hostname = module.rustici_engine.default_hostname
-	blob_storage_fqdn = "${var.content_container}.azureedge.net"
-	env_profile = var.env_profile
-	domain = var.domain
-	dns_zone_resource_group = "lpgdomain"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.frontdoor_profile.id
+  dns_zone_id = local.dns_zone_id
+  rustici_engine_hostname = module.rustici_engine.default_hostname
+  blob_storage_fqdn = "${var.content_container}.azureedge.net"
+  env_profile = var.env_profile
+  domain = var.domain
+  dns_zone_resource_group = "lpgdomain"
 }
 
 module "rustici_mysql" {
