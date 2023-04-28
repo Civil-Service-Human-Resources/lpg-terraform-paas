@@ -28,16 +28,30 @@ variable "env_profile" {
   default = "staging"
 }
 
+## Redis
+
 variable "redis_session_capacity" {
-  default = "0"
+	default =  "0"
+}
+
+variable "redis_session_family" {
+	default =  "C"
 }
 
 variable "redis_org_capacity" {
-  default = "0"
+	default =  "0"
+}
+
+variable "redis_org_family" {
+	default =  "C"
 }
 
 variable "redis_csl_service_capacity" {
-  default = "0"
+	default =  "0"
+}
+
+variable "redis_csl_service_family" {
+	default =  "C"
 }
 
 ## Identity

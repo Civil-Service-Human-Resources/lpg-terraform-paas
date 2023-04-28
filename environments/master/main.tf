@@ -11,6 +11,7 @@ module "redis-session" {
   redis_name     = "${var.rg_prefix}-${var.rg_name}-redis-session"
   env_profile    = var.env_profile
   redis_capacity = var.redis_session_capacity
+  redis_family   = var.redis_session_family
   allowed_ips = toset(concat(
 		local.lpg_ui_ips,
 		local.lpg_management_ips,
@@ -26,6 +27,7 @@ module "redis-org" {
   redis_name     = "${var.rg_prefix}-${var.rg_name}-redis-org"
   env_profile    = var.env_profile
   redis_capacity = var.redis_org_capacity
+  redis_family   = var.redis_org_family
   allowed_ips = toset(concat(
 		local.lpg_ui_ips,
 		local.lpg_management_ips
@@ -40,6 +42,7 @@ module "redis-csl-service" {
   redis_name     = "${var.rg_prefix}-${var.rg_name}-redis-csl-service"
   env_profile    = var.env_profile
   redis_capacity = var.redis_csl_service_capacity
+  redis_family   = var.redis_csl_service_family
   allowed_ips = toset(concat(
 		module.csl_service.ip_addresses
 	))
