@@ -6,11 +6,12 @@ resource "azurerm_redis_cache" "redis_cache" {
   resource_group_name = var.rg_name
   capacity            = var.redis_capacity
   family              = var.redis_family
-  sku_name            = var.redis_sku_name
+  sku_name            = var.redis_family == "C" ? "Standard" : "Premium"
   enable_non_ssl_port = var.redis_enable_non_ssl_port
   minimum_tls_version = "1.0"
-  
+
   redis_configuration {
+    rdb_backup_enabled = false
     maxmemory_reserved = var.redis_maxmemory_reserved
     maxmemory_delta    = var.redis_maxmemory_delta
     maxmemory_policy   = var.redis_maxmemory_policy
@@ -23,7 +24,7 @@ resource "azurerm_redis_cache" "redis_cache" {
 
 resource "azurerm_redis_firewall_rule" "firewall_rules" {
 	for_each 			= var.allowed_ips
-	name                = replace(each.value, ".", "_")
+	name                = replace(each.value, ".", "")
 	redis_cache_name    = azurerm_redis_cache.redis_cache.name
 	resource_group_name = var.rg_name
 	start_ip            = each.value

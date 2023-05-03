@@ -22,10 +22,6 @@ variable "redis_family" {
   default = "C"
 }
 
-variable "redis_sku_name" {
-  default = "Standard"
-}
-
 variable "redis_enable_non_ssl_port" {
   default = "true"
 }
