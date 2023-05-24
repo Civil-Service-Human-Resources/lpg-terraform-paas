@@ -4,11 +4,6 @@ variable "rg_name" {
   default = "lpgperf"
 }
 
-variable "rg_name_lpg_ui" {
-  type = string
-  default = "perf_temp"
-}
-
 variable "rg_prefix" {
   type    = string
   default = "lpg"

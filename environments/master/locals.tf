@@ -1,6 +1,6 @@
 data "azurerm_linux_web_app" "lpg_ui_data" {
 	name = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
-	resource_group_name = var.rg_name_lpg_ui
+	resource_group_name = var.rg_name
 }
 
 data "azurerm_linux_web_app" "lpg_management_data" {

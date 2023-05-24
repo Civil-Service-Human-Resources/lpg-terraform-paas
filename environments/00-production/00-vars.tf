@@ -4,11 +4,6 @@ variable "rg_name" {
   default = "lpgprod"
 }
 
-variable "rg_name_lpg_ui" {
-  type = string
-  default = "lpgprod2"
-}
-
 variable "rg_prefix" {
   type    = string
   default = "lpg"
