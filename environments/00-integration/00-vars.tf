@@ -4,11 +4,6 @@ variable "rg_name" {
   default = "lpgintegration"
 }
 
-variable "rg_name_lpg_ui" {
-  type = string
-  default = "lpgintegration"
-}
-
 variable "rg_prefix" {
   type    = string
   default = "lpg"

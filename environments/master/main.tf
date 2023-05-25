@@ -313,7 +313,7 @@ module "lpg-ui" {
   source                          = "../../modules/lpg-ui"
   rg_prefix                       = var.rg_prefix
   rg_location                     = var.rg_location
-  rg_name_lpg_ui                  = var.rg_name_lpg_ui
+  rg_name_lpg_ui                  = var.rg_name
   serviceplan_suffix_lpgui        = var.serviceplan_suffix_lpgui
   lpg_ui_name                     = "${var.rg_prefix}-${var.rg_name}-${var.lpg_ui_name}"
   domain                          = var.domain
