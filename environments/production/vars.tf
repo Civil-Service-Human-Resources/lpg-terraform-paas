@@ -39,7 +39,7 @@ variable "redis_session_capacity" {
 }
 
 variable "redis_session_family" {
-  default =  "P"
+  default =  "C"
 }
 
 variable "redis_org_capacity" {
@@ -47,7 +47,7 @@ variable "redis_org_capacity" {
 }
 
 variable "redis_org_family" {
-  default =  "P"
+  default =  "C"
 }
 
 variable "redis_csl_service_capacity" {
@@ -55,7 +55,7 @@ variable "redis_csl_service_capacity" {
 }
 
 variable "redis_csl_service_family" {
-  default =  "P"
+  default =  "C"
 }
 
 ## Identity
