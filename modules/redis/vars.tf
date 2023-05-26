@@ -22,10 +22,6 @@ variable "redis_family" {
   default = "C"
 }
 
-variable "redis_sku_name" {
-  default = "Standard"
-}
-
 variable "redis_enable_non_ssl_port" {
   default = "true"
 }
@@ -48,4 +44,9 @@ variable "redis_maxmemory_policy" {
 
 variable "env_profile" {
   default = ""
+}
+
+variable "allowed_ips" {
+	type = set(string)
+	description = "IP addresses that are allowed to connect to this redis server"
 }

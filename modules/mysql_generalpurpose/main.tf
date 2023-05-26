@@ -1,5 +1,9 @@
 ###### mysql: General Purpose tier ######
 
+module "credentials" {
+  source = "../credentials"
+}
+
 resource "azurerm_mysql_server" "lpg_gp" {
   name                = var.mysql_name
   location            = var.mysql_location
@@ -23,8 +27,18 @@ resource "azurerm_mysql_server" "lpg_gp" {
     retention_days = 0
   }
 
-  administrator_login          = var.mysql_admin_login
-  administrator_login_password = var.mysql_admin_pass
+  administrator_login          = module.credentials.username
+  administrator_login_password = module.credentials.password
+
+  # This block ensures that once a random US/PW is used to create the mysql instance,
+  # TF won't edit it again afterwards.
+  lifecycle {
+	ignore_changes = [
+	  administrator_login,
+	  administrator_login_password
+	]
+  }
+
   version                      = "5.7"
   ssl_enforcement_enabled              = true
 

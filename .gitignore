@@ -2,13 +2,14 @@
 *.iml
 
 **/.terraform
-**/state.tf
+# **/state.tf
 environments/demo/.terraform
 environments/dev/.terraform
 environments/prod/.terraform
 environments/test/.terraform
 environments/master/.terraform
-environments/master/*-vars.tf
+environments/master/*vars.tf
+environments/master/vars.tf
 environments/master/state.tf
 environments/demo/demo-vars.tf
 environments/demo/state.tf
@@ -20,3 +21,5 @@ environments/test/state.tf
 environments/test/test-vars.tf
 scripts/elastic-deploy/*.json
 modules/test-rig/testrig-vars.tf
+tfplan-*
+backend.conf
