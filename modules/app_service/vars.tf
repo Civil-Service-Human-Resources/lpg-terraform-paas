@@ -23,8 +23,8 @@ variable "horizontal_scale" {
 	type = number
 	description = "Number of instances"
 	validation {
-		condition = var.horizontal_scale <= 10
-		error_message = "Maximum number of instances is 10."
+		condition = var.horizontal_scale <= 15
+		error_message = "Maximum number of instances is 15."
 	}
 }
 
