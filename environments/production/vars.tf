@@ -71,7 +71,7 @@ variable "identity_vertical_scale" {
 ## Learner record
 
 variable "learner_record_horizontal_scale" {
-  default = 10
+  default = 15
 }
 
 variable "learner_record_vertical_scale" {
@@ -172,7 +172,7 @@ variable "csl_service_vertical_scale" {
 
 variable "csl_service_horizontal_scale" {
 	type = number
-	default = 2
+	default = 5
 }
 
 ## Rustici ##
@@ -186,7 +186,7 @@ variable "rustici_engine_vertical_scale" {
 variable "rustici_engine_horizontal_scale" {
 	type = string
 	description = "(optional) describe your variable"
-	default = 2
+	default = 5
 }
 
 variable "rustici_mysql_size_gb" {
