@@ -18,7 +18,7 @@ resource "azurerm_linux_web_app" "app_service" {
   service_plan_id     = azurerm_service_plan.app_service_plan.id
 
   https_only = true
-  client_affinity_enabled = true
+  client_affinity_enabled = false
   site_config {
     app_command_line = var.app_command_line
     dynamic ip_restriction {
