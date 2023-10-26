@@ -190,6 +190,7 @@ module "civil-servant-registry-service" {
   sku_name = var.civil_servant_registry_vertical_scale
   use_legacy_name = true
   allowed_ip_addresses = local.allowed_ips
+  healthcheck_path_override = "/actuator/health"
 }
 
 module "notification-service" {
