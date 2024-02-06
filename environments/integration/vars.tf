@@ -170,6 +170,19 @@ variable "csl_service_horizontal_scale" {
 	default = 1
 }
 
+## Postgres ##
+
+variable "pg_database_sku" {
+	type = string
+	default = "B_Standard_B1ms"
+}
+
+variable "pg_database_size_mb" {
+	type = number
+	default = 32768
+}
+
+
 ## Rustici ##
 
 variable "rustici_engine_vertical_scale" {

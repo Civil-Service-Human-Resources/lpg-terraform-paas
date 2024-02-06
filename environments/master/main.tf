@@ -3,6 +3,8 @@ module "subscription" {
 	subscription_name = var.subscription_name
 }
 
+# Data
+
 module "redis-session" {
   source         = "../../modules/redis"
   rg_name        = var.rg_name
@@ -12,11 +14,6 @@ module "redis-session" {
   env_profile    = var.env_profile
   redis_capacity = var.redis_session_capacity
   redis_family   = var.redis_session_family
-  allowed_ips = toset(concat(
-		local.lpg_ui_ips,
-		local.lpg_management_ips,
-		local.identity_ips
-	))
 }
 
 module "redis-org" {
@@ -28,10 +25,6 @@ module "redis-org" {
   env_profile    = var.env_profile
   redis_capacity = var.redis_org_capacity
   redis_family   = var.redis_org_family
-  allowed_ips = toset(concat(
-		local.lpg_ui_ips,
-		local.lpg_management_ips
-	))
 }
 
 module "redis-csl-service" {
@@ -43,9 +36,6 @@ module "redis-csl-service" {
   env_profile    = var.env_profile
   redis_capacity = var.redis_csl_service_capacity
   redis_family   = var.redis_csl_service_family
-  allowed_ips = toset(concat(
-		module.csl_service.ip_addresses
-	))
 }
 
 module "mysql_gp" {
@@ -99,6 +89,7 @@ module "lpg-ui" {
   use_legacy_name = true
   healthcheck_path_override = ""
   serviceplan_suffix = var.serviceplan_suffix_lpgui
+  restrict_ips = false
 }
 
 module "lpg-management" {
@@ -112,6 +103,7 @@ module "lpg-management" {
   sku_name = var.lpg_management_vertical_scale
   use_legacy_name = true
   healthcheck_path_override = ""
+  restrict_ips = false
 }
 
 ## Backend
@@ -126,6 +118,7 @@ module "identity" {
   horizontal_scale = var.identity_horizontal_scale
   sku_name = var.identity_vertical_scale
   use_legacy_name = true
+  restrict_ips = false
 }
 
 module "identity-management" {
@@ -139,6 +132,7 @@ module "identity-management" {
   sku_name = var.identity_management_vertical_scale
   use_legacy_name = true
   healthcheck_path_override = ""
+  restrict_ips = false
 }
 
 module "lpg-learner-record" {
@@ -151,7 +145,6 @@ module "lpg-learner-record" {
   horizontal_scale = var.learner_record_horizontal_scale
   sku_name = var.learner_record_vertical_scale
   use_legacy_name = true
-  allowed_ip_addresses = local.allowed_ips
 }
 
 module "lpg-report-service" {
@@ -164,7 +157,6 @@ module "lpg-report-service" {
   horizontal_scale = var.report_service_horizontal_scale
   sku_name = var.report_service_vertical_scale
   use_legacy_name = true
-  allowed_ip_addresses = local.allowed_ips
 }
 
 module "lpg-learning-catalogue" {
@@ -177,6 +169,7 @@ module "lpg-learning-catalogue" {
   horizontal_scale = var.learning_catalogue_horizontal_scale
   sku_name = var.learning_catalogue_vertical_scale
   use_legacy_name = true
+  restrict_ips = false
 }
 
 module "civil-servant-registry-service" {
@@ -189,7 +182,6 @@ module "civil-servant-registry-service" {
   horizontal_scale = var.civil_servant_registry_horizontal_scale
   sku_name = var.civil_servant_registry_vertical_scale
   use_legacy_name = true
-  allowed_ip_addresses = local.allowed_ips
   healthcheck_path_override = "/actuator/health"
 }
 
@@ -203,7 +195,6 @@ module "notification-service" {
   horizontal_scale = var.notification_service_horizontal_scale
   sku_name = var.notification_service_vertical_scale
   use_legacy_name = true
-  allowed_ip_addresses = local.allowed_ips
 }
 
 # CSL-SERVICE
