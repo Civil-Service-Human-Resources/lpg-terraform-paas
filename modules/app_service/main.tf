@@ -20,6 +20,7 @@ resource "azurerm_linux_web_app" "app_service" {
   https_only = true
   client_affinity_enabled = false
   site_config {
+	ip_restriction_default_action = (var.frontdoor_enabled == true || var.restrict_ips == true) ? "Deny" : "Allow"
     app_command_line = var.app_command_line
     dynamic ip_restriction {
       for_each = var.frontdoor_enabled == true ? [1] : []
