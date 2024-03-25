@@ -223,7 +223,7 @@ variable "identity_app_command_line" {
 
 variable "report_service_app_command_line" {
 	type = string
-	default = "java -Xms1g -Xmx2g -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+	default = "java -Xms1g -Xmx2g -javaagent:/opt/appinsights/applicationinsights-agent-3.4.4.jar -jar /data/app.jar"
 }
 
 variable "learning_catalogue_app_command_line" {

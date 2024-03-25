@@ -13,12 +13,6 @@ variable "rg_name" {
 	description = "Resource group name"
 }
 
-variable "sku" {
-	type = string
-	description = "Servicebus SKU"
-	default = "Standard"
-}
-
 variable "queues" {
 	type = list(object({
 		name = string

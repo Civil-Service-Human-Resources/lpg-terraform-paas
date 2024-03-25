@@ -159,6 +159,16 @@ module "lpg-report-service" {
   use_legacy_name = true
 }
 
+module "reporting_database" {
+  source = "../../modules/postgres_flexible"
+  name = "pg-${var.env_profile}"
+  rg_name = var.rg_name
+  location = var.rg_location
+  sku = var.pg_database_sku
+  size_in_mb = var.pg_database_size_mb
+  databases = ["reporting"]
+}
+
 module "lpg-learning-catalogue" {
   source = "../../modules/app_service"
 
