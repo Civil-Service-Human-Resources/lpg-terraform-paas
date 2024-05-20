@@ -3,7 +3,7 @@ resource "azurerm_servicebus_namespace" "servicebus" {
   location            = var.rg_location
   resource_group_name = var.rg_name
   sku                 = "Premium"
-  capacity 			  = 1
+  capacity 			  = var.capacity
 }
 
 module "queues" {

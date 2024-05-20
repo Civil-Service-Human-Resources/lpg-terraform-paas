@@ -35,11 +35,15 @@ variable "env_profile" {
 ### redis ###
 
 variable "redis_session_capacity" {
-  default =  "1"
+  default =  "2"
 }
 
 variable "redis_session_family" {
   default =  "C"
+}
+
+variable "redis_session_maxmemory_policy" {
+	default = "allkeys-lru"
 }
 
 variable "redis_org_capacity" {
@@ -56,6 +60,10 @@ variable "redis_csl_service_capacity" {
 
 variable "redis_csl_service_family" {
   default =  "C"
+}
+
+variable "redis_csl_service_maxmemory_policy" {
+	default = "allkeys-lru"
 }
 
 ## Identity

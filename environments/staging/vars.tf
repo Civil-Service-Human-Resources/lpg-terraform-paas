@@ -38,6 +38,10 @@ variable "redis_session_family" {
 	default =  "C"
 }
 
+variable "redis_session_maxmemory_policy" {
+	default = "volatile-lru"
+}
+
 variable "redis_org_capacity" {
 	default =  "0"
 }
@@ -52,6 +56,10 @@ variable "redis_csl_service_capacity" {
 
 variable "redis_csl_service_family" {
 	default =  "C"
+}
+
+variable "redis_csl_service_maxmemory_policy" {
+	default = "volatile-lru"
 }
 
 ## Identity
