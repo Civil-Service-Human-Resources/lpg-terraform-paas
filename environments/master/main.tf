@@ -14,6 +14,7 @@ module "redis-session" {
   env_profile    = var.env_profile
   redis_capacity = var.redis_session_capacity
   redis_family   = var.redis_session_family
+  redis_maxmemory_policy = var.redis_session_maxmemory_policy
 }
 
 module "redis-org" {
@@ -36,6 +37,7 @@ module "redis-csl-service" {
   env_profile    = var.env_profile
   redis_capacity = var.redis_csl_service_capacity
   redis_family   = var.redis_csl_service_family
+  redis_maxmemory_policy = var.redis_csl_service_maxmemory_policy
 }
 
 module "mysql_gp" {

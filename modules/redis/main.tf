@@ -8,7 +8,7 @@ resource "azurerm_redis_cache" "redis_cache" {
   family              = var.redis_family
   sku_name            = var.redis_family == "C" ? "Standard" : "Premium"
   enable_non_ssl_port = var.redis_enable_non_ssl_port
-  minimum_tls_version = "1.0"
+  minimum_tls_version = 1.2
 
   redis_configuration {
     rdb_backup_enabled = false

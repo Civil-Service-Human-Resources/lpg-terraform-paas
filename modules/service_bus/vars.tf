@@ -13,6 +13,11 @@ variable "rg_name" {
 	description = "Resource group name"
 }
 
+variable "capacity" {
+	type = number
+	description = "ServiceBus capacitt"
+}
+
 variable "queues" {
 	type = list(object({
 		name = string

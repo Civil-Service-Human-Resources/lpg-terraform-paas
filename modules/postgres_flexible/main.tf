@@ -2,8 +2,14 @@ module "credentials" {
   source = "../credentials"
 }
 
+resource "random_string" "rnd_db_name" {
+  length           = 4
+  special          = false
+  upper			 = false
+}
+
 resource "azurerm_postgresql_flexible_server" "server" {
-  name                   = var.name
+  name                   = "${var.name}-${random_string.rnd_db_name.result}"
   resource_group_name    = var.rg_name
   location               = var.location
   version                = "16"

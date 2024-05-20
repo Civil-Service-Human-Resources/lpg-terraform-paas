@@ -15,4 +15,5 @@ module "reporting_service_bus" {
   ]
   rg_name = azurerm_resource_group.messaging_rg.name
   rg_location = azurerm_resource_group.messaging_rg.location
+  capacity = var.servicebus_capacity
 }
