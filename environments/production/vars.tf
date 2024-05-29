@@ -103,7 +103,7 @@ variable "learning_catalogue_horizontal_scale" {
 }
 
 variable "learning_catalogue_vertical_scale" {
-  default = "P1v2"
+  default = "P2v2"
 }
 
 ### mysql_gp ###
@@ -212,7 +212,7 @@ variable "rustici_engine_horizontal_scale" {
 variable "rustici_mysql_size_gb" {
 	type = string
 	description = "(optional) describe your variable"
-	default = 20
+	default = 180
 }
 
 variable "rustici_mysql_sku" {
