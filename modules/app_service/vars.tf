@@ -33,12 +33,6 @@ variable "app_command_line" {
 	description = "The startup command for this application."
 }
 
-variable "allowed_ip_addresses" {
-	type = set(string)
-	description = "A set of IP addresses that are allowed to connect to this application."
-	default = []
-}
-
 variable "healthcheck_path_override" {
   type = string
   default = "/health"
@@ -65,4 +59,10 @@ variable "serviceplan_suffix" {
 	type = string
 	description = "Suffix for the serviceplan name - only used by lpg UI in production"
 	default = ""
+}
+
+variable "restrict_ips" {
+	type = bool
+	description = "Should incoming IP address rules be applied"
+	default = true
 }

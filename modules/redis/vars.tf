@@ -45,8 +45,3 @@ variable "redis_maxmemory_policy" {
 variable "env_profile" {
   default = ""
 }
-
-variable "allowed_ips" {
-	type = set(string)
-	description = "IP addresses that are allowed to connect to this redis server"
-}

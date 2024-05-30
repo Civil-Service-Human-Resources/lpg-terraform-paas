@@ -20,6 +20,7 @@ resource "azurerm_linux_web_app" "app_service" {
   https_only = true
   client_affinity_enabled = false
   site_config {
+	ip_restriction_default_action = (var.frontdoor_enabled == true || var.restrict_ips == true) ? "Deny" : "Allow"
     app_command_line = var.app_command_line
     dynamic ip_restriction {
       for_each = var.frontdoor_enabled == true ? [1] : []
@@ -34,24 +35,27 @@ resource "azurerm_linux_web_app" "app_service" {
       }
     }
     dynamic ip_restriction {
-      for_each = [for ip in var.allowed_ip_addresses : {
-        ip_address = "${ip}/32"
-        action     = "Allow"
-        priority   = 1
-        name       = "app service"
-        headers = []
-        service_tag               = null
-        virtual_network_subnet_id = null
-      }]
-      iterator = item
+      for_each = (var.frontdoor_enabled == false && var.restrict_ips == true) ? [1] : []
       content {
-        ip_address = item.value.ip_address
-        action     = item.value.action
-        priority   = item.value.priority
-        name       = item.value.name
-        headers = item.value.headers
-        service_tag               = item.value.service_tag
-        virtual_network_subnet_id = item.value.virtual_network_subnet_id
+        action     				= "Allow"
+        ip_address				= null
+        priority   				= 1
+        name       				= "App service UK South"
+        headers 					= []
+        service_tag               = "AzureCloud.uksouth"
+        virtual_network_subnet_id = null
+      }
+    }
+	dynamic ip_restriction {
+      for_each = (var.frontdoor_enabled == false && var.restrict_ips == true) ? [1] : []
+      content {
+        action     				= "Allow"
+        ip_address				= null
+        priority   				= 1
+        name       				= "App service UK West"
+        headers 					= []
+        service_tag               = "AzureCloud.ukwest"
+        virtual_network_subnet_id = null
       }
     }
     minimum_tls_version = "1.2"

@@ -38,6 +38,10 @@ variable "redis_session_family" {
 	default =  "C"
 }
 
+variable "redis_session_maxmemory_policy" {
+	default = "volatile-lru"
+}
+
 variable "redis_org_capacity" {
 	default =  "0"
 }
@@ -52,6 +56,10 @@ variable "redis_csl_service_capacity" {
 
 variable "redis_csl_service_family" {
 	default =  "C"
+}
+
+variable "redis_csl_service_maxmemory_policy" {
+	default = "volatile-lru"
 }
 
 ## Identity
@@ -170,6 +178,19 @@ variable "csl_service_horizontal_scale" {
 	default = 1
 }
 
+## Postgres ##
+
+variable "pg_database_sku" {
+	type = string
+	default = "B_Standard_B1ms"
+}
+
+variable "pg_database_size_mb" {
+	type = number
+	default = 32768
+}
+
+
 ## Rustici ##
 
 variable "rustici_engine_vertical_scale" {
@@ -206,7 +227,7 @@ variable "identity_app_command_line" {
 
 variable "report_service_app_command_line" {
 	type = string
-	default = "java -Xmx256m -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+	default = "java -Xmx256m -javaagent:/opt/appinsights/applicationinsights-agent-3.4.4.jar -jar /data/app.jar"
 }
 
 variable "learning_catalogue_app_command_line" {

@@ -35,11 +35,15 @@ variable "env_profile" {
 ### redis ###
 
 variable "redis_session_capacity" {
-  default =  "1"
+  default =  "2"
 }
 
 variable "redis_session_family" {
   default =  "C"
+}
+
+variable "redis_session_maxmemory_policy" {
+	default = "allkeys-lru"
 }
 
 variable "redis_org_capacity" {
@@ -56,6 +60,10 @@ variable "redis_csl_service_capacity" {
 
 variable "redis_csl_service_family" {
   default =  "C"
+}
+
+variable "redis_csl_service_maxmemory_policy" {
+	default = "allkeys-lru"
 }
 
 ## Identity
@@ -95,7 +103,7 @@ variable "learning_catalogue_horizontal_scale" {
 }
 
 variable "learning_catalogue_vertical_scale" {
-  default = "P1v2"
+  default = "P2v2"
 }
 
 ### mysql_gp ###
@@ -175,6 +183,18 @@ variable "csl_service_horizontal_scale" {
 	default = 5
 }
 
+## Postgres ##
+
+variable "pg_database_sku" {
+	type = string
+	default = "GP_Standard_D2ds_v5"
+}
+
+variable "pg_database_size_mb" {
+	type = number
+	default = 32768
+}
+
 ## Rustici ##
 
 variable "rustici_engine_vertical_scale" {
@@ -192,7 +212,7 @@ variable "rustici_engine_horizontal_scale" {
 variable "rustici_mysql_size_gb" {
 	type = string
 	description = "(optional) describe your variable"
-	default = 20
+	default = 180
 }
 
 variable "rustici_mysql_sku" {
@@ -215,7 +235,7 @@ variable "identity_app_command_line" {
 
 variable "report_service_app_command_line" {
 	type = string
-	default = "java -Xms2g -Xmx10g -javaagent:/opt/appinsights/applicationinsights-agent-3.0.3.jar -jar /data/app.jar"
+	default = "java -Xms2g -Xmx10g -javaagent:/opt/appinsights/applicationinsights-agent-3.4.4.jar -jar /data/app.jar"
 }
 
 variable "learning_catalogue_app_command_line" {
